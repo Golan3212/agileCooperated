@@ -136,6 +136,6 @@
                 </div>
             </div>
         </div>
-    @vite('resources/js/app.jsx')
+    @vite('resources/js/index.jsx')
     </body>
 </html>
