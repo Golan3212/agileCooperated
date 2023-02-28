@@ -16,15 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/react', function () {
-    return view('app');
+    return view('index');
 });
 
 Route::get('/recipe', function () {
     return view('recipe.index');
 });
+
+
 
 
 
