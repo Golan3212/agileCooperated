@@ -22,6 +22,10 @@ Route::get('/react', function () {
     return view('app');
 });
 
+Route::get('/recipe', function () {
+    return view('recipe.index');
+});
+
 
 
 

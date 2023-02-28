@@ -18,6 +18,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
+                'resources/css/recipe.css',
                 'resources/js/app.jsx',
             ],
             refresh: true,
