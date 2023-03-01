@@ -21,7 +21,9 @@ Route::get('/', function () {
 Route::get('/react', function () {
     return view('app');
 });
-
+Route::get('/form', function () {
+    return view('form');
+});
 
 
 
