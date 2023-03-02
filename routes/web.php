@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ExampleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\Page\HomeController;
+use App\Http\Controllers\Page\UsersAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', )->name("home");
+
+Route::get('/', [HomeController::class, "show"])->name('home');
+Route::resource('/auth', UsersAuthController::class);
 
 // Этот роут необходим потому что запрос в первую очередь обрабатывается веб сервером и реакт эти роуты не видит
 
