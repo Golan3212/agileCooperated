@@ -19,8 +19,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+// Этот роут необходим потому что запрос в первую очередь обрабатывается веб сервером и реакт эти роуты не видит
+
 Route::get('/recipe', function () {
-    return view('recipe.index');
+    return view('index');
 });
 
 
