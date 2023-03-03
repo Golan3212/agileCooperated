@@ -38,6 +38,5 @@
 -->
 @viteReactRefresh
 @vite('resources/js/index.jsx')
-@vite('resources/js/pages/Home.jsx')
 </body>
 </html>
