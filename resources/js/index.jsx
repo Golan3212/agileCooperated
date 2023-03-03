@@ -3,11 +3,12 @@ import React from 'react';
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './pages/Layout'
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
-import { NotFound } from './pages/NotFound';
-// import Recipes from "./pages/Recipes";
+import {NotFound} from './pages/NotFound';
+
 import Recipe from "./pages/Recipe";
+import Recipes from "./Pages/Recipes";
 // import Contact from "./pages/Contact";
 
 
@@ -26,6 +27,11 @@ function App() {
                 {
                     path: "/recipe",
                     element: <Recipe />,
+                },
+
+                {
+                    path: "/recipes",
+                    element: <Recipes />,
                 },
 
             ],

@@ -1,43 +1,28 @@
 import React, {useState} from 'react';
-import logo4 from "../../../public/assets/recipe_image/icons/avatar_login.svg";
+import '../../css/App.scss';
+import img1 from "../../../public/assets/recipe_image/images/62c30bce0f146.jpg"
 
 
 export default function Recipes({list}){
 
-    const recipes = list;
+    const recipes = [
+        {title: 'title', nutrition:'nutrition'},
+        {title: 'title', nutrition:'nutrition'},
+        {title: 'title', nutrition:'nutrition'},
+        {title: 'title', nutrition:'nutrition'},
+        {title: 'title', nutrition:'nutrition'},
+        {title: 'title', nutrition:'nutrition'},
+        {title: 'title', nutrition:'nutrition'},
+        {title: 'title', nutrition:'nutrition'},
+    ];
 
 
-    const img = "https://raw.githubusercontent.com/Golan3212/agileCooperated/recipe_php_models/public/assets/images/6167ef33eec82.jpg";
+    const img = img1;
 
 
 
     return (
         <div className="recipeListMain">
-            <div className="section section_grey nomobile">
-                <div className="container">
-                    <div className="main_menu">
-                        <div className="main_menu_items" style={{justifyContent: 'flex-start'}}>
-
-                            <div className="main_menu_item" style={{marginRight: 40 + 'px'}}>
-                                <a href="#">Главная</a>
-                            </div>
-                            <div className="main_menu_item" style={{marginRight: 40 + 'px'}}>
-                                <a href="#">Конструктор меню</a>
-                            </div>
-                            <div className="main_menu_item">
-                                <a href="#">Рецепты</a>
-                            </div>
-                        </div>
-                        <div className="main_menu_user">
-                            <div className="main_menu_ico main_menu_ico_login">
-                                <img src={logo4}></img>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
             <div className="container recipes_main" >
                 <div className="recipeList">
                     {recipes.map((item, index) => (
@@ -76,20 +61,6 @@ export default function Recipes({list}){
                         <li className="navigation-link"><a href="">Menuitem</a></li>
                     </ul>
                 </nav>
-            </div>
-
-            <div className="section section_footer">
-                <div className="container">
-                    <div className="footer">
-                        <div className="footer_menu">
-
-                            <div className="footer_menu_item"><a href="/">Главная</a></div>
-                            <div className="footer_menu_item"><a href="/constr.php">Конструктор меню</a></div>
-                            <div className="footer_menu_item"><a href="/reclist.php">Рецепты</a></div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </div>
 )

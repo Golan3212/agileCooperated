@@ -26,13 +26,24 @@ Route::get('/', function () {
 //    return view('index');
 //});
 
+Route::get('/', function () {
+    return view('app');
+});
+
+Route::get('/api/Recipes', [RecipeController::class, 'index']);
+Route::get('/api/recipe', [RecipeController::class, 'show']);
+
+
+Route::any('{url}', function(){
+    return view('app');
+})->where('url', '.*');
+
 Route::get('/Recipes', [RecipeController::class, 'index']);
 Route::get('/recipe', [RecipeController::class, 'show']);
 
 
-
 Route::get('/*', function () {
-    return view('index');
+    return view('app');
 });
 
 

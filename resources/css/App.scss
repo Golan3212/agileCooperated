@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.navigation{
+ margin-left: 50px;
+}
+
 .navigation-link {
   text-decoration: none;
   margin: 15px 45px;
@@ -19,12 +23,7 @@
   flex-direction: row-reverse;
   justify-content: center;
 }
-.container {
-  width: 1140px;
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
+
 .listMsg {
   background-color: #43656b;
   display: flex;
@@ -267,6 +266,17 @@
   font-size: 20px;
   color: #c0a97a;
   font-weight: 700;
+}
+
+.recipes_main{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap
+}
+.recipeList{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
