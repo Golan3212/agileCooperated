@@ -5,7 +5,7 @@ import laravel from 'laravel-vite-plugin';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/index.jsx', 'resources/js/pages/Recipes.jsx'],
+            input: ['resources/css/app.css', 'resources/js/index.jsx', 'resources/js/Pages/Recipes.jsx','resources/js/Pages/Recipe.jsx'],
             refresh: true,
         }),
         react()

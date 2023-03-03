@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('index');
+    return view('app');
 });
+
+
+Route::get('/RecipeItem', [UserController::class, 'show']);
+Route::get('/Recipes', [RecipeController::class, 'index']);
 
 
 

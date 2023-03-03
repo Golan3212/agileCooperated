@@ -1,30 +1,17 @@
 import '../css/App.scss';
 import React from 'react';
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Recipes from "./pages/Recipes";
-import RecipeItem from "./pages/RecipeItem";
-// import Contact from "./pages/Contact";
-// import NoPage from "./pages/NoPage";
+import ReactDOM, {hydrateRoot} from "react-dom/client";
+import {createInertiaApp, Head} from '@inertiajs/react'
 
-export default function App() {
-    return (
-        <div className='mainDiv'>
-        <BrowserRouter >
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path="recipes" element={<Recipes />} />
-                    <Route path="/recipeItem" element={<RecipeItem />} />
-                    {/*<Route path="*" element={<NoPage />} />*/}
-                </Route>
-            </Routes>
-        </BrowserRouter>
-        </div>
-    );
-}
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+
+createInertiaApp({
+    resolve: name => {
+        const Pages = import.meta.glob('./Pages/**/*.jsx', {eager: true})
+        return Pages[`./Pages/${name}.jsx`]
+    },
+    setup({el, App, props}) {
+        hydrateRoot(el, <App {...props} />)
+    },
+});
+
