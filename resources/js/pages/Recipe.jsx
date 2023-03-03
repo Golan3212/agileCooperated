@@ -2,9 +2,6 @@ import React from 'react';
 import '../../css/recipe.css';
 
 
-import MenuList from "../components/MenuList";
-import FooterList from "../components/FooterList";
-
 import logo1 from "../../../public/assets/recipe_image/icons/ico_time.svg";
 import logo2 from "../../../public/assets/recipe_image/icons/ico_portions.svg";
 import logo3 from "../../../public/assets/recipe_image/icons/ico_portion.svg";
@@ -17,11 +14,9 @@ import image5 from "../../../public/assets/recipe_image/images/62e2b373ae9f5.web
 
 
 
-
 const Recipe = (props) => {
     return (
         <div>
-            <MenuList></MenuList>
 
             <div className="section bg_hr_green">
                 <div className="container">
@@ -312,9 +307,8 @@ const Recipe = (props) => {
                 </div>
             </div>
 
-            <div><FooterList></FooterList></div>
         </div>
-       
+
 
     )
 };

@@ -29,12 +29,15 @@
 }
 
 .error-404 {
-  margin-top: 100px;
+  margin-top: 250px;
+ 
+
 }
 
 .error-text {
   font-size: 150px;
   margin-bottom: 0;
+  color: #FFF4F1;
 }
 
 .text-primary {
@@ -49,7 +52,7 @@
   
   background-size: cover;
   background-position: center;
-  height: 600px;
+  height: 930px;
   margin-top:60px ;
 }
 

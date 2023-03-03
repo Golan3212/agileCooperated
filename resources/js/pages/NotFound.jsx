@@ -1,6 +1,4 @@
 import React from 'react';
-import MenuList from "../components/MenuList";
-import FooterList from "../components/FooterList";
 import '../../css/notfound.css';
 
 
@@ -8,7 +6,6 @@ export const NotFound = () => {
     return (
 
         <div>
-            <div><MenuList></MenuList></div>
 
             <div>
                 <section className="space-ptb bg-overlay-black-70 slide-bg-19" >
@@ -20,16 +17,14 @@ export const NotFound = () => {
                                     <h1 className="text-primary">Oops!</h1>
                                     <h3 className="text-white mb-3"> Извините, мы не можем найти эту страницу.</h3>
                                     <p className="lead text-white mb-4 mb-md-5">Страница, которую вы ищете, могла быть удалена или временно недоступна.</p>
-                                   
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
-            
-            <FooterList></FooterList>
-        </div>
 
+        </div>
     )
 };
