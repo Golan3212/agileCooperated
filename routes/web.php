@@ -26,8 +26,9 @@ Route::get('/recipe', function () {
 });
 
 
-
-
+Route::get('/*', function () {
+    return view('index');
+});
 
 
 

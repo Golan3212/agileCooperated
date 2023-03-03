@@ -3,10 +3,11 @@ import React from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import { NotFound } from './pages/NotFound';
 // import Recipes from "./pages/Recipes";
 import Recipe from "./pages/Recipe";
 // import Contact from "./pages/Contact";
-// import NoPage from "./pages/NoPage";
+
 
 export default function App() {
     return (
@@ -16,7 +17,7 @@ export default function App() {
                     <Route path="/" element={<Home />}></Route>
                     {/* <Route path="recipes" element={<Recipes />} /> */}
                     <Route path="/recipe" element={<Recipe />}></Route>
-                    {/*<Route path="*" element={<NoPage />} />*/}
+                    <Route path="/*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
         </div>
