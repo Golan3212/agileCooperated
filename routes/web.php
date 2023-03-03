@@ -20,12 +20,20 @@ Route::get('/', function () {
     return view('app');
 });
 
+// Этот роут необходим потому что запрос в первую очередь обрабатывается веб сервером и реакт эти роуты не видит
+
+Route::get('/recipe', function () {
+    return view('index');
+});
 
 Route::get('/RecipeItem', [UserController::class, 'show']);
 Route::get('/Recipes', [RecipeController::class, 'index']);
 
 
 
+Route::get('/*', function () {
+    return view('index');
+});
 
 
 

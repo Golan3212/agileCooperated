@@ -1,17 +1,55 @@
-import '../css/App.scss';
+
 import React from 'react';
-import ReactDOM, {hydrateRoot} from "react-dom/client";
-import {createInertiaApp, Head} from '@inertiajs/react'
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './pages/Layout'
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import { NotFound } from './pages/NotFound';
+// import Recipes from "./pages/Recipes";
+import Recipe from "./pages/Recipe";
+// import Contact from "./pages/Contact";
 
 
 
-createInertiaApp({
-    resolve: name => {
-        const Pages = import.meta.glob('./Pages/**/*.jsx', {eager: true})
-        return Pages[`./Pages/${name}.jsx`]
-    },
-    setup({el, App, props}) {
-        hydrateRoot(el, <App {...props} />)
-    },
-});
+function App() {
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Layout />,
+            children: [
+                {
+                    path: "/",
+                    element: <Home />,
+                },
+
+                {
+                    path: "/recipe",
+                    element: <Recipe />,
+                },
+
+            ],
+        },
+
+//Страница 404 должна быть без Footer и Header
+
+        {
+            path: "/*",
+            element: <NotFound />,
+        },
+    ])
+
+    return (
+        <div className='app'>
+            <RouterProvider router={router}></RouterProvider>
+        </div>
+    )
+}
+
+
+export default App;
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 

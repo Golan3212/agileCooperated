@@ -1,16 +1,14 @@
 import React from 'react';
 import '../../css/recipe.css';
 
+
 import logo1 from "../../../public/assets/recipe_image/icons/ico_time.svg";
 import logo2 from "../../../public/assets/recipe_image/icons/ico_portions.svg";
 import logo3 from "../../../public/assets/recipe_image/icons/ico_portion.svg";
-import logo4 from "../../../public/assets/recipe_image/icons/avatar_login.svg";
 import image2 from '../../../public/assets/recipe_image/images/63fce8843e5d2.jpg';
 import image3 from "../../../public/assets/recipe_image/images/62c30bce0f146.jpg";
 import image4 from "../../../public/assets/recipe_image/images/6167ef33eec82.jpg";
 import image5 from "../../../public/assets/recipe_image/images/62e2b373ae9f5.webp";
-
-// import { Link } from 'react-router-dom';
 
 
 
@@ -18,39 +16,6 @@ import image5 from "../../../public/assets/recipe_image/images/62e2b373ae9f5.web
 
 const Recipe = (props) => {
     return (
-        <body>
-
-        <div class="section section_grey section_submenu1 hidden nomobile">
-            <div class="container">
-
-            </div>
-        </div>
-
-
-        <div class="section section_grey nomobile">
-            <div class="container">
-                <div class="main_menu">
-                    <div class="main_menu_items" style={{ justifyContent: 'flex-start' }}>
-
-                        <div class="main_menu_item" style={{marginRight:40 +'px'}} >
-                            <a href="#">Главная</a>
-                        </div>
-                        <div class="main_menu_item" style={{marginRight:40 +'px'}}>
-                            <a href="#">Конструктор меню</a>
-                        </div>
-                        <div class="main_menu_item">
-                            <a href="#">Рецепты</a>
-                        </div>
-                    </div>
-                    <div class="main_menu_user">
-                        <div class="main_menu_ico main_menu_ico_login">
-                            <img src={logo4}></img>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div>
 
             <div className="section bg_hr_green">
@@ -232,7 +197,7 @@ const Recipe = (props) => {
                                 <div className="rec_item">
                                     <div className="rec_item_plus"></div>
                                     {/* <a href="" onClick='addRecToWeek(152, "/recipes_photos/62e3ad1340146.webp", "Гуляш из курицы со сметаной и карри", 267, 30, 15, 7, 8, 1, "gulyash_iz_kuricy_so_smetanoy_i_karri"); return false;'><img src="assets/icons/plus_small.svg" title="Добавить рецепт в список" alt="Добавить рецепт в список"></img></a></div>  */}
-                                    <div className="rec_item_plus"><a href="#"> <img src={image3}></img></a></div>
+                                    <div className="rec_item_plus"><a href="#"> <img src={image3} style={{ width: 100 + '%' }}></img></a></div>
                                     {<a href="#">
                                         <div className="rec_img">
                                         </div>
@@ -258,7 +223,7 @@ const Recipe = (props) => {
                                 <div className="rec_item">
                                     <div className="rec_item_plus"></div>
                                     {/* <a href="" onClick='addRecToWeek(56, "/recipes_photos/62c30bce0f146.jpg", "Гриль-салат с курицей", 443, 36, 16, 41, 4, 1, "grily-salat_s_kuricey"); return false;'><img src="assets/icons/plus_small.svg" title="Добавить рецепт в список" alt="Добавить рецепт в список"></img></a> */}
-                                    <div className="rec_item_plus"><a href="#"> <img src={image4}></img></a></div>
+                                    <div className="rec_item_plus"><a href="#"> <img src={image4} style={{ width: 100 + '%' }}></img></a></div>
                                     <a href="#">
                                         <div className="rec_img" >
                                         </div>
@@ -284,7 +249,7 @@ const Recipe = (props) => {
                                 <div className="rec_item">
                                     <div className="rec_item_plus"></div>
                                     {/* <a href="" onClick='addRecToWeek(19, "assets/images/6167ef33eec82.jpg", "Шашлык из индейки", 274, 38, 13, 1, 4, 1, "shashlyk_iz_indeyki"); return false;'><img src="assets/icons/plus_small.svg" title="Добавить рецепт в список" alt="Добавить рецепт в список"></img></a></div> */}
-                                    <div className="rec_item_plus"><a href="#"> <img src={image4}></img></a></div>
+                                    <div className="rec_item_plus"><a href="#"> <img src={image4} style={{ width: 100 + '%' }}></img></a></div>
                                     <a href="#">
                                         <div className="rec_img" >
                                         </div>
@@ -310,7 +275,7 @@ const Recipe = (props) => {
                                 <div className="rec_item">
                                     <div className="rec_item_plus"></div>
                                     {/*<a href="" onClick='addRecToWeek(141, "assets/images/62e2b373ae9f5.webp", "Филе минтая, запеченное в панировочных сухарях", 438, 50, 10, 38, 4, 1, "file_mintaya_zapechennoe_v_panirovochnyh_suharyah"); return false;'><img src="assets/icons/plus_small.svg" title="Добавить рецепт в список" alt="Добавить рецепт в список"></img></a></div> */}
-                                    <div className="rec_item_plus"><a href="#"> <img src={image5}></img></a></div>
+                                    <div className="rec_item_plus"><a href="#"> <img src={image5} style={{ width: 100 + '%' }}></img></a></div>
                                     <a href='#'>
                                         <div className="rec_img" >
                                         </div>
@@ -342,27 +307,14 @@ const Recipe = (props) => {
                 </div>
             </div>
 
-            <div className="section section_footer">
-                <div className="container">
-                    <div className="footer">
-                        <div className="footer_menu">
-
-                            <div className="footer_menu_item"><a href="/">Главная</a></div>
-                            <div className="footer_menu_item"><a href="/constr.php">Конструктор меню</a></div>
-                            <div className="footer_menu_item"><a href="/reclist.php">Рецепты</a></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
 
 
-        </body>
     )
 };
 
 export default Recipe;
+
 
 
 
