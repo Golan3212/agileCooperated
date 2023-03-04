@@ -1,0 +1,123 @@
+* {
+    font-family: 'Roboto',Arial,sans-serif;
+}
+.box {
+    padding: 10px;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 30px;
+}
+
+.form {
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &__heading {
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(64,199,129);
+        margin: 20px auto 60px;
+    }
+    & h4 {
+        font-size: 20px;
+        color: #2d2d2d;
+        margin-bottom: 15px;
+    }
+    &__inner {
+        display: flex;
+        font-weight: 300;
+        color: #2d2d2d;
+        margin-bottom: 5px;
+        & label {
+            padding-left: 15px;
+            line-height: 1.5;
+        }
+    }
+    &__wrap {
+        display: flex;
+        & label {
+            font-size: 20px;
+            color: #2d2d2d;
+        }
+    }
+    &__input {
+        margin-bottom: 30px;
+        color: #000;
+        border: 0 solid #000!important;
+        border-bottom-width: 1px!important;
+        outline:none;
+        height: 50px;
+        padding: 0 5px 0 0;
+        font-size: 16px;
+        line-height: 1.33;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    &__input::placeholder {
+        color: #4b5563;
+    }
+    &__button {
+        margin-top: 20px;
+        width: 30%;
+        font-size: 18px;
+        border: none;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+        padding: .8em 1em calc(.8em + 3px);
+        border-radius: 3px;
+        background: rgb(64,199,129);
+        box-shadow: 0 -3px rgb(53,167,110) inset;
+        transition: 0.2s;
+    }
+    &__button:hover {
+        background: rgb(53, 167, 110);
+    }
+}
+
+
+
+//Страничка рекомендаций
+
+.advice {
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #2d2d2d;
+    &__heading {
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(64,199,129);
+        margin: 20px auto 60px;
+    }
+    & h3 {
+        font-size: 20px;
+    }
+    &__text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    & h4 {
+        font-size: 18px;
+        font-weight: 900;
+    }
+    &__result {
+        font-size: 16px;
+
+    }
+    & span {
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+
+.invisible {
+    display: none;
+}
+
+
