@@ -1,8 +1,12 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\Page\HomeController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\Page\UsersAuthController;
 
 /*
@@ -17,20 +21,36 @@ use App\Http\Controllers\Page\UsersAuthController;
 */
 
 
-// Route::get('/', )->name("home");
 
-Route::get('/', [HomeController::class, "show"])->name('home');
-Route::resource('/auth', UsersAuthController::class);
+Route::get('/', function () {
+    return view('app');
+});
 
 // Этот роут необходим потому что запрос в первую очередь обрабатывается веб сервером и реакт эти роуты не видит
 
-Route::get('/recipe', function () {
-    return view('index');
+//Route::get('/recipe', function () {
+//    return view('index');
+//});
+
+Route::get('/', function () {
+    return view('app');
 });
 
+Route::get('/api/Recipes', [RecipeController::class, 'index']);
+Route::get('/api/recipe', [RecipeController::class, 'show']);
 
 
+Route::any('{url}', function(){
+    return view('app');
+})->where('url', '.*');
 
+Route::get('/Recipes', [RecipeController::class, 'index']);
+Route::get('/recipe', [RecipeController::class, 'show']);
+
+
+Route::get('/*', function () {
+    return view('app');
+});
 
 
 

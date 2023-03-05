@@ -112,7 +112,7 @@ height: 100%;
 font-size: 18px;
 line-height: 18px;
 text-transform: uppercase;
-color: #41272B;
+color: #FFF4F1;
 height: 100%;
 display: flex;
 align-content: center;
@@ -125,13 +125,17 @@ background-image: url(/images/menu_triangle.svg);
 background-position: center 110%;
 background-repeat: no-repeat;
 }
+
+.avatar:hover svg {
+  fill: #FFF4F1;
+}
 .main_menu_item a:hover {
 cursor:pointer;
-color: #37AC00;
+color:#41272B;
 }
 .main_menu_submenu_item:hover {
 cursor:pointer;
-color: #37AC00;
+color: #FFF4F1;
 }
 .main_menu_user {
 display: flex;
@@ -147,6 +151,8 @@ width:40px;
 height:40px;
 margin-left:20px;
 }
+
+
 .main_menu_ico img {
 width:40px;
 height:40px;
@@ -157,6 +163,8 @@ display: block;
 .main_menu_ico_login {
 display: block;
 }
+
+
 .main_menu_ico_exit {
 display: block;
 }
@@ -551,9 +559,10 @@ padding: 30px 0 30px 0;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-align-content: center;
-justify-content: center;
+justify-content: space-evenly;
+align-items: center;
 }
+
 .footer_menu {
 width: 100%;
 padding: 30px 0 30px 0;
@@ -570,7 +579,20 @@ font-size: 17px;
 line-height: 26px;
 letter-spacing: 0em;
 text-align: left;
+color:#FFF4F1;
 }
+.footer_menu_color{
+  color:#FFF4F1;
+}
+.g {
+  color:#FFF4F1;
+}
+
+
+.footer_menu_item:hover {
+  cursor:pointer;
+  color:#41272B;
+  }
 
 .footer_contacts_item {
 margin: 10px 30px;
@@ -1433,8 +1455,6 @@ cursor:pointer;
 .rec_img {
 width: 279px;
 height: 200px;
-/* background: url(../css/recipe.css/62e3ad1340146.webp) no-repeat center center;
- background-size: cover; */
 }
 .rec_content {
 width: 279px;
@@ -1620,7 +1640,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 30px;
 letter-spacing: 0em;
-text-align: left;
+text-align: center;
 width:100%;
 margin: 10px 0;
 }
@@ -1845,7 +1865,7 @@ width: 100%;
 .pitanie3_item_button {
 height: 87px;
 width: 100%;
-font-size: 25px;
+font-size: 25px;	
 }
 .pitanie3_item_button a {
 margin: 0 10px;
@@ -1932,12 +1952,9 @@ width: 150px;
 .rec_img {
 width: 150px;
 height: 100px;
-/* background: url(../css/recipe.css/62e3ad1340146.webp) no-repeat center center;
- background-size: cover; */
-}
 }
 .rec_item_plus img {
-width: 100%;
+width: 35px;
 }
 .rec_name {
 font-size:11px;
@@ -2047,7 +2064,7 @@ display: flex;
 }
 
 
-
+}
 /*============MOBILE801==============*/
 @media screen and (max-width:801px) {
 }
@@ -2453,14 +2470,7 @@ display: flex;
     src: url(https://fonts.gstatic.com/s/opensans/v34/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
-
-
-  .image2 {
-    width:100%;
+  .img_logo{
+    margin-right: 70px;
+    margin-bottom: 10px;
   }
-
-  .logo1, .logo2, .logo3 {
-    width:25px;
-     height:25px;
-  }
-  

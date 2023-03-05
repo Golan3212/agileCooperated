@@ -1,57 +1,60 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './pages/Layout';
+
 import Home from "./pages/Home";
-// import Recipes from "./pages/Recipes";
+import {NotFound} from './pages/NotFound';
+
 import Recipe from "./pages/Recipe";
-
+import Recipes from "./Pages/Recipes";
 // import Contact from "./pages/Contact";
-// import NoPage from "./pages/NoPage";
-import { createInertiaApp } from '@inertiajs/react'
-import { createRoot } from 'react-dom/client'
 
 
 
-// export default function App() {
-//     return (
-//         <div className='mainDiv'>
-//         <BrowserRouter >
-//             <Routes>
-//                 {/* <Route path="/" element={<Layout />}> */}
-//                     <Route index element={<Home />} />
-//                     {/* <Route path="recipes" element={<Recipes />} /> */}
-//                     {/* <Route path="/recipeItem" element={<RecipeItem />} /> */}
-//                     {/*<Route path="*" element={<NoPage />} />*/}
-//                 {/* </Route> */}
-//             </Routes>
-//         </BrowserRouter>
-//         </div>
-//     );
-// }
+function App() {
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Layout />,
+            children: [
+                {
+                    path: "/",
+                    element: <Home />,
+                },
 
-createInertiaApp({
-    resolve: name => {
-      const pages = import.meta.glob('./pages/**/*.jsx', { eager: true })
-      return pages[`./pages/${name}.jsx`]
-    },
-    setup({ el, App, props }) {
-      createRoot(el).render(<App {...props} />)
-    },
-  })
+                {
+                    path: "/recipe",
+                    element: <Recipe />,
+                },
 
-// export default function App() {
-//     return (
-//         <div className='mainDiv'>
-//             <BrowserRouter >
-//                 <Routes>
-//                     <Route path="/" element={<Home />}></Route>
-//                     {/* <Route path="recipes" element={<Recipes />} /> */}
-//                     <Route path="/recipe" element={<Recipe />}></Route>
-//                     {/*<Route path="*" element={<NoPage />} />*/}
-//                 </Routes>
-//             </BrowserRouter>
-//         </div>
-//     );
-// }
+                {
+                    path: "/recipes",
+                    element: <Recipes />,
+                },
 
+            ],
+        },
+
+//Страница 404 должна быть без Footer и Header
+
+        {
+            path: "/*",
+            element: <NotFound />,
+        },
+    ])
+
+    return (
+        <div className='app'>
+            <RouterProvider router={router}></RouterProvider>
+        </div>
+    )
+}
+
+
+export default App;
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 
