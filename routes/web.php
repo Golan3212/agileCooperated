@@ -8,6 +8,7 @@ use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\Page\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\Page\UsersAuthController;
+use \App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,5 +55,7 @@ Route::get('/*', function () {
     return view('app');
 });
 
-
+//Роуты для формы
+Route::get('/api/form', [FormController::class, 'index']);
+Route::get('/form', [FormController::class, 'index']);
 

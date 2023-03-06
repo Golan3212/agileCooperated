@@ -13,6 +13,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@babel/preset-react": "^7.18.6",
         "axios": "^1.1.2",
         "laravel-mix": "^6.0.6",
         "laravel-vite-plugin": "^0.7.2",
@@ -40,3 +41,4 @@
         "react-redux": "^8.0.5"
     }
 }
+
