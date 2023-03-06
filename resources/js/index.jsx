@@ -1,7 +1,10 @@
 import React from 'react';
-import ReactDOM from "react-dom/client";import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './pages/Layout';
-import Home from "./pages/Home";import {NotFound} from './pages/NotFound';
+
+import Home from "./pages/Home";
+import {NotFound} from './pages/NotFound';
 import Recipe from "./pages/Recipe";
 import Recipes from "./pages/Recipes";// import Contact from "./pages/Contact";
 import Form from "./pages/Form";

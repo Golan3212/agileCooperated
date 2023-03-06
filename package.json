@@ -1,8 +1,10 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
+        "start": "gulp",
+        "dev": "vite",
         "build": "vite build",
+        "devdev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
