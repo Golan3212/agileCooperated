@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import '../../css/form.css';
+// import '../../css/form.css';
 
 export default function Form() {
     const [gender, setGender] = useLocalStorage('gender', "");
@@ -89,7 +89,7 @@ export default function Form() {
                     </div>
                     <div className="form__inner">
                         <input id="weightAdd" type="radio" name="target" checked={target === 1.1} onChange={(e) => setTarget(1.1)} />
-                        <label htmlFor="weightAdd">Поддержание веса</label>
+                        <label htmlFor="weightAdd">Набор веса</label>
                     </div>
                 </div>
                 <button className="form__button" type="submit" onClick={handleClick}>Рассчитать</button>

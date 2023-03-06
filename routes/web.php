@@ -47,6 +47,8 @@ Route::any('{url}', function(){
 Route::get('/Recipes', [RecipeController::class, 'index']);
 Route::get('/recipe', [RecipeController::class, 'show']);
 
+Route::get('/menu', [MenuController::class, 'show']);
+
 
 Route::get('/*', function () {
     return view('app');

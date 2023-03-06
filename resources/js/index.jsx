@@ -38,6 +38,9 @@ function App() {
                     path: "/form",
                     element: <Form />,
                 },
+                {
+                    path: "/menu",
+                }
 
             ],
         },
