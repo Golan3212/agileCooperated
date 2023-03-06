@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "start": "gulp",
         "dev": "vite",
         "build": "vite build",
         "devdev": "npm run development",
