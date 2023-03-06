@@ -3,7 +3,6 @@
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +46,5 @@ Route::get('/*', function () {
     return view('app');
 });
 
-//Роуты для формы
-Route::get('/api/form', [FormController::class, 'index']);
-Route::get('/form', [FormController::class, 'index']);
+
 

@@ -24,6 +24,8 @@ export default function Form() {
         if (weight!=="" && height!=="" && age!=="") {
             document.querySelector(".result").classList.remove('invisible');
         }
+        console.log("weight" + weight);
+
     }
 
     let normsCalories = calculationCalories(target, norm);
@@ -87,7 +89,7 @@ export default function Form() {
                     </div>
                     <div className="form__inner">
                         <input id="weightAdd" type="radio" name="target" checked={target === 1.1} onChange={(e) => setTarget(1.1)} />
-                        <label htmlFor="weightAdd">Набор массы</label>
+                        <label htmlFor="weightAdd">Поддержание веса</label>
                     </div>
                 </div>
                 <button className="form__button" type="submit" onClick={handleClick}>Рассчитать</button>
