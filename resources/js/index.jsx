@@ -8,6 +8,7 @@ import {NotFound} from './pages/NotFound';
 
 import Recipe from "./pages/Recipe";
 import Recipes from "./Pages/Recipes";
+import Form from "./pages/Form";
 // import Contact from "./pages/Contact";
 
 
@@ -31,6 +32,11 @@ function App() {
                 {
                     path: "/recipes",
                     element: <Recipes />,
+                },
+
+                {
+                    path: "/form",
+                    element: <Form />,
                 },
 
             ],
