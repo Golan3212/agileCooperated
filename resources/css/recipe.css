@@ -527,7 +527,7 @@ align-content: flex-start;
 justify-content: space-between;
 align-items: flex-start;
 font-size: 17px;
-fine-height: 26px;
+line-height: 26px;
 letter-spacing: 0em;
 text-align: left;
 }
@@ -812,12 +812,12 @@ margin-top:20px;
 }
 .pitanie_inner_text_txt {
 font-size: 17px;
-text-decoration: none!important;	
+text-decoration: none!important;
 }
 .pitanie_inner_text_price {
 font-size: 18px;
 text-decoration: none;
-margin-bottom: 20px;	
+margin-bottom: 20px;
 }
 
 
@@ -1004,7 +1004,7 @@ box-sizing: border-box;
 /*	text-indent: 20px;*/
 }
 
-.calc_item_sex, 
+.calc_item_sex,
 .calc_item_goal,
 .calc_item_now_h {
 margin-right: 50px;
@@ -1268,7 +1268,7 @@ flex-wrap: nowrap;
 align-content: flex-start;
 justify-content: flex-start;
 align-items: flex-start;
-padding: 15px;	
+padding: 15px;
 }
 
 .filter_wrap div {
@@ -1753,11 +1753,11 @@ margin-right: 10px;
 }
 .number_1 {
 font-size:20px;
-} 
+}
 .number_2 {
 font-size:25px;
 font-weight: bold;
-} 
+}
 
 
 
@@ -1801,7 +1801,7 @@ width:100%;
 position: relative;
 }
 .main_menu_mobile_logo img {
-height: 30px; 
+height: 30px;
 position: relative;
 top: 5px;
 }
@@ -1865,14 +1865,14 @@ width: 100%;
 .pitanie3_item_button {
 height: 87px;
 width: 100%;
-font-size: 25px;	
+font-size: 25px;
 }
 .pitanie3_item_button a {
 margin: 0 10px;
 }
 
 .calc_item_sex, .calc_item_goal, .calc_item_now_h {
-margin-right: 0px; 
+margin-right: 0px;
 }
 
 .calc_row {
@@ -2147,7 +2147,7 @@ display: flex;
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
 
-  
+
 
 
   /* cyrillic-ext */

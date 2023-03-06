@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import '../../css/form.css';
+// import '../../css/form.css';
 
 export default function Form() {
     const [gender, setGender] = useLocalStorage('gender', "");

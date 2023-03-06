@@ -1,8 +1,13 @@
 <?php
 
-use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\Page\HomeController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\Page\UsersAuthController;
 use \App\Http\Controllers\FormController;
 
 /*
@@ -15,6 +20,7 @@ use \App\Http\Controllers\FormController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 
 Route::get('/', function () {
@@ -41,6 +47,8 @@ Route::any('{url}', function(){
 
 Route::get('/Recipes', [RecipeController::class, 'index']);
 Route::get('/recipe', [RecipeController::class, 'show']);
+
+Route::get('/menu', [MenuController::class, 'show']);
 
 
 Route::get('/*', function () {

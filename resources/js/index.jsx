@@ -10,6 +10,39 @@ import Recipes from "./pages/Recipes";// import Contact from "./pages/Contact";
 import Form from "./pages/Form";
 
 function App() {
+<<<<<<< HEAD
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Layout />,
+            children: [
+                {
+                    path: "/",
+                    element: <Home />,
+                },
+
+                {
+                    path: "/recipe",
+                    element: <Recipe />,
+                },
+
+                {
+                    path: "/recipes",
+                    element: <Recipes />,
+                },
+
+                {
+                    path: "/form",
+                    element: <Form />,
+                },
+                {
+                    path: "/menu",
+                }
+
+            ],
+        },
+
+=======
     const router = createBrowserRouter([{
         path: '/',
         element: <Layout />,
@@ -32,6 +65,7 @@ function App() {
             },
         ],
     },
+>>>>>>> upstream/master
 //Страница 404 должна быть без Footer и Header
         {
             path: "/*",
