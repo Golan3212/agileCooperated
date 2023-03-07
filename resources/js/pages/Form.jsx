@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import '../../css/form.css';
-import { calculationCalories } from '../formulas/calculationCalories';
-import { getBodyMassIndex } from '../formulas/getBodyMassIndex';
 import { useLocalStorage } from '../formulas/saveLocalStorage';
-import {getResultNorm} from "../formulas/getResultNorm";
 import { Link } from "react-router-dom";
 
 export default function Form() {

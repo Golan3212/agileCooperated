@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useLayoutEffect, useRef} from "react";
 import { useLocation } from "react-router-dom";
 import {getResultNorm} from "../formulas/getResultNorm";
 import {calculationCalories} from "../formulas/calculationCalories";
@@ -34,8 +34,8 @@ export default function Advice() {
             <p className="advice__text">
                 Рекомендуемое количество белка в граммах
             </p>
-            <p className="advice__result"> от
-                <span>{normsCalories.protein[0]}</span> до
+            <p className="advice__result"> от &nbsp;
+                <span>{normsCalories.protein[0]}</span> до &nbsp;
                 <span>{normsCalories.protein[1]}</span>
             </p>
         </div>
@@ -44,8 +44,8 @@ export default function Advice() {
             <p className="advice__text">
                 Рекомендуемое количество жиров в граммах
             </p>
-            <p> от
-                <span>{normsCalories.fat[0]}</span> до
+            <p> от &nbsp;
+                <span>{normsCalories.fat[0]}</span> до &nbsp;
                 <span>{normsCalories.fat[1]}</span>
             </p>
         </div>
@@ -54,8 +54,8 @@ export default function Advice() {
             <p className="advice__text">
                 Рекомендуемое количество углеводов в граммах
             </p>
-            <p> от
-                <span>{normsCalories.fat[0]}</span> до
+            <p> от &nbsp;
+                <span>{normsCalories.fat[0]}</span> до &nbsp;
                 <span>{normsCalories.fat[1]}</span>
             </p>
         </div>
