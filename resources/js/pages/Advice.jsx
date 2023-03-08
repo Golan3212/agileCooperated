@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import {getResultNorm} from "../formulas/getResultNorm";
 import {calculationCalories} from "../formulas/calculationCalories";
 import {getBodyMassIndex} from "../formulas/getBodyMassIndex";
+import {getResultNormNew} from "../formulas/temporarily/getResultNormNew";
 export default function Advice() {
     const location = useLocation();
 
@@ -13,7 +14,7 @@ export default function Advice() {
     const quotient = location.state?.quotient;
     const target = location.state?.target;
 
-    let norm = getResultNorm(gender, weight, height, age, quotient, target);
+    let norm = getResultNormNew(gender, weight, height, age, quotient, target);
     let normsCalories = calculationCalories(target, norm);
     let bodyMassIndex = getBodyMassIndex(weight, height);
 
