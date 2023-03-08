@@ -8,6 +8,7 @@ import {NotFound} from './pages/NotFound';
 import Recipe from "./pages/Recipe";
 import Recipes from "./pages/Recipes";// import Contact from "./pages/Contact";
 import Form from "./pages/Form";
+import Advice from "./pages/Advice";
 
 function App() {
     const router = createBrowserRouter([
@@ -33,6 +34,10 @@ function App() {
                 {
                     path: "/form",
                     element: <Form />,
+                },
+                {
+                    path: "/advice",
+                    element: <Advice />,
                 },
                 {
                     path: "/menu",
