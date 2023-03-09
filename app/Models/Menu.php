@@ -6,11 +6,15 @@ use App\Models\User;
 use App\Models\Recipe;
 use App\Models\OtherProduct;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Menu extends Model
 {
     use HasFactory;
+
+    protected $table = 'menu';
 
     protected $fillable = [
         'name',
