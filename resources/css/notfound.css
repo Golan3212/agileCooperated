@@ -38,6 +38,8 @@
   font-size: 150px;
   margin-bottom: 0;
   color: #FFF4F1;
+  display: flex;
+  justify-content: center;
 }
 
 .text-primary {

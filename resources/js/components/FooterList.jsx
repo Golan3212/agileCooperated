@@ -20,7 +20,7 @@ const FooterList = (props) => {
                         <ul className="footer_menu">
 
                             <li className="footer_menu_item"><Link className="footer_menu_color" to="/">Главная</Link></li>
-                            <li className="footer_menu_item"><Link className="footer_menu_color" to="/form">Конструктор меню</Link></li>
+                            <li className="footer_menu_item"><Link className="footer_menu_color" to="/builder">Конструктор меню</Link></li>
                             <li className="footer_menu_item"><Link className="footer_menu_color" to="/recipes">Рецепты</Link></li>
                         </ul>
 

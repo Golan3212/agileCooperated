@@ -1,6 +1,7 @@
 <?php
 
-
+use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
@@ -21,7 +22,6 @@ use App\Http\Controllers\Parsers\RecipeParserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 
 
 Route::get('/', function () {
@@ -47,11 +47,15 @@ Route::any('{url}', function(){
 })->where('url', '.*');
 
 Route::get('/Recipes', [RecipeController::class, 'index']);
-Route::get('/recipe', [RecipeController::class, 'show']);
+Route::get('/recipe/{id}', [RecipeController::class, 'show']);
 
 Route::get('/parser/recipe', RecipeParserController::class)->name('parser.recipe');
 
 Route::get('/menu', [MenuController::class, 'index']);
+
+Route::get('/builder', function () {
+    return view('app');
+});
 
 
 // Route::get('/*', function () {
