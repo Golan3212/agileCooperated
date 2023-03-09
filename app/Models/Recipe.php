@@ -2,18 +2,24 @@
 
 namespace App\Models;
 
-class Recipe
-{
-    public string $title;
-    public string $ingredients;
-    public string $nutrition;
-    public string $cookingTime;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-    public function __construct($title, $ingredients, $nutrition, $cookingTime)
-    {
-        $this->title = $title;
-        $this->ingredients = $ingredients;
-        $this->nutrition = $nutrition;
-        $this->cookingTime = $cookingTime;
-    }
+class Recipe extends Model
+{
+    use HasFactory;
+
+    protected $table = 'recipes';
+
+
+    protected $fillable = [
+        'title',
+        'image',
+        'calorie',
+        'proteins',
+        'fats',
+        'carbohydrates',
+        'cooking_time',
+        'category_id'
+    ];
 }

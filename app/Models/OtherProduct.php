@@ -5,10 +5,14 @@ namespace App\Models;
 use App\Models\Menu;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class OtherProduct extends Model
 {
     use HasFactory;
+
+    protected $table = 'other_products';
+
 
     protected $fillable = [
         'title',

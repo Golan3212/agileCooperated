@@ -1,7 +1,5 @@
-import React from 'react';
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './pages/Layout';
+import { createInertiaApp } from '@inertiajs/react'
+import { createRoot } from 'react-dom/client'
 
 import Home from "./pages/Home";
 import {NotFound} from './pages/NotFound';
