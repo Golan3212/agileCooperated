@@ -9,6 +9,7 @@ import Recipe from "./pages/Recipe";
 import Recipes from "./pages/Recipes";// import Contact from "./pages/Contact";
 import Form from "./pages/Form";
 import Advice from "./pages/Advice";
+import PersonalAccount from "./pages/PersonalAccount";
 
 function App() {
     const router = createBrowserRouter([
@@ -41,7 +42,11 @@ function App() {
                 },
                 {
                     path: "/menu",
-                }
+                },
+                {
+                    path: "/account",
+                    element: <PersonalAccount />,
+                },
 
             ],
         },
