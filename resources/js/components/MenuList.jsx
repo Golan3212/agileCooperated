@@ -33,10 +33,10 @@ const MenuList = (props) => {
                                 <Link to="/">Главная</Link>
                             </li>
                             <li className="main_menu_item" style={{ marginRight: 40 + 'px' }}>
-                                <Link to="#">Конструктор меню</Link>
+                                <Link to="/builder">Конструктор меню</Link>
                             </li>
                             <li className="main_menu_item">
-                                <Link to="#">Рецепты</Link>
+                                <Link to="/recipes">Рецепты</Link>
                             </li>
                         </ul>
                         <div className="main_menu_user">

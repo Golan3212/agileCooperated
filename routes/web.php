@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UserController;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,15 +22,11 @@ Route::get('/', function () {
     return view('app');
 });
 
-// Этот роут необходим потому что запрос в первую очередь обрабатывается веб сервером и реакт эти роуты не видит
-
-//Route::get('/recipe', function () {
-//    return view('index');
-//});
 
 Route::get('/', function () {
     return view('app');
 });
+
 
 Route::get('/api/Recipes', [RecipeController::class, 'index']);
 Route::get('/api/recipe', [RecipeController::class, 'show']);
@@ -39,12 +37,15 @@ Route::any('{url}', function(){
 })->where('url', '.*');
 
 Route::get('/Recipes', [RecipeController::class, 'index']);
-Route::get('/recipe', [RecipeController::class, 'show']);
+Route::get('/recipe/{id}', [RecipeController::class, 'show']);
 
 
-Route::get('/*', function () {
+
+Route::get('/builder', function () {
     return view('app');
 });
+
+
 
 
 

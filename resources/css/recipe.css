@@ -527,7 +527,7 @@ align-content: flex-start;
 justify-content: space-between;
 align-items: flex-start;
 font-size: 17px;
-fine-height: 26px;
+/* fine-height: 26px; */
 letter-spacing: 0em;
 text-align: left;
 }
@@ -600,6 +600,7 @@ font-size: 17px;
 line-height: 26px;
 letter-spacing: 0em;
 text-align: left;
+display: flex;
 }
 
 
@@ -1512,7 +1513,7 @@ font-size: 25px;
 font-weight: 500;
 line-height: 30px;
 letter-spacing: 0em;
-text-align: left;
+text-align: center;
 padding: 10px;
 text-transform: uppercase;
 }

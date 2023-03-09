@@ -27,9 +27,9 @@ class RecipeController extends Controller
         ]);
     }
 
-    public function show ()
+    public function show ($id)
     {
-        return Inertia::render('Recipe');
+        return Inertia::render('Recipe', [$id]);
     }
 
     public function send ()

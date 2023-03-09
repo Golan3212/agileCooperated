@@ -3,13 +3,12 @@ import React from 'react';
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './pages/Layout';
-
 import Home from "./pages/Home";
 import {NotFound} from './pages/NotFound';
-
 import Recipe from "./pages/Recipe";
 import Recipes from "./Pages/Recipes";
-// import Contact from "./pages/Contact";
+import MenuBuilder from './Pages/MenuBuilder';
+
 
 
 
@@ -25,13 +24,20 @@ function App() {
                 },
 
                 {
-                    path: "/recipe",
+                    path: "/recipe/:id",
                     element: <Recipe />,
                 },
 
                 {
                     path: "/recipes",
                     element: <Recipes />,
+                    
+                },
+                
+                
+                {
+                    path: "/builder",
+                    element: <MenuBuilder />,
                 },
 
             ],
