@@ -4,12 +4,9 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
-use App\Http\Controllers\UserController;
 use \App\Http\Controllers\FormController;
-use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\ExampleController;
-use App\Http\Controllers\Page\HomeController;
-use App\Http\Controllers\Page\UsersAuthController;
+//use App\Http\Controllers\Page\HomeController;
+//use App\Http\Controllers\Page\UsersAuthController;
 use App\Http\Controllers\Parsers\RecipeParserController;
 
 /*
@@ -34,10 +31,6 @@ Route::get('/recipe', function () {
    return view('index');
 });
 
-Route::get('/', function () {
-    return view('app');
-});
-
 Route::get('/api/Recipes', [RecipeController::class, 'index']);
 Route::get('/api/recipe', [RecipeController::class, 'show']);
 
@@ -56,11 +49,6 @@ Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/builder', function () {
     return view('app');
 });
-
-
-// Route::get('/*', function () {
-//     return view('app');
-// });
 
 // //Роуты для формы
 // Route::get('/api/form', [FormController::class, 'index']);

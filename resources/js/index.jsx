@@ -9,8 +9,8 @@ import Form from "./pages/Form";
 import Advice from "./pages/Advice";
 import PersonalAccount from "./pages/PersonalAccount";
 import Category from "@/Pages/Category";
-import Recipes from "./Pages/Recipes";
 import MenuBuilder from './Pages/MenuBuilder';
+import {RouterProvider} from "react-router-dom";
 
 
 
