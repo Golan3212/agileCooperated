@@ -15,7 +15,6 @@ class MenuController extends Controller
         $menu = [];
 
         foreach ($data as $key => $value) {
-            dd($value);
             $menu[] = [
                 'name' => $value->name,
                 'id' => $value->id,

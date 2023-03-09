@@ -1,6 +1,9 @@
 import { createInertiaApp } from '@inertiajs/react'
 import { createRoot } from 'react-dom/client'
 
+import React from 'react';
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from "./pages/Home";
 import {NotFound} from './pages/NotFound';
 import Recipe from "./pages/Recipe";
@@ -8,9 +11,10 @@ import Recipes from "./pages/Recipes";// import Contact from "./pages/Contact";
 import Form from "./pages/Form";
 import Advice from "./pages/Advice";
 import PersonalAccount from "./pages/PersonalAccount";
-import Category from "@/Pages/Category";
+import Category from "./Pages/Category";
 import MenuBuilder from './Pages/MenuBuilder';
-import {RouterProvider} from "react-router-dom";
+import Layout from "./Pages/Layout";
+
 
 
 
@@ -27,7 +31,7 @@ function App() {
                 },
 
                 {
-                    path: "/recipe",
+                    path: "/recipe/:id",
                     element: <Recipe />,
                 },
 
@@ -59,7 +63,7 @@ function App() {
                     path: "/menu",
                 },
                 {
-                    path: "/account",
+                        path: "/account",
                     element: <PersonalAccount />,
                 },
 
