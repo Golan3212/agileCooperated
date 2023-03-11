@@ -1,4 +1,4 @@
-<?php
+php artisan cache:clear<?php
 
 use Illuminate\Support\Facades\Facade;
 
@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Orchestra\Parser\XmlServiceProvider::class,
+//        Orchestra\Parser\XmlServiceProvider::class,
 
         /*
          * Application Service Providers...
