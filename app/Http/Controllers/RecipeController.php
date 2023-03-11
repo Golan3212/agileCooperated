@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\QueryBuilders\RecipesStepsQueryBuilder;
 use Inertia\Inertia;
 use App\QueryBuilders\RecipesQueryBuilder;
-
+use Inertia\Response;
 
 
 class RecipeController extends Controller
 {
-
+    /**
+     * @return Response
+     */
     public function index(RecipesQueryBuilder $recipesQueryBuilder)
     {
         $recipeList = $recipesQueryBuilder->getAll();
@@ -47,6 +49,7 @@ class RecipeController extends Controller
         $recipeStepsBuilder = $recipesStepsQueryBuilder->getRecipeStepById($id);
 
         $recipeStepsList = [];
+        $recipeOne = [];
 
         foreach ($recipeStepsBuilder as $key => $value) {
             $recipeStepsList[] = [

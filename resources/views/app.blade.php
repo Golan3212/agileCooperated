@@ -12,4 +12,3 @@
 @vite('resources/js/index.jsx')
 </body>
 </html>
-

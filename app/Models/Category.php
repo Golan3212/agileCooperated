@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+use Illuminate\Support\Facades\DB;
+
 class Category extends Model
 {
     use HasFactory;
@@ -20,6 +22,11 @@ class Category extends Model
     {
 //        return $this->belongsTo(Recipe::class, 'recipe_id');
         return $this->hasMany(Category::class);
+    }
+
+    public function getCategory()
+    {
+        return DB::table($this->table)->select(['id',  'title', 'created_at'])->get();
     }
 
 }

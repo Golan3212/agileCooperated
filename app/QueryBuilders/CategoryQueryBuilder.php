@@ -2,31 +2,23 @@
 
 namespace App\QueryBuilders;
 use App\Models\Category;
+use App\Models\Recipe;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
 
-final class CategoryQueryBuilder extends QueryBuilder {
-
+final class CategoryQueryBuilder extends QueryBuilder
+{
     public Builder $model;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->model = Category::query();
     }
 
-    public function getAll()
+    function getAll(): Collection
     {
-        return $this->model->get();
+        return Category::query()->get();
     }
-
-    public function getPagination(int $quan=10)
-    {
-        return $this->model->paginate($quan);
-    }
-
-    public function getOne(int $id)
-    {
-        return $this->model->where('id', $id)->get();
-    }
-    
 }

@@ -29,8 +29,6 @@ class  RecipesHasIngredientsSeeder extends Seeder
                 $data[] =
                     [
                         'recipes_id' => $i,
-                        'recipes_category_id'=> DB::table('recipes')->where('id', '=', $i)
-                            ->value('category_id'),
                         'ingredients_id'=> random_int(1, $ingredients)
                     ];
             }
