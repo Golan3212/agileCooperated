@@ -16,6 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(QueryBuilder::class, MenuQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, RecipesQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, RecipesStepsQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, IngredientsQueryBuilder::class);
 
         //Services
 

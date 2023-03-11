@@ -2,7 +2,26 @@
 
 namespace App\QueryBuilders;
 
-class IngredientsQueryBuilder
-{
+use App\Models\Recipe;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 
+final class IngredientsQueryBuilder extends QueryBuilder
+{
+    private Builder $model;
+
+    function __construct()
+    {
+        $this->model = Recipe::query();
+    }
+
+    function getAll(): Collection
+    {
+        return $this->model->get();
+    }
+
+    public function getIngredientsById(int $id)
+    {
+        return $this->model->where('id', $id)->get();
+    }
 }

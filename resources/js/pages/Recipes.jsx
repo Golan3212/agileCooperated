@@ -3,23 +3,9 @@ import '../../css/App.scss';
 import img1 from "../../../public/assets/recipe_image/images/62c30bce0f146.jpg"
 
 
-export default function Recipes(){
-
-    const recipes = [
-        {title: 'Название блюда', nutrition:'nutrition'},
-        {title: 'title', nutrition:'nutrition'},
-        {title: 'title', nutrition:'nutrition'},
-        {title: 'title', nutrition:'nutrition'},
-        {title: 'title', nutrition:'nutrition'},
-        {title: 'title', nutrition:'nutrition'},
-        {title: 'title', nutrition:'nutrition'},
-        {title: 'title', nutrition:'nutrition'},
-    ];
-
+export default function Recipes({recipes}){
 
     const img = img1;
-
-
 
     return (
         <div className="recipeListMain">
@@ -35,9 +21,9 @@ export default function Recipes(){
                             </div>
                             <div className="product-title">
                                 <a href="">{item.title}</a>
-                                <span className="product-price">{item.nutrition}</span>
-                                <span className="product-price">Калории</span>
-                                <span className="product-price">Время приготовления</span>
+                                <span className="product-price">{item.category_title}</span>
+                                <span className="product-price">Ккалории: {item.calorie}</span>
+                                <span className="product-price">{item.cooking_time} мин.</span>
                             </div>
                         </div>
                     ))}
