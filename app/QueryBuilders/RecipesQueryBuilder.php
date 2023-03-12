@@ -30,4 +30,10 @@ final  class RecipesQueryBuilder extends QueryBuilder
         return $this->model->where('id', $id)->get();
     }
 
+
+    public function getRecipeByCategoryId(int $category_id): Collection
+    {
+        return Recipe::query()->where('category_id', $category_id)->get();
+    }
+
 }

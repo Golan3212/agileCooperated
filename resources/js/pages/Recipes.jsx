@@ -5,6 +5,7 @@ import img1 from "../../../public/assets/recipe_image/images/62c30bce0f146.jpg"
 
 export default function Recipes({recipes}){
 
+
     const img = img1;
 
     return (

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\QueryBuilders\IngredientsQueryBuilder;
 use App\QueryBuilders\RecipesStepsQueryBuilder;
+use Illuminate\Support\Arr;
 use Inertia\Inertia;
 use App\QueryBuilders\RecipesQueryBuilder;
 use Inertia\Response;
@@ -40,12 +42,11 @@ class RecipeController extends Controller
     public function show(
         RecipesQueryBuilder $recipesQueryBuilder,
         RecipesStepsQueryBuilder $recipesStepsQueryBuilder,
-//        IngredientsQueryBuilder $ingredientsQueryBuilder,
         int $id)
     {
-//        $ingredients= $ingredientsQueryBuilder->getIngredientsById($id);
-//        dd($ingredients);
+
         $data = $recipesQueryBuilder->getRecipeById($id);
+
         $recipeStepsBuilder = $recipesStepsQueryBuilder->getRecipeStepById($id);
 
         $recipeStepsList = [];
@@ -57,14 +58,7 @@ class RecipeController extends Controller
                 'description' => $value->description,
             ];
         }
-//        $IngredientsList = [];
-//
-//        foreach ($ingredients as $key => $value) {
-//            $IngredientsList[] = [
-//                'title' => $value->title,
-//                'mass_unit' => $value->mass_unit,
-//            ];
-//        }
+
 
         foreach ($data as $key => $value) {
             $recipeOne[] = [
@@ -75,16 +69,41 @@ class RecipeController extends Controller
                 'proteins' => $value->proteins,
                 'fats' => $value->fats,
                 'carbohydrates' => $value->carbohydrates,
+                'portion' => $value->portion,
                 'cooking_time' => $value->cooking_time,
                 'category_title' => $value->category->title,
                 'steps' => $recipeStepsList,
                 'count_steps' => last($recipeStepsList)["step_number"],
-//                'ingredients' => $value->ingredients
+                'ingredients' => $value->ingredients,
             ];
         }
 
-        return Inertia::render('Reci', [
+        //Рекомендации на страницу рецепт по номеру категории
+        $advices_category_id = $data->value('category_id');
+        $recipeAdvicesList = $recipesQueryBuilder
+            ->getRecipeByCategoryId($advices_category_id)
+            ->random(4);
+
+        $recipeOneAdvice =[];
+        foreach ($recipeAdvicesList as $key => $value) {
+            $recipeOneAdvice[] = [
+                'id' => $value->id,
+                'category_id' => $value->category_id,
+                'title' => $value->title,
+                'calorie' => $value->calorie,
+                'proteins' => $value->proteins,
+                'fats' => $value->fats,
+                'carbohydrates' => $value->carbohydrates,
+                'portion' => $value->portion,
+                'cooking_time' => $value->cooking_time,
+                'category_title' => $value->category->title,
+            ];
+        }
+
+
+        return Inertia::render('Recipe', [
             'recipeOne' => $recipeOne,
+            'recipeOneAdvice' => $recipeOneAdvice
         ]);
     }
 }
