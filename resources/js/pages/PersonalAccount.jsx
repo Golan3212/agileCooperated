@@ -22,7 +22,7 @@ export default function PersonalAccount() {
     return (
         <div className="account">
             <div className="account__menu">
-                <MenuAccount></MenuAccount>
+                {/*<MenuAccount></MenuAccount>*/}
             </div>
             <main className="account__box">
                 <section className="account__profile">
