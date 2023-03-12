@@ -14,7 +14,6 @@ export default function Recipe({recipeOne, recipeOneAdvice}) {
 
     return (
         <div>
-
             <div className="section bg_hr_green">
                 <div className="container">
                     <div className="title_h1">
