@@ -7,6 +7,7 @@ use App\Services\Contracts\Parser;
 use App\QueryBuilders\QueryBuilder;
 use App\QueryBuilders\MenuQueryBuilder;
 use Illuminate\Support\ServiceProvider;
+use App\QueryBuilders\ProfileQueryBuilder;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(QueryBuilder::class, RecipesQueryBuilder::class);
         $this->app->bind(QueryBuilder::class, RecipesStepsQueryBuilder::class);
         $this->app->bind(QueryBuilder::class, IngredientsQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, ProfileQueryBuilder::class);
 
         //Services
 
