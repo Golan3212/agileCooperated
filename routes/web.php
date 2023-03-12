@@ -21,7 +21,7 @@ use App\Http\Controllers\Parsers\RecipeParserController;
 */
 
 
-Route::get('recipes', [RecipeController::class, 'index']);
+Route::get('recipes', [RecipeController::class, 'index'])->name('recipes.index');
 Route::get('recipe/{id}', [RecipeController::class, 'show']);
 
 Route::get('/', function () {

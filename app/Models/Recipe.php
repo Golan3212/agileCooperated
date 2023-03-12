@@ -22,6 +22,7 @@ class Recipe extends Model
         'fats',
         'carbohydrates',
         'cooking_time',
+        'portion',
         'created_at'
     ];
 
@@ -35,5 +36,10 @@ class Recipe extends Model
     {
         return $this->belongsToMany(Ingredient::class,
             'recipes_has_ingredients','recipes_id' , 'ingredients_id');
+    }
+
+    public function ingredientQuantity()
+    {
+        return $this->hasManyThrough(Ingredient::class,IngredientQuantity::class);
     }
 }

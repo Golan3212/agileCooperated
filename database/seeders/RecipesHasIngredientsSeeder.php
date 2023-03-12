@@ -29,6 +29,11 @@ class  RecipesHasIngredientsSeeder extends Seeder
                 $data[] =
                     [
                         'recipes_id' => $i,
+<<<<<<< Updated upstream
+=======
+//                        'recipes_category_id'=> DB::table('recipes')->where('id', '=', $i)
+//                            ->value('category_id'),
+>>>>>>> Stashed changes
                         'ingredients_id'=> random_int(1, $ingredients)
                     ];
             }
