@@ -1,22 +1,20 @@
 <?php
 
 namespace App\QueryBuilders;
-
 use App\Models\RecipeStep;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 
-final class RecipesStepsQueryBuilder extends QueryBuilder
-{
 
-    private Builder $model;
 
-    function __construct()
-    {
+final class RecipesStepsQueryBuilder extends QueryBuilder {
+
+    public Builder $model;
+
+    public function __construct(){
         $this->model = RecipeStep::query();
     }
 
-    function getAll(): Collection
+    public function getAll()
     {
         return $this->model->get();
     }
