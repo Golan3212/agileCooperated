@@ -28,7 +28,7 @@ Route::get('/', function () {
     return view('app');
 });
 Route::get('/Recipes', [RecipeController::class, 'index']);
-Route::get('/recipe/{id}', [RecipeController::class, 'show']);
+Route::get('recipe/{id}', [RecipeController::class, 'show']);
 
 
 

@@ -239,6 +239,27 @@
 .button:hover {
   background: black;
 }
+.button_category{
+  width: 80%;
+  background-color: #efd7a6; /* Green */
+  border: 2px solid #c0a97a;
+  border-radius: 15px;
+  color: #62828a;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  &:hover{
+    background-color: #d5c7b4;
+    color: #336757;
+  }
+  }
+
 .product-title {
   color: #5e5e5e;
   display: flex;

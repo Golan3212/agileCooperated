@@ -1,77 +1,86 @@
-// import React from 'react';
-// import ReactDOM from "react-dom/client";
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import Layout from './pages/Layout';
-//
-// import Home from "./pages/Home";
-// import {NotFound} from './pages/NotFound';
-// import Recipe from "./pages/Recipe";
-// import Recipes from "./pages/Recipes";// import Contact from "./pages/Contact";
-// import Form from "./pages/Form";
-// import Advice from "./pages/Advice";
-// import PersonalAccount from "./pages/PersonalAccount";
+import React from 'react';
+import ReactDOM from "react-dom/client";
+
 import { createInertiaApp } from '@inertiajs/react'
 import { createRoot } from 'react-dom/client'
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import PersonalAccount from "./Pages/PersonalAccount";
+import {NotFound} from "./Pages/NotFound";
+import Layout from "./Pages/Layout";
+import Home from "./Pages/Home";
+import Recipes from "./Pages/Recipes";
+import Form from "./Pages/Form";
+import Advice from "./Pages/Advice";
+import Recipe from "./Pages/Recipe";
+
+
+
+function App() {
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Layout />,
+            children: [
+                {
+                    path: "/",
+                    element: <Home />,
+                },
+
+                {
+                    path: "/recipe",
+                    element: <Recipe />,
+                },
+
+                {
+                    path: "/recipes/*",
+                    element: <Recipes />,
+                },
+
+                {
+                    path: "/form",
+                    element: <Form />,
+                },
+                {
+                    path: "/advice",
+                    element: <Advice />,
+                },
+                {
+                    path: "/menu",
+                },
+                {
+                    path: "/account",
+                    element: <PersonalAccount />,
+                },
+                {
+                    path: "/recipes/:categoryId/*",
+                    element: <Recipes />,
+                },
+            ],
+        },
+//Страница 404 должна быть без Footer и Header
+        {
+            path: "/*",
+            element: <NotFound />,
+        },
+    ])
+    return (
+        <div className='app'>
+            <RouterProvider router={router}></RouterProvider>
+        </div>    )
+}
+export default App;
 
 createInertiaApp({
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
-        return pages[`./Pages/${name}.jsx`]
+        let page = pages[`./Pages/${name}.jsx`]
+        page.default.layout = page.default.layout || (page => <Layout children={page} />)
+        return page
     },
     setup({ el, App, props }) {
         createRoot(el).render(<App {...props} />)
     },
 })
-// function App() {
-//     const router = createBrowserRouter([
-//         {
-//             path: '/',
-//             element: <Layout />,
-//             children: [
-//                 {
-//                     path: "/",
-//                     element: <Home />,
-//                 },
-//
-//                 {
-//                     path: "/recipe",
-//                     element: <Recipe />,
-//                 },
-//
-//                 {
-//                     path: "/recipes",
-//                     element: <Recipes />,
-//                 },
-//
-//                 {
-//                     path: "/form",
-//                     element: <Form />,
-//                 },
-//                 {
-//                     path: "/advice",
-//                     element: <Advice />,
-//                 },
-//                 {
-//                     path: "/menu",
-//                 },
-//                 {
-//                     path: "/account",
-//                     element: <PersonalAccount />,
-//                 },
-//
-//             ],
-//         },
-// //Страница 404 должна быть без Footer и Header
-//         {
-//             path: "/*",
-//             element: <NotFound />,
-//         },
-//     ])
-//     return (
-//         <div className='app'>
-//             <RouterProvider router={router}></RouterProvider>
-//         </div>    )
-// }
-// export default App;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));root.render(<App />);
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));root.render(<App />);

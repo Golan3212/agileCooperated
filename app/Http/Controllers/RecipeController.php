@@ -48,7 +48,6 @@ class RecipeController extends Controller
         $data = $recipesQueryBuilder->getRecipeById($id);
 
         $recipeStepsBuilder = $recipesStepsQueryBuilder->getRecipeStepById($id);
-
         $recipeStepsList = [];
         $recipeOne = [];
 
@@ -76,8 +75,8 @@ class RecipeController extends Controller
                 'count_steps' => last($recipeStepsList)["step_number"],
                 'ingredients' => $value->ingredients,
             ];
-        }
 
+        }
         //Рекомендации на страницу рецепт по номеру категории
         $advices_category_id = $data->value('category_id');
         $recipeAdvicesList = $recipesQueryBuilder

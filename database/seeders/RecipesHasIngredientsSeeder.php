@@ -26,17 +26,15 @@ class  RecipesHasIngredientsSeeder extends Seeder
 
         $data = [];
         for ($i = 1; $i <= $recipesQuantity; $i++){
+            $countIngredients = random_int(5, 10);
+            for ($k = 1; $k <= $countIngredients; $k++){
                 $data[] =
                     [
                         'recipes_id' => $i,
-<<<<<<< Updated upstream
-=======
-//                        'recipes_category_id'=> DB::table('recipes')->where('id', '=', $i)
-//                            ->value('category_id'),
->>>>>>> Stashed changes
-                        'ingredients_id'=> random_int(1, $ingredients)
+                        'ingredients_id'=> $k
                     ];
             }
+        }
         return $data;
     }
 }
