@@ -145,14 +145,14 @@ export default function Recipe({recipeOne, recipeOneAdvice}) {
                                         <div className="rec_item_plus"></div>
                                         {/* <a href="" onClick='addRecToWeek(152, "/recipes_photos/62e3ad1340146.webp", "Гуляш из курицы со сметаной и карри", 267, 30, 15, 7, 8, 1, "gulyash_iz_kuricy_so_smetanoy_i_karri"); return false;'><img src="assets/icons/plus_small.svg" title="Добавить рецепт в список" alt="Добавить рецепт в список"></img></a></div>  */}
                                         <div className="rec_item_plus">
-                                            <a href="#">
+                                            <a href={"/recipe/"+recipeAdvice.id}>
                                                 <img src={image3} style={{ width: 100 + '%' }}></img>
                                             </a></div>
                                         {<a href="#">
                                             <div className="rec_img">
                                             </div>
                                             <div className="rec_content">
-                                                <div className="rec_name">{recipeAdvice.title}</div>
+                                                <div className="rec_name">{recipeAdvice.title} ({recipeAdvice.category_title})</div>
                                                 <div className="rec_time_kkal">
                                                     <div className="rec_time">
                                                         <img src={logo1}></img>
