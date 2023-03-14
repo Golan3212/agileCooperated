@@ -27,6 +27,7 @@ class  IngredientsSeeder extends Seeder
                 $data[] =
                     [
                         'title'=> \fake()->text(30),
+                        'quantity' => random_int(5, 500),
                         'mass_unit' => MassUnit::GRAM,
                         'created_at'=> \now(),
                         'updated_at'=> \now()

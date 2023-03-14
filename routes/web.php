@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
@@ -25,6 +26,8 @@ use App\Http\Controllers\Parsers\RecipeParserController;
 Route::get('recipes', [RecipeController::class, 'index'])->name('recipes.index');
 // Route::get('/', [HomeController::class])->name('home');
 Route::get('recipe/{id}', [RecipeController::class, 'show']);
+Route::get('account', [AccountController::class, 'index']);
+Route::get('/menu', [MenuController::class, 'index']);
 
 // Route::get('/', function () {
 //     return view('app');
@@ -55,7 +58,7 @@ Route::get('recipe/{id}', [RecipeController::class, 'show']);
 
 Route::get('/parser/recipe', RecipeParserController::class)->name('parser.recipe');
 
-Route::get('/menu', [MenuController::class, 'index']);
+//Route::get('/menu', [MenuController::class, 'index']);
 
 // Route::get('/builder', function () {
 //     return view('app');
