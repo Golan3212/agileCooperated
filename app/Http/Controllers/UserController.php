@@ -18,7 +18,7 @@ class UserController extends Controller
             'name' => 'andrey',
             'email' => 'golanov',
         ];
-        return Inertia::render('Recipe', [
+        return Inertia::render('PersonalAccount', [
             'user' => $user
         ]);
     }

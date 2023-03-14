@@ -10,7 +10,20 @@ class MenuController extends Controller
 {
     public function index()
     {
-        return Inertia::render('MenuBuilder');
-    }
+        $data = new MenuQueryBuilder();
+        $data = $data->getOne(1);
+        $menu = [];
 
+        foreach ($data as $key => $value) {
+            $menu[] = [
+                'name' => $value->name,
+                'id' => $value->id,
+                'category' => $value->breakfest->title,
+            ];
+        }
+
+        return Inertia::render('MenuBuilder', [
+            'menu' => $menu,
+        ]);
+    }
 }
