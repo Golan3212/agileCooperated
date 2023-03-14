@@ -106,7 +106,7 @@ export default function Recipe({recipeOne, recipeOneAdvice}) {
                                                                     <div className="reccard_kbzhu1">
                                                                         <div className="reccard_kbzhu_name">{ingredient.title}, {ingredient.mass_unit}</div>
                                                                         <div className="reccard_kbzhu_dotted"></div>
-                                                                        <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">50</div>
+                                                                        <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">{ingredient.quantity}</div>
                                                                     </div>
                                                                 </div>
                                                             )
@@ -145,14 +145,14 @@ export default function Recipe({recipeOne, recipeOneAdvice}) {
                                         <div className="rec_item_plus"></div>
                                         {/* <a href="" onClick='addRecToWeek(152, "/recipes_photos/62e3ad1340146.webp", "Гуляш из курицы со сметаной и карри", 267, 30, 15, 7, 8, 1, "gulyash_iz_kuricy_so_smetanoy_i_karri"); return false;'><img src="assets/icons/plus_small.svg" title="Добавить рецепт в список" alt="Добавить рецепт в список"></img></a></div>  */}
                                         <div className="rec_item_plus">
-                                            <a href="#">
+                                            <a href={"/recipe/"+recipeAdvice.id}>
                                                 <img src={image3} style={{ width: 100 + '%' }}></img>
                                             </a></div>
                                         {<a href="#">
                                             <div className="rec_img">
                                             </div>
                                             <div className="rec_content">
-                                                <div className="rec_name">{recipeAdvice.title}</div>
+                                                <div className="rec_name">{recipeAdvice.title} ({recipeAdvice.category_title})</div>
                                                 <div className="rec_time_kkal">
                                                     <div className="rec_time">
                                                         <img src={logo1}></img>
@@ -232,7 +232,6 @@ export default function Recipe({recipeOne, recipeOneAdvice}) {
 //                 console.error(error)
 //             })
 // }
-
 
 
 
