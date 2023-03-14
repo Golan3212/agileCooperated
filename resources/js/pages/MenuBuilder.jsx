@@ -3,8 +3,14 @@ import '../../css/menu_builder.css';
 import image from '../../../public/assets/menu_builder_image/62c2cee20bd62.jpg';
 import plus from '../../../public/assets/menu_builder_image/plus.svg';
 import shop from '../../../public/assets/menu_builder_image/shopping.svg';
+import { useSearchParams } from 'react-router-dom';
 
-const MenuBuilder = () => {
+const MenuBuilder = (props) => {
+
+    let [searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams.get("sex"))
+    console.log(searchParams.get("weight"))
+    console.log(searchParams.get("height"))
 
     return (
         <div>
@@ -23,13 +29,13 @@ const MenuBuilder = () => {
                 </div>
             </div>
             <div className="section section_field_small"></div>
-            <div className="section">
+            {/* <div className="section">
                 <div className="container">
                     <div className="title_h3">
                         Составьте меню на неделю
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="section section_field_small"></div>
 
 
@@ -135,6 +141,81 @@ const MenuBuilder = () => {
                             </div>
                         </div>
 
+
+
+                        <div className="cons_row cons_row1">
+                            <div className="cons_col cons_col0">
+                                <div className="cons_title">
+                                    ПЕРВЫЙ ПЕРЕКУС </div>
+                            </div>
+
+                            <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
+                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                        backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
+                                    <img className="cons_pic_img"
+                                        src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                </div>
+                                <div className="cons_txt">&nbsp;</div>
+                            </div>
+
+                            <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
+                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                        backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
+                                    <img className="cons_pic_img"
+                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                </div>
+                                <div className="cons_txt">&nbsp;</div>
+                            </div>
+
+                            <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
+                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                        backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
+                                    <img className="cons_pic_img"
+                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                </div>
+                                <div className="cons_txt">&nbsp;</div>
+                            </div>
+
+                            <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
+                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                        backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
+                                    <img className="cons_pic_img"
+                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                </div>
+                                <div className="cons_txt">&nbsp;</div>
+                            </div>
+
+                            <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
+                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                        backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
+                                    <img className="cons_pic_img"
+                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                </div>
+                                <div className="cons_txt">&nbsp;</div>
+                            </div>
+
+                            <div className="cons_col cons_col6" data-day="6" data-rectype="1" id="col-6-1">
+                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                        backgroundPosition: "center"}} data-day="6" data-rectype="1" id="add-6-1">
+                                    <img className="cons_pic_img"
+                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                </div>
+                                <div className="cons_txt">&nbsp;</div>
+                            </div>
+
+                            <div className="cons_col cons_col7" data-day="7" data-rectype="1" id="col-7-1">
+                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                        backgroundPosition: "center"}} data-day="7" data-rectype="1" id="add-7-1">
+                                    <img className="cons_pic_img"
+                                        src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                </div>
+                                <div className="cons_txt">&nbsp;</div>
+                            </div>
+                        </div>
+
+
+
+
                         <div className="cons_row cons_row2">
                             <div className="cons_col cons_col0">
                                 <div className="cons_title">
@@ -208,7 +289,7 @@ const MenuBuilder = () => {
                         <div className="cons_row cons_row3">
                             <div className="cons_col cons_col0">
                                 <div className="cons_title">
-                                    ДЕСЕРТ </div>
+                                    ВТОРОЙ ПЕРЕКУС </div>
                             </div>
 
                             <div className="cons_col cons_col1" data-day="1" data-rectype="4" id="col-1-4">
@@ -523,7 +604,7 @@ const MenuBuilder = () => {
                     <div className="buttons_row">
 
                     </div>
-                    <div className="buttons_row">
+                    {/* <div className="buttons_row">
                         <div className="buttons_row_button_wrap">
                             <div > <button className="buttons_row_button" id="btn_sohranit_recepti">Сохранить рецепты</button></div>
                         </div>
@@ -533,7 +614,7 @@ const MenuBuilder = () => {
                                 вернуться и приготовить понравившиеся блюда. В общей сложности можно сохранять только 5
                                 недельных наборов.<span className="append_text"></span></div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="buttons_row">
                         <div className="buttons_row_button_wrap">
                             <div > <button className="buttons_row_button" id="btn_sohranit_recepti">Вернуть первоначальное меню </button></div>
