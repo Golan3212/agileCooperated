@@ -3,6 +3,7 @@ import React from 'react';
 // import MenuList from "../components/MenuList";
 // import FooterList from "../components/FooterList";
 import { Link } from '@inertiajs/react'
+import '../../css/App.scss';
 import logo from "../../../public/assets/recipe_image/icons/icons-avocado.png";
 import wt from "../../../public/assets/recipe_image/icons/icons-whatsapp.png";
 import vk from "../../../public/assets/recipe_image/icons/icons-vk.png";
@@ -12,9 +13,9 @@ import tg from "../../../public/assets/recipe_image/icons/icons-telegram.png";
 export default function Layout({ children }) {
     return (
 
-        <main>
+        <main className="main">
                 <MenuList></MenuList>
-                <main className='main container'>
+                <main className='container'>
                     <article>{children}</article>
                 </main>
                 <FooterList></FooterList>
