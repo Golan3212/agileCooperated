@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Recipe extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'recipes';
 
     protected $fillable = [
@@ -39,8 +39,4 @@ class Recipe extends Model
             'recipes_has_ingredients','recipes_id' , 'ingredients_id');
     }
 
-    public function ingredientQuantity()
-    {
-        return $this->hasManyThrough(Ingredient::class,IngredientQuantity::class);
-    }
 }

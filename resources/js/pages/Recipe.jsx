@@ -106,7 +106,7 @@ export default function Recipe({recipeOne, recipeOneAdvice}) {
                                                                     <div className="reccard_kbzhu1">
                                                                         <div className="reccard_kbzhu_name">{ingredient.title}, {ingredient.mass_unit}</div>
                                                                         <div className="reccard_kbzhu_dotted"></div>
-                                                                        <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">50</div>
+                                                                        <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">{ingredient.quantity}</div>
                                                                     </div>
                                                                 </div>
                                                             )

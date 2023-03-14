@@ -44,7 +44,7 @@ final class ProfileQueryBuilder extends QueryBuilder
     }
 
 
-    public function kbzuNorm(int $target, int $calories)
+    public function kbzuNorm(float $target, int $calories)
     {
         switch ($target) {
             case 0.9:

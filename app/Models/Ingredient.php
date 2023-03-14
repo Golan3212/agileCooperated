@@ -13,6 +13,7 @@ class Ingredient extends Model
 
     protected $fillable = [
         'title',
+        'quantity',
         'mass_unit'
     ];
 
@@ -20,4 +21,5 @@ class Ingredient extends Model
     {
         return $this->belongsToMany(Recipe::class, 'recipes_has_ingredients', 'ingredients_id', 'recipes_id');
     }
+
 }

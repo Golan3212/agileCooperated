@@ -11,7 +11,7 @@ class AdviceController extends Controller
 {
     public function index(ProfileQueryBuilder $profileQueryBuilder)
     {
-        Auth::attempt(['email' => 'email@mail.com', 'password' => 'the-password-of-choice']); //чтобы польователь был зарегистрирован, когда появится регистрацию убрать
+        Auth::attempt(['email' => 'email@mail.ru', 'password' => 'password']); //чтобы польователь был зарегистрирован, когда появится регистрацию убрать
         // когда регистрация убрать
 
 
