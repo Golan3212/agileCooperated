@@ -1,32 +1,92 @@
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@hooope81 
+Golan3212
+/
+agileCooperated
+Public
+Fork your own copy of Golan3212/agileCooperated
+Code
+Issues
+Pull requests
+1
+Actions
+Projects
+Wiki
+Security
+Insights
+agileCooperated/resources/js/pages/Home.jsx /
+@Golan3212
+Golan3212 Merge branch 'master' into menu-builder
+Latest commit 2c36fa5 5 hours ago
+ History
+ 4 contributors
+@Golan3212@veratoma@hooope81@SHestakov12405
+45 lines (36 sloc)  1.14 KB
 
-import axios from 'axios';
-window.axios = axios;
+import React from 'react';
+import { Routes, Route } from "react-router-dom";
+// import Recipes from "./Recipes"
+import { Link } from '@inertiajs/react'
+import Form from '../components/Form';
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
 
-// import Echo from 'laravel-echo';
 
-// import Pusher from 'pusher-js';
-// window.Pusher = Pusher;
+// export default function Home({menu}) {
+//     const name = "Home Page";
+//     // console.log(menu);
+//     return (
+//         <>
+//             <div className="container">
+//             <Link href="/auth/create">Auth</Link>
+//             <h1>
+//                 {name},
+//                 {
+//                     menu.map(element => {
+//                         return <div>{element.id}, {element.name}, {element.category}</div>
+//                     })
+//                 }
+//             </h1>
+//             </div>
+//         </>
+//     );
+// }
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: import.meta.env.VITE_PUSHER_APP_KEY,
-//     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
-//     wsHost: import.meta.env.VITE_PUSHER_HOST ? import.meta.env.VITE_PUSHER_HOST : `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
-//     wsPort: import.meta.env.VITE_PUSHER_PORT ?? 80,
-//     wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
-//     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
-//     enabledTransports: ['ws', 'wss'],
-// });
+const Home = (props) => {
+    const [isFormShow, setIsFormShow] = React.useState(false);
+
+    const form = isFormShow ? <Form></Form> : null
+
+    return (
+
+        <div>
+            <button onClick={() => setIsFormShow(true)}>Определить цель</button>
+            {form}
+            <a href='http://localhost/builder?sex=male&weight=65&height=187'></a>
+        </div>
+    )
+}
+
+export default Home;
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+agileCooperated/Home.jsx at master · Golan3212/agileCooperated
