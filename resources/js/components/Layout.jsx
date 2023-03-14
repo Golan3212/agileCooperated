@@ -5,14 +5,20 @@ function Layout() {
         <div>
             <nav>
                 <ul className='navigation'>
-                    {/*<li >*/}
-                    {/*    <Link className="navigation-link" to="/">Home</Link>*/}
-                    {/*</li>*/}
-                    <li>
-                        <Link className="navigation-link" to="/Recipes">Recipes</Link>
+                    <li >
+                        <Link className="navigation-link" to="/">Home</Link>
                     </li>
                     <li>
-                        <Link className="navigation-link" to="/RecipeItem">RecipeItem</Link>
+                        <Link className="navigation-link" to="/recipes">Recipes</Link>
+                    </li>
+                    <li>
+                        <Link className="navigation-link" to="/form"> Form   </Link>
+                    </li>
+                    <li>
+                        <Link className="navigation-link" to="/advice"> Advice </Link>
+                    </li>
+                    <li>
+                        <Link className="navigation-link" to="/nothing-here">Nothing Here</Link>
                     </li>
                 </ul>
             </nav>

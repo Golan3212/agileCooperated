@@ -4,14 +4,13 @@ import {
 } from "react-router-dom";
 import '../../css/recipe.css';
 
-
 import vk from "../../../public/assets/recipe_image/icons/icons-vk.png";
 import yt from "../../../public/assets/recipe_image/icons/icons-youtube.png";
 import tg from "../../../public/assets/recipe_image/icons/icons-telegram.png";
 
 
 
-const FooterList = (props) => {
+const FooterList = () => {
     return (
         <div>
             <div className="section section_footer">

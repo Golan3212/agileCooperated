@@ -6,6 +6,7 @@ import Form from '../components/Form';
 
 
 
+
 // export default function Home({menu}) {
 //     const name = "Home Page";
 //     // console.log(menu);

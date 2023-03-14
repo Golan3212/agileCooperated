@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Enums\MassUnit;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class  IngredientsSeeder extends Seeder
+class  RecipeStepsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,24 +14,27 @@ class  IngredientsSeeder extends Seeder
      */
     public function run():void
     {
-        DB::table('ingredients')->insert($this->getData());
+        DB::table('recipe_steps')->insert($this->getData());
     }
 
 
     public function getData():array
     {
-
         $data = [];
-        for ($i = 1; $i <= 40; $i++){
+        $maxQuantityRecipes = DB::table('recipes')->max('id');
+        for ($i = 1; $i <= $maxQuantityRecipes; $i++){
+            $quantityRecipeSteps = random_int(4, 9);
+            for ($k = 1; $k <= $quantityRecipeSteps; $k++) {
                 $data[] =
                     [
-                        'title'=> \fake()->text(30),
-                        'quantity' => random_int(5, 500),
-                        'mass_unit' => MassUnit::GRAM,
+                        'description'=> \fake()->text(),
+                        'recipe_id' => $i,
+                        'step_number' => $k,
                         'created_at'=> \now(),
                         'updated_at'=> \now()
                     ];
             }
+        }
         return $data;
     }
 }

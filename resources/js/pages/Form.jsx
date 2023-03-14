@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../css/form.css';
 import { useLocalStorage } from '../formulas/saveLocalStorage';
 import { Link } from "react-router-dom";
+import { Inertia } from '@inertiajs/inertia'
 
 export default function Form() {
 
@@ -12,9 +13,27 @@ export default function Form() {
     const [quotient, setQuotient] = useLocalStorage("quotient", 0);
     const [target, setTarget] = useLocalStorage("target", 0);
 
+
+    function handleSubmit(e){
+        e.preventDefault()
+        const values = [
+            {
+                'gender': gender,
+                'weight': weight,
+                'height': height,
+                'age': age,
+                'quotient': quotient,
+                'target': target,
+            }
+        ]
+        Inertia.post('/form', values)
+    }
+
+
+
     return (
         <div>
-            <form className="box">
+            <form className="box" onSubmit={handleSubmit}>
                 <h1 className="form__heading">КАЛЬКУЛЯТОР НОРМЫ КАЛОРИЙ И БЖУ</h1>
                 <div className="form">
                     <h4>Пол</h4>
@@ -174,18 +193,9 @@ export default function Form() {
                     </div>
                 </div>
 
-                <Link to="/advice"
-                      state={{
-                          gender: gender,
-                          weight: weight,
-                          height: height,
-                          age: age,
-                          quotient: quotient,
-                          target: target
-                      }}
-                      className="form__button">
+                <button className="form__button">
                         Рассчитать
-                </Link>
+                </button>
             </form>
         </div>
     );

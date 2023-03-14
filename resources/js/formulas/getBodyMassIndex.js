@@ -1,36 +1,32 @@
 // Функция расчета индекса массы тела
 
-export function getBodyMassIndex(weight, height) {
+export function getBodyMassIndex(massIndex) {
 
-    let index = Math.round((weight / ((height / 100) ** 2)) * 10) / 10;
+    let description = '';
 
-    let description = "";
-
-    if (index < 16) {
+    if (massIndex < 16) {
         description = "Дефицит массы тела (истощение)";
     }
-    if (index >= 16 && index < 18.5) {
+    if (massIndex >= 16 && massIndex < 18.5) {
         description = "Недостаточная масса тела (дефицит)";
     }
-    if (index >= 18.5 && index < 25) {
+    if (massIndex >= 18.5 && massIndex < 25) {
         description = "Норма";
     }
-    if (index >= 25 && index < 30) {
+    if (massIndex >= 25 && massIndex < 30) {
         description = "Избыточная масса тела (предожирение)";
     }
-    if (index >= 30 && index < 35) {
+    if (massIndex >= 30 && massIndex < 35) {
         description = "Ожирение первой степени";
     }
-    if (index >= 35 && index < 40) {
+    if (massIndex >= 35 && massIndex < 40) {
         description = "Ожирение второй степени";
     }
-    if (index >= 40) {
+    if (massIndex >= 40) {
         description = "Ожирение третьей степени (морбидное)";
     }
 
-    return {
-        "index": index,
-        "description": description,
-    }
+    return description;
+
 
 }

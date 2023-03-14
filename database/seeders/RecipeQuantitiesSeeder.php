@@ -6,7 +6,7 @@ use App\Enums\MassUnit;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class  RecipesHasIngredientsSeeder extends Seeder
+class  RecipeQuantitiesSeederSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class  RecipesHasIngredientsSeeder extends Seeder
      */
     public function run():void
     {
-        DB::table('recipes_has_ingredients')->insert($this->getData());
+        DB::table('recipe_quantities')->insert($this->getData());
     }
 
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\QueryBuilders;
+
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder;
 

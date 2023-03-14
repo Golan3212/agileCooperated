@@ -4,20 +4,15 @@ import {getResultNorm} from "../formulas/getResultNorm";
 import {calculationCalories} from "../formulas/calculationCalories";
 import {getBodyMassIndex} from "../formulas/getBodyMassIndex";
 import {getResultNormNew} from "../formulas/temporarily/getResultNormNew";
-export default function Advice() {
-    const location = useLocation();
 
-    const gender = location.state?.gender;
-    const weight = location.state?.weight;
-    const height = location.state?.height;
-    const age = location.state?.age;
-    const quotient = location.state?.quotient;
-    const target = location.state?.target;
+export default function Advice({profile}) {
 
-    let norm = getResultNormNew(gender, weight, height, age, quotient, target);
-    let normsCalories = calculationCalories(target, norm);
-    let bodyMassIndex = getBodyMassIndex(weight, height);
+    // let norm = getResultNormNew(gender, weight, height, age, quotient, target);
+    // let normsCalories = calculationCalories(target, norm);
+      let bodyMassIndexDescription = getBodyMassIndex(profile.mass_index);
 
+
+    console.log(profile);
     return (
     <div className="result box">
         <h1 className="advice__heading">
@@ -28,7 +23,7 @@ export default function Advice() {
             <p className="advice__text">
                 Ваша суточная норма килокалорий
             </p>
-            <h4>{norm}</h4>
+            <h4>{profile.caloric_norm}</h4>
         </div>
         <div className="advice">
             <h3>Белки</h3>
@@ -36,8 +31,8 @@ export default function Advice() {
                 Рекомендуемое количество белка в граммах
             </p>
             <p className="advice__result"> от &nbsp;
-                <span>{normsCalories.protein[0]}</span> до &nbsp;
-                <span>{normsCalories.protein[1]}</span>
+                <span>{profile.proteins_min}</span> до &nbsp;
+                <span>{profile.proteins_max}</span>
             </p>
         </div>
         <div className="advice">
@@ -46,8 +41,8 @@ export default function Advice() {
                 Рекомендуемое количество жиров в граммах
             </p>
             <p> от &nbsp;
-                <span>{normsCalories.fat[0]}</span> до &nbsp;
-                <span>{normsCalories.fat[1]}</span>
+                <span>{profile.fats_min}</span> до &nbsp;
+                <span>{profile.fats_max}</span>
             </p>
         </div>
         <div className="advice">
@@ -56,8 +51,8 @@ export default function Advice() {
                 Рекомендуемое количество углеводов в граммах
             </p>
             <p> от &nbsp;
-                <span>{normsCalories.fat[0]}</span> до &nbsp;
-                <span>{normsCalories.fat[1]}</span>
+                <span>{profile.carbohydrates_min}</span> до &nbsp;
+                <span>{profile.carbohydrates_max}</span>
             </p>
         </div>
         <div className="advice">
@@ -71,8 +66,8 @@ export default function Advice() {
                 и как следствие высокого ИМТ.
             </p>
             <p>
-                <span>{bodyMassIndex.index}</span>
-                 - {bodyMassIndex.description}
+                <span>{profile.mass_index}</span>
+                 - {bodyMassIndexDescription}
             </p>
         </div>
     </div>
