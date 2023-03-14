@@ -1,19 +1,36 @@
 import React, {useEffect, useState} from 'react';
 import '../../css/App.scss';
 import img1 from "../../../public/assets/recipe_image/images/62c30bce0f146.jpg";
+import usePagination from "../hooks/usePagintaion";
+import { Link, animateScroll as scroll } from "react-scroll";
+
 
  const Recipes = ({recipes}) =>{
 
-
     const [category, setCategory] = useState(recipes);
     const [categoryId, setCategoryId] = useState(category);
-
+     const {
+         firstContentIndex,
+         lastContentIndex,
+         nextPage,
+         prevPage,
+         page,
+         setPage,
+         totalPages,
+     } = usePagination({
+         contentPerPage: 12,
+         count: categoryId.length,
+     });
 
     useEffect(() =>{
         if (category !== recipes){
            setCategory(recipes);
         }
         },[category]);
+
+     const scrollToTop = () => {
+         scroll.scrollToTop();
+     }
 
     const handleClickCategory = (event) => {
         if (event.target.id === "Завтрак") {
@@ -55,9 +72,9 @@ import img1 from "../../../public/assets/recipe_image/images/62c30bce0f146.jpg";
 
     return (
         <div className="recipeListMain">
-            <div className="container recipes_main" >
-                <div className="recipeList">
-                    {categoryId.map((item, index) => (
+            <div className=" recipes_main" >
+                <div className="recipeList" >
+                    {categoryId.slice(firstContentIndex, lastContentIndex).map((item, index) => (
                         <div className="product-wrap">
                             <div className="product-item" key={item.title}>
                                 <div className="product-buttons">
@@ -66,13 +83,44 @@ import img1 from "../../../public/assets/recipe_image/images/62c30bce0f146.jpg";
                                 <img src={img} alt="atata" />
                             </div>
                             <div className="product-title">
-                                <a href="">{item.title}</a>
+                                <a href={"/recipe/"+item.id}>{item.title}</a>
                                 <span className="product-price">{item.category_title}</span>
                                 <span className="product-price">Ккалории: {item.calorie}</span>
                                 <span className="product-price">{item.cooking_time} мин.</span>
                             </div>
                         </div>
                     ))}
+                    <br/>
+                    <div className="pagination">
+                        <p className="text">
+                            {page}/{totalPages}
+                        </p>
+                        <button onClick={prevPage} className="page">
+                            &larr;
+                        </button>
+                        {/* @ts-ignore */}
+                        {[...Array(totalPages).keys()].map((el) => (
+                            <Link className={`page ${page === el + 1 ? "active" : ""}`}
+                                  style={{margin: "0 5px"}}
+                                  spy={true}
+                                  smooth={true}
+                                  offset={-70}
+                                  duration={500}
+                                  onClick={scrollToTop()}
+                            ><button
+                                className={`page ${page === el + 1 ? "active" : ""}`}
+                                onClick={ () => setPage(el + 1)}
+                                key={el}
+
+                            > {el + 1}
+                            </button>
+
+                            </Link>
+                        ))}
+                        <button onClick={nextPage} className="page">
+                            &rarr;
+                        </button>
+                    </div>
                 </div>
 
                 <nav className="navigation">
