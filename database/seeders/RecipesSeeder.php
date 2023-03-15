@@ -36,7 +36,7 @@ class  RecipesSeeder extends Seeder
                         'carbohydrates' => random_int(1, 1000),
 //                        'portion' => random_int(1, 5),
                         'cooking_time' => random_int(4, 60),
-                        'category_id' => random_int(1, $maxQuantityCategory),
+                        'category_id' => random_int(25, 28),
                         'created_at'=> \now(),
                         'updated_at'=> \now()
                     ];

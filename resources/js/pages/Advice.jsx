@@ -30,9 +30,9 @@ export default function Advice({profile}) {
             <p className="advice__text">
                 Рекомендуемое количество белка в граммах
             </p>
-            <p className="advice__result"> от &nbsp;
-                <span>{profile.proteins_min}</span> до &nbsp;
-                <span>{profile.proteins_max}</span>
+            <p className="advice__result">
+                <span>от {profile.proteins_min}</span>
+                <span>до {profile.proteins_max}</span>
             </p>
         </div>
         <div className="advice">
@@ -40,9 +40,9 @@ export default function Advice({profile}) {
             <p className="advice__text">
                 Рекомендуемое количество жиров в граммах
             </p>
-            <p> от &nbsp;
-                <span>{profile.fats_min}</span> до &nbsp;
-                <span>{profile.fats_max}</span>
+            <p>
+                <span>от {profile.fats_min}</span>
+                <span>до {profile.fats_max}</span>
             </p>
         </div>
         <div className="advice">
@@ -50,9 +50,9 @@ export default function Advice({profile}) {
             <p className="advice__text">
                 Рекомендуемое количество углеводов в граммах
             </p>
-            <p> от &nbsp;
-                <span>{profile.carbohydrates_min}</span> до &nbsp;
-                <span>{profile.carbohydrates_max}</span>
+            <p>
+                <span>от {profile.carbohydrates_min}</span>
+                <span>до {profile.carbohydrates_max}</span>
             </p>
         </div>
         <div className="advice">
@@ -66,8 +66,7 @@ export default function Advice({profile}) {
                 и как следствие высокого ИМТ.
             </p>
             <p>
-                <span>{profile.mass_index}</span>
-                 - {bodyMassIndexDescription}
+                <span>{profile.mass_index} - {bodyMassIndexDescription}</span>
             </p>
         </div>
     </div>

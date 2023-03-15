@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Redirect;
-use App\QueryBuilders\ProfileQueryBuilder;
+use App\QueryBuilders\ProfilesQueryBuilder;
 
 class FormController extends Controller
 {
@@ -31,24 +31,23 @@ class FormController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProfileRequest $request, ProfileQueryBuilder $profileQueryBuilder)
+    public function store(ProfileRequest $request, ProfilesQueryBuilder $profilesQueryBuilder)
     {
         Auth::attempt(['email' => 'email@mail.ru', 'password' => 'password']); //чтобы польователь был зарегистрирован, когда появится регистрацию убрать
         // Вы должны создать пользователя в бд
-
         if(Auth::check()){
 
+             $gender = $request->validated('gender');
+             $weight = $request->validated('weight');
+             $height = $request->validated('height');
+             $age = $request->validated('age');
+             $quotient = $request->validated('quotient');
+             $target = $request->validated('target');
 
-            $gender = (int)$request->all()[0]['gender'];
-            $weight = (int)$request->all()[0]['weight'];
-            $height = (int)$request->all()[0]['height'];
-            $age = (int)$request->all()[0]['age'];
-            $quotient = (float)$request->all()[0]['quotient'];
-            $target = (float)$request->all()[0]['target'];
 
-            $calories = $profileQueryBuilder->caloricNorm($gender, $age, $height, $weight);
-            $kbzuNormaArray = $profileQueryBuilder->kbzuNorm($target, $calories);
-            $bodyMassIndex = $profileQueryBuilder->bodyMassIndex($weight, $height);
+            $calories = $profilesQueryBuilder->getCaloricNorm($gender, $age, $height, $weight);
+            $kbzuNormaArray = $profilesQueryBuilder->getKbzuNorm($target, $calories);
+            $bodyMassIndex = $profilesQueryBuilder->getBodyMassIndex($weight, $height);
 
             $otherProfuleColumn = [
                 'proteins_min' => $kbzuNormaArray['proteins']['min'],
@@ -61,12 +60,12 @@ class FormController extends Controller
                 'caloric_norm' => $calories,
             ];
 
-            $arguments = array_merge($request->all()[0], $otherProfuleColumn);
+            $arguments = array_merge($request->validated(), $otherProfuleColumn);
 
 
-            if ($profileQueryBuilder->getByUserId(\Auth::id())->count()) {//если профиль уже создан
+            if ($profilesQueryBuilder->getByUserId(\Auth::id())->count()) {//если профиль уже создан
 
-                $profile = $profileQueryBuilder->updateByUserId(\Auth::id());
+                $profile = $profilesQueryBuilder->updateByUserId(\Auth::id());
                 $profile->update($arguments);
 
             }else{

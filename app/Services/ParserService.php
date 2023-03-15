@@ -62,6 +62,7 @@ class ParserService implements Parser
 
             $category = $categoryBuilder->getFromTitle($categoryName);
 
+
             $recipe = new Recipe([
                 'title'=>(string)$value['title'],
                 'calorie' => 180,
@@ -69,8 +70,10 @@ class ParserService implements Parser
                 'fats'=> 100,
                 'carbohydrates' => 100,
                 'cooking_time' => 180,
-                'category_id' => $category[0]['id'],
                 ]);
+
+
+            $recipe->category()->associate($category[0]['id']);
 
             if ($recipe->save()) {
                 foreach ($steps as $key => $value) {

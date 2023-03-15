@@ -22,21 +22,15 @@ use App\Http\Controllers\Parsers\RecipeParserController;
 |
 */
 
-
-Route::get('recipes', [RecipeController::class, 'index'])->name('recipes.index');
+Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 // Route::get('/', [HomeController::class])->name('home');
 Route::get('recipe/{id}', [RecipeController::class, 'show']);
 Route::get('account', [AccountController::class, 'index']);
-Route::get('/menu', [MenuController::class, 'index']);
 
- Route::get('/', function () {
-     return view('app');
- });
-Route::get('/Recipes', [RecipeController::class, 'index']);
-Route::get('recipe/{id}', [RecipeController::class, 'show']);
+Route::get('/menu/builder', [MenuController::class, 'index']);
+
+
 Route::get('PersonalAccount', [UserController::class, 'show']);
-Route::get('/form', [FormController::class, 'index']);
-Route::get('/MenuBuilder', [MenuController::class, 'index']);
 
 //Когда регистрация появиться раскомментировать
 // Route::middleware(['auth'])->group(function () {
@@ -58,9 +52,10 @@ Route::get('/MenuBuilder', [MenuController::class, 'index']);
 
 
 
-Route::get('/parser/recipe', RecipeParserController::class)->name('parser.recipe');
+Route::get('/parser/recipes', RecipeParserController::class)->name('parser.recipe');
 
-//Route::get('/menu', [MenuController::class, 'index']);
+
+
 
 // Route::get('/builder', function () {
 //     return view('app');

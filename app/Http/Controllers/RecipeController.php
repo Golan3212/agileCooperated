@@ -82,7 +82,7 @@ class RecipeController extends Controller
         $advices_category_id = $data->value('category_id');
         $recipeAdvicesList = $recipesQueryBuilder
             ->getRecipeByCategoryId($advices_category_id)
-            ->random(4);
+            ->random(2);
 
         $recipeOneAdvice =[];
         foreach ($recipeAdvicesList as $key => $value) {
