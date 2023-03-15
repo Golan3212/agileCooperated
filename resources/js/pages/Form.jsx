@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../css/form.css';
 import { useLocalStorage } from '../formulas/saveLocalStorage';
 import { Link } from "react-router-dom";
@@ -16,8 +16,7 @@ export default function Form() {
 
     function handleSubmit(e){
         e.preventDefault()
-        const values = [
-            {
+        const values = {
                 'gender': gender,
                 'weight': weight,
                 'height': height,
@@ -25,7 +24,6 @@ export default function Form() {
                 'quotient': quotient,
                 'target': target,
             }
-        ]
         Inertia.post('/form', values)
     }
 
@@ -67,7 +65,7 @@ export default function Form() {
                         name="weight"
                         value={weight}
                         placeholder="Введите ваш вес"
-                        onChange={(e) => setWeight(e.target.value)}
+                        onChange={(e) => setWeight(+e.target.value)}
                     />
                     <label htmlFor="height">Рост</label>
                     <input
@@ -77,7 +75,7 @@ export default function Form() {
                         name="height"
                         value={height}
                         placeholder="Введите ваш рост"
-                        onChange={(e) => setHeight(e.target.value)}
+                        onChange={(e) => setHeight(+e.target.value)}
                     />
                     <label htmlFor="age">Возраст</label>
                     <input
@@ -87,7 +85,7 @@ export default function Form() {
                         name="age"
                         value={age}
                         placeholder="Введите ваш возраст"
-                        onChange={(e) => setAge(e.target.value)}
+                        onChange={(e) => setAge(+e.target.value)}
                     />
                 </div>
                 <div className="form">
@@ -200,8 +198,6 @@ export default function Form() {
         </div>
     );
 }
-
-
 
 
 

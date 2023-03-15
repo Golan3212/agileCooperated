@@ -32,7 +32,7 @@ const FooterList = () => {
                         <ul className="footer_menu">
 
                             <li className="footer_menu_item"><Link className="footer_menu_color" href="/">Главная</Link></li>
-                            <li className="footer_menu_item"><Link className="footer_menu_color" href="/MenuBuilder">Конструктор меню</Link></li>
+                            <li className="footer_menu_item"><Link className="footer_menu_color" href="/menu/builder">Конструктор меню</Link></li>
                             <li className="footer_menu_item"><Link className="footer_menu_color" href="/recipes">Рецепты</Link></li>
                         </ul>
 
@@ -75,7 +75,7 @@ const MenuList = (props) => {
                                 <Link href="/">Главная</Link>
                             </li>
                             <li className="main_menu_item" style={{ marginRight: 40 + 'px' }}>
-                                <Link href="/MenuBuilder">Конструктор меню</Link>
+                                <Link href="/menu/builder">Конструктор меню</Link>
                             </li>
                             <li className="main_menu_item">
                                 <Link href="/recipes">Рецепты</Link>

@@ -5,12 +5,12 @@ import plus from '../../../public/assets/menu_builder_image/plus.svg';
 import shop from '../../../public/assets/menu_builder_image/shopping.svg';
 import { useSearchParams } from 'react-router-dom';
 
-const MenuBuilder = (props) => {
+export default function MenuBuilder(){
 
-    let [searchParams, setSearchParams] = useSearchParams();
-    console.log(searchParams.get("sex"))
-    console.log(searchParams.get("weight"))
-    console.log(searchParams.get("height"))
+    // let [searchParams, setSearchParams] = useSearchParams();
+    // console.log(searchParams.get("sex"))
+    // console.log(searchParams.get("weight"))
+    // console.log(searchParams.get("height"))
 
     return (
         <div>
@@ -19,7 +19,7 @@ const MenuBuilder = (props) => {
 
                 </div>
             </div>
-     
+
             <div className="section section_field_big"></div>
             <div className="section bg_hr_green">
                 <div className="container">
@@ -69,7 +69,7 @@ const MenuBuilder = (props) => {
                             <div className="cons_col cons_col7">ДЕНЬ 7</div>
                         </div>
 
-                    
+
 
                         <div className="cons_row cons_row1">
                             <div className="cons_col cons_col0">
@@ -596,6 +596,7 @@ const MenuBuilder = (props) => {
                     </div>
                 </div>
             </div>
+
             <div className="section section_field_small"></div>
 
             <div className="section section_field_small"></div>
@@ -639,7 +640,8 @@ const MenuBuilder = (props) => {
             </div>
 
         </div>
+
     )
 };
 
-export default MenuBuilder;
+// export default MenuBuilder;
