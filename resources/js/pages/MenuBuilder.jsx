@@ -83,6 +83,7 @@ export default function MenuBuilder(){
                                     <img className="cons_pic_img"
                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
                                 </div>
+                                <p>Название рецепта</p>
                                 <div className="cons_txt">&nbsp;</div>
                             </div>
 
@@ -92,6 +93,7 @@ export default function MenuBuilder(){
                                     <img className="cons_pic_img"
                                          src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
                                 </div>
+                                <p>Название рецепта</p>
                                 <div className="cons_txt">&nbsp;</div>
                             </div>
 

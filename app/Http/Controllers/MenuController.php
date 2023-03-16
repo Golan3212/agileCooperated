@@ -8,9 +8,26 @@ use App\QueryBuilders\MenuQueryBuilder;
 
 class MenuController extends Controller
 {
-    public function index()
+    public function index(MenuQueryBuilder $menuQueryBuilder)
     {
-        return Inertia::render('MenuBuilder');
-    }
+//        $menuList = $menuQueryBuilder->getAll();
+//
+//        $menu = [];
+//        foreach ($menuList as $key => $item) {
+//            $menu[] = [
+//                'id' => $item->id,
+//                'name' => $item->name,
+//                'breakfest' => $item->breakfest->title,
+//                'dinner' => $item->dinner->title,
+//                'lunch' => $item->lunch->title,
+//                'firstSnack' => $item->dinner->title,
+//            ];
+//        }
 
+        ;
+
+        return Inertia::render('Test', [
+//            'menu' => $menu
+        ]);
+    }
 }
