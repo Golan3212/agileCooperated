@@ -4,9 +4,15 @@
 
 .navigation {
   margin-left: 50px;
+  margin-top: 10%;
+}
+
+.navigation-list {
+  margin-top: 40px;
 }
 
 .navigation-link {
+  width: 100%;
   text-decoration: none;
   margin: 15px 45px;
   color: #523034;
@@ -192,19 +198,21 @@
 }
 
 .product-wrap {
-  width: 300px;
-  margin: 0 auto;
-  background: white;
+  height: 20%;
+  width: 31%;
+  background: #f2ecdb;
   padding: 0 0 20px;
   text-align: center;
   font-size: 14px;
   font-family: Lora, fantasy;
   text-transform: uppercase;
+  border-radius: 10px;
 }
 
 .product-item {
   position: relative;
   overflow: hidden;
+  height: 65%;
 }
 
 .product-wrap img {
@@ -255,8 +263,31 @@
   background: black;
 }
 
+.button_category {
+  width: 80%;
+  background-color: #efd7a6; /* Green */
+  border: 2px solid #c0a97a;
+  border-radius: 15px;
+  color: #62828a;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button_category:hover {
+  background-color: #d5c7b4;
+  color: #336757;
+}
+
 .product-title {
   color: #5e5e5e;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-title a {
@@ -296,15 +327,44 @@
 }
 
 .recipes_main {
-  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
 }
 
+.recipeListMain {
+  padding-top: 40px;
+}
+
 .recipeList {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pagination {
+  display: inline-block;
+  gap: 10px;
+}
+
+.page {
+  color: black;
+  float: left;
+  background-color: #f3d79a;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.page.active {
+  background-color: #eec97f;
+  color: white;
+  border-radius: 5px;
+}
+
+.page:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=App.css.map */
