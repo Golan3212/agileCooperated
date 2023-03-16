@@ -17,7 +17,7 @@ type UsePagination = (UsePaginationProps) => (UsePaginationReturn);
 
 const usePagination: UsePagination = ({ contentPerPage, count }) => {
     const [page, setPage] = useState(1);
-    // number of pages in total (total items / content on each page)
+    // number of Pages in total (total items / content on each page)
     const pageCount = Math.ceil(count / contentPerPage);
     // index of last item of current page
     const lastContentIndex = page * contentPerPage;
@@ -46,7 +46,7 @@ const usePagination: UsePagination = ({ contentPerPage, count }) => {
     };
 
     const setPageSAFE = (num: number) => {
-        // if number is greater than number of pages, set to last page
+        // if number is greater than number of Pages, set to last page
         if (num > pageCount) {
             setPage(pageCount);
             // if number is less than 1, set page to first page

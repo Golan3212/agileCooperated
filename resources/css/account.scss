@@ -26,6 +26,7 @@
     &__box {
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
     &__profile {
         display: flex;
@@ -36,7 +37,7 @@
         border: 1px solid #e2e8f0;
         border-radius: 0.5rem;
         box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%),
-                    0 10px 10px -5px rgb(0 0 0 / 4%);
+        0 10px 10px -5px rgb(0 0 0 / 4%);
         & h2 {
             padding-bottom: 15px;
             font-size: 20px;
@@ -77,4 +78,48 @@
         box-shadow: 0 -3px rgb(53,167,110) inset;
         cursor: pointer;
     }
+}
+
+//Страничка рекомендаций
+
+.advice {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    &__wrap {
+        margin-bottom: 45px;
+        padding: 25px 50px;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.5rem;
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%),
+        0 10px 10px -5px rgb(0 0 0 / 4%);
+    }
+    &__heading {
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(64,199,129);
+        margin: 0 0 30px;
+    }
+    & h3 {
+        font-size: 20px;
+    }
+    &__text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    & h4 {
+        font-size: 18px;
+        font-weight: 900;
+    }
+    &__result {
+        font-size: 16px;
+        display: flex;
+    }
+    & span {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
 }
