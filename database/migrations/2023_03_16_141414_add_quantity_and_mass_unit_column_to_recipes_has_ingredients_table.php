@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('recipes_has_ingredients', function (Blueprint $table) {
-            $table->dropForeign(['recipes_recipe_steps_id']);
-            $table->dropColumn('recipes_recipe_steps_id');
+            $table->integer('quantity_ingredient');
+            $table->string('mass_unit', 100);
         });
     }
 
@@ -23,10 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('recipes_has_ingredients', function (Blueprint $table) {
-            // $table->foreignId('recipes_recipe_steps_id')
-            //     ->references('recipe_steps_id')
-            //     ->on('recipes')
-            //     ->cascadeOnDelete();
+            $table->dropColumn('quantity_ingredient');
+            $table->dropColumn('mass_unit');
         });
     }
 };

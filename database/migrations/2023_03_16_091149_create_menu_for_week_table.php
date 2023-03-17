@@ -6,28 +6,26 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
+    /*
      * Run the migrations.
      */
     public function up(): void
     {
         Schema::create('menu_for_week', function (Blueprint $table) {
             $table->id();
-            $table->integer('menu_monday_id');
-            $table->integer('menu_tuesday_id');
-            $table->integer('menu_wednesday_id');
-            $table->integer('menu_thursday_id');
-            $table->integer('menu_friday_id');
-            $table->integer('menu_saturday_id');
-            $table->integer('menu_sunday_id');
-            $table->integer('total_calories');
-            $table->foreignId('menu_id')
-                ->constrained('menu')
-                ->cascadeOnDelete();
+            $table->integer('total_calories')->nullable()->default(0);
+            $table->foreignId('menu_monday_id')->references('id')->on('menu')->onDelete('cascade');
+            $table->foreignId('menu_tuesday_id')->references('id')->on('menu')->onDelete('cascade');
+            $table->foreignId('menu_wednesday_id')->references('id')->on('menu')->onDelete('cascade');
+            $table->foreignId('menu_thursday_id')->references('id')->on('menu')->onDelete('cascade');
+            $table->foreignId('menu_friday_id')->references('id')->on('menu')->onDelete('cascade');
+            $table->foreignId('menu_saturday_id')->references('id')->on('menu')->onDelete('cascade');
+            $table->foreignId('menu_sunday_id')->references('id')->on('menu')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
-    /**
+    /*
      * Reverse the migrations.
      */
     public function down(): void

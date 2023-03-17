@@ -64,4 +64,3 @@ Route::get('/parser/recipes', RecipeParserController::class)->name('parser.recip
 // //Роуты для формы
 // Route::get('/api/form', [FormController::class, 'index']);
 
-
