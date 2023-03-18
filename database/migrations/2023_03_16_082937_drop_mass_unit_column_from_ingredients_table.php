@@ -23,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('ingredients', function (Blueprint $table) {
-            $table->enum('mass_unit', MassUnit::all());
+            // $table->enum('mass_unit', MassUnit::all());
         });
     }
 };

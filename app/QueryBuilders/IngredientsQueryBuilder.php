@@ -30,4 +30,14 @@ final class IngredientsQueryBuilder extends QueryBuilder
     {
         return $this->model->where('id', $id)->get();
     }
+
+    public function getByTitle(string $title)
+    {
+        return $this->model->where('title', '=', $title)->get();
+    }
+
+    public function getByTitleFromUpdate(string $title)
+    {
+        return $this->model->where('title', '=', $title)->first();
+    }
 }
