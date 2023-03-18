@@ -10,24 +10,7 @@ class MenuController extends Controller
 {
     public function index(MenuQueryBuilder $menuQueryBuilder)
     {
-//        $menuList = $menuQueryBuilder->getAll();
-//
-//        $menu = [];
-//        foreach ($menuList as $key => $item) {
-//            $menu[] = [
-//                'id' => $item->id,
-//                'name' => $item->name,
-//                'breakfest' => $item->breakfest->title,
-//                'dinner' => $item->dinner->title,
-//                'lunch' => $item->lunch->title,
-//                'firstSnack' => $item->dinner->title,
-//            ];
-//        }
-
-        ;
-
-        return Inertia::render('Test', [
-//            'menu' => $menu
-        ]);
+//Здесь как вариант будет доступ к меню на один день.
+//        return Inertia::render('Menu');
     }
 }

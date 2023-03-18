@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MenuWeekController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FormController;
@@ -27,7 +28,7 @@ Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index'
 Route::get('recipe/{id}', [RecipeController::class, 'show']);
 Route::get('account', [AccountController::class, 'index']);
 
-Route::get('/menu/builder', [MenuController::class, 'index']);
+Route::get('/menu/builder/{id}', [MenuWeekController::class, 'index']);
 
 
 Route::get('PersonalAccount', [UserController::class, 'show']);
