@@ -26,6 +26,7 @@ class AdviceController extends Controller
 
         }
         $profile = $profilesQueryBuilder->getByUserId(\Auth::id());
+//        dd (Auth::id());
         return Inertia::render('Advice', [
             'profile' => $profile->toArray()[0],
         ]);
