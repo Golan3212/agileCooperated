@@ -11,8 +11,8 @@ import quotientSmall from "../../../public/assets/form/2.jpg";
 import quotientMiddle from "../../../public/assets/form/3.jpg";
 import quotientHigh from "../../../public/assets/form/4.jpg";
 import quotientHighest from "../../../public/assets/form/5.jpg";
-import weightLose from "../../../public/assets/form/7.jpg";
-import weightSave from "../../../public/assets/form/6.jpg";
+import weightLose from "../../../public/assets/form/6.jpg";
+import weightSave from "../../../public/assets/form/7.png";
 import weightAdd from "../../../public/assets/form/8.jpg";
 
 export default function Form() {
@@ -33,13 +33,13 @@ export default function Form() {
     function handleSubmit(e){
         e.preventDefault()
         const values = {
-                'gender': gender,
-                'weight': weight,
-                'height': height,
-                'age': age,
-                'quotient': quotient,
-                'target': target,
-            }
+            'gender': gender,
+            'weight': weight,
+            'height': height,
+            'age': age,
+            'quotient': quotient,
+            'target': target,
+        }
         Inertia.post('/form', values)
     }
 
@@ -62,7 +62,7 @@ export default function Form() {
 
     return (
         <div>
-            <form className="box">
+            <form className="box" onSubmit={handleSubmit}>
                 <h1 className="box__heading">Калькулятор БЖУ</h1>
                 {step1 &&
                     <div className="form">
@@ -257,7 +257,7 @@ export default function Form() {
                     </div>
                 }
                 {step4 &&
-                    <div className="form">
+                    <div className="form big">
                         <h4>Выберите цель:</h4>
                         <div className="target">
                             <div className="target__item">
