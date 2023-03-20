@@ -30,28 +30,17 @@ class ParserService implements Parser
 
         $json = json_encode($xmlObject);
         $recipes = json_decode($json, true);
-        $categoryBuilder = new CategoriesQueryBuilder();
 
         $idMenuFromWeek = [];
         $menuIdRecipes = [];
         $recipeIdForMenu = [];
+
         foreach ($recipes['recipes'] as $keys => $recipesDay) {
 
 
 
             foreach ($recipesDay['recipe'] as $key => $recipe) {
-                $categoryName = $recipe['category'];
-                if ($categoryBuilder->getFromTitleFirst($categoryName) === null) {
-                    // $category = new Category([
-                    //     'title' => $categoryName,
-                    // ]);
-                    // $category->save();
-                }else {
-                    $category = $categoryBuilder->getFromTitleFirst(
-                        $categoryName
-                    );
-                }
-
+                $categoryBuilder = new CategoriesQueryBuilder();
                 $recipeModel = new Recipe([
                     'title' => (string) $recipe['title'],
                     'calorie' => (int) $recipe['calorie'],
@@ -60,7 +49,25 @@ class ParserService implements Parser
                     'carbohydrates' => (int) $recipe['carbohydrates'],
                     'cooking_time' => (int) $recipe['time'],
                 ]);
+
+
+                if (empty($categoryBuilder->getByTitleFirst($recipe['category']))) {
+                    $category = new Category([
+                        'title' => $recipe['category'],
+                    ]);
+                    if ($category->save()) {
+                        # code...
+                    }
+
+                }else {
+                    $category = $categoryBuilder->getByTitleFirst(
+                        $recipe['category']
+                    );
+
+                }
+
                 $recipeModel->category()->associate($category->id);
+
 
                 if ($recipeModel->save()) {
                     $recipeIdForMenu[] = $recipeModel->id;
