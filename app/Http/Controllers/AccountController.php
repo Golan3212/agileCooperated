@@ -11,4 +11,9 @@ class AccountController extends Controller
     {
         return Inertia::render('PersonalAccount');
     }
+
+    public function show()
+    {
+        return Inertia::render('Home');
+    }
 }

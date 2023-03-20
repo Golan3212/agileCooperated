@@ -219,7 +219,7 @@
   transition: 0.3s ease-in-out;
 }
 
-.button {
+.but:hover {
   text-decoration: none;
   color: #c0a97a;
   font-size: 12px;
@@ -230,7 +230,7 @@
   top: 50%;
   left: 50%;
   border: 2px solid #c0a97a;
-  transform: translate(-50%, -50%) scale(0);
+  
   transition: 0.3s ease-in-out;
 }
 

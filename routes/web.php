@@ -24,10 +24,10 @@ use App\Http\Controllers\Parsers\RecipeParserController;
 
 
 Route::get('recipes', [RecipeController::class, 'index'])->name('recipes.index');
-// Route::get('/', [HomeController::class])->name('home');
+Route::get('/', [HomeController::class])->name('home');
 Route::get('recipe/{id}', [RecipeController::class, 'show']);
 Route::get('account', [AccountController::class, 'index']);
-Route::get('/menu', [MenuController::class, 'index']);
+// Route::get('/menu', [MenuController::class, 'index']);
 
  Route::get('/', function () {
      return view('app');
@@ -37,6 +37,7 @@ Route::get('recipe/{id}', [RecipeController::class, 'show']);
 Route::get('PersonalAccount', [UserController::class, 'show']);
 Route::get('/form', [FormController::class, 'index']);
 Route::get('/MenuBuilder', [MenuController::class, 'index']);
+// Route::get('/home', [AccountController::class, 'show']);
 
 //Когда регистрация появиться раскомментировать
 // Route::middleware(['auth'])->group(function () {
