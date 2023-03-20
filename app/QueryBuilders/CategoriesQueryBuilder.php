@@ -31,10 +31,10 @@ final class CategoriesQueryBuilder extends QueryBuilder {
     }
     public function getFromTitle(string $title)
     {
-        return $this->model->where('title', '=', $title)->get();
+        return $this->model->where('title', $title)->get();
     }
 
-    public function getFromTitleFirst(string $title)
+    public function getByTitleFirst(string $title)
     {
         return $this->model->where('title', '=', $title)->first();
     }
