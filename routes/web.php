@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuWeekController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
@@ -7,7 +8,6 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdviceController;
-//use App\Http\Controllers\Page\HomeController;
 //use App\Http\Controllers\Page\UsersAuthController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\Parsers\RecipeParserController;
@@ -24,7 +24,7 @@ use App\Http\Controllers\Parsers\RecipeParserController;
 */
 
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
-// Route::get('/', [HomeController::class])->name('home');
+Route::get('/', [HomeController::class, 'index']);
 Route::get('recipe/{id}', [RecipeController::class, 'show']);
 Route::get('account', [AccountController::class, 'index']);
 

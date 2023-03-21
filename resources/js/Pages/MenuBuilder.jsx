@@ -7,6 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 
 export default function MenuBuilder({menu}){
 
+    console.log(menu);
 
     return (
         <div>
@@ -64,550 +65,89 @@ export default function MenuBuilder({menu}){
                             <div className="cons_col cons_col5">Итог дня</div>
 
                         </div>
-
-                        <div className="cons_row cons_row1">
-                            <div className="cons_col cons_col0">
-                                <div className="cons_title">
-                                    Понедельник </div>
-                            </div>
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="3" id="col-1-3">
-                                <div className="cons_pic cons_itog">
-                                    <div className="cons_itog_title">На 1 порцию</div>
-                                    <div className="cons_itog_str" id="itog_k_1">
-                                        <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">0</div>
+                        {menu.map(item => {
+                            return<div className="constructor">
+                                <div className="cons_row cons_row1">
+                                    <div className="cons_col cons_col0">
+                                        <div className="cons_title">
+                                            {item.day_name} </div>
                                     </div>
-                                    <div className="cons_itog_str" id="itog_b_1">
-                                        <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">0</div>
+                                    <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
+                                        <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                                            backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
+                                            <img className="cons_pic_img"
+                                                 src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                        </div>
+                                        <p>{item.breakfast_title}</p>
+                                        <div className="cons_txt">&nbsp;</div>
                                     </div>
-                                    <div className="cons_itog_str" id="itog_z_1">
-                                        <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">0</div>
+
+                                    <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
+                                        <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                                            backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
+                                            <img className="cons_pic_img"
+                                                 src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                        </div>
+                                        <p>{item.firstSnack_title}</p>
+                                        <div className="cons_txt">&nbsp;</div>
                                     </div>
-                                    <div className="cons_itog_str" id="itog_u_1">
-                                        <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">0</div>
+
+                                    <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
+                                        <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                                            backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
+                                            <img className="cons_pic_img"
+                                                 src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                        </div>
+                                        <p>{item.lunch_title}</p>
+                                        <div className="cons_txt">&nbsp;</div>
                                     </div>
-                                </div>
-                                <div className="cons_shopping" id="" style={{display: "none"}}><img src={shop}></img></div>
-                            </div>
 
-                        </div>
-                        <div className="cons_row cons_row1">
-                            <div className="cons_col cons_col0">
-                                <div className="cons_title">
-                                    Вторник </div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="3" id="col-1-3">
-                                <div className="cons_pic cons_itog">
-                                    <div className="cons_itog_title">На 1 порцию</div>
-                                    <div className="cons_itog_str" id="itog_k_1">
-                                        <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">0</div>
+                                    <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
+                                        <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                                            backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
+                                            <img className="cons_pic_img"
+                                                 src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                        </div>
+                                        <p>{item.dinner_title}</p>
+                                        <div className="cons_txt">&nbsp;</div>
                                     </div>
-                                    <div className="cons_itog_str" id="itog_b_1">
-                                        <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">0</div>
+
+                                    <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
+                                        <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
+                                            backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
+                                            <img className="cons_pic_img"
+                                                 src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                        </div>
+                                        <p>{item.secondSnack_title}</p>
+                                        <div className="cons_txt">&nbsp;</div>
                                     </div>
-                                    <div className="cons_itog_str" id="itog_z_1">
-                                        <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">0</div>
+
+                                    <div className="cons_col cons_col1" data-day="1" data-rectype="3" id="col-1-3">
+                                        <div className="cons_pic cons_itog">
+                                            <div className="cons_itog_title">На 1 порцию</div>
+                                            <div className="cons_itog_str" id="itog_k_1">
+                                                <div className="cons_itog_str_name">ККалории</div>
+                                                <div className="cons_itog_str_val">0</div>
+                                            </div>
+                                            <div className="cons_itog_str" id="itog_b_1">
+                                                <div className="cons_itog_str_name">Белки, г</div>
+                                                <div className="cons_itog_str_val">0</div>
+                                            </div>
+                                            <div className="cons_itog_str" id="itog_z_1">
+                                                <div className="cons_itog_str_name">Жиры, г</div>
+                                                <div className="cons_itog_str_val">0</div>
+                                            </div>
+                                            <div className="cons_itog_str" id="itog_u_1">
+                                                <div className="cons_itog_str_name">Углеводы, г</div>
+                                                <div className="cons_itog_str_val">0</div>
+                                            </div>
+                                        </div>
+                                        <div className="cons_shopping" id="" style={{display: "none"}}><img src={shop}></img></div>
                                     </div>
-                                    <div className="cons_itog_str" id="itog_u_1">
-                                        <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
+
                                 </div>
-                                <div className="cons_shopping" id="" style={{display: "none"}}><img src={shop}></img></div>
                             </div>
-
-                        </div>
-                        <div className="cons_row cons_row1">
-                            <div className="cons_col cons_col0">
-                                <div className="cons_title">
-                                    Среда </div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="3" id="col-1-3">
-                                <div className="cons_pic cons_itog">
-                                    <div className="cons_itog_title">На 1 порцию</div>
-                                    <div className="cons_itog_str" id="itog_k_1">
-                                        <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_b_1">
-                                        <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_z_1">
-                                        <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_u_1">
-                                        <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                </div>
-                                <div className="cons_shopping" id="" style={{display: "none"}}><img src={shop}></img></div>
-                            </div>
-
-                        </div>
-                        <div className="cons_row cons_row1">
-                            <div className="cons_col cons_col0">
-                                <div className="cons_title">
-                                    Четверг </div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="3" id="col-1-3">
-                                <div className="cons_pic cons_itog">
-                                    <div className="cons_itog_title">На 1 порцию</div>
-                                    <div className="cons_itog_str" id="itog_k_1">
-                                        <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_b_1">
-                                        <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_z_1">
-                                        <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_u_1">
-                                        <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                </div>
-                                <div className="cons_shopping" id="" style={{display: "none"}}><img src={shop}></img></div>
-                            </div>
-
-                        </div>
-                        <div className="cons_row cons_row1">
-                            <div className="cons_col cons_col0">
-                                <div className="cons_title">
-                                    Пятница </div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="3" id="col-1-3">
-                                <div className="cons_pic cons_itog">
-                                    <div className="cons_itog_title">На 1 порцию</div>
-                                    <div className="cons_itog_str" id="itog_k_1">
-                                        <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_b_1">
-                                        <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_z_1">
-                                        <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_u_1">
-                                        <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                </div>
-                                <div className="cons_shopping" id="" style={{display: "none"}}><img src={shop}></img></div>
-                            </div>
-
-                        </div>
-                        <div className="cons_row cons_row1">
-                            <div className="cons_col cons_col0">
-                                <div className="cons_title">
-                                    Суббота </div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="3" id="col-1-3">
-                                <div className="cons_pic cons_itog">
-                                    <div className="cons_itog_title">На 1 порцию</div>
-                                    <div className="cons_itog_str" id="itog_k_1">
-                                        <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_b_1">
-                                        <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_z_1">
-                                        <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_u_1">
-                                        <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                </div>
-                                <div className="cons_shopping" id="" style={{display: "none"}}><img src={shop}></img></div>
-                            </div>
-
-                        </div>
-                        <div className="cons_row cons_row1">
-                            <div className="cons_col cons_col0">
-                                <div className="cons_title">
-                                    Воскресенье </div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="1" id="col-1-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="1" data-rectype="1" id="add-1-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col2" data-day="2" data-rectype="1" id="col-2-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="2" data-rectype="1" id="add-2-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <p>Название рецепта</p>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col3" data-day="3" data-rectype="1" id="col-3-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="3" data-rectype="1" id="add-3-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col4" data-day="4" data-rectype="1" id="col-4-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="4" data-rectype="1" id="add-4-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col5" data-day="5" data-rectype="1" id="col-5-1">
-                                <div className="cons_pic cons_add" style={{backgroundImage: `url(${image})`, backgroundSize: "cover",
-                                    backgroundPosition: "center"}} data-day="5" data-rectype="1" id="add-5-1">
-                                    <img className="cons_pic_img"
-                                         src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
-                                </div>
-                                <div className="cons_txt">&nbsp;</div>
-                            </div>
-
-                            <div className="cons_col cons_col1" data-day="1" data-rectype="3" id="col-1-3">
-                                <div className="cons_pic cons_itog">
-                                    <div className="cons_itog_title">На 1 порцию</div>
-                                    <div className="cons_itog_str" id="itog_k_1">
-                                        <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_b_1">
-                                        <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_z_1">
-                                        <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                    <div className="cons_itog_str" id="itog_u_1">
-                                        <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">0</div>
-                                    </div>
-                                </div>
-                                <div className="cons_shopping" id="" style={{display: "none"}}><img src={shop}></img></div>
-                            </div>
-
-                        </div>
+                        })}
                     </div>
                 </div>
             </div>

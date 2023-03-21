@@ -31,7 +31,9 @@ class  RecipesHasIngredientsSeeder extends Seeder
                 $data[] =
                     [
                         'recipes_id' => $i,
-                        'ingredients_id'=> $k
+                        'ingredients_id'=> $k,
+                        'quantity_ingredient' =>random_int(5, 500),
+                        'mass_unit' => \fake()->text(5),
                     ];
             }
         }

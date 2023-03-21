@@ -62,7 +62,7 @@ export default function Form() {
 
     return (
         <div>
-            <form className="box" onSubmit={handleSubmit}>
+            <form className="box" >
                 <h1 className="box__heading">Калькулятор БЖУ</h1>
                 {step1 &&
                     <div className="form">
@@ -306,7 +306,7 @@ export default function Form() {
                                 </label>
                             </div>
                         </div>
-                        <button type="submit" className="form__btn">
+                        <button type="submit" className="form__btn" onClick={handleSubmit}>
                             Рассчитать
                         </button>
                     </div>

@@ -46,7 +46,7 @@ const Recipes = ({recipes}) =>{
             setCategoryId(() => category.filter(recipe => recipe.category_title === "ужин"))
         }
     }
-
+    console.log(recipes);
     const handleClickCalorie = (event) => {
         if (event.target.id === "100"){
             setCategoryId(() => category.filter(recipe => recipe.calorie <= 100));
