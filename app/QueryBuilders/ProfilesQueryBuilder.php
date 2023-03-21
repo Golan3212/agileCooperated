@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 
 
-final class ProfileQueryBuilder extends QueryBuilder
+final class ProfilesQueryBuilder extends QueryBuilder
 {
     public Builder $model;
 
@@ -32,7 +32,7 @@ final class ProfileQueryBuilder extends QueryBuilder
         return $this->model->where('user_id', $id);
     }
 
-    function caloricNorm(int $gender, int $age, int $height, int $weight)
+    function getCaloricNorm(string $gender, int $age, int $height, int $weight)
     {
         if ($gender === 'male') {
             $calories = $height*5 - $age*6.8 + $weight*13.7 + 66;
@@ -44,7 +44,7 @@ final class ProfileQueryBuilder extends QueryBuilder
     }
 
 
-    public function kbzuNorm(float $target, int $calories)
+    public function getKbzuNorm(float $target, int $calories)
     {
         switch ($target) {
             case 0.9:
@@ -72,7 +72,7 @@ final class ProfileQueryBuilder extends QueryBuilder
                 $carbohydratesMax = 0.6;
                 break;
             default:
-                # code...
+            //
                 break;
     }
 
@@ -84,7 +84,7 @@ final class ProfileQueryBuilder extends QueryBuilder
 
     }
 
-    public function bodyMassIndex(int $weight, int $height)
+    public function getBodyMassIndex(int $weight, int $height)
     {
         $index = round(($weight / (($height / 100) ** 2)) * 10) / 10;
         return $index;

@@ -228,7 +228,7 @@ a:hover {
 }
 
 .avatar:hover svg {
-  fill: #FFF4F1;
+    fill: #FFF4F1;
 }
 
 .main_menu_item a:hover {

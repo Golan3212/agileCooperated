@@ -14,9 +14,7 @@ class RecipeParserController extends Controller
      */
     public function __invoke(Request $request, Parser $parse)
     {
-        $data = $parse->setLink('https://edatut.webnode.ru/rss/vtorye-blyuda.xml')->saveParserData();
-        return Inertia::render('Home', [
-            'data' => $data,
-        ]);
+        $data = $parse->saveParserRecipesData();
+        return \redirect()->route('recipes.index');
     }
 }

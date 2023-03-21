@@ -1,0 +1,2055 @@
+<?xml version="1.0"?>
+
+<!-- Comment -->
+
+<week>
+    <!--Monday-->
+    <recipes>
+        <recipe>
+            <title>Шоколадно-банановые панкейки</title>
+            <img></img>
+            <calorie>344</calorie>
+            <proteins>27</proteins>
+            <fats>10</fats>
+            <carbohydrates>36</carbohydrates>
+            <portion>2</portion>
+            <time>10</time>
+            <category>Завтрак</category>
+            <steps>
+                <step>Все ингредиенты смешать.</step>
+                <step>Затем пробить смесь блендером до однородной массы.</step>
+                <step>Выпекать на среднем огне на сухой антипригарной сковороде под крышкой с двух сторон.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Геркулес</title>
+                    <quantity>35</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Яйцо</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Банан</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Творог 2%</title>
+                    <quantity>80</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Какао</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Фруктовый салат</title>
+            <img></img>
+            <calorie>304</calorie>
+            <proteins>13</proteins>
+            <fats>11</fats>
+            <carbohydrates>39</carbohydrates>
+            <portion>3</portion>
+            <time>5</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Яблоко и грушу порезать на кусочки</step>
+                <step>Добавить к фруктам грецкий орех</step>
+                <step>Добавить греческий йогурт, всё перемешать. Салат готов.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Яблоко</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Груша</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Орех кедровый</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Греческий йогурт</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Рыба по-итальянски</title>
+            <img></img>
+            <calorie>338</calorie>
+            <proteins>30</proteins>
+            <fats>7</fats>
+            <carbohydrates>39</carbohydrates>
+            <portion>2</portion>
+            <time>30</time>
+            <category>Обед</category>
+            <steps>
+                <step>Филе трески (или другой белой рыбы) нарезать кусками толщиной с палец и положить на противень, дно которого смазать каплей масла.</step>
+                <step>Посыпать солью и перцем, сбрызнуть растопленным сливочным маслом.</step>
+                <step>Посыпать измельченным чесноком.</step>
+                <step>Поставить противень в духовку, разогретую до 180–200 градусов и печь до готовности (минут 15–20).</step>
+                <step>За пять минут до готовности перевернуть аккуратно рыбу, посыпать петрушкой и убрать еще на 5 минут.</step>
+                <step>Сбрызнуть готовую рыбу лимонным соком.</step>
+                <step>Отварить булгур.</step>
+                <step>Дополнить обед салатом из свежих огурцов.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Белая рыба (треска, сибас, хек, минтай)</title>
+                    <quantity>120</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Рубленая петрушка</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Растительное масло</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Чеснок</title>
+                    <quantity>1</quantity>
+                    <mass_unit>зубчик</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Молотый перец</title>
+                    <quantity>2</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>2</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сливочное масло</title>
+                    <quantity>3</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Лимонный сок</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Булгур</title>
+                    <quantity>60</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Огурцы свежие</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Салат из капусты с яблоком</title>
+            <img></img>
+            <calorie>211</calorie>
+            <proteins>7</proteins>
+            <fats>11</fats>
+            <carbohydrates>19</carbohydrates>
+            <portion>3</portion>
+            <time>5</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Яблоко натереть на крупной терке.</step>
+                <step>Капусту мелко нашинковать.</step>
+                <step>Зелень мелко нарезать.</step>
+                <step>Смешать все ингредиенты и добавить масло.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Капуста белокочанная</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Яблоко</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло растительное</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Укроп или другая зелень</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Курочка аппетитная</title>
+            <img></img>
+            <calorie>307</calorie>
+            <proteins>30</proteins>
+            <fats>17</fats>
+            <carbohydrates>11</carbohydrates>
+            <portion>2</portion>
+            <time>30</time>
+            <category>Ужин</category>
+            <steps>
+                <step>Обтереть птицу специями. </step>
+                <step>Приготовить на гриле или на сковороде без масла.</step>
+                <step>Приготовить салат. Для этого помидор и огурец порезать ломтиками.</step>
+                <step>Приготовить заправку: смешать оливковое масло и соевый соус. Добавить к овощам</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Филе бедра</title>
+                    <quantity>120</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Чеснок</title>
+                    <quantity>1</quantity>
+                    <mass_unit>зубчик</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Растительное масло</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Огурец</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидор</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Перец сладкий</title>
+                    <quantity>70</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соус соевый</title>
+                    <quantity>2</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло оливковое</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+    </recipes>
+    <!--    Tuesday -->
+    <recipes>
+        <recipe>
+            <title>Омлет с овощами</title>
+            <img></img>
+            <calorie>375</calorie>
+            <proteins>21</proteins>
+            <fats>18</fats>
+            <carbohydrates>31</carbohydrates>
+            <portion>3</portion>
+            <time>45</time>
+            <category>Завтрак</category>
+            <steps>
+                <step>Отварить брокколи или цветную капусту в подсоленной воде 10 минут.</step>
+                <step>В это время слегка взбить яйца, посолить, смешать с молоком.</step>
+                <step>В смазанную сливочным маслом форму положить овощи и залить молочно-яичной смесью.</step>
+                <step>Запекать в духовке 25 минут при 180гр. Можно готовить в мультиварке или на сковороде.</step>
+                <step>Завтрак можно дополнить кусочком цельнозернового хлеба</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Яйцо</title>
+                    <quantity>2</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Капуста цветная или брокколи</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Молоко 2%</title>
+                    <quantity>50</quantity>
+                    <mass_unit>мл.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло сливочное</title>
+                    <quantity>4</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>1</quantity>
+                    <mass_unit>щепотка</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Хлеб цельнозерновой</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Печенье с курагой</title>
+            <img></img>
+            <calorie>224</calorie>
+            <proteins>13</proteins>
+            <fats>4</fats>
+            <carbohydrates>35</carbohydrates>
+            <portion>3</portion>
+            <time>30</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Разогреваем духовку до 160°C.</step>
+                <step>Смолоть блендером банан.</step>
+                <step>Смешиваем все ингредиенты, кроме молока.</step>
+                <step>В конце добавляем молоко, еще раз все перемешиваем.</step>
+                <step>Курагу измельчаем и перемешиваем тесто.</step>
+                <step>Вылепить шарики и запечь их в духовке.</step>
+                <step>Печенье можно есть с натуральный йогуртом.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Пшеничная цельнозерновая мука</title>
+                    <quantity>75</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сироп топинамбура</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Разрыхлитель</title>
+                    <quantity>1/2</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Банан</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Молоко 3,2%</title>
+                    <quantity>3</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Курага</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>1</quantity>
+                    <mass_unit>щепотка</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Йогурт натуральный</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Рагу из овощей + куриное филе ломтиками</title>
+            <img></img>
+            <calorie>440</calorie>
+            <proteins>41</proteins>
+            <fats>13</fats>
+            <carbohydrates>35</carbohydrates>
+            <portion>2</portion>
+            <time>30</time>
+            <category>Обед</category>
+            <steps>
+                <step>Отрежьте оба конца вымытых баклажанов. Неочищенные баклажаны нарежьте крупными кубиками.</step>
+                <step>Картофель очистите от кожуры. Перец очистите от семян.</step>
+                <step>Помидоры обдайте кипящей водой, очистите от кожицы.</step>
+                <step>Все нарежьте крупными кубиками.</step>
+                <step>Лук очистите, нарежьте тонкими полукольцами.</step>
+                <step>Все овощи слегка протушиваем на капле масла: картофель, баклажаны, лук почти до готовности.</step>
+                <step>Перец и помидоры слегка припускаем в небольшом количестве воды.</step>
+                <step>Затем все смешиваем и тушим до готовности 10 минут. Подаем с зеленью.</step>
+                <step>Куриное филе порезать на ломтики, поджарить на гриле или сковороде без масла.</step>
+                <step>Посыпать солью, сбрызнуть соевым соусом и суженным базиликом.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Баклажаны</title>
+                    <quantity>60</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидоры</title>
+                    <quantity>35</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Картофель</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Перец болгарский</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Лук репчатый</title>
+                    <quantity>15</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло растительное</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Куриное филе</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Специи</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Зелень петрушки</title>
+                    <quantity>2</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Закуска из баклажанов</title>
+            <img></img>
+            <calorie>222</calorie>
+            <proteins>7</proteins>
+            <fats>5</fats>
+            <carbohydrates>35</carbohydrates>
+            <portion>2</portion>
+            <time>75</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Баклажаны нарезать кружочками, посолить.</step>
+                <step>Оставить на 30-40 мин, промокнуть бумажным полотенцем. </step>
+                <step>Далее готовим любым способом: жарим на гриле, запекаем в духовке при 180 гр ~20 мин, жарим на антипригарной сковороде, смазанной каплей масла.</step>
+                <step>Ингредиенты для соуса смешиваем.</step>
+                <step>Помидоры нарезаем кружочками.</step>
+                <step>Приготовленные баклажаны смазать соусом, выложить сверху помидоры. Дать настояться 15-20 мин.</step>
+                <step>Блюдо моно дополнить кусочком цельнозернового хлеба.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Баклажан</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидор</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сметана 10% </title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Горчица</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Чеснок</title>
+                    <quantity>1</quantity>
+                    <mass_unit>зубчик</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль, перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Тушеная рыба под маринадом + припущенные кабачки</title>
+            <img></img>
+            <calorie>249</calorie>
+            <proteins>29</proteins>
+            <fats>9</fats>
+            <carbohydrates>14</carbohydrates>
+            <portion>2</portion>
+            <time>30</time>
+            <category>Ужин</category>
+            <steps>
+                <step>Кусочки минтая посолите.</step>
+                <step>Лук и морковь пассеруйте в небольшом количестве воды отдельно.</step>
+                <step>В глубокую посуду выложите рыбу и овощи, добавьте томатную пасту, разбавленную небольшим количеством воды и уксуса (по желанию).</step>
+                <step>Кусочки минтая посолите.</step>
+                <step>Лук и морковь пассеруйте в небольшом количестве воды отдельно.</step>
+                <step>Тушите до готовности. Готовую рыбу посолите и поперчите.</step>
+                <step>Кабачки припустите в небольшом количестве воды.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Минтай</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Морковь</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Лук</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Уксус (по желанию)</title>
+                    <quantity>2</quantity>
+                    <mass_unit>капли</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Специи</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Томатная паста</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Оливковое масло</title>
+                    <quantity>7</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+    </recipes>
+    <!--    Wednesday -->
+    <recipes>
+        <recipe>
+            <title>Творожно-сырный рулет</title>
+            <img></img>
+            <calorie>405</calorie>
+            <proteins>31</proteins>
+            <fats>14</fats>
+            <carbohydrates>37</carbohydrates>
+            <portion>3</portion>
+            <time>10</time>
+            <category>Завтрак</category>
+            <steps>
+                <step>Сыр натереть на мелкой терке, мелко порубить любимую зелень, добавить творог и йогурт, немного подсолить.</step>
+                <step>Можно добавить немного чеснока по вкусу (если не смущает запах).</step>
+                <step>Все тщательно перемешать.</step>
+                <step>Половину листа лаваша смазать получившейся смесью, скрутить в плотный рулет.</step>
+                <step>Разрезать на небольшие кусочки</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Лаваш</title>
+                    <quantity>70</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сыр</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Творог 2%</title>
+                    <quantity>80</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Греческий йогурт</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Любая зелень по вкусу</title>
+                    <quantity>0</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Гранола домашняя</title>
+            <img></img>
+            <calorie>192</calorie>
+            <proteins>13</proteins>
+            <fats>5</fats>
+            <carbohydrates>22</carbohydrates>
+            <portion>3</portion>
+            <time>40</time>
+            <category>Перекус</category>
+            <steps>
+                <step>С геркулес и пюре.</step>
+                <step>Орехи и сухофрукты измельчить.</step>
+                <step>Все перемешать, добавить корицу и еще раз перемешать.</step>
+                <step>Противень застелить листом пергамента. Массу распределить равномерно на противень.</step>
+                <step>Сушим в духовке 25-30 минут при температуре 180 С (режим «Верхний и нижний тэн»), периодически помешивая.</step>
+                <step>Готовой граноле даем остыть, перекладываем в банку или контейнер.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Йогурт натуральный</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Геркулес долгой варки</title>
+                    <quantity>130</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Яблочное пюре</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Корица</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Орехи (кроме арахиса)</title>
+                    <quantity>15</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сухофрукты</title>
+                    <quantity>15</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Пельмени «Домашние» (1 порция - 200г)</title>
+            <img></img>
+            <calorie>383</calorie>
+            <proteins>35</proteins>
+            <fats>5</fats>
+            <carbohydrates>49</carbohydrates>
+            <portion>2</portion>
+            <time>50</time>
+            <category>Обед</category>
+            <steps>
+                <step>Положить шпинат, соль и воду в чашу блендера.Взбить погружным блендером.</step>
+                <step>Добавляем постепенно муку. Вымешиваем тесто. Дать тесту отдохнуть 30 минут.</step>
+                <step>Для начинки рубим лук на мелкие кубики.</step>
+                <step>Соединяем два вида фарша. Вымешиваем и соединяем с луком. Полученную смесь солим, перчим, тщательно перемешиваем.</step>
+                <step>Раскатываем тесто толщиной 1 мм, вырезаем круги диаметром 4-5 см с подошью специальной формы или бокала.</step>
+                <step>В качестве начинки добавляем фарш. Лепим пельмени.</step>
+                <step>В кипящую воду выложить пельмени. Готовить 3-4 минуты.</step>
+                <step>Подавать с натуральным йогуртом 1 ст.л.</step>
+                <step>Для сбалансированного питания к порции пельменей добавьте свежий огурец - 150 г.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Мука пшеничная 2 сорт</title>
+                    <quantity>180</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Вода</title>
+                    <quantity>120</quantity>
+                    <mass_unit>мл.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Шпинат</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Фарш куриный</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Фарш телячий</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Лук репчатый (средний)</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Натуральный йогурт</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Огурцы свежие</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Грибной паштет</title>
+            <img></img>
+            <calorie>267</calorie>
+            <proteins>10</proteins>
+            <fats>11</fats>
+            <carbohydrates>33</carbohydrates>
+            <portion>3</portion>
+            <time>75</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Кешью заливаем кипятком и оставляем минимум на 15 минут, а лучше на 1 час.</step>
+                <step>Шампиньоны режем небольшими кубиками. Чеснок давим плоскостью ножа и мелко крошим.</step>
+                <step>Растительное масло наливаем на разогретую сковороду, отправляем туда чеснок и слегка обжариваем.</step>
+                <step>Выкладываем грибы и жарим до мягкости.</step>
+                <step>Перчим и солим по вкусу. В конце добавляем горсть нарезанной петрушки и перемешиваем.</step>
+                <step>1/4 часть получившейся массы откладываем в миску, остальное отправляем в чашу блендера. Сливаем воду с кешью и также выкладываем их в блендер.</step>
+                <step>Перемалываем до однородного кремового состояния паштета.</step>
+                <step>В процессе добавляем 20-40 г воды, и если будет нужно для консистенции еще немного. Пробуем на соль.</step>
+                <step>1/4 часть грибов соединяем с паштетом и перемешиваем. Выкладываем в форму и отправляем в холодильник на ночь.</step>
+                <step>Подаем на кусочке цельнозернового хлеба 60 г.Сверху на бутерброд положить огурец.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Шампиньоны</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кешью</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Чеснок</title>
+                    <quantity>2</quantity>
+                    <mass_unit>зубчика</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Петрушка</title>
+                    <quantity>1</quantity>
+                    <mass_unit>пучок</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Оливковое масло</title>
+                    <quantity>8</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>1</quantity>
+                    <mass_unit>щепотка</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Черный молотый перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кусочек цельнозернового хлеба для 1 порции</title>
+                    <quantity>60</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Огурец свежий</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Омлет с болгарским перцем</title>
+            <img></img>
+            <calorie>256</calorie>
+            <proteins>16</proteins>
+            <fats>16</fats>
+            <carbohydrates>11</carbohydrates>
+            <portion>2</portion>
+            <time>15</time>
+            <category>Ужин</category>
+            <steps>
+                <step>Яйца смешиваем с молоком.</step>
+                <step>Лук и морковь пассеруйте в небольшом количестве воды отдельно.</step>
+                <step>Перец болгарский нарезаем полосочками.</step>
+                <step>Перец опускаем на сковороду, заливаем яичной смесью.</step>
+                <step>Подсаливаем и добавляем зелень по вкусу.</step>
+                <step>Делаем салат: свежую капусту и зелень порезать и заправить растительным маслом</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Яйцо</title>
+                    <quantity>2</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Молоко</title>
+                    <quantity>50</quantity>
+                    <mass_unit>мл.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Перец болгарский</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Любая зелень</title>
+                    <quantity>1/2</quantity>
+                    <mass_unit>пучка</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Специи</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Капуста свежая</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Растительное масло</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+    </recipes>
+    <!--    Thursday  -->
+    <recipes>
+        <recipe>
+            <title>Ленивая овсянка</title>
+            <img></img>
+            <calorie>343</calorie>
+            <proteins>17</proteins>
+            <fats>10</fats>
+            <carbohydrates>47</carbohydrates>
+            <portion>2</portion>
+            <time>10</time>
+            <category>Завтрак</category>
+            <steps>
+                <step>Геркулес залить с вечера кефиром, убрать в холодильник.</step>
+                <step>За ночь геркулес размякнет и пропитается кефиром.</step>
+                <step>Утром порежьте банан на кусочки или разомните в пюре.</step>
+                <step>Смешайте смесь геркулеса и кефира с бананом.</step>
+                <step>Добавьте кедровые орехи.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Геркулес</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кефир 1% или йогурт натуральный</title>
+                    <quantity>150</quantity>
+                    <mass_unit>мл.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Банан</title>
+                    <quantity>70</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кедровый орех</title>
+                    <quantity>6</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Творог с изюмом</title>
+            <img></img>
+            <calorie>147</calorie>
+            <proteins>15</proteins>
+            <fats>2</fats>
+            <carbohydrates>18</carbohydrates>
+            <portion>1</portion>
+            <time>5</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Изюм замочить в горячей воде на 5 минут.</step>
+                <step>Смешать творог и изюм</step>
+                <step>По желанию добавить 1 ст.л. натурального йогурта.</step>
+                <step>Можно заменить изюм на сезонные ягоды или яблоко, порезанное кусочками.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Творог 2-5%</title>
+                    <quantity>80</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Изюм</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Натуральный йогурт</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Корица</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Орехи (кроме арахиса)</title>
+                    <quantity>15</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сухофрукты</title>
+                    <quantity>15</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Куриные оладьи с запеченным картофелем</title>
+            <img></img>
+            <calorie>349</calorie>
+            <proteins>23</proteins>
+            <fats>12</fats>
+            <carbohydrates>38</carbohydrates>
+            <portion>2</portion>
+            <time>25</time>
+            <category>Обед</category>
+            <steps>
+                <step>Измельчить лук, морковь натереть на крупной терке, обжарить на смазанной 1 ч. л масла сковороде.</step>
+                <step>Куриное филе и кабачок пропустить через мясорубку.</step>
+                <step>Добавить воду 30 мл и яйцо, а также разрыхлитель.</step>
+                <step>Туда же ввести лук и морковь, посолить, поперчить.</step>
+                <step>Зелень мелко порезать и добавить к смеси.</step>
+                <step>Добавить муку, хорошо перемешать.</step>
+                <step>Жарить на антипригарной сковороде на среднем огне, выкладывая массу ложкой.</step>
+                <step>Картофель порезать ломтиками, полосить, поперчить и запечь в духовке</step>
+                <step>Подавать картофель и оладьи вместе.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Мякоть куриного бедра</title>
+                    <quantity>160</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Яйцо</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кабачок</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Лук</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Морковь</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Мука цельнозерновая</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло растительное</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Картофель</title>
+                    <quantity>180</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Шпинат и другая листовая зелень</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Салат "Партизан"</title>
+            <img></img>
+            <calorie>190</calorie>
+            <proteins>11</proteins>
+            <fats>6</fats>
+            <carbohydrates>22</carbohydrates>
+            <portion>2</portion>
+            <time>25</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Овощи порезать на произвольные кусочки.Перемешать.</step>
+                <step>Заправить соевым соусом, поперчить и посыпать сушеным базиликом.</step>
+                <step>Дать настояться 15 минут.</step>
+                <step>Салат можно дополнить кусочком цельнозернового хлеба</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Перец болгарский</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидор средний</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Огурец</title>
+                    <quantity>70</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Шпинат</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сыр моцарелла</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соевый соус</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сущеный базилик</title>
+                    <quantity>1</quantity>
+                    <mass_unit>щепотка</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Хлеб цельнозерновой</title>
+                    <quantity>60</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Сочная курочка с ореховым соусом и овощами</title>
+            <img></img>
+            <calorie>363</calorie>
+            <proteins>28</proteins>
+            <fats>20</fats>
+            <carbohydrates>18</carbohydrates>
+            <portion>2</portion>
+            <time>15</time>
+            <category>Ужин</category>
+            <steps>
+                <step>Кабачок нарезаем кубиками, обжариваем до золотистого цвета на 1 капле масла.</step>
+                <step>Черри режем пополам и обжариваем с чесноком на сливочном масле.</step>
+                <step>Филе нарезаем как манго и обжариваем с каждой стороны по 8 минут до золотистого цвета.</step>
+                <step>Обжариваем грецкие орехи на сухой сковороде без масла.</step>
+                <step>В чашу блендера добавляем орехи, кинзу, сливки, соль, перец.</step>
+                <step>Выкладываем подушку из овощей, сверху курицу и поливаем ореховым соусом.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Куриное филе</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Грецкие орехи</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кинза</title>
+                    <quantity>2</quantity>
+                    <mass_unit>веточки</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сливки 10%</title>
+                    <quantity>20</quantity>
+                    <mass_unit>мл</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кабачок</title>
+                    <quantity>200</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидоры черри</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Растительное масло</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сок лимона</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сливочное масло</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Черный молотый перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Чеснок</title>
+                    <quantity>2</quantity>
+                    <mass_unit>зубчика</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+
+    </recipes>
+    <!--    Friday -->
+    <recipes>
+        <recipe>
+            <title>Творожные улитки с корицей</title>
+            <img></img>
+            <calorie>717</calorie>
+            <proteins>46</proteins>
+            <fats>19</fats>
+            <carbohydrates>87</carbohydrates>
+            <portion>3</portion>
+            <time>60</time>
+            <category>Завтрак</category>.
+            <steps>
+                <step>Смешать все ингредиенты для теста: творог, муку, яйцо, сироп топинамбура.</step>
+                <step>Тесто тщательно выместить, убрать в холодильник на 15 минут.</step>
+                <step>Приготовить начинку,смешав все ингредиенты, отставить в сторону.</step>
+                <step>Тонко раскатать тесто, распределить начинку, завернуть рулетом, нарезать на 6 равных кусочков.</step>
+                <step>Запекать 25 мин при температуре 190С.</step>
+                <step>После запекания улитки смазать кремом, дать немного остыть.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Творог 2%</title>
+                    <quantity>70</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Мука цельнозерновая</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Мука рисовая</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Яйцо</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сироп топинамбура (в тесто)</title>
+                    <quantity>6</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Творог (для начинки)</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сироп топинамбура (для начинки)</title>
+                    <quantity>6</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Йогурт натуральный (для начинки)</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Корица (для начинки)</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Молоко (для крема)</title>
+                    <quantity>100</quantity>
+                    <mass_unit>мл.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Желток (для крема)</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кукурузный крахмал (для крема)</title>
+                    <quantity>8</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Груша + миндаль</title>
+            <img></img>
+            <calorie>159</calorie>
+            <proteins>3</proteins>
+            <fats>8</fats>
+            <carbohydrates>17</carbohydrates>
+            <portion>1</portion>
+            <time>5</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Миндаль предварительно замочить в воде (1 час).</step>
+                <step>Грушу порезать на кусочки.</step>
+                <step>Ваш перекус готов!</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Груша</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Миндаль</title>
+                    <quantity>15</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Макароны из полбы или твердых сортов пшеницы «По флотски»</title>
+            <img></img>
+            <calorie>345</calorie>
+            <proteins>22</proteins>
+            <fats>14</fats>
+            <carbohydrates>34</carbohydrates>
+            <portion>2</portion>
+            <time>30</time>
+            <category>Обед</category>
+            <steps>
+                <step>Макароны отварить в подсоленной воде.</step>
+                <step>Морковь натереть на терке или нарезать соломкой. Лук нарезать полукольцами или на маленькие кубики.</step>
+                <step>На сковороде протушить овощи с добавлением растительного масла 4-5 минут.</step>
+                <step>Добавить к овощам фарш, перемешать, тушить 3-4 минуты, добавить 40-50 мл воды и тушить до готовности.</step>
+                <step>В процессе приготовления вилкой размять фарш на мелкие кусочки, посолить, поперчить по вкусу.</step>
+                <step>Соединить макароны  и фарш с овощами, тщательно перемешать.</step>
+                <step>К порции подать горсть листовой зелени, шпината</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Макароны из тв. сортов пшеницы</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Фарш из телятины или куриного бедра</title>
+                    <quantity>80</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Лук репчатый</title>
+                    <quantity>1/2</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Морковь</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло растительное</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Шпинат и другая листовая зелень</title>
+                    <quantity>1/3</quantity>
+                    <mass_unit>пучка</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Домашние пряные хлебцы</title>
+            <img></img>
+            <calorie>253</calorie>
+            <proteins>9</proteins>
+            <fats>10</fats>
+            <carbohydrates>30</carbohydrates>
+            <portion>2</portion>
+            <time>40</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Смешиваем сухие ингредиенты, вливаем воду и масло.</step>
+                <step>Замешиваем тесто сначала лопаткой, потом руками пару минут.</step>
+                <step>Раскатываем на пергаменте. После этого хлебцы выпекаем в духовке 12 минут.</step>
+                <step>Подавать с натуральным йогуртом.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Мука цельнозерновая</title>
+                    <quantity>35</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Разрыхлитель</title>
+                    <quantity>1/2</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Вода</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло растительное</title>
+                    <quantity>7</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль, специи</title>
+                    <quantity>1</quantity>
+                    <mass_unit>щепотка</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Натуральный йогурт</title>
+                    <quantity>120</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Теплый салат с курицей</title>
+            <img></img>
+            <calorie>422</calorie>
+            <proteins>30</proteins>
+            <fats>21</fats>
+            <carbohydrates>27</carbohydrates>
+            <portion>2</portion>
+            <time>60</time>
+            <category>Ужин</category>
+            <steps>
+                <step>Капусту шинкуем тонкой соломкой и выкладываем в глубокую посуду, предварительно посолив.</step>
+                <step>Затем жмем ее руками, чтобы стала помягче и немного выпустила сок. И оставляем на 15 минут.</step>
+                <step>За это время трем морковку на крупной терке.</step>
+                <step>Всыпаем морковь в компанию к капусте, вливаем уксус. Очень хорошо перемешиваем содержимое миски.</step>
+                <step>Вливаем подсолнечное масло и еще раз перемешиваем. Используйте нерафинированное, ароматное масло.</step>
+                <step>Ставим в холодильник на 30 минут. Обязательно салат должен настояться, пустить сок, иначе он будет сухим.</step>
+                <step>Отварить куриное филе в воде с лавровым листом.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Куриное филе</title>
+                    <quantity>140</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Капуста свежая</title>
+                    <quantity>150</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Морковь</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Уксус столовый 9%</title>
+                    <quantity>1/2</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>1/4</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло подсолнечное (нерафинированное)</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+    </recipes>
+    <!--    Saturday -->
+    <recipes>
+        <recipe>
+            <title>Овсяноблин с сыром</title>
+            <img></img>
+            <calorie>717</calorie>
+            <proteins>46</proteins>
+            <fats>19</fats>
+            <carbohydrates>87</carbohydrates>
+            <portion>3</portion>
+            <time>60</time>
+            <category>Завтрак</category>
+            <steps>
+                <step>Геркулес с отрубями перемолоть в муку, добавить яйцо, молоко, соль.</step>
+                <step>Перемешать до однородности.</step>
+                <step>Выложить тесто на сухую антипригарную сковороду и выпекать на среднем огне под крышкой с двух сторон</step>
+                <step>На половину горячего овсяноблина выложить сыр, накрыть второй половиной.</step>
+                <step>Когда сыр расплавиться, завтрак готов!</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Яйцо</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Геркулес</title>
+                    <quantity>25</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Отруби овсяные</title>
+                    <quantity>25</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Молоко</title>
+                    <quantity>60</quantity>
+                    <mass_unit>мл.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сыр</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Флепджек</title>
+            <img></img>
+            <calorie>159</calorie>
+            <proteins>3</proteins>
+            <fats>8</fats>
+            <carbohydrates>17</carbohydrates>
+            <portion>5</portion>
+            <time>50</time>
+            <category>Перекус</category>
+            <steps>
+                <step>В кастрюлю добавьте арахисовую пасту и сироп топинамбура.</step>
+                <step>На среднем или медленном огне нагревайте, постоянно помешивая, пока смесь не начнет пузыриться.</step>
+                <step>Снимите с огня и осторожно полейте горячей смесью овсяные хлопья. Хорошо перемешайте.</step>
+                <step>Выложите эту смесь в форму для запекания, выстланную пергаментной бумагой. Разровняйте лопаточкой.</step>
+                <step>Поместите в морозилку на 25-35 минут или до полного охлаждения и затвердевания.</step>
+                <step>Разрежьте на батончики. Эти батончики можно хранить 1-2 недели в герметичном контейнере в холодильнике.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Арахисовая паста </title>
+                    <quantity>3</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сироп топинамбура</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Овсяные хлопья</title>
+                    <quantity>80</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Домашние тефтели со шпинатом в сливках</title>
+            <img></img>
+            <calorie>432</calorie>
+            <proteins>40</proteins>
+            <fats>8</fats>
+            <carbohydrates>51</carbohydrates>
+            <portion>2</portion>
+            <time>30</time>
+            <category>Обед</category>
+            <steps>
+                <step>Соединить фарш с мелко нарезанным луком и отварным рисом.</step>
+                <step>Посолить и приправить перцем. Перемешать и сформировать тефтели.</step>
+                <step>Обжарить их на сковороде до румяной корочки с двух сторон.</step>
+                <step>Добавить сливки, прогреть их около 3-4-х минут. Можно добавить немного воды.</step>
+                <step>Духовку разогреть до 180С. В форму для запекания выложить шпинат, сливки, и тефтельки.</step>
+                <step>Запекать около 10-15 минут.</step>
+                <step>Гречку отварить. Помидоры порезать кружочками. Ваш обед готов!</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Филе индейки/ курицы</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Отварной рис</title>
+                    <quantity>35</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Лук репчатый</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Шпинат</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сливки 10%</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Гречка</title>
+                    <quantity>60</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидоры</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Салат "Партизан"</title>
+            <img></img>
+            <calorie>190</calorie>
+            <proteins>11</proteins>
+            <fats>6</fats>
+            <carbohydrates>22</carbohydrates>
+            <portion>2</portion>
+            <time>25</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Овощи порезать на произвольные кусочки.Перемешать.</step>
+                <step>Заправить соевым соусом, поперчить и посыпать сушеным базиликом.</step>
+                <step>Дать настояться 15 минут.</step>
+                <step>Салат можно дополнить кусочком цельнозернового хлеба</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Перец болгарский</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидор средний</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Огурец</title>
+                    <quantity>70</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Шпинат</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сыр моцарелла</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соевый соус</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сущеный базилик</title>
+                    <quantity>1</quantity>
+                    <mass_unit>щепотка</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Хлеб цельнозерновой</title>
+                    <quantity>60</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Сочная курочка с ореховым соусом и овощами</title>
+            <img></img>
+            <calorie>363</calorie>
+            <proteins>28</proteins>
+            <fats>20</fats>
+            <carbohydrates>18</carbohydrates>
+            <portion>2</portion>
+            <time>15</time>
+            <category>Ужин</category>
+            <steps>
+                <step>Кабачок нарезаем кубиками, обжариваем до золотистого цвета на 1 капле масла.</step>
+                <step>Черри режем пополам и обжариваем с чесноком на сливочном масле.</step>
+                <step>Филе нарезаем как манго и обжариваем с каждой стороны по 8 минут до золотистого цвета.</step>
+                <step>Обжариваем грецкие орехи на сухой сковороде без масла.</step>
+                <step>В чашу блендера добавляем орехи, кинзу, сливки, соль, перец.</step>
+                <step>Выкладываем подушку из овощей, сверху курицу и поливаем ореховым соусом.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Куриное филе</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Грецкие орехи</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кинза</title>
+                    <quantity>2</quantity>
+                    <mass_unit>веточки</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сливки 10%</title>
+                    <quantity>20</quantity>
+                    <mass_unit>мл</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кабачок</title>
+                    <quantity>200</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидоры черри</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Растительное масло</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сок лимона</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ст.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сливочное масло</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Черный молотый перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Чеснок</title>
+                    <quantity>2</quantity>
+                    <mass_unit>зубчика</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+    </recipes>
+    <!--    Sunday -->
+    <recipes>
+        <recipe>
+            <title>Кукурузные панкейки</title>
+            <img></img>
+            <calorie>351</calorie>
+            <proteins>20</proteins>
+            <fats>10</fats>
+            <carbohydrates>45</carbohydrates>
+            <portion>3</portion>
+            <time>20</time>
+            <category>Завтрак</category>
+            <steps>
+                <step>Банан размять вилкой, добавить яйцо, взбить.</step>
+                <step>Вмешать муку и молоко.</step>
+                <step>Жарить на сухой антипригарной сковороде под крышкой 2-3 минуты с каждой стороны.</step>
+                <step>При подаче полить сиропом топинамбура</step>
+                <step>Завтрак дополнить порцией творога -50г.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Банан</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Яйцо</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кукурузная мука</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Молоко 2%</title>
+                    <quantity>60</quantity>
+                    <mass_unit>мл.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Творог 5%</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сироп топинамбура</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Кекс в кружке с шоколадом</title>
+            <img></img>
+            <calorie>320</calorie>
+            <proteins>12</proteins>
+            <fats>13</fats>
+            <carbohydrates>37</carbohydrates>
+            <portion>1</portion>
+            <time>7</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Смешать все ингредиенты до однородности.</step>
+                <step>Вылить массу в формочку или кружку и убрать в микроволновую печь на полную мощность на 2-4 минуты (время приготовления может быть разное).</step>
+                <step>Дать полностью остыть в форме.</step>
+                <step>Украсить растопленным шоколадом.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Яйцо</title>
+                    <quantity>1</quantity>
+                    <mass_unit>шт.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кефир 2%</title>
+                    <quantity>70</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Рисовая мука</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Разрыхлитель</title>
+                    <quantity>1/2</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Какао-порошок</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сироп топинамбура</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>1</quantity>
+                    <mass_unit>щепотка</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Шоколад</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Жульен в кабачке + отварное куриное бедро</title>
+            <img></img>
+            <calorie>427</calorie>
+            <proteins>26</proteins>
+            <fats>17</fats>
+            <carbohydrates>40</carbohydrates>
+            <portion>2</portion>
+            <time>45</time>
+            <category>Обед</category>
+            <steps>
+                <step>Кабачок разрезаем вдоль (получаются лодочки) и вытаскиваем серединку.</step>
+                <step>Посыпаем лодочки солью и чесноком и ставим запекать в духовку при 180 градусах минут на 15-20.</step>
+                <step>Пока лодочки запекаются мы займёмся начинкой.</step>
+                <step>Грибы, лук, и серединку из кабачка мелко нарезаем и обжариваем на чайной ложке масла почти до готовности.</step>
+                <step>Затем добавляем сметану, перемешиваем и убираем с огня.</step>
+                <step>Достаем лодочки из духовки. Фаршируем их грибами с луком и кабачком.</step>
+                <step>Посыпаем сверху сыром и запекаем ещё минут 15.</step>
+                <step>Готовые лодочки посыпаем зелёным луком.</step>
+                <step>Куриное бедро отварить.</step>
+                <step>Отварить бурый рис.</step>
+                <step>Разделить на порции.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Кабачок</title>
+                    <quantity>300</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Шампиньоны</title>
+                    <quantity>70</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Лук репчатый</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Чеснок</title>
+                    <quantity>2</quantity>
+                    <mass_unit>зубчика</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сыр твердый</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сухой чеснок</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Зелёный лук для украшения</title>
+                    <quantity>10</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Сметана 10%</title>
+                    <quantity>30</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Масло растительное</title>
+                    <quantity>1</quantity>
+                    <mass_unit>ч.л.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Сэндвич с творожным сыром и помидором</title>
+            <img></img>
+            <calorie>178</calorie>
+            <proteins>10</proteins>
+            <fats>8</fats>
+            <carbohydrates>15</carbohydrates>
+            <portion>2</portion>
+            <time>12</time>
+            <category>Перекус</category>
+            <steps>
+                <step>Приготовить сэндвич. На хлебцы намазать творожный сыр</step>
+                <step>Сверху положить ломтики помидора и базилик</step>
+                <step>Перекус можно дополнить чаем без сахара</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Хлебцы</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Творожный сыр</title>
+                    <quantity>40</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидор</title>
+                    <quantity>80</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Базилик</title>
+                    <quantity>1</quantity>
+                    <mass_unit>веточка</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+        <recipe>
+            <title>Салат «Аппетитный»</title>
+            <img></img>
+            <calorie>244</calorie>
+            <proteins>22</proteins>
+            <fats>12</fats>
+            <carbohydrates>11</carbohydrates>
+            <portion>3</portion>
+            <time>20</time>
+            <category>Ужин</category>
+            <steps>
+                <step>Все овощи промыть под проточной водой.</step>
+                <step>На дно миски порвать руками салат.</step>
+                <step>Огурец порезать крупными кубиками. Черри разрезать на половинки.</step>
+                <step>Сверху добавить кукурузу и консерву.</step>
+                <step>Берите горбушу, потому что она не такая сухая, как тунец.</step>
+                <step>Заправить растительным маслом.</step>
+                <step>Дать настояться 10 минут и вкусно поужинать.</step>
+            </steps>
+            <ingridients>
+                <ingridient>
+                    <title>Салатный микс</title>
+                    <quantity>20</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Огурцы</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Помидоры черри</title>
+                    <quantity>80</quantity>
+                    <mass_unit>веточки</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Кукуруза консервированная</title>
+                    <quantity>50</quantity>
+                    <mass_unit>г</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Горбуша консервированная в собственном соку</title>
+                    <quantity>100</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Растительное масло</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Соль</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Черный молотый перец</title>
+                    <quantity>0</quantity>
+                    <mass_unit>по вкусу</mass_unit>
+                </ingridient>
+                <ingridient>
+                    <title>Зелень</title>
+                    <quantity>5</quantity>
+                    <mass_unit>г.</mass_unit>
+                </ingridient>
+            </ingridients>
+        </recipe>
+    </recipes>
+</week>

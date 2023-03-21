@@ -22,12 +22,12 @@ class ProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'gender' => ['string'],
-            'weight' => ['integer', 'max:200', 'min:30'],
-            'height' => ['integer', 'min:100', 'max:250'],
-            'age' => ['integer', 'max:100', 'min:5'],
-            'quotient' => ['integer'],
-            'target' => ['integer']
+            'gender' => ['string', 'required'],
+            'weight' => ['integer', 'min:40', 'max:350' , 'required'],
+            'height' => ['integer', 'min:100', 'max:250', 'required'],
+            'age' => ['integer', 'min:8', 'max:100','required'],
+            'quotient' => ['numeric', 'required'],
+            'target' => ['numeric', 'required']
         ];
     }
 }

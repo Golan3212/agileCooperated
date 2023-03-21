@@ -1,57 +1,178 @@
 * {
-    font-family: 'Roboto',Arial,sans-serif;
+    line-height: 1;
+    font-family: Roboto, sans-serif;
 }
+
 .box {
     padding: 10px;
-    max-width: 640px;
+    max-width: 750px;
     display: flex;
     flex-direction: column;
-    margin: 0 auto 30px;
+    margin: 30px auto 100px;
+    &__heading {
+        padding-bottom: 15px;
+        font-size: 20px;
+        color: #000;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: .13em;
+        font-weight: 500;
+        text-align: center;
+    }
 }
 
 .form {
-    margin-bottom: 10px;
-    padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    &__heading {
-        font-size: 25px;
-        font-weight: bold;
-        color: rgb(64,199,129);
-        margin: 20px auto 60px;
-    }
+    align-items: center;
+    width: 750px;
+    margin: 0 auto;
     & h4 {
-        font-size: 20px;
-        color: #2d2d2d;
-        margin-bottom: 15px;
+        margin-bottom: 55px;
+        font-size: 18px;
+        text-align: center;
+        color: black;
+        letter-spacing: 0.13em;
+    }
+    &__btn {
+        background-color: #AAAD89;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        border-radius: 3px;
+        display: inline-flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 20px 55px;
+        margin-left: 30px;
+        font-weight: 700;
+        margin-bottom: 70px;
+        border: none;
+    }
+    &__btn:hover {
+        background-color: #6b8d24;
+    }
+}
+
+.gender {
+    margin-bottom: 75px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    width: 100%;
+    &__item {
+        width: 45%;
+    }
+    &__label {
+        margin-top: -10px;
+        & input {
+            display: none;
+        }
     }
     &__inner {
+        box-shadow: 0 2px 40px rgb(0 0 0 / 8%);
+        border-radius: 5px;
+        border: 2px solid transparent;
+        transition: 0.2s;
+        text-align: center;
+        padding: 33px 34px 15px;
+        cursor: pointer;
+        width: 100%;
+    }
+    &__img {
+        width: 100%;
+        margin: 0 auto 10px;
+    }
+    &__name {
+        color: black;
+        font-size: 16px;
+    }
+}
+.gender__item:first-child .gender__label input:checked + .gender__inner {
+    border-color: #eb94a2;
+}
+.gender__item:last-child .gender__label input:checked + .gender__inner {
+    border-color: #51a3af;
+}
+
+.action {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-bottom: 35px;
+    margin-top: -20px;
+    &__item {
         display: flex;
-        font-weight: 300;
-        color: #2d2d2d;
-        margin-bottom: 5px;
-        & label {
-            padding-left: 15px;
-            line-height: 1.5;
+        width: 100%;
+    }
+    &__label {
+        & input {
+            display: none;
         }
     }
-    &__wrap {
+    &__inner {
+        width: 550px;
         display: flex;
-        & label {
-            font-size: 20px;
-            color: #2d2d2d;
+        box-shadow: 0 2px 40px #00000014;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        transition: .2s;
+        border: 2px solid transparent;
+        align-items: center;
+        cursor: pointer;
+        padding: 5px 15px;
+        & img {
+            width: 70px;
+            margin-right: 20px;
         }
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        & span {
+            font-weight: 500;
+            color: #AAAD89;
+            margin-bottom: 5px;
+        }
+        & p {
+            font-size: 13px;
+            line-height: 18px;
+            color: rgba(27, 29, 31, 0.6);
+        }
+    }
+}
+.action__item .action__label input:checked + .action__inner {
+    border-color: #AAAD89;
+}
+
+.parameters {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    width: 450px;
+    box-shadow: 0 2px 40px rgb(0 0 0 / 8%);
+    border-radius: 5px;
+    padding: 40px;
+    margin-bottom: 75px;
+    & label {
+        font-size: 16px;
+        color: #2d2d2d;
     }
     &__input {
-        margin-bottom: 30px;
+        margin-bottom: 45px;
         color: #000;
         border: 0 solid #000!important;
         border-bottom-width: 1px!important;
         outline:none;
         height: 50px;
         padding: 0 5px 0 0;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.33;
         width: 100%;
         box-sizing: border-box;
@@ -59,65 +180,51 @@
     &__input::placeholder {
         color: #4b5563;
     }
-    &__button {
-        margin-top: 20px;
-        width: 30%;
-        font-size: 18px;
-        border: none;
-        font-weight: 700;
-        color: white;
-        text-decoration: none;
-        padding: .8em 1em calc(.8em + 3px);
-        border-radius: 3px;
-        background: rgb(64,199,129);
-        box-shadow: 0 -3px rgb(53,167,110) inset;
-        transition: 0.2s;
-    }
-    &__button:hover {
-        background: rgb(53, 167, 110);
-    }
 }
 
-
-
-//Страничка рекомендаций
-
-.advice {
-    margin-bottom: 10px;
-    padding: 10px;
+.target {
+    margin-bottom: 75px;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    color: #2d2d2d;
-    &__heading {
-        font-size: 25px;
-        font-weight: bold;
-        color: rgb(64,199,129);
-        margin: 20px auto 60px;
+    justify-content: space-around;
+    align-self: center;
+    width: 100%;
+    &__item {
+        width: 30%;
     }
-    & h3 {
-        font-size: 20px;
+    &__label {
+        margin-top: -10px;
+        & input {
+            display: none;
+        }
     }
-    &__text {
-        font-size: 14px;
-        line-height: 1.5;
+    &__inner {
+        box-shadow: 0 2px 40px rgb(0 0 0 / 8%);
+        border-radius: 5px;
+        border: 2px solid transparent;
+        transition: 0.2s;
+        text-align: center;
+        padding: 33px 34px 15px;
+        cursor: pointer;
+        width: 100%;
     }
-    & h4 {
-        font-size: 18px;
-        font-weight: 900;
+    &__img {
+        width: 100%;
+        margin: 0 auto 10px;
     }
-    &__result {
+    &__name {
+        color: black;
         font-size: 16px;
-
-    }
-    & span {
-        font-size: 18px;
-        font-weight: 600;
     }
 }
 
-.invisible {
-    display: none;
+.target__item .target__label input:checked + .target__inner {
+    border-color: #AAAD89;
 }
+
+
+
+
+
 
 

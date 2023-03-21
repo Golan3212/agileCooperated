@@ -23,10 +23,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('recipes_has_ingredients', function (Blueprint $table) {
-            $table->foreignId('recipes_recipe_steps_id')
-                ->references('recipe_steps_id')
-                ->on('recipes')
-                ->cascadeOnDelete();
+            // $table->foreignId('recipes_recipe_steps_id')
+            //     ->references('recipe_steps_id')
+            //     ->on('recipes')
+            //     ->cascadeOnDelete();
         });
     }
 };

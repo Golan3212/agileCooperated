@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../../css/account.css";
 import MenuAccount from "../components/MenuAccount";
+import {Link} from "react-router-dom";
 
 export default function PersonalAccount() {
 
@@ -21,9 +22,7 @@ export default function PersonalAccount() {
 
     return (
         <div className="account">
-            <div className="account__menu">
-                {/*<MenuAccount></MenuAccount>*/}
-            </div>
+
             <main className="account__box">
                 <section className="account__profile">
                     <h2>Персональные данные</h2>
@@ -78,9 +77,25 @@ export default function PersonalAccount() {
                     </button>
                 </section>
             </main>
+            <div className="account__menu">
+
+                <nuv>
+                    <ul>
+                        <li>
+                            <a href="/account">Мой профиль</a>
+                        </li>
+                        <li>
+                            <a href="/advice">Мои рекомендации</a>
+                        </li>
+                        <li>
+                            <a href="#">Меню на неделю</a>
+                        </li>
+                    </ul>
+                </nuv>
+            </div>
 
         </div>
-    )
+    );
 
 
 

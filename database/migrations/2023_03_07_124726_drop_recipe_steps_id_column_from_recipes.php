@@ -23,9 +23,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('recipes', function (Blueprint $table) {
-            $table->foreignId('recipe_steps_id')
-                ->constrained('recipe_steps')
-                ->cascadeOnDelete();
+            // $table->foreignId('recipe_steps_id')
+            //     ->constrained('recipe_steps')
+            //     ->cascadeOnDelete();
         });
     }
 };

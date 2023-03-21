@@ -41,7 +41,7 @@ const MenuList = (props) => {
                         </ul>
                         <div className="main_menu_user">
                             <div className="main_menu_ico main_menu_ico_login ">
-                                <a href="#" className="avatar">
+                                <a href="" className="avatar">
                                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M37.549 19.7745C37.549 24.0307 36.0497 27.9484 33.5346 31.0196C30.2699 35.0098 25.3124 37.549 19.7745 37.549C14.6719 37.549 10.0771 35.3967 6.8366 31.9627C3.83791 28.7706 2 24.4902 2 19.7745C2 9.95621 9.95621 2 19.7745 2C29.5928 2 37.549 9.95621 37.549 19.7745Z" stroke="#41272B" strokeWidth="2" strokeMiterlimit="10" />
                                         <path d="M20.0131 22.4346C23.8863 22.4346 27.0261 19.2948 27.0261 15.4216C27.0261 11.5484 23.8863 8.40849 20.0131 8.40849C16.1399 8.40849 13 11.5484 13 15.4216C13 19.2948 16.1399 22.4346 20.0131 22.4346Z" stroke="#41272B" strokeWidth="2" strokeMiterlimit="10" />

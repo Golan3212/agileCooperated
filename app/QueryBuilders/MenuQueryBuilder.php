@@ -24,9 +24,9 @@ final class MenuQueryBuilder extends QueryBuilder {
         return $this->model->paginate($quan);
     }
 
-    public function getOne(int $id)
-    {
-        return $this->model->where('id', $id)->get();
-    }
 
+    public function getMenuForDayOne(int $id)
+    {
+        return Menu::query()->where('id', $id)->get();
+    }
 }
