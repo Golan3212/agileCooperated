@@ -32,8 +32,8 @@ class MenuWeekController extends Controller
                 "menuSaturday" => $menuQueryBuilder->getMenuForDayOne($item->menu_saturday_id),
                 "menuSunday" => $menuQueryBuilder->getMenuForDayOne($item->menu_sunday_id),
             ];
-            $menuWeekAll = Arr::flatten($menuWeekOnDaysArray);
         }
+        $menuWeekAll = Arr::flatten($menuWeekOnDaysArray);
 
         $menu = [];
         foreach ($menuWeekAll as $key => $item) {
