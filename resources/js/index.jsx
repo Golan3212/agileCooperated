@@ -35,6 +35,10 @@ function App() {
                     path: "/recipes/*",
                     element: <Recipes />,
                 },
+                {
+                    path: "/builder",
+                    element: <MenuBuilder />,
+                },
 
                 {
                     path: "/form",

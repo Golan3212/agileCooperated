@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Link
 } from "react-router-dom";
-import '../../css/recipe.css';
+// import '../../css/recipe.css';
 
 import vk from "../../../public/assets/recipe_image/icons/icons-vk.png";
 import yt from "../../../public/assets/recipe_image/icons/icons-youtube.png";
