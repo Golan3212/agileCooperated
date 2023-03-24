@@ -6,5 +6,5 @@ use App\QueryBuilders\MenuQueryBuilder;
 
 interface Total
 {
-    public function getTotalForDay(int $id);
+    public function getTotalMenuForDay(int $id);
 }

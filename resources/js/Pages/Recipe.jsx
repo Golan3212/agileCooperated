@@ -24,6 +24,8 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
     }
     declOfNum();
 
+    console.log(recipeOne);
+
     return (
         <div>
             {/* <div className="section bg_hr_green">
@@ -118,9 +120,9 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
                                                         recipe.ingredients.map((ingredient => {
                                                             return (<div>
                                                                 <div className="reccard_kbzhu1">
-                                                                    <div className="reccard_kbzhu_name">{ingredient.title}, {ingredient.mass_unit}</div>
+                                                                    <div className="reccard_kbzhu_name">{ingredient.title}, {ingredient.pivot.mass_unit}</div>
                                                                     <div className="reccard_kbzhu_dotted"></div>
-                                                                    <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">{ingredient.quantity}</div>
+                                                                    <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">{ingredient.pivot.quantity_ingredient}</div>
                                                                 </div>
                                                             </div>
                                                             )
@@ -157,7 +159,7 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
                                     return <div className="rec_item">
                                         <div className="rec_item_plus"></div>
                                         <div className="rec_item_plus">
-                                            
+
                                                 <img src={image} style={{ width: 100 + '%' }} className="product-item"></img>
                                                < a href={"/recipe/" + recipeAdvice.id} className="but">Перейти</a>
                                         </div>

@@ -37,13 +37,13 @@ const Recipes = ({recipes}) =>{
 
     const handleClickCategory = (event) => {
         if (event.target.id === "Завтрак") {
-            setCategoryId(() => category.filter(recipe => recipe.category_title === "завтрак"));
+            setCategoryId(() => category.filter(recipe => recipe.category_title === "Завтрак"));
         } else if (event.target.id === "Обед") {
-            setCategoryId(() => category.filter(recipe => recipe.category_title === "обед"))
+            setCategoryId(() => category.filter(recipe => recipe.category_title === "Обед"))
         } else if (event.target.id === "Перекус") {
-            setCategoryId(() => category.filter(recipe => recipe.category_title === "перекус"))
+            setCategoryId(() => category.filter(recipe => recipe.category_title === "Перекус"))
         } else {
-            setCategoryId(() => category.filter(recipe => recipe.category_title === "ужин"))
+            setCategoryId(() => category.filter(recipe => recipe.category_title === "Ужин"))
         }
     }
     console.log(recipes);

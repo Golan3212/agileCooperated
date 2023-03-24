@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RecipeRequest;
 use App\QueryBuilders\MenuQueryBuilder;
 use App\QueryBuilders\MenuWeekQueryBuilder;
 use App\QueryBuilders\RecipesQueryBuilder;
@@ -14,14 +15,16 @@ class MenuWeekController extends Controller
 {
     public function index(
         MenuWeekQueryBuilder $menuWeekQueryBuilder,
-        MenuQueryBuilder     $menuQueryBuilder,
-        int                  $id,
-        RecipesQueryBuilder $recipesQueryBuilder,
+        MenuQueryBuilder $menuQueryBuilder,
+        int $id
     )
     {
         $menuOneWeek = $menuWeekQueryBuilder->getMenuForWeekOne($id);
 
         $menuWeekOnDaysArray = [];
+
+
+
         foreach ($menuOneWeek as $key => $item) {
             $menuWeekOnDaysArray[] = [
                 "menuMonday" => $menuQueryBuilder->getMenuForDayOne($item->menu_monday_id),
@@ -35,50 +38,37 @@ class MenuWeekController extends Controller
         }
         $menuWeekAll = Arr::flatten($menuWeekOnDaysArray);
 
+
         $menu = [];
         foreach ($menuWeekAll as $key => $item) {
             $menu[] = [
                 'menu_id' => $item->id,
                 'day_name' => $item->name,
-
-                'breakfast_id' => $item->breakfest->id,
-                'breakfast_category' => $item->breakfest->category_id,
-                'breakfast_title' => $item->breakfest->title,
-//                'breakfast_calorie' => $item->breakfast->calorie,
-//                'breakfast_fats' => $item->breakfast->fats,
-//                'breakfast_carbohydrates' => $item->breakfast->carbohydrates,
-//                'dinner_portion' => $item->breakfast->portion,
-//                'breakfast_cooking_time' => $item->breakfast->cooking_time,
-//                'category_title' => $item->breakfast->category->title,
-
-
-                'dinner_id' => $item->dinner->id,
-                'dinner_category' => $item->dinner->category_id,
-                'dinner_title' => $item->dinner->title,
-                'dinner_calorie' => $item->dinner->calorie,
-                'dinner_fats' => $item->dinner->fats,
-                'dinner_carbohydrates' => $item->dinner->carbohydrates,
-                'dinner_portion' => $item->dinner->portion,
-                'dinner_cooking_time' => $item->dinner->cooking_time,
-                'category_title' => $item->dinner->category->title,
-
-                'lunch_id' => $item->lunch->id,
-                'lunch_category' => $item->lunch->category_id,
-                'lunch_title' => $item->lunch->title,
-
-                'firstSnack_id' => $item->firstSnack->id,
-                'firstSnack_category' => $item->firstSnack->category_id,
-                'firstSnack_title' => $item->firstSnack->title,
-
-                'secondSnack_id' => $item->secondSnack->id,
-                'secondSnack_category' => $item->secondSnack->category_id,
-                'secondSnack_title' => $item->secondSnack->title
+                'breakfast' => $item->breakfest->toArray(),
+                'dinner' => $item->dinner->toArray(),
+                'lunch' => $item->lunch->toArray(),
+                'firstSnack' => $item->firstSnack->toArray(),
+                'secondSnack' => $item->secondSnack->toArray(),
+                'totalCalories' => $item->total_calories,
+                'totalProteins' => $item->total_proteins,
+                'totalFats' => $item->total_fats,
+                'totalCarbohydrates' => $item->total_carboh_ydrates
             ];
         };
 
-        //Рекомендации рецептов по номеру категории - сюда нужно добавить переменную, которая приходит со страницы
-        $recipeAdvicesList = $recipesQueryBuilder->getRecipeByCategoryId(1)->random(8);
+        return Inertia::render('MenuBuilder', [
+            'menu' => $menu,
+        ]);
+    }
 
+
+
+    public function show(
+        RecipesQueryBuilder $recipesQueryBuilder,
+        int $category_id
+    )
+    {
+        $recipeAdvicesList = $recipesQueryBuilder->getRecipeByCategoryId($category_id)->random(3);
 
         $recipeOneAdvice =[];
         foreach ($recipeAdvicesList as $key => $value) {
@@ -97,11 +87,13 @@ class MenuWeekController extends Controller
         }
 
 
-        return Inertia::render('MenuBuilder', [
-            'menu' => $menu,
-            'recipeOneAdvice' => $recipeOneAdvice
+        return Inertia::render('CategoryBuilder', [
+            'recipeOneAdvice' => $recipeOneAdvice,
         ]);
     }
 
 
+
+
 }
+

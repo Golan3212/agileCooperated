@@ -12,7 +12,7 @@ use App\QueryBuilders\RecipesQueryBuilder;
 class TotalService implements Total
 {
 
-    public function getTotalForDay(int $id){
+    public function getTotalMenuForDay(int $id){
 
         $menu = new MenuQueryBuilder();
         $menu = $menu->getByIdFromUpdate($id);
@@ -48,7 +48,6 @@ class TotalService implements Total
             'total_carboh_ydrates' => $totalCarbohydrates,
         ];
         $menu->update($total);
-        return $total;
 
     }
 }
