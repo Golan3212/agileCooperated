@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use Inertia\Response;
+use App\Models\Recipe;
+use Illuminate\Support\Arr;
+use App\QueryBuilders\RecipesQueryBuilder;
 use App\QueryBuilders\IngredientsQueryBuilder;
 use App\QueryBuilders\RecipesStepsQueryBuilder;
-use Illuminate\Support\Arr;
-use Inertia\Inertia;
-use App\QueryBuilders\RecipesQueryBuilder;
-use Inertia\Response;
 
 
 class RecipeController extends Controller
@@ -45,6 +46,7 @@ class RecipeController extends Controller
         int $id)
     {
         $data = $recipesQueryBuilder->getRecipeById($id);
+        // $data = $recipesQueryBuilder->getRecipeByIdO($id)
 
         //Шаги по приготовлению рецепта
         $recipeStepsBuilder = $recipesStepsQueryBuilder->getRecipeStepById($id);

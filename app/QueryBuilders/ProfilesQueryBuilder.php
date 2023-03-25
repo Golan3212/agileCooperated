@@ -27,6 +27,12 @@ final class ProfilesQueryBuilder extends QueryBuilder
     {
         return $this->model->where('user_id', $id)->get();
     }
+
+    public function getByUserIdFirst(int $id)
+    {
+        return $this->model->where('user_id', $id)->first();
+    }
+
     public function updateByUserId(int $id)
     {
         return $this->model->where('user_id', $id);
