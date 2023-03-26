@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\ProfileUser;
 use Illuminate\Http\Request;
+use App\Services\ConstructorService;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Redirect;
@@ -31,10 +32,13 @@ class FormController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProfileRequest $request, ProfilesQueryBuilder $profilesQueryBuilder)
+    public function store(ProfileRequest $request, ProfilesQueryBuilder $profilesQueryBuilder, ConstructorService $constructor)
     {
         Auth::attempt(['email' => 'email@mail.ru', 'password' => 'password']); //чтобы польователь был зарегистрирован, когда появится регистрацию убрать
         // Вы должны создать пользователя в бд
+
+
+
         if(Auth::check()){
 
              $gender = $request->validated('gender');
@@ -74,6 +78,7 @@ class FormController extends Controller
                 $profile->save();
             }
 
+            $constructor->constructor();
             return \redirect()->route('advice');
         }
         // dd($request, Auth::check(), \Auth::id());

@@ -25,6 +25,7 @@ class AdviceController extends Controller
             return \redirect()->route('form');
 
         }
+
         $profile = $profilesQueryBuilder->getByUserId(\Auth::id());
 //        dd (Auth::id());
         return Inertia::render('Advice', [

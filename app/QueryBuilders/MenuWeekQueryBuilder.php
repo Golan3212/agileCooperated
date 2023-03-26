@@ -22,4 +22,14 @@ class MenuWeekQueryBuilder extends QueryBuilder {
     {
         return $this->model->where('id', $id)->get();
     }
+
+    public function getMenuForWeekByUserId(int $id)
+    {
+        return $this->model->where('user_id', $id)->get();
+    }
+
+    public function deleteById(int $id)
+    {
+        return $this->model->where('id', $id)->delete();
+    }
 }

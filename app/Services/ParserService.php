@@ -31,9 +31,9 @@ class ParserService implements Parser
         $json = json_encode($xmlObject);
         $recipes = json_decode($json, true);
 
-        $idMenuFromWeek = [];
-        $menuIdRecipes = [];
-        $recipeIdForMenu = [];
+        // $idMenuFromWeek = [];
+        // $menuIdRecipes = [];
+        // $recipeIdForMenu = [];
 
         foreach ($recipes['recipes'] as $keys => $recipesDay) {
 
@@ -70,7 +70,7 @@ class ParserService implements Parser
 
 
                 if ($recipeModel->save()) {
-                    $recipeIdForMenu[] = $recipeModel->id;
+                    // $recipeIdForMenu[] = $recipeModel->id;
                     foreach (
                         $recipe['ingridients']['ingridient']
                         as $key => $value
@@ -121,8 +121,8 @@ class ParserService implements Parser
                     }
                 }
             }
-            $menuIdRecipes[] = $recipeIdForMenu;
-            $recipeIdForMenu = [];
+            // $menuIdRecipes[] = $recipeIdForMenu;
+            // $recipeIdForMenu = [];
             // $menu = new Menu(['title' => "Меню $keys"]);
             // $menu->breakfest()->associate($menuIdRecipes[0]);
             // $menu->dinner()->associate($menuIdRecipes[1]);
@@ -150,32 +150,32 @@ class ParserService implements Parser
 
         }
 
-        foreach ($menuIdRecipes as $key => $value) {
+        // foreach ($menuIdRecipes as $key => $value) {
 
-            $menu = new Menu();
-            $menu->breakfest()->associate($value[0]);
-            $menu->dinner()->associate($value[1]);
-            $menu->lunch()->associate($value[2]);
-            $menu->firstSnack()->associate($value[3]);
-            $menu->secondSnack()->associate($value[4]);
+        //     $menu = new Menu();
+        //     $menu->breakfest()->associate($value[0]);
+        //     $menu->dinner()->associate($value[1]);
+        //     $menu->lunch()->associate($value[2]);
+        //     $menu->firstSnack()->associate($value[3]);
+        //     $menu->secondSnack()->associate($value[4]);
 
-            if ($menu->save()) {
-                    $idMenuFromWeek[] = $menu->id;
-                    if (!(count($idMenuFromWeek)%7)) {
-                        $idMenuFromWeekLast = array_slice($idMenuFromWeek, -7, 7);
-                        $week = new MenuForWeek();
-                        $week->monday()->associate($idMenuFromWeekLast[0]);
-                        $week->tuesday()->associate($idMenuFromWeekLast[1]);
-                        $week->wednesday()->associate($idMenuFromWeekLast[2]);
-                        $week->thursday()->associate($idMenuFromWeekLast[3]);
-                        $week->friday()->associate($idMenuFromWeekLast[4]);
-                        $week->saturday()->associate($idMenuFromWeekLast[5]);
-                        $week->sunday()->associate($idMenuFromWeekLast[6]);
-                        if ($week->save()) {
-                            continue;
-                        }
-                    }
-                }
-        }
+        //     if ($menu->save()) {
+        //             $idMenuFromWeek[] = $menu->id;
+        //             if (!(count($idMenuFromWeek)%7)) {
+        //                 $idMenuFromWeekLast = array_slice($idMenuFromWeek, -7, 7);
+        //                 $week = new MenuForWeek();
+        //                 $week->monday()->associate($idMenuFromWeekLast[0]);
+        //                 $week->tuesday()->associate($idMenuFromWeekLast[1]);
+        //                 $week->wednesday()->associate($idMenuFromWeekLast[2]);
+        //                 $week->thursday()->associate($idMenuFromWeekLast[3]);
+        //                 $week->friday()->associate($idMenuFromWeekLast[4]);
+        //                 $week->saturday()->associate($idMenuFromWeekLast[5]);
+        //                 $week->sunday()->associate($idMenuFromWeekLast[6]);
+        //                 if ($week->save()) {
+        //                     continue;
+        //                 }
+        //             }
+        //         }
+        // }
     }
 }
