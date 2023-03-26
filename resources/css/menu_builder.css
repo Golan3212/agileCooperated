@@ -1460,3 +1460,7 @@ a.ui-button:active,
     border-radius: 10px;
     background-color: #f9f9fd;
 }
+
+.red:target{
+    background-color: mediumvioletred;
+}

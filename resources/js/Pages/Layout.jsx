@@ -49,7 +49,7 @@ const MenuList = (props) => {
                                 <a href="/">Главная</a>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
-                                <a href="/menu/builder">Конструктор меню</a>
+                                <a href="/menu/builder/1">Конструктор меню</a>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
                                 <a href="/form">Калькулятор БЖУ</a>
@@ -91,7 +91,7 @@ const FooterList = () => {
                             </div>
                         </div>
                         <div className="footer__bottom">
-                            <p>2023 © Конструктор питания Авакадо</p>
+                            <p>2023 © Конструктор питания Avocado</p>
                             <div className="anchor">
                                 <a href="#up">&#94;</a>
                             </div>

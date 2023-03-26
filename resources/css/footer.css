@@ -12,7 +12,8 @@ body {
     justify-content: center;
     align-items: center;
     background: #AAAD89;
-    padding: 70px 10px;
+    padding: 40px 10px 0;
+    margin-top: 70px;
 }
 .container {
     width: 1200px;
@@ -83,7 +84,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 40px 0;
+    padding: 20px 0 20px;
 }
 .footer__bottom p{
     font-size: 12px;
