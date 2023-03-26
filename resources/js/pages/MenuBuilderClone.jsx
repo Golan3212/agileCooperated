@@ -14,6 +14,8 @@ export default function MenuBuilder({ menu, recipeOneAdvice }) {
 
     const [show, setShow] = useState(false);
     const openModal = () => {
+
+        console.log('openModal')
         document.body.setAttribute("style", "overflow-y:hidden");
         setShow(true);
     }
@@ -87,14 +89,14 @@ export default function MenuBuilder({ menu, recipeOneAdvice }) {
                                 </div>
                                 <div className="cons_txt">
                                     <div className="cons_title_menu">
-                                        <a href={"/recipe/"}>{item.breakfast.title}</a>
+                                        <a href={"/recipe/"}>{item.breakfast_title}</a>
                                     </div>
                                     <div className="cons_calorie">
                                         <div>
                                             <img className="cons_title_logo" src={logo3}></img>
                                         </div>
                                         <div>
-                                            <p className="cons_title_calorie">ККАЛОРИЙ: {item.breakfast.calorie}</p>
+                                            <p className="cons_title_calorie">ККАЛОРИЙ: 521 </p>
                                         </div>
                                     </div>
                                 </div>
@@ -111,14 +113,14 @@ export default function MenuBuilder({ menu, recipeOneAdvice }) {
                                 </div>
                                 <div className="cons_txt">
                                     <div className="cons_title_menu">
-                                        <a href={"/recipe/"}>{item.firstSnack.title}</a>
+                                        <a href={"/recipe/"}>{item.firstSnack_title}</a>
                                     </div>
                                     <div className="cons_calorie">
                                         <div>
                                             <img className="cons_title_logo" src={logo3}></img>
                                         </div>
                                         <div>
-                                            <p className="cons_title_calorie">ККАЛОРИЙ: {item.firstSnack.calorie}</p>
+                                            <p className="cons_title_calorie">ККАЛОРИЙ: 521 </p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,14 +137,14 @@ export default function MenuBuilder({ menu, recipeOneAdvice }) {
                                 </div>
                                 <div className="cons_txt">
                                     <div className="cons_title_menu">
-                                        <a href={"/recipe/"}>{item.lunch.title}</a>
+                                        <a href={"/recipe/"}>{item.lunch_title}</a>
                                     </div>
                                     <div className="cons_calorie">
                                         <div>
                                             <img className="cons_title_logo" src={logo3}></img>
                                         </div>
                                         <div>
-                                            <p className="cons_title_calorie">ККАЛОРИЙ: {item.lunch.calorie}</p>
+                                            <p className="cons_title_calorie">ККАЛОРИЙ: 521 </p>
                                         </div>
                                     </div>
                                 </div>
@@ -159,14 +161,14 @@ export default function MenuBuilder({ menu, recipeOneAdvice }) {
                                 </div>
                                 <div className="cons_txt">
                                     <div className="cons_title_menu">
-                                        <a href={"/recipe/"}>{item.dinner.title}</a>
+                                        <a href={"/recipe/"}>{item.dinner_title}</a>
                                     </div>
                                     <div className="cons_calorie">
                                         <div>
                                             <img className="cons_title_logo" src={logo3}></img>
                                         </div>
                                         <div>
-                                            <p className="cons_title_calorie">ККАЛОРИЙ: {item.dinner.calorie}</p>
+                                            <p className="cons_title_calorie">ККАЛОРИЙ: 521 </p>
                                         </div>
                                     </div>
                                 </div>
@@ -183,14 +185,14 @@ export default function MenuBuilder({ menu, recipeOneAdvice }) {
                                 </div>
                                 <div className="cons_txt">
                                     <div className="cons_title_menu">
-                                        <a href={"/recipe/"}>{item.secondSnack.title}</a>
+                                        <a href={"/recipe/"}>{item.secondSnack_title}</a>
                                     </div>
                                     <div className="cons_calorie">
                                         <div>
                                             <img className="cons_title_logo" src={logo3}></img>
                                         </div>
                                         <div>
-                                            <p className="cons_title_calorie">ККАЛОРИЙ: {item.secondSnack.calorie}</p>
+                                            <p className="cons_title_calorie">ККАЛОРИЙ: 521 </p>
                                         </div>
                                     </div>
                                 </div>
@@ -201,19 +203,19 @@ export default function MenuBuilder({ menu, recipeOneAdvice }) {
                                     {/*<div className="cons_itog_title">На 1 порцию</div>*/}
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">{item.totalCalories}</div>
+                                        <div className="cons_itog_str_val">0</div>
                                     </div>
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">{item.totalProteins}</div>
+                                        <div className="cons_itog_str_val">0</div>
                                     </div>
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">{item.totalFats}</div>
+                                        <div className="cons_itog_str_val">0</div>
                                     </div>
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">{item.totalCarbohydrates}</div>
+                                        <div className="cons_itog_str_val">0</div>
                                     </div>
                                 </div>
                             </div>
