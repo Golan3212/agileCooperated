@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../../css/App.scss';
-import img1 from "../../../public/assets/recipe_image/images/62c30bce0f146.jpg"
+import img1 from "../../../public/assets/recipe_image/images/2.jpg"
 
 
 export default function Category(){

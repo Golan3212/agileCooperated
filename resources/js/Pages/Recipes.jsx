@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../../css/App.scss';
-import img1 from "../../../public/assets/recipe_image/images/photo_2023-03-18_22-09-04.jpg";
+import img1 from "../../../public/assets/recipe_image/images/2.jpg";
 import usePagination from "../hooks/usePagintaion";
 import { Link, animateScroll as scroll } from "react-scroll";
 
@@ -101,7 +101,7 @@ const Recipes = ({recipes}) =>{
                     ))}
                     <br/>
                     <div className="pagination">
-                        <p className="text">
+                        <p className="text-pagination">
                             {page}/{totalPages}
                         </p>
                         <button onClick={prevPage} className="page">
