@@ -210,7 +210,7 @@ body {
     font-size: 14px;
     text-transform: uppercase;
     background-color: #E4E4D9;
-  
+
 }
 .product-item {
     position: relative;
@@ -342,7 +342,7 @@ body {
     text-align: end;
     margin-top: 25px;
   }
-  
+
   .text-pagination {
     margin-right: 50px;
     font-size: 20px;
@@ -387,4 +387,37 @@ body {
 }
 
 
+.yellow {
+    background-color: yellow;
 
+}
+//.title__box {
+//    display: flex;
+//    white-space: nowrap;
+//}
+.title__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+    //white-space: nowrap;
+}
+//.title__text {
+//    display: flex;
+//    white-space: nowrap;
+//}
+
+
+.input__box {
+    display: flex;
+}
+.input__search {
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+.input__img {
+    width: 30px;
+    cursor: pointer;
+}

@@ -176,10 +176,8 @@ export default function MenuBuilder({ menu, recipes }) {
 
                         {newRecipe.map( (item) => (
 
-                            <div className="modal__card red"
-                                 data-day="1" data-rectype="1" id={item.id}
-
-                            >
+                            <div className="modal__card"
+                                 data-day="1" data-rectype="1" id="col-1-1">
                                 <div className="cons_pic cons_add"
                                      style={{ backgroundImage: `url(${image})`, cursor: "auto", width: "100%" }}
                                      data-day="1" data-rectype="1" data-category={item.category_id} id={item.id}>
@@ -196,15 +194,13 @@ export default function MenuBuilder({ menu, recipes }) {
                                             <p className="cons_title_calorie">ККАЛОРИЙ: 521 </p>
                                         </div>
                                     </div>
-                                    <a href={"#"+item.id}>
-                                        <button id="btn" className="modal__btn"
-                                                data-day="1" data-rectype="1" data-category={item.category_id} id={item.id}
+                                    <button id="btn" className="modal__btn"
+                                            data-day="1" data-rectype="1" data-category={item.category_id} id={item.id}
 
-                                                onClick={()=>{handleRecipeId(item.id, item.category_id, dataDay);handleUpdateRecipes(item.id)}}
-                                        >
-                                            Добавить рецепт
-                                        </button>
-                                    </a>
+                                            onClick={()=>{handleRecipeId(item.id, item.category_id, dataDay);handleUpdateRecipes(item.id)}}
+                                    >
+                                        Добавить рецепт
+                                    </button>
                                 </div>
 
                                 {/*<button className="modal__btn"*/}
