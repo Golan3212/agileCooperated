@@ -16,14 +16,14 @@ class MenuWeekController extends Controller
     public function index(
         MenuWeekQueryBuilder $menuWeekQueryBuilder,
         MenuQueryBuilder     $menuQueryBuilder,
-        int                  $id,
-        RecipesQueryBuilder $recipesQueryBuilder,
+        int $id,
+        RecipesQueryBuilder $recipesQueryBuilder
     )
     {
         $menuOneWeek = $menuWeekQueryBuilder->getMenuForWeekOne($id);
 
         $menuWeekOnDaysArray = [];
-        $recipes = $recipesQueryBuilder->getAll()->random(30);
+        $recipes = $recipesQueryBuilder->getAll()->random(20);
 
 
         foreach ($menuOneWeek as $key => $item) {
@@ -44,6 +44,10 @@ class MenuWeekController extends Controller
             $menu[] = [
                 'menu_id' => $item->id,
                 'day_name' => $item->name,
+                'totalCalories' => $item->total_calories,
+                'totalProteins' => $item->total_proteins,
+                'totalFats' => $item->total_fats,
+                'totalCarbohydrates' => $item->total_carboh_ydrates,
                 'menu_recipes'=> [
                     $item->breakfest->toArray(),
                     $item->dinner->toArray(),

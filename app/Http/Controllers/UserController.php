@@ -12,14 +12,14 @@ class UserController extends Controller
     /**
      * Show the profile for a given user.
      */
-    public function show():Response
-    {
-        $user = [
-            'name' => 'andrey',
-            'email' => 'golanov',
-        ];
-        return Inertia::render('PersonalAccount', [
-            'user' => $user
-        ]);
-    }
+//    public function show():Response
+//    {
+//        $user = [
+//            'name' => 'andrey',
+//            'email' => 'golanov',
+//        ];
+//        return Inertia::render('PersonalAccount', [
+//            'user' => $user
+//        ]);
+//    }
 }
