@@ -1,4 +1,3 @@
-import { toLength } from "lodash";
 import React, { Component } from "react";
 import Slider from "react-slick";
 import '../../css/home.css';
@@ -34,7 +33,7 @@ export default class SimpleSlider extends Component {
             {
                 image: "/assets/home/fon3.jpg",
                 title: "Всего в два клика",
-                description: "Вам нужно зарегистрироваться на нашем сайте, заполнить анкету с вашими данными и  вы получите доступ к вашему меню и ко всем рецептам в целом!",
+                description: "Вам нужно зарегистрироваться на нашем сайте, заполнить анкету с вашими данными и  вы получите доступ к вашему меню и ко всем рецептам в целом",
                 isDarkBg: true
             }
         ]

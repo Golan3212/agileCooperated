@@ -15,14 +15,15 @@ class MenuWeekController extends Controller
 {
     public function index(
         MenuWeekQueryBuilder $menuWeekQueryBuilder,
-        MenuQueryBuilder $menuQueryBuilder,
-        int $id
+        MenuQueryBuilder     $menuQueryBuilder,
+        int                  $id,
+        RecipesQueryBuilder $recipesQueryBuilder,
     )
     {
         $menuOneWeek = $menuWeekQueryBuilder->getMenuForWeekOne($id);
 
         $menuWeekOnDaysArray = [];
-
+        $recipes = $recipesQueryBuilder->getAll()->random(30);
 
 
         foreach ($menuOneWeek as $key => $item) {
@@ -38,37 +39,36 @@ class MenuWeekController extends Controller
         }
         $menuWeekAll = Arr::flatten($menuWeekOnDaysArray);
 
-
         $menu = [];
         foreach ($menuWeekAll as $key => $item) {
             $menu[] = [
                 'menu_id' => $item->id,
                 'day_name' => $item->name,
-                'breakfast' => $item->breakfest->toArray(),
-                'dinner' => $item->dinner->toArray(),
-                'lunch' => $item->lunch->toArray(),
-                'firstSnack' => $item->firstSnack->toArray(),
-                'secondSnack' => $item->secondSnack->toArray(),
-                'totalCalories' => $item->total_calories,
-                'totalProteins' => $item->total_proteins,
-                'totalFats' => $item->total_fats,
-                'totalCarbohydrates' => $item->total_carboh_ydrates
+                'menu_recipes'=> [
+                    $item->breakfest->toArray(),
+                    $item->dinner->toArray(),
+                    $item->lunch->toArray(),
+                    $item->firstSnack->toArray(),
+                    $item->secondSnack->toArray(),
+                ]
             ];
         };
 
+
+
         return Inertia::render('MenuBuilder', [
             'menu' => $menu,
+            'recipes' => $recipes
         ]);
     }
-
-
 
     public function show(
         RecipesQueryBuilder $recipesQueryBuilder,
         int $category_id
     )
     {
-        $recipeAdvicesList = $recipesQueryBuilder->getRecipeByCategoryId($category_id)->random(3);
+
+        $recipeAdvicesList = $recipesQueryBuilder->getRecipeByCategoryId($category_id)->random(8);
 
         $recipeOneAdvice =[];
         foreach ($recipeAdvicesList as $key => $value) {
@@ -91,9 +91,4 @@ class MenuWeekController extends Controller
             'recipeOneAdvice' => $recipeOneAdvice,
         ]);
     }
-
-
-
-
 }
-

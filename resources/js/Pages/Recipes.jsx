@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import '../../css/App.scss';
-import img1 from "../../../public/assets/recipe_image/images/photo_2023-03-18_22-09-04.jpg";
+import img1 from "../../../public/assets/recipe_image/images/2.jpg";
 import usePagination from "../hooks/usePagintaion";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 import calories from "../../../public/assets/recipe_image/icons/calories.svg";
 import time from "../../../public/assets/recipe_image/icons/time.svg";
-
+import image from "../../../public/assets/recipe_image/images/4.jpg";
+import search from "../../../public/assets/search-magnifying-glass-svgrepo-com.svg";
 
 const Recipes = ({recipes}) =>{
 
@@ -37,16 +38,16 @@ const Recipes = ({recipes}) =>{
 
     const handleClickCategory = (event) => {
         if (event.target.id === "Завтрак") {
-            setCategoryId(() => category.filter(recipe => recipe.category_title === "Завтрак"));
+            setCategoryId(() => category.filter(recipe => recipe.category_title === "завтрак"));
         } else if (event.target.id === "Обед") {
-            setCategoryId(() => category.filter(recipe => recipe.category_title === "Обед"))
+            setCategoryId(() => category.filter(recipe => recipe.category_title === "обед"))
         } else if (event.target.id === "Перекус") {
-            setCategoryId(() => category.filter(recipe => recipe.category_title === "Перекус"))
+            setCategoryId(() => category.filter(recipe => recipe.category_title === "перекус"))
         } else {
-            setCategoryId(() => category.filter(recipe => recipe.category_title === "Ужин"))
+            setCategoryId(() => category.filter(recipe => recipe.category_title === "ужин"))
         }
     }
-    console.log(recipes);
+    // console.log(recipes);
     const handleClickCalorie = (event) => {
         if (event.target.id === "100"){
             setCategoryId(() => category.filter(recipe => recipe.calorie <= 100));
@@ -73,6 +74,76 @@ const Recipes = ({recipes}) =>{
     }
     const img = img1;
 
+    const [inputText, setInputText] = useState("");
+    console.log("inputText: " + inputText);
+    const handleSearch = (e) => {
+        // let lowerCase = e.target.value.toLowerCase();
+        // setInputText(e.target.value.toLowerCase());
+
+        setCategoryId(() => category.filter((recipe) => {
+            if (e !== "") {
+
+                return recipe.title.toLowerCase().includes(e)
+            } else {
+                return recipe
+            }
+        }))
+        // category.forEach( recipe => {
+        //     let a = recipe.title.toLowerCase().indexOf(inputText);
+        //     let b = a + inputText.length - 1;
+        //     if (a !== -1) {
+        //         let t1 = recipe.title.slice(0, a);
+        //         let t2 = recipe.title.slice(a, b + 1);
+        //         let t3 = recipe.title.slice(b, recipe.title.length - 1);
+        //         document.getElementById("title").innerHTML = `${t1}<span class="yellow">${t2}</span>${t3}`;
+        //     } else {
+        //         document.getElementById("title").innerHTML = recipe.title;
+        //     }
+        //     console.log(a);
+        // })
+        console.log("e: " + e);
+    }
+
+    const Hightlight = (props) => {
+        const { inputText, str } = props
+        if (inputText === "") return str
+        const regexp = new RegExp(inputText, 'ig')
+        const matchValue = str.match(regexp)
+
+        if (matchValue) {
+            // console.log('matchValue', matchValue)
+            // console.log('str.split(regexp)', str.split(regexp))
+
+            return str.split(regexp).map((s, index, array) => {
+                if (index < array.length - 1) {
+                    const c = matchValue.shift()
+                    console.log("s: " + s);
+
+                    return (
+                        <>
+                            {s}<span className={'yellow'}>{c}</span>
+                        </>
+                    )
+                }
+                return s;
+            })
+        }
+
+
+        // let rule1 = new RegExp("<>", 'ig');
+        // str.replace(rule1, "");
+        // let rule2 = new RegExp("</>", 'ig');
+        // str.replace(rule2, "");
+        //
+        // let rule3 = new RegExp(" ", '<br>');
+        // str.replace(rule3, "");
+        return str;
+    }
+
+    const light = useCallback((str) => {
+        return <Hightlight inputText={inputText} str={str} />
+    }, [inputText]);
+
     return (
         <div className="recipeListMain">
             <div className=" recipes_main" >
@@ -86,7 +157,9 @@ const Recipes = ({recipes}) =>{
                                 <img src={img} alt="atata" />
                             </div>
                             <div className="product-title">
-                                <a href={"/recipe/"+item.id}>{item.title}</a>
+                                <a id="title" href={"/recipe/"+item.id}>
+                                    <p className="title__inner">{light(item.title)}</p>
+                                </a>
                                 <span className="product-price">{item.category_title}</span>
                                 <span className="product-price img">
                                     <img src={calories}></img>
@@ -133,6 +206,21 @@ const Recipes = ({recipes}) =>{
                 </div>
 
                 <nav className="navigation">
+
+                    <div className="input__box">
+                        <input
+                            id="input__img"
+                            type="text"
+                            onChange={event => {setInputText(event.target.value); handleSearch(event.target.value)}}
+                            value={inputText}
+                            placeholder="Введите название рецепта"
+                            className="input__search"
+                        />
+                        <label htmlFor="input">
+                            <img className="input__img" src={search}></img>
+                        </label>
+                    </div>
+
                     <ul className="navigation-list"> <strong style={{fontSize: "20px", color: "#8c7d5e"}}> Рецепты по категориям </strong>
                         <li className="navigation-link">
                             <button className="button_category"

@@ -189,18 +189,18 @@
 .slick-prev:before {
     content: '<';
     color: #000;
-    font-size: 140px;
+    font-size: 120px;
     margin-right: 40px;
-    font-family: cursive
+    font-family: Roboto, sans-serif;
 }
 
 .slick-next:before,
 [dir=rtl] .slick-prev:before {
     content: '>';
     color: #000;
-    font-size: 140px;
+    font-size: 120px;
     margin-left: 40px;
-    font-family: cursive
+    font-family: Roboto, sans-serif;
 }
 
 
@@ -298,18 +298,21 @@
 .slide-desc {
     color: #fff;
     font-size: 30px;
-    padding: 100px 100px 30px 600px;
+    padding: 100px 100px 30px 500px;
     text-align: -webkit-center;
     line-height: 1.5;
-    font-family: cursive
+    font-family: Roboto, sans-serif;
+    letter-spacing: .09em;
 }
 
 .slide-text {
     color: white;
     font-size: 45px;
-    padding: 100px 100px 30px 600px;
+    padding: 200px 100px 30px 500px;
     text-align: -webkit-center;
-    font-family: cursive
+    font-family: Roboto, sans-serif;
+    letter-spacing: .09em;
+  
 }
 
 .slide-text-blacк {

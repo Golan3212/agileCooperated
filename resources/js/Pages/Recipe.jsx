@@ -14,7 +14,7 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
 
     function declOfNum(n) {
         n = Math.abs(n) % 100;
-        const text_forms = ["минута", "минуты", "минут"];
+        const text_forms = ["МИНУТА", "МИНУТЫ", "МИНУТ"];
         var n1 = n % 10;
         if (n > 10 && n < 20) { return text_forms[2]; }
         if (n1 > 1 && n1 < 5) { return text_forms[1]; }
@@ -28,26 +28,6 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
 
     return (
         <div>
-            {/* <div className="section bg_hr_green">
-                <div className="container">
-                    <div className="title_h1">
-                        {recipeOne.map(recipe => {
-                            return <h1 className="title_main bg_white">Рецепт № {recipe.id}</h1>
-                        })}
-
-                    </div>
-                </div>
-            </div> */}
-            {/* <div className="section section_field_small"></div>
-            <div className="section">
-                <div className="container">
-                    <div className="title_h3 h3_href">
-                        <Link className="footer_menu_color" href="/recipes">Все Рецепты</Link>
-
-                    </div>
-                </div>
-            </div> */}
-
             <div className="section">
                 <div className="container">
                     <div className="reclist_main">
@@ -57,7 +37,7 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
                             <div className="reccard_content">
                                 {recipeOne.map(recipe => {
                                     return <div className="reccard_main_title">{recipe.title}
-                                        <div className="reccard_main_title">{recipe.category_title}</div>
+                                        <div className="reccard_content_title">{recipe.category_title}</div>
                                     </div>
                                 })}
                                 <div className="reccard_main_photo_wrap" style={{ width: 100 + '%' }}>
@@ -74,39 +54,39 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
 
                                         <div className="reccard_main_time">
                                             {recipeOne.map(recipe => {
-                                                return <><div className="reccard_main_time1">
+                                                return <><div className="rec_time">
                                                     <img src={logo1} ></img>
                                                     &nbsp;&nbsp;{recipe.cooking_time}&nbsp;{declOfNum(recipe.cooking_time)}
                                                 </div>
-                                                    <div className="reccard_main_time1">
+                                                    <div className="rec_time">
                                                         <img src={logo2}></img>
-                                                        &nbsp;&nbsp;{recipe.portion}&nbsp;порции
+                                                        &nbsp;&nbsp;{recipe.portion}&nbsp;ПОРЦИИ
                                                     </div>
                                                 </>
                                             })}
                                         </div>
                                         {recipeOne.map(recipe => {
                                             return <div className="reccard_main_kbzhu">
-                                                <div className="reccard_kbzhu_title"><strong>Пищевая ценность порции</strong></div>
+                                                <div className="rec_time"><strong>Пищевая ценность порции</strong></div>
                                                 <div className="reccard_kbzhu1">
-                                                    <div className="reccard_kbzhu_name">Калории</div>
+                                                    <div className="rec_time">Калории, г</div>
                                                     <div className="reccard_kbzhu_dotted"></div>
-                                                    <div className="reccard_kbzhu_values">{recipe.calorie}</div>
+                                                    <div className="rec_time">{recipe.calorie}</div>
                                                 </div>
                                                 <div className="reccard_kbzhu1">
-                                                    <div className="reccard_kbzhu_name">Белки, г.</div>
+                                                    <div className="rec_time">Белки, г.</div>
                                                     <div className="reccard_kbzhu_dotted"></div>
-                                                    <div className="reccard_kbzhu_values">{recipe.proteins}</div>
+                                                    <div className="rec_time">{recipe.proteins}</div>
                                                 </div>
                                                 <div className="reccard_kbzhu1">
-                                                    <div className="reccard_kbzhu_name">Жиры, г.</div>
+                                                    <div className="rec_time">Жиры, г.</div>
                                                     <div className="reccard_kbzhu_dotted"></div>
-                                                    <div className="reccard_kbzhu_values">{recipe.fats}</div>
+                                                    <div className="rec_time">{recipe.fats}</div>
                                                 </div>
                                                 <div className="reccard_kbzhu1">
-                                                    <div className="reccard_kbzhu_name">Углеводы, г.</div>
+                                                    <div className="rec_time">Углеводы, г.</div>
                                                     <div className="reccard_kbzhu_dotted"></div>
-                                                    <div className="reccard_kbzhu_values">{recipe.carbohydrates}</div>
+                                                    <div className="rec_time">{recipe.carbohydrates}</div>
                                                 </div>
                                             </div>
                                         })}
@@ -160,31 +140,40 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
                                         <div className="rec_item_plus"></div>
                                         <div className="rec_item_plus">
 
-                                                <img src={image} style={{ width: 100 + '%' }} className="product-item"></img>
-                                               < a href={"/recipe/" + recipeAdvice.id} className="but">Перейти</a>
+                                            <img src={image} style={{ width: 100 + '%', height: 190 + "px" }} className="product-item"></img>
+                                            < a href={"/recipe/" + recipeAdvice.id} className="but">Перейти</a>
                                         </div>
                                         {<a href="#">
                                             <div className="rec_img">
                                             </div>
+
+
+
+
+
                                             <div className="rec_content">
-                                                <div className="rec_name">{recipeAdvice.title}
-                                                    <div className="rec_name">{recipeAdvice.category_title}</div>
-                                                </div>
+                                                
+                                            <div className="product-title">
+                                                <a href={"/recipe/" + recipeAdvice.id} style={{ fontSize: 20 + 'px' }}>{recipeAdvice.title}</a>
+                                                <span className="product-price">{recipeAdvice.category_title}</span>
+                                                <span className="product-price img"></span>
+                                            </div>
+                                             
                                                 <div className="rec_time_kkal">
                                                     <div className="rec_time">
                                                         <img src={logo1}></img>
                                                         &nbsp;&nbsp;<span
-                                                            style={{ fontWeight: "bold" }}>{recipeAdvice.cooking_time}</span>&nbsp;{declOfNum(recipeAdvice.cooking_time)}
+                                                          >{recipeAdvice.cooking_time}</span>&nbsp;{declOfNum(recipeAdvice.cooking_time)}
                                                     </div>
                                                     <div className="rec_kkal">
                                                         <img src={logo3}></img>
                                                         &nbsp;&nbsp;<span
-                                                            style={{ fontWeight: 'bold' }}>{recipeAdvice.calorie}</span>&nbsp;ккал.&nbsp;на&nbsp;1&nbsp;порц.
+                                                            >ККАЛОРИИ:{recipeAdvice.calorie}</span>&nbsp;/&nbsp;1&nbsp;ПОРЦ.
                                                     </div>
                                                     <div className="rec_porc">
                                                         <img src={logo2}></img>
                                                         &nbsp;&nbsp;<span
-                                                            style={{ fontWeight: 'bold' }}>{recipeAdvice.portion}</span>&nbsp;порции
+                                                            >{recipeAdvice.portion}</span>&nbsp;ПОРЦИИ
                                                     </div>
                                                 </div>
                                             </div>
