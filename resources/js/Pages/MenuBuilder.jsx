@@ -19,7 +19,6 @@ export default function MenuBuilder({ menu, recipes }) {
     const [show, setShow] = useState(false);
 
 
-
     // console.log(menuAll[0]);
     const openModal = () => {
         document.body.setAttribute("style", "overflow-y:hidden");
@@ -103,8 +102,10 @@ export default function MenuBuilder({ menu, recipes }) {
                     <div className="constructor">
                         <div className="cons_row cons_row1" id={item.menu_id}>
                             <div className="cons_col cons_col0" style={{ height: 233 + "px" }}>
-                                <div className="cons_day">
-                                    {item.day_name} </div>
+                                <div className="cons_day">День
+                                    {/*    /!*{item.day_name} *!/*/}
+                                </div>
+
                             </div>
                             {item.menu_recipes.map(menuRecipe => (
                                 <div className="cons_col cons_col1">
@@ -119,40 +120,38 @@ export default function MenuBuilder({ menu, recipes }) {
                                     </div>
                                     <div className="cons_txt">
                                         <div className="cons_title_menu">
-                                            <a href={"/menu/builder/category/"+menuRecipe.category_id}>{menuRecipe.title}</a>
+                                            <a href={"/recipe/"+menuRecipe.id}>{menuRecipe.title}</a>
                                         </div>
                                         <div className="cons_calorie">
                                             <div>
                                                 <img className="cons_title_logo" src={logo3}></img>
                                             </div>
                                             <div>
-                                                <p className="cons_title_calorie">ККАЛОРИЙ: 521 </p>
+                                                <p className="cons_title_calorie">ККАЛОРИЙ: {menuRecipe.calorie}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             ))}
 
-
-
                             <div className="cons_col cons_col1" >
                                 <div className="cons_pic cons_itog">
                                     {/*<div className="cons_itog_title">На 1 порцию</div>*/}
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">ККалории</div>
-                                        <div className="cons_itog_str_val">0</div>
+                                        <div className="cons_itog_str_val">{item.totalCalories}</div>
                                     </div>
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">Белки, г</div>
-                                        <div className="cons_itog_str_val">0</div>
+                                        <div className="cons_itog_str_val">{item.totalProteins}</div>
                                     </div>
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">Жиры, г</div>
-                                        <div className="cons_itog_str_val">0</div>
+                                        <div className="cons_itog_str_val">{item.totalFats}</div>
                                     </div>
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">Углеводы, г</div>
-                                        <div className="cons_itog_str_val">0</div>
+                                        <div className="cons_itog_str_val">{item.totalCarbohydrates}</div>
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +192,7 @@ export default function MenuBuilder({ menu, recipes }) {
                                             <img className="cons_title_logo" src={logo3}></img>
                                         </div>
                                         <div>
-                                            <p className="cons_title_calorie">ККАЛОРИЙ: 521 </p>
+                                            <p className="cons_title_calorie">ККАЛОРИЙ: {item.calorie} </p>
                                         </div>
                                     </div>
                                     <a href={"#"+item.id}>
@@ -295,26 +294,28 @@ export default function MenuBuilder({ menu, recipes }) {
                                 недельных наборов.<span className="append_text"></span></div>
                         </div>
                     </div> */}
-                    <div className="buttons_row">
-                        <div className="buttons_row_button_wrap">
-                            <div > <button className="buttons_row_button">Вернуть первоначальное меню </button></div>
-                        </div>
-                        <div className="buttons_row_text_wrap">
-                            <div className="buttons_row_text" ><strong>Сбросить рецепты</strong> в недельной
-                                сетке до "рекомендуемых".<span className="append_text"></span></div>
-                        </div>
-                    </div>
-                    <div className="buttons_row">
-                        <div className="buttons_row_button_wrap">
-                            <div > <button className="buttons_row_button" >Удалить все рецепты из списка</button></div>
-                        </div>
-                        <div className="buttons_row_text_wrap">
-                            <div className="buttons_row_text" ><strong>Очистить все рецепты</strong> из
-                                недельной сетки, чтобы самостоятельно заполнить её любимыми блюдами. Всегда можете вернуться к
-                                "рекомендуемому" набору рецептов - воспользуйтесь кнопкой "вернуть первоначальное меню".<span
-                                    className="append_text"></span></div>
-                        </div>
-                    </div>
+                    {/*ВРЕММЕННО КОММЕНТИРУЮ НА УРОК 27.03.*/}
+                    {/*<div className="buttons_row">*/}
+                    {/*    <div className="buttons_row_button_wrap">*/}
+                    {/*        <div > <button className="buttons_row_button">Вернуть первоначальное меню </button></div>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="buttons_row_text_wrap">*/}
+                    {/*        <div className="buttons_row_text" ><strong>Сбросить рецепты</strong> в недельной*/}
+                    {/*            сетке до "рекомендуемых".<span className="append_text"></span></div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    {/*<div className="buttons_row">*/}
+                    {/*    <div className="buttons_row_button_wrap">*/}
+                    {/*        <div > <button className="buttons_row_button" >Удалить все рецепты из списка</button></div>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="buttons_row_text_wrap">*/}
+                    {/*        <div className="buttons_row_text" ><strong>Очистить все рецепты</strong> из*/}
+                    {/*            недельной сетки, чтобы самостоятельно заполнить её любимыми блюдами. Всегда можете вернуться к*/}
+                    {/*            "рекомендуемому" набору рецептов - воспользуйтесь кнопкой "вернуть первоначальное меню".<span*/}
+                    {/*                className="append_text"></span></div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    {/*КОНЕЦ ВРЕМЕННОГО КОММЕНТИРОВАНИЯ НА УРОК 27.03*/}
                 </div>
             </div>
 

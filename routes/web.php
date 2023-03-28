@@ -28,6 +28,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('recipe/{id}', [RecipeController::class, 'show']);
 Route::get('account', [AccountController::class, 'index']);
 
+
 Route::get('/menu/builder/{id}', [MenuWeekController::class, 'index']);
 
 
