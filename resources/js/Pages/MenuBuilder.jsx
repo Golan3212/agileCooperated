@@ -98,12 +98,27 @@ export default function MenuBuilder({ menu, recipes }) {
                     <div className="cons_col cons_col5">Итог дня</div>
 
                 </div>
+                {menu.map((item, index) => {
+                    return <div className="constructor">
+                        <div className="cons_row cons_row1">
                 {menuAll.map(item =>  (
                     <div className="constructor">
                         <div className="cons_row cons_row1" id={item.menu_id}>
                             <div className="cons_col cons_col0" style={{ height: 233 + "px" }}>
-                                <div className="cons_day">День
-                                    {/*    /!*{item.day_name} *!/*/}
+                                <div className="cons_day">
+                                    {weekDay(index)} </div>
+                            </div>
+
+
+
+                            <div className="cons_col cons_col1"
+                                data-day="1" data-rectype="1" id="col-1-1">
+                                <div className="cons_pic cons_add" style={{ backgroundImage: `url(${image})`, cursor: "auto" }}
+                                    data-day="1" data-rectype="1" id={item.breakfast_id}>
+                                    {!show && <button className="menu__btn" onClick={handleRecipeId}>
+                                        <img className="cons_pic_img"
+                                            src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                    </button>}
                                 </div>
 
                             </div>
@@ -163,7 +178,7 @@ export default function MenuBuilder({ menu, recipes }) {
         );
     }
 
-    function CategoryList(props){
+    function CategoryList(props) {
         const { show, closeModal } = props;
 
         return (
@@ -213,7 +228,10 @@ export default function MenuBuilder({ menu, recipes }) {
 
 
                                 {/*<div> <p className="cons_title_menu modal__title">{item.title}</p></div>*/}
+                                {/*<div> <p className="cons_title_menu modal__title">{item.title}</p></div>*/}
 
+                            </div>
+                        ))}
                             </div>
                         ))}
                     </div>

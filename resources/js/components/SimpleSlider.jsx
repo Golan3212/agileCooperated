@@ -4,18 +4,20 @@ import '../../css/home.css';
 
 
 
-
-
 export default class SimpleSlider extends Component {
 
     render() {
         const settings = {
             dots: true,
             infinite: true,
-            speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            autoplay: true,
+            speed: 500,
+            autoplaySpeed: 8000,
+            cssEase: "linear"
         };
+
 
         const slidesData = [
             {
@@ -41,11 +43,11 @@ export default class SimpleSlider extends Component {
 
         return (
             <div style={{ width: 100 + '%' }}>
-            
+
                 <Slider {...settings}>
                     {slidesData.map(d => (
                         <div>
-                            <div className="slide-block " style={{backgroundImage: `url(${d.image})`}}>
+                            <div className="slide-block " style={{ backgroundImage: `url(${d.image})` }}>
                                 <h3 className={"slide-text " + (d.isDarkBg ? '' : 'slide-text-blacк')}>{d.title}</h3>
                                 <h2 className={"slide-desc " + (d.isDarkBg ? '' : 'slide-desc-blacк')}>{d.description}</h2>
                             </div>

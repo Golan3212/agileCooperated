@@ -196,3 +196,8 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
 };
 
 
+
+// function mealsDay(mealsIndex) {
+//     const meals = ["Завтрак", "Перекус", "Обед", "Перекус", "Ужин", "Итог дня"];
+//     return meals[mealsIndex];
+// };
