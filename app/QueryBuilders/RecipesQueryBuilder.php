@@ -30,9 +30,14 @@ final  class RecipesQueryBuilder extends QueryBuilder
         return $this->model->where('id', $id)->get();
     }
 
-    public function getRecipeIdByCaloricNorm(int $caloricNorm, int $categoryId)
+    public function getRecipeIdByCaloricNorm(int $caloricNorm, int $fats, int $proteins, int $carbohydrates, int $categoryId)
     {
-        return $this->model->select('id')->where('category_id', $categoryId)->whereBetween('calorie', [$caloricNorm-250, $caloricNorm+250])->inRandomOrder()->first();
+        return $this->model->select('id')->where('category_id', $categoryId)
+            ->whereBetween('calorie', [$caloricNorm-350, $caloricNorm+350])
+            ->whereBetween('fats', [$fats-8, $fats+8])
+            ->whereBetween('proteins', [$proteins-30, $proteins+30])
+            ->whereBetween('carbohydrates', [$carbohydrates-33, $carbohydrates+33])
+            ->inRandomOrder()->first();
     }
 
     public function getAllRecipesMenu(int $breakfest, int $dinner, int $lunch, int $firstSnack, int $secondSnack)

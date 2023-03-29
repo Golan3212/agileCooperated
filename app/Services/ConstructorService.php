@@ -22,12 +22,14 @@ class ConstructorService implements Constructor
 
     public function constructor()
     {
-        Auth::attempt(['email' => 'email@mail.ru', 'password' => 'password']);
 
         $userProfile = new ProfilesQueryBuilder();
         $userProfile = $userProfile->getByUserIdFirst(\Auth::id());
 
         $caloricNorm = $userProfile->caloric_norm;
+        $fatsNorm = (int)round(($userProfile->fats_min + $userProfile->fats_max)/2);
+        $proteinsNorm = (int)round(($userProfile->proteins_min + $userProfile->proteins_max)/2);
+        $carbohydratesNorm = (int)round(($userProfile->carbohydrates_min + $userProfile->carbohydrates_max)/2);
 
         $menu = new MenuQueryBuilder();
 
@@ -51,7 +53,7 @@ class ConstructorService implements Constructor
                 $idMenuForWeek[] = $value->id;
             }
 
-            $idMenuForWeek[] = $this->createMenuFromCaloricNorm($caloricNorm);
+            $idMenuForWeek[] = $this->createMenuFromCaloricNorm($caloricNorm, $fatsNorm, $proteinsNorm, $carbohydratesNorm);
 
 
         }elseif($menu->count() > 14){
@@ -64,7 +66,7 @@ class ConstructorService implements Constructor
 
         }elseif($menu->count() < 8) {
             for ($i=0; $i < 7; $i++) {
-                $idMenuForWeek[] = $this->createMenuFromCaloricNorm($caloricNorm);
+                $idMenuForWeek[] = $this->createMenuFromCaloricNorm($caloricNorm, $fatsNorm, $proteinsNorm, $carbohydratesNorm);
             }
         }
 
@@ -120,22 +122,52 @@ class ConstructorService implements Constructor
         return $categoryList;
     }
 
-    public function createMenuFromCaloricNorm(int $caloricNorm)
+    public function createMenuFromCaloricNorm(int $caloricNorm, int $fats, int $proteins, int $carbohydrates)
     {
 
         $categoryList = $this->getCategoryList();
         $normDay = [
-            'breakfestCaloricNorm' => ['caloric' => (int)round($caloricNorm * 0.3), 'category' => $categoryList['Завтрак']],
-            'lunchCaloricNorm' => ['caloric' => (int)round($caloricNorm * 0.35), 'category' =>  $categoryList['Обед']],
-            'dinnerCaloricNorm' => ['caloric' => (int)round($caloricNorm * 0.25), 'category' =>  $categoryList['Ужин']],
-            'firstSnackCaloricNorm' => ['caloric' => (int)round($caloricNorm * 0.05), 'category' =>  $categoryList['Перекус']],
-            'secondSnackCaloricNorm' => ['caloric' => (int)round($caloricNorm * 0.05), 'category' =>  $categoryList['Перекус']],
+            'breakfestCaloricNorm' => [
+                'caloric' => (int)round($caloricNorm * 0.3),
+                'fats' => (int)round($fats * 0.3),
+                'proteins' => (int)round($proteins * 0.3),
+                'carbohydrates' => (int)round($carbohydrates * 0.3),
+                'category' => $categoryList['Завтрак'],
+                ],
+            'lunchCaloricNorm' => [
+                'caloric' => (int)round($caloricNorm * 0.35),
+                'fats' => (int)round($fats * 0.35),
+                'proteins' => (int)round($proteins * 0.35),
+                'carbohydrates' => (int)round($carbohydrates * 0.35),
+                'category' =>  $categoryList['Обед']
+            ],
+            'dinnerCaloricNorm' => [
+                'caloric' => (int)round($caloricNorm * 0.25),
+                'fats' => (int)round($fats * 0.25),
+                'proteins' => (int)round($proteins * 0.25),
+                'carbohydrates' => (int)round($carbohydrates * 0.25),
+                'category' =>  $categoryList['Ужин']
+            ],
+            'firstSnackCaloricNorm' => [
+                'caloric' => (int)round($caloricNorm * 0.05),
+                'fats' => (int)round($fats * 0.05),
+                'proteins' => (int)round($proteins * 0.05),
+                'carbohydrates' => (int)round($carbohydrates * 0.05),
+                'category' =>  $categoryList['Перекус']
+            ],
+            'secondSnackCaloricNorm' => [
+                'caloric' => (int)round($caloricNorm * 0.05),
+                'fats' => (int)round($fats * 0.05),
+                'proteins' => (int)round($proteins * 0.05),
+                'carbohydrates' => (int)round($carbohydrates * 0.05),
+                'category' =>  $categoryList['Перекус']
+            ],
         ];
 
 
         foreach ($normDay as $key => $value) {
             $recipe = new RecipesQueryBuilder();
-            $recipeIdForCreateMenu[$key] = $recipe->getRecipeIdByCaloricNorm($value['caloric'], $value['category'])->id;
+            $recipeIdForCreateMenu[$key] = $recipe->getRecipeIdByCaloricNorm($value['caloric'], $value['fats'], $value['proteins'], $value['carbohydrates'], $value['category'])->id;
         }
 
 
