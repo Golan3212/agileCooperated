@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RecipeRequest;
 use App\QueryBuilders\MenuQueryBuilder;
 use App\QueryBuilders\MenuWeekQueryBuilder;
 use App\QueryBuilders\RecipesQueryBuilder;
@@ -65,6 +64,4 @@ class MenuWeekController extends Controller
             'recipes' => $recipes
         ]);
     }
-
-
 }

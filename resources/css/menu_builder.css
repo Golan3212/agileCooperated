@@ -1421,8 +1421,8 @@ a.ui-button:active,
     width: 100%;
 }
 .modal__btn:hover {
-    background-color: #6b8d24;
-    color: #fff;
+    background-color: white;
+    color:black;
 }
 .menu__btn {
     position: absolute;
@@ -1462,5 +1462,7 @@ a.ui-button:active,
 }
 
 .red:target{
-    background-color: mediumvioletred;
+    height: 420px;
+    opacity: 0.8;
+    background-color: #78765a;
 }

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../css/menu_builder.css';
 import plus from '../../../public/assets/menu_builder_image/plus.svg';
 import image from '../../../public/assets/recipe_image/images/4.jpg';
@@ -19,7 +19,6 @@ export default function MenuBuilder({ menu, recipes }) {
     const [show, setShow] = useState(false);
 
 
-    // console.log(menuAll[0]);
     const openModal = () => {
         document.body.setAttribute("style", "overflow-y:hidden");
         setShow(true);
@@ -30,52 +29,45 @@ export default function MenuBuilder({ menu, recipes }) {
     }
 
     useEffect(() => {
-        if (newRecipeId !== ""){
+        if (newRecipeId !== "") {
             menuList[idDay].menu_recipes[idRecipe] = newRecipeId;
 
         }
     },);
 
-    function handleUpdateRecipes (idE){
+    function handleUpdateRecipes(idE) {
 
         recipes.forEach(item => {
-            if (item.id == idE){
+            if (item.id == idE) {
                 return setNewRecipeId(item);
             }
         });
 
         menuList.forEach((recipes, index) => {
-            if (recipes.menu_id == dataDay){
+            if (recipes.menu_id == dataDay) {
                 setIdDay(index);
                 recipes.menu_recipes.forEach((recipe, id) => {
-                    if (recipe == recipeId){
+                    if (recipe == recipeId) {
                         setIdRecipe(id);
                         setRecipeId(newRecipeId);
                     }
                 });
             }
         });
-        if (menuAll !== menuList){
+        if (menuAll !== menuList) {
             setMenuAll(menuList);
         }
-
-
     }
 
-    function handleRecipeId (id, category, day){
-
-
-        // console.log("event.target.dataset.category: " + category);
-        // console.log("event.target.dataset.day: " + day);
-        // console.log("event.target.id " + id);
-
+    function handleRecipeId(id, category, day) {
+    
         setNewRecipe(() => recipes.filter(recipe => recipe.category_id == category));
         setDataDay(day);
         menuAll.map(function (recipes, index) {
-            if (recipes.menu_id == day ){
+            if (recipes.menu_id == day) {
                 recipes.menu_recipes.map((recipe) => {
-                    if (recipe.id == id){
-                        return  setRecipeId(recipe);
+                    if (recipe.id == id) {
+                        return setRecipeId(recipe);
                     }
                 })
             }
@@ -102,29 +94,29 @@ export default function MenuBuilder({ menu, recipes }) {
                     <div className="cons_col cons_col5">Итог дня</div>
 
                 </div>
-                {menuAll.map((item,index) =>  (
+                {menuAll.map((item, index) => (
                     <div className="constructor">
                         <div className="cons_row cons_row1" id={item.menu_id}>
                             <div className="cons_col cons_col0" style={{ height: 233 + "px" }}>
                                 <div className="cons_day">
-                                {weekDay(index)}
+                                    {weekDay(index)}
                                 </div>
 
                             </div>
                             {item.menu_recipes.map(menuRecipe => (
                                 <div className="cons_col cons_col1">
                                     <div className="cons_pic cons_add" style={{ backgroundImage: `url(${image})`, cursor: "auto" }}
-                                        // data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}
+                                    // data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}
                                     >
-                                        {!show && <button className="menu__btn" onClick={()=>{openModal(); handleRecipeId(menuRecipe.id, menuRecipe.category_id, item.menu_id)}}
-                                                          data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}>
+                                        {!show && <button className="menu__btn" onClick={() => { openModal(); handleRecipeId(menuRecipe.id, menuRecipe.category_id, item.menu_id) }}
+                                            data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}>
                                             <img className="cons_pic_img"
-                                                 src={plus} title="Добавить рецепт" alt="Добавить рецепт"></img>
+                                                src={plus} title="Заменить рецепт" alt="Заменить рецепт"></img>
                                         </button>}
                                     </div>
                                     <div className="cons_txt">
                                         <div className="cons_title_menu">
-                                            <a href={"/recipe/"+menuRecipe.id}>{menuRecipe.title}</a>
+                                            <a href={"/recipe/" + menuRecipe.id}>{menuRecipe.title}</a>
                                         </div>
                                         <div className="cons_calorie">
                                             <div>
@@ -140,7 +132,6 @@ export default function MenuBuilder({ menu, recipes }) {
 
                             <div className="cons_col cons_col1" >
                                 <div className="cons_pic cons_itog">
-                                    {/*<div className="cons_itog_title">На 1 порцию</div>*/}
                                     <div className="cons_itog_str">
                                         <div className="cons_itog_str_name">ККалории</div>
                                         <div className="cons_itog_str_val">{item.totalCalories}</div>
@@ -167,29 +158,38 @@ export default function MenuBuilder({ menu, recipes }) {
         );
     }
 
-    function CategoryList(props){
+    function CategoryList(props) {
         const { show, closeModal } = props;
 
         return (
             <>
                 <div className={show ? "overlay" : "hide"} onClick={closeModal} />
-                {/*<div className="cons_col cons_col1">*/}
+             
                 <div className={show ? "modal" : "hide"}>
                     <div id="element" className="modal__box">
 
-                        {newRecipe.map( (item) => (
+                        {newRecipe.map((item) => (
 
                             <div className="modal__card red"
-                                 data-day="1" data-rectype="1" id={item.id}
+                                id={item.id}
 
                             >
-                                <div className="cons_pic cons_add"
-                                     style={{ backgroundImage: `url(${image})`, cursor: "auto", width: "100%" }}
-                                     data-day="1" data-rectype="1" data-category={item.category_id} id={item.id}>
+                                <div className="cons_pic cons_add product-item"
+                                    style={{ backgroundImage: `url(${image})`, cursor: "auto", width: "100%", height: 190 + "px" }}
+                                    data-category={item.category_id} id={item.id}>
+                                    <a href={"#" + item.id}>
+                                        <button  className="modal__btn" data-category={item.category_id} id={item.id}
+
+                                            onClick={() => { handleRecipeId(item.id, item.category_id, dataDay); handleUpdateRecipes(item.id); }}
+                                        > Заменить рецепт
+                                        </button>
+                                    </a>
                                 </div>
+
+
                                 <div className="cons_txt modal__text">
                                     <div className="cons_title_menu">
-                                        <a href={"/recipe/"}>{item.title}</a>
+                                        <a href={"/recipe/" + item.id}>{item.title}</a>
                                     </div>
                                     <div className="cons_calorie">
                                         <div>
@@ -199,24 +199,7 @@ export default function MenuBuilder({ menu, recipes }) {
                                             <p className="cons_title_calorie">ККАЛОРИЙ: {item.calorie} </p>
                                         </div>
                                     </div>
-                                    <a href={"#"+item.id}>
-                                        <button id="btn" className="modal__btn"
-                                                data-day="1" data-rectype="1" data-category={item.category_id} id={item.id}
-
-                                                onClick={()=>{handleRecipeId(item.id, item.category_id, dataDay);handleUpdateRecipes(item.id)}}
-                                        >
-                                            Добавить рецепт
-                                        </button>
-                                    </a>
                                 </div>
-
-                                {/*<button className="modal__btn"*/}
-                                {/*        data-day="1" data-rectype="1" data-category={item.category_id} id={item.id}*/}
-                                {/*        onClick={() => {handleRecipeId();handleUpdateRecipes()}}>*/}
-                                {/*    Добавить рецепт</button>*/}
-
-
-                                {/*<div> <p className="cons_title_menu modal__title">{item.title}</p></div>*/}
 
                             </div>
                         ))}

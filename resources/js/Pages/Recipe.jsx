@@ -139,9 +139,12 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
                                     return <div className="rec_item">
                                         <div className="rec_item_plus"></div>
                                         <div className="rec_item_plus">
-
-                                            <img src={image} style={{ width: 100 + '%', height: 190 + "px" }} className="product-item"></img>
-                                            < a href={"/recipe/" + recipeAdvice.id} className="but">Перейти</a>
+                                            <div className="product-item">
+                                                <img src={image} style={{ width: 100 + '%', height: 190 + "px" }}></img>
+                                                <div className="but">
+                                                    < a href={"/recipe/" + recipeAdvice.id} >Перейти</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         {<a href="#">
                                             <div className="rec_img">
@@ -152,28 +155,28 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
 
 
                                             <div className="rec_content">
-                                                
-                                            <div className="product-title">
-                                                <a href={"/recipe/" + recipeAdvice.id} style={{ fontSize: 20 + 'px' }}>{recipeAdvice.title}</a>
-                                                <span className="product-price">{recipeAdvice.category_title}</span>
-                                                <span className="product-price img"></span>
-                                            </div>
-                                             
+
+                                                <div className="product-title">
+                                                    <a href={"/recipe/" + recipeAdvice.id} style={{ fontSize: 20 + 'px' }}>{recipeAdvice.title}</a>
+                                                    <span className="product-price">{recipeAdvice.category_title}</span>
+                                                    <span className="product-price img"></span>
+                                                </div>
+
                                                 <div className="rec_time_kkal">
                                                     <div className="rec_time">
                                                         <img src={logo1}></img>
                                                         &nbsp;&nbsp;<span
-                                                          >{recipeAdvice.cooking_time}</span>&nbsp;{declOfNum(recipeAdvice.cooking_time)}
+                                                        >{recipeAdvice.cooking_time}</span>&nbsp;{declOfNum(recipeAdvice.cooking_time)}
                                                     </div>
                                                     <div className="rec_kkal">
                                                         <img src={logo3}></img>
                                                         &nbsp;&nbsp;<span
-                                                            >ККАЛОРИИ:{recipeAdvice.calorie}</span>&nbsp;/&nbsp;1&nbsp;ПОРЦ.
+                                                        >ККАЛОРИИ:{recipeAdvice.calorie}</span>&nbsp;/&nbsp;1&nbsp;ПОРЦ.
                                                     </div>
                                                     <div className="rec_porc">
                                                         <img src={logo2}></img>
                                                         &nbsp;&nbsp;<span
-                                                            >{recipeAdvice.portion}</span>&nbsp;ПОРЦИИ
+                                                        >{recipeAdvice.portion}</span>&nbsp;ПОРЦИИ
                                                     </div>
                                                 </div>
                                             </div>
