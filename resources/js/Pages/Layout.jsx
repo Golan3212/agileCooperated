@@ -8,6 +8,8 @@ import instagram from "../../../public/assets/links/instagram-f-svgrepo-com.svg"
 import telegram from "../../../public/assets/links/telegram-fill-svgrepo-com.svg";
 import youtube from "../../../public/assets/links/youtube-round-svgrepo-com.svg";
 import vk from "../../../public/assets/links/vk-with-circle-svgrepo-com.svg";
+import { Inertia } from '@inertiajs/inertia';
+import { InertiaLink } from '@inertiajs/inertia-react';
 
 
 export default function Layout({ children }) {
@@ -23,6 +25,10 @@ export default function Layout({ children }) {
 }
 
 const MenuList = (props) => {
+    const hangleClick = e =>{
+        e.preventDefault();
+        Inertia.post('/logout');
+    }
     return (
         <div>
             <div className="section1 section_grey1">
@@ -40,22 +46,23 @@ const MenuList = (props) => {
 
                             {/*<a href="#" className="login">Войти</a>*/}
                             <a href="/account" className="account__logo">Личный кабинет</a>
+                            <button onClick={hangleClick}>X</button>
 
                         </div>
                     </div>
                     <div className="main_menu1">
                         <ul className="main_menu_items1" style={{ justifyContent: 'flex-start' }}>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }} >
-                                <a href="/">Главная</a>
+                                <InertiaLink href="/home">Главная</InertiaLink>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
-                                <a href="/menu/builder/1">Конструктор меню</a>
+                                <InertiaLink href="/menu/builder/1">Конструктор меню</InertiaLink>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
-                                <a href="/form">Калькулятор БЖУ</a>
+                                <InertiaLink href="/form">Калькулятор БЖУ</InertiaLink>
                             </li>
                             <li className="main_menu_item1">
-                                <a href="/recipes">Рецепты</a>
+                                <InertiaLink href="/recipes">Рецепты</InertiaLink>
                             </li>
                         </ul>
                     </div>

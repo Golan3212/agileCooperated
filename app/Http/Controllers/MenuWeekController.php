@@ -50,10 +50,10 @@ class MenuWeekController extends Controller
                 'totalCarbohydrates' => $item->total_carboh_ydrates,
                 'menu_recipes'=> [
                     $item->breakfest->toArray(),
-                    $item->dinner->toArray(),
-                    $item->lunch->toArray(),
                     $item->firstSnack->toArray(),
+                    $item->dinner->toArray(),
                     $item->secondSnack->toArray(),
+                    $item->lunch->toArray(),
                 ]
             ];
         };
@@ -66,33 +66,5 @@ class MenuWeekController extends Controller
         ]);
     }
 
-    public function show(
-        RecipesQueryBuilder $recipesQueryBuilder,
-        int $category_id
-    )
-    {
 
-        $recipeAdvicesList = $recipesQueryBuilder->getRecipeByCategoryId($category_id)->random(8);
-
-        $recipeOneAdvice =[];
-        foreach ($recipeAdvicesList as $key => $value) {
-            $recipeOneAdvice[] = [
-                'id' => $value->id,
-                'category_id' => $value->category_id,
-                'title' => $value->title,
-                'calorie' => $value->calorie,
-                'proteins' => $value->proteins,
-                'fats' => $value->fats,
-                'carbohydrates' => $value->carbohydrates,
-                'portion' => $value->portion,
-                'cooking_time' => $value->cooking_time,
-                'category_title' => $value->category->title,
-            ];
-        }
-
-
-        return Inertia::render('CategoryBuilder', [
-            'recipeOneAdvice' => $recipeOneAdvice,
-        ]);
-    }
 }

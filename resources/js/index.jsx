@@ -6,6 +6,7 @@ import { createRoot } from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import PersonalAccount from "./Pages/PersonalAccount";
 import {NotFound} from "./Pages/NotFound";
+import GuestLayout from './Layouts/GuestLayout';
 import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
 import Recipes from "./Pages/Recipes";
@@ -15,70 +16,32 @@ import Recipe from "./Pages/Recipe";
 
 
 
-function App() {
-    const router = createBrowserRouter([
-        {
-            path: '/',
-            element: <Layout />,
-            children: [
-                {
-                    path: "/",
-                    element: <Home />,
-                },
-
-                {
-                    path: "/recipe",
-                    element: <Recipe />,
-                },
-
-                {
-                    path: "/recipes/*",
-                    element: <Recipes />,
-                },
-                {
-                    path: "/builder",
-                    element: <MenuBuilder />,
-                },
-
-                {
-                    path: "/form",
-                    element: <Form />,
-                },
-                {
-                    path: "/advice",
-                    element: <Advice />,
-                },
-                {
-                    path: "/menu",
-                },
-                {
-                    path: "/account",
-                    element: <PersonalAccount />,
-                },
-                {
-                    path: "/recipes/:categoryId/*",
-                    element: <Recipes />,
-                },
-            ],
-        },
-//Страница 404 должна быть без Footer и Header
-        {
-            path: "/*",
-            element: <NotFound />,
-        },
-    ])
-    return (
-        <div className='app'>
-            <RouterProvider router={router}></RouterProvider>
-        </div>    )
-}
-export default App;
+// function App() {
+//     const router = createBrowserRouter([
+//         {
+//             path: '/',
+//             element: <Layout />,
+//             children: [
+//             ],
+//         },
+// //Страница 404 должна быть без Footer и Header
+//         {
+//             path: "/*",
+//             element: <NotFound />,
+//         },
+//     ])
+//     return (
+//         <div className='app'>
+//             <RouterProvider router={router}></RouterProvider>
+//         </div>    )
+// }
+// export default App;
 
 createInertiaApp({
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
         let page = pages[`./Pages/${name}.jsx`]
-        page.default.layout = page.default.layout || (page => <Layout children={page} />)
+        if(name.startsWith('Guest/')||name.startsWith('mark/Auth')){ page.default.layout =  page => <GuestLayout children={page} /> }else{ page.default.layout =  page => <Layout children={page} /> }
         return page
     },
     setup({ el, App, props }) {
