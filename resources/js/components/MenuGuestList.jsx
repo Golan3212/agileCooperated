@@ -46,9 +46,7 @@ const MenuList = (props) => {
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
                                 <InertiaLink href="/contact">Контакты</InertiaLink>
                             </li>
-                            <li className="main_menu_item1">
-                                <InertiaLink href="#">Еще</InertiaLink>
-                            </li>
+                          
                         </ul>
                     </div>
                 </div>

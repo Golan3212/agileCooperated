@@ -7,8 +7,9 @@ import PrimaryButton from '../../../Components/mark/PrimaryButton';
 import TextInput from '../../../Components/mark/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { InertiaLink } from '@inertiajs/inertia-react';
-import { Inertia } from '@inertiajs/inertia'
-
+import { Inertia } from '@inertiajs/inertia';
+import "../../../../css/account.css";
+import "../../../../css/recipe.css";
 
 
 export default function Login({ status, canResetPassword }) {
@@ -37,11 +38,12 @@ export default function Login({ status, canResetPassword }) {
     return (
         <>
             <Head title="Log in" />
+            <div className="account">
 
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
-            <form onSubmit={submit}>
-                <div>
+            <form  className="account__box"onSubmit={submit}>
+                <div className="account__inner">
                     <InputLabel htmlFor="email" value="Email" />
 
                     <TextInput
@@ -58,7 +60,7 @@ export default function Login({ status, canResetPassword }) {
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
+                <div className="account__inner">
                     <InputLabel htmlFor="password" value="Password" />
 
                     <TextInput
@@ -91,11 +93,13 @@ export default function Login({ status, canResetPassword }) {
                         </InertiaLink>
                     )}
 
-                    <PrimaryButton className="ml-4" disabled={processing}>
-                        Залогиниться!
+                    <PrimaryButton className="ml-4 account__btn" disabled={processing}>
+                        войти
                     </PrimaryButton>
                 </div>
             </form>
+
+            </div> 
         </>
     );
 }

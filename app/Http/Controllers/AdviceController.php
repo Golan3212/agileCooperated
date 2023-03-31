@@ -14,7 +14,6 @@ class AdviceController extends Controller
     {
 
 
-
         if (!Auth::check()) {
             return \redirect()->route('home');
         }
@@ -32,38 +31,40 @@ class AdviceController extends Controller
         ]);
     }
 
-    public function account(AccountQueryBuilder $accountQueryBuilder)
+    public function account(ProfilesQueryBuilder $profilesQueryBuilder)
     {
 
-
-        if (Auth::check()) {
-            // return \redirect()->route('home');
+        if (!Auth::check()) {
+            return \redirect()->route('home');
         }
 
-        if (!$accountQueryBuilder->getUserById(\Auth::id())) {
+        if (!$profilesQueryBuilder->getByUserId(\Auth::id())) {
 
             return \redirect()->route('form');
 
         }
-        $userList = $accountQueryBuilder->getUserById(\Auth::id());
+
+        $profileList = $profilesQueryBuilder->getByUserId(\Auth::id());
 
         $user = [];
-        foreach ($userList as $key => $item) {
+        foreach ($profileList as $key => $item) {
             $user[] = [
                 'id' => $item->id,
-                'name' => $item->name,
-                'username' => $item->username,
-                'email' => $item->email,
-                'phone' => $item->phone,
-                'profile' => $item->profile->toArray(),
-                'menuWeek_id' => $item->menuWeek->value('id'),
+                'gender' => $item->gender,
+                'age' => $item->age,
+                'weight' => $item->weight,
+                'height' => $item->height,
+                'quotient' => $item->quotient,
+                'target' => $item->target,
+                'user' => $item->user->toArray(),
+                'menuWeek_id' => $item->user->menuWeek->value('id'),
             ];
         }
 
-
         return Inertia::render('PersonalAccount', [
             'user' => $user,
-
         ]);
     }
+
 }
+

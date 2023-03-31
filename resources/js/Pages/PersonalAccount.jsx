@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../../css/account.css";
 import MenuAccount from "../components/MenuAccount";
 import {Link} from "react-router-dom";
+import {InertiaLink} from "@inertiajs/inertia-react";
 
 export default function PersonalAccount({user}) {
 
@@ -45,54 +46,55 @@ export default function PersonalAccount({user}) {
                         <h2>Персональные данные</h2>
                         <div className="account__inner">
                             <p>Логин</p>
-                            <span>{item.username}</span>
+                            <span>{item.user.username}</span>
                         </div>
 
                         <div className="account__inner">
                             <p>Имя</p>
-                            <span>{item.name}</span>
+                            <span>{item.user.name}</span>
                         </div>
                         <div className="account__inner">
                             <p>Пол</p>
-                            <span>{gender(item.profile.gender )}</span>
+                            <span>{gender(item.gender )}</span>
                         </div>
                         <div className="account__inner">
                             <p>Возраст</p>
-                            <span>{item.profile.age}</span>
+                            <span>{item.age}</span>
                         </div>
                         <div className="account__inner">
                             <p>Телефон</p>
-                            <span>{item.phone}</span>
+                            <span>{item.user.phone}</span>
                         </div>
                         <div className="account__inner">
                             <p>Email</p>
-                            <span>{item.email}</span>
+                            <span>{item.user.email}</span>
                         </div>
                         {/*ЗАКОММЕНТИРОВАНО НА УРОК 27.03.*/}
-                        {/*<button type="submit" className="account__btn">*/}
-                        {/*    Изменить*/}
-                        {/*</button>*/}
+                        <button type="submit" className="account__btn">
+                            Изменить
+                        </button>
                         {/*КОНЕЦ КОММЕНТИРОВАНИЯ НА УРОК 27.03*/}
                     </section>
                 })}
+                <a href="/profile/edit">Изменить</a>
                 {user.map(item => {
                     return <section className="account__profile">
                         <h2>Мои параметры</h2>
                         <div className="account__inner">
                             <p>Вес (в кг)</p>
-                            <span>{item.profile.weight }</span>
+                            <span>{item.weight }</span>
                         </div>
                         <div className="account__inner">
                             <p>Рост (в см)</p>
-                            <span>{item.profile.height }</span>
+                            <span>{item.height }</span>
                         </div>
                         <div className="account__inner">
                             <p>Коэфициент активности</p>
-                            <span>{quotientNum(item.profile.quotient )}</span>
+                            <span>{quotientNum(item.quotient )}</span>
                         </div>
                         <div className="account__inner">
                             <p>Цель</p>
-                            <span>{targetNum(item.profile.target )}</span>
+                            <span>{targetNum(item.target )}</span>
                         </div>
                         <button type="submit" className="account__btn"><a href={"/form"}>Изменить</a>
                         </button>
@@ -110,8 +112,8 @@ export default function PersonalAccount({user}) {
                         </li>
                             <li>
                                 {user.map(item => {
-                                return<a href={"/menu/builder/" + item.menuWeek_id}>Мое меню на неделю</a>
-                                })}
+                            return<a href={"/menu/builder/" + item.menuWeek_id}>Мое меню на неделю</a>
+                            })}
                             </li>
 
                     </ul>
