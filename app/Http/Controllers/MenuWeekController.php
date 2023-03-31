@@ -64,5 +64,4 @@ class MenuWeekController extends Controller
             'recipes' => $recipes
         ]);
     }
-
 }

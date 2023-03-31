@@ -34,9 +34,8 @@ class FormController extends Controller
      */
     public function store(ProfileRequest $request, ProfilesQueryBuilder $profilesQueryBuilder, ConstructorService $constructor)
     {
-        Auth::attempt(['email' => 'email@mail.ru', 'password' => 'password']); //чтобы польователь был зарегистрирован, когда появится регистрацию убрать
+        // Auth::attempt(['email' => 'email@mail.ru', 'password' => 'password']); //чтобы польователь был зарегистрирован, когда появится регистрацию убрать
         // Вы должны создать пользователя в бд
-
 
 
         if(Auth::check()){
