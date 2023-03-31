@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/react';
 import "../../css/header.css";
 import "../../css/footer.css";
-import ThemeSwitch from 'react-theme-switch';
+
 import logo from "../../../public/assets/2023-03-16_17-05.png";
 import instagram from "../../../public/assets/links/instagram-f-svgrepo-com.svg";
 import telegram from "../../../public/assets/links/telegram-fill-svgrepo-com.svg";
@@ -11,9 +11,7 @@ import vk from "../../../public/assets/links/vk-with-circle-svgrepo-com.svg";
 
 
 export default function Layout({ children }) {
-
     return (
-
         <main className="main">
             <MenuList></MenuList>
             <main className='container'>
@@ -21,12 +19,10 @@ export default function Layout({ children }) {
             </main>
             <FooterList></FooterList>
         </main>
-
     )
 }
 
 const MenuList = (props) => {
-
     return (
         <div>
             <div className="section1 section_grey1">
@@ -44,14 +40,6 @@ const MenuList = (props) => {
 
                             {/*<a href="#" className="login">Войти</a>*/}
                             <a href="/account" className="account__logo">Личный кабинет</a>
-
-                            {/*<style id="inverter" media="none">*/}
-                            {/*    html {{ backgroundColor: '#eee', filter: 'invert(100%)' }}*/}
-                            {/*    * {{ backgroundColor: 'inherit' }}*/}
-                            {/*    img:not([src*=".svg"]), [style*="url("] {{ filter: 'invert(100%)' }}*/}
-                            {/*</style>*/}
-
-                            <ThemeSwitch />
 
                         </div>
                     </div>

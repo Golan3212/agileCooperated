@@ -1,9 +1,9 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../css/app.css';
 import img1 from "../../../public/assets/recipe_image/images/2.jpg";
 import usePagination from "../hooks/usePagintaion";
 import { Link, animateScroll as scroll } from "react-scroll";
-
+import {Marker} from 'react-mark.js';
 import calories from "../../../public/assets/recipe_image/icons/calories.svg";
 import time from "../../../public/assets/recipe_image/icons/time.svg";
 import image from "../../../public/assets/recipe_image/images/4.jpg";
@@ -75,11 +75,7 @@ const Recipes = ({recipes}) =>{
     const img = img1;
 
     const [inputText, setInputText] = useState("");
-    console.log("inputText: " + inputText);
     const handleSearch = (e) => {
-        // let lowerCase = e.target.value.toLowerCase();
-        // setInputText(e.target.value.toLowerCase());
-
         setCategoryId(() => category.filter((recipe) => {
             if (e !== "") {
 
@@ -88,61 +84,9 @@ const Recipes = ({recipes}) =>{
                 return recipe
             }
         }))
-        // category.forEach( recipe => {
-        //     let a = recipe.title.toLowerCase().indexOf(inputText);
-        //     let b = a + inputText.length - 1;
-        //     if (a !== -1) {
-        //         let t1 = recipe.title.slice(0, a);
-        //         let t2 = recipe.title.slice(a, b + 1);
-        //         let t3 = recipe.title.slice(b, recipe.title.length - 1);
-        //         document.getElementById("title").innerHTML = `${t1}<span class="yellow">${t2}</span>${t3}`;
-        //     } else {
-        //         document.getElementById("title").innerHTML = recipe.title;
-        //     }
-        //     console.log(a);
-        // })
-        console.log("e: " + e);
     }
 
-    const Hightlight = (props) => {
-        const { inputText, str } = props
-        if (inputText === "") return str
-        const regexp = new RegExp(inputText, 'ig')
-        const matchValue = str.match(regexp)
 
-        if (matchValue) {
-            // console.log('matchValue', matchValue)
-            // console.log('str.split(regexp)', str.split(regexp))
-
-            return str.split(regexp).map((s, index, array) => {
-                if (index < array.length - 1) {
-                    const c = matchValue.shift()
-                    console.log("s: " + s);
-
-                    return (
-                        <>
-                            {s}<span className={'yellow'}>{c}</span>
-                        </>
-                    )
-                }
-                return s;
-            })
-        }
-
-
-        // let rule1 = new RegExp("<>", 'ig');
-        // str.replace(rule1, "");
-        // let rule2 = new RegExp("</>", 'ig');
-        // str.replace(rule2, "");
-        //
-        // let rule3 = new RegExp(" ", '<br>');
-        // str.replace(rule3, "");
-        return str;
-    }
-
-    const light = useCallback((str) => {
-        return <Hightlight inputText={inputText} str={str} />
-    }, [inputText]);
 
     return (
         <div className="recipeListMain">
@@ -158,7 +102,11 @@ const Recipes = ({recipes}) =>{
                             </div>
                             <div className="product-title">
                                 <a id="title" href={"/recipe/"+item.id}>
-                                    <p className="title__inner">{light(item.title)}</p>
+                                    <p className="title__inner">
+                                        <Marker mark={inputText}>
+                                            {item.title}
+                                        </Marker>
+                                    </p>
                                 </a>
                                 <span className="product-price">{item.category_title}</span>
                                 <span className="product-price img">

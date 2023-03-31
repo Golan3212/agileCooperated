@@ -124,24 +124,3 @@ body {
     background-color: #6b8d24;
     color: #fff;
 }
-
-
-[aria-pressed="false"] {
-    background: url(../../public/assets/photo_2023-03-31_12-27-01.jpg) 50% 50% no-repeat;
-    background-size: contain;
-    width: 100px;
-    height: 50px;
-    border: none;
-    font-size: 0;
-    cursor: pointer;
-}
-[aria-pressed="true"] {
-    background: url(../../public/assets/photo_2023-03-31_12-27-01.jpg) 50% 50% no-repeat;
-    background-size: contain;
-    width: 100px;
-    height: 50px;
-    border: none;
-    font-size: 0;
-    cursor: pointer;
-    transform: rotate(180deg);
-}

@@ -100,9 +100,20 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
                                                         recipe.ingredients.map((ingredient => {
                                                             return (<div>
                                                                 <div className="reccard_kbzhu1">
-                                                                    <div className="reccard_kbzhu_name">{ingredient.title}, {ingredient.pivot.mass_unit}</div>
+                                                                    <div className="reccard_kbzhu_name">
+                                                                        {ingredient.title.replace(",","")}
+                                                                        {ingredient.pivot.quantity_ingredient ? "," : ""}
+                                                                        {ingredient.pivot.mass_unit.replace("по вкусу","")}</div>
                                                                     <div className="reccard_kbzhu_dotted"></div>
-                                                                    <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">{ingredient.pivot.quantity_ingredient}</div>
+
+                                                                    {
+                                                                        <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">{
+                                                                            ingredient.pivot.quantity_ingredient === 0 ?
+                                                                                "по вкусу" :
+                                                                                ingredient.pivot.quantity_ingredient
+                                                                        }</div>
+                                                                    }
+                                                                   
                                                                 </div>
                                                             </div>
                                                             )
@@ -200,7 +211,5 @@ export default function Recipe({ recipeOne, recipeOneAdvice }) {
 
 
 
-// function mealsDay(mealsIndex) {
-//     const meals = ["Завтрак", "Перекус", "Обед", "Перекус", "Ужин", "Итог дня"];
-//     return meals[mealsIndex];
-// };
+
+

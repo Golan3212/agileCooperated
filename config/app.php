@@ -1,4 +1,4 @@
-php artisan cache:clear<?php
+
 
 use Illuminate\Support\Facades\Facade;
 

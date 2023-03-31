@@ -13264,7 +13264,7 @@ module.exports = isEqual;
 
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
-  !*** ./resources/css/app.css ***!
+  !*** ./resources/css/App.css ***!
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
