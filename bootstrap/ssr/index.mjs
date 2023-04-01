@@ -37,64 +37,57 @@ function getBodyMassIndex(massIndex) {
   }
   return description;
 }
-const account = "";
+const account$1 = "";
 function Advice({ profile }) {
   let bodyMassIndexDescription = getBodyMassIndex(profile.mass_index);
   console.log(profile);
-  return /* @__PURE__ */ jsxs("div", { className: "account", children: [
-    /* @__PURE__ */ jsxs("main", { className: "account__box advice__wrap", children: [
-      /* @__PURE__ */ jsx("h1", { className: "advice__heading", children: "Рекомендации" }),
-      /* @__PURE__ */ jsxs("div", { className: "advice", children: [
-        /* @__PURE__ */ jsx("h3", { children: "Норма калорий" }),
-        /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Ваша суточная норма килокалорий" }),
-        /* @__PURE__ */ jsx("h4", { children: profile.caloric_norm })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "advice", children: [
-        /* @__PURE__ */ jsx("h3", { children: "Белки" }),
-        /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Рекомендуемое количество белка в граммах" }),
-        /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
-          " от  ",
-          /* @__PURE__ */ jsx("span", { children: profile.proteins_min }),
-          "   до  ",
-          /* @__PURE__ */ jsx("span", { children: profile.proteins_max })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "advice", children: [
-        /* @__PURE__ */ jsx("h3", { children: "Жиры" }),
-        /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Рекомендуемое количество жиров в граммах" }),
-        /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
-          " от  ",
-          /* @__PURE__ */ jsx("span", { children: profile.fats_min }),
-          "   до  ",
-          /* @__PURE__ */ jsx("span", { children: profile.fats_max })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "advice", children: [
-        /* @__PURE__ */ jsx("h3", { children: "Углеводы" }),
-        /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Рекомендуемое количество углеводов в граммах" }),
-        /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
-          " от  ",
-          /* @__PURE__ */ jsx("span", { children: profile.carbohydrates_min }),
-          "   до  ",
-          /* @__PURE__ */ jsx("span", { children: profile.carbohydrates_max })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "advice", children: [
-        /* @__PURE__ */ jsx("h3", { children: "Индекс массы тела" }),
-        /* @__PURE__ */ jsx("p", { className: "advice__text", children: "ИМТ – величина, позволяющая оценить степень соответствия массы человека и его роста и тем самым косвенно оценить, является ли масса недостаточной, нормальной или избыточной. Данный параметр не подходит для оценки спортсменов ввиду развитой мускулатуры и как следствие высокого ИМТ." }),
-        /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
-          /* @__PURE__ */ jsx("span", { children: profile.mass_index }),
-          "   - ",
-          bodyMassIndexDescription
-        ] })
+  return /* @__PURE__ */ jsx("div", { className: "account", children: /* @__PURE__ */ jsxs("main", { className: "account__box advice__wrap", children: [
+    /* @__PURE__ */ jsx("h1", { className: "advice__heading", children: "Рекомендации" }),
+    /* @__PURE__ */ jsxs("div", { className: "advice", children: [
+      /* @__PURE__ */ jsx("h3", { children: "Норма калорий" }),
+      /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Ваша суточная норма килокалорий" }),
+      /* @__PURE__ */ jsx("h4", { children: profile.caloric_norm })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "advice", children: [
+      /* @__PURE__ */ jsx("h3", { children: "Белки" }),
+      /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Рекомендуемое количество белка в граммах" }),
+      /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
+        " от  ",
+        /* @__PURE__ */ jsx("span", { children: profile.proteins_min }),
+        "   до  ",
+        /* @__PURE__ */ jsx("span", { children: profile.proteins_max })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "account__menu", children: /* @__PURE__ */ jsx("nuv", { children: /* @__PURE__ */ jsxs("ul", { children: [
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/account", children: "Мой профиль" }) }),
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/advice", children: "Мои рекомендации" }) }),
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "#", children: "Меню на неделю" }) })
-    ] }) }) })
-  ] });
+    /* @__PURE__ */ jsxs("div", { className: "advice", children: [
+      /* @__PURE__ */ jsx("h3", { children: "Жиры" }),
+      /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Рекомендуемое количество жиров в граммах" }),
+      /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
+        " от  ",
+        /* @__PURE__ */ jsx("span", { children: profile.fats_min }),
+        "   до  ",
+        /* @__PURE__ */ jsx("span", { children: profile.fats_max })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "advice", children: [
+      /* @__PURE__ */ jsx("h3", { children: "Углеводы" }),
+      /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Рекомендуемое количество углеводов в граммах" }),
+      /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
+        " от  ",
+        /* @__PURE__ */ jsx("span", { children: profile.carbohydrates_min }),
+        "   до  ",
+        /* @__PURE__ */ jsx("span", { children: profile.carbohydrates_max })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "advice", children: [
+      /* @__PURE__ */ jsx("h3", { children: "Индекс массы тела" }),
+      /* @__PURE__ */ jsx("p", { className: "advice__text", children: "ИМТ – величина, позволяющая оценить степень соответствия массы человека и его роста и тем самым косвенно оценить, является ли масса недостаточной, нормальной или избыточной. Данный параметр не подходит для оценки спортсменов ввиду развитой мускулатуры и как следствие высокого ИМТ." }),
+      /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
+        /* @__PURE__ */ jsx("span", { children: profile.mass_index }),
+        "   - ",
+        bodyMassIndexDescription
+      ] })
+    ] })
+  ] }) });
 }
 const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -517,6 +510,8 @@ const instagram = "/build/assets/instagram-f-svgrepo-com-bb0dc06b.svg";
 const telegram = "/build/assets/telegram-fill-svgrepo-com-bc02e72d.svg";
 const youtube = "/build/assets/youtube-round-svgrepo-com-7f238d43.svg";
 const vk = "/build/assets/vk-with-circle-svgrepo-com-d2fa5db9.svg";
+const menu = "/build/assets/menu-svgrepo-com-9cc5f9ff.svg";
+const account = "/build/assets/account-avatar-man-svgrepo-com-9bbb61a3.svg";
 function Layout$2({ children }) {
   return /* @__PURE__ */ jsxs("main", { className: "main", children: [
     /* @__PURE__ */ jsx(MenuList$1, {}),
@@ -529,29 +524,54 @@ const MenuList$1 = (props) => {
     e.preventDefault();
     Inertia.post("/logout");
   };
-  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section1 section_grey1", children: /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
-    /* @__PURE__ */ jsxs("div", { className: "inner", children: [
-      /* @__PURE__ */ jsxs("div", { id: "up", children: [
-        /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
-        /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
+  const [isOpen, setIsOpen] = useState(false);
+  const clickOpen = (e) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
+    /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
+      /* @__PURE__ */ jsxs("div", { className: "menu__left", children: [
+        /* @__PURE__ */ jsx("button", { onClick: clickOpen, className: "menu__button", children: /* @__PURE__ */ jsx("img", { src: menu, className: "menu__img" }) }),
+        isOpen && /* @__PURE__ */ jsx("div", { className: "visible", children: /* @__PURE__ */ jsxs("div", { className: "nav__box", children: [
+          /* @__PURE__ */ jsxs("div", { className: "nav__links", children: [
+            /* @__PURE__ */ jsxs("ul", { children: [
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/about", children: "О нас" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/account", children: "Мой профиль" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/advice", children: "Мои рекомендации" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/menu/builder/1", children: "Меню на неделю" }) })
+            ] }),
+            /* @__PURE__ */ jsx("button", { onClick: hangleClick, className: "menu__button", children: "Выйти" })
+          ] }),
+          /* @__PURE__ */ jsx("button", { className: "nav__btn", onClick: clickOpen, children: "X" })
+        ] }) })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
-        /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: telegram, className: "social" }) }),
-        /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: instagram, className: "social" }) }),
-        /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: youtube, className: "social" }) }),
-        /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: vk, className: "social" }) }),
-        /* @__PURE__ */ jsx("a", { href: "/account", className: "account__logo", children: "Личный кабинет" }),
-        /* @__PURE__ */ jsx("button", { onClick: hangleClick, children: "X" }),
-        /* @__PURE__ */ jsx(ThemeSwitch, {})
+      /* @__PURE__ */ jsxs("div", { className: "menu__right", children: [
+        /* @__PURE__ */ jsx(ThemeSwitch, {}),
+        /* @__PURE__ */ jsx("a", { href: "/account", children: /* @__PURE__ */ jsx("img", { src: account, className: "menu__img" }) })
       ] })
-    ] }),
-    /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
-      /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная" }) }),
-      /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/menu/builder/1", children: "Конструктор меню" }) }),
-      /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/form", children: "Калькулятор БЖУ" }) }),
-      /* @__PURE__ */ jsx("li", { className: "main_menu_item1", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/recipes", children: "Рецепты" }) })
-    ] }) })
-  ] }) }) });
+    ] }) }),
+    /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
+      /* @__PURE__ */ jsxs("div", { className: "inner", children: [
+        /* @__PURE__ */ jsxs("div", { id: "up", children: [
+          /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
+          /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: telegram, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: instagram, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: youtube, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: vk, className: "social" }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/menu/builder/1", children: "Конструктор меню" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/form", children: "Калькулятор БЖУ" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/recipes", children: "Рецепты" }) })
+      ] }) })
+    ] })
+  ] }) });
 };
 const FooterList$1 = () => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section2", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { className: "footer2", children: [
@@ -659,27 +679,34 @@ const FooterList = () => {
 };
 const recipe = "";
 const MenuList = (props) => {
-  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section1 section_grey1", children: /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
-    /* @__PURE__ */ jsxs("div", { className: "inner", children: [
-      /* @__PURE__ */ jsxs("div", { id: "up", children: [
-        /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
-        /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
-        /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: telegram, className: "social" }) }),
-        /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: instagram, className: "social" }) }),
-        /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: youtube, className: "social" }) }),
-        /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: vk, className: "social" }) }),
-        /* @__PURE__ */ jsx("a", { href: "/login", className: "account__logo", children: "Войти" }),
-        /* @__PURE__ */ jsx("a", { href: "/register", className: "account__logo", children: "Зарегистрироваться" })
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
+    /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
+      /* @__PURE__ */ jsx("div", { className: "menu__left", children: /* @__PURE__ */ jsx(ThemeSwitch, {}) }),
+      /* @__PURE__ */ jsxs("div", { className: "menu__right", children: [
+        /* @__PURE__ */ jsx("a", { href: "/login", className: "login", children: "Войти" }),
+        /* @__PURE__ */ jsx("a", { href: "/register", className: "login", children: "Зарегистрироваться" })
       ] })
-    ] }),
-    /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
-      /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/", children: "Главная" }) }),
-      /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/about", children: "О нас" }) }),
-      /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/contact", children: "Контакты" }) })
-    ] }) })
-  ] }) }) });
+    ] }) }),
+    /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
+      /* @__PURE__ */ jsxs("div", { className: "inner", children: [
+        /* @__PURE__ */ jsxs("div", { id: "up", children: [
+          /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
+          /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: telegram, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: instagram, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: youtube, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: vk, className: "social" }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/", children: "Главная" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/about", children: "О нас" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/recipes", children: "Рецепты" }) })
+      ] }) })
+    ] })
+  ] }) });
 };
 function GuestLayout({ children }) {
   return /* @__PURE__ */ jsxs("main", { className: "main", children: [
@@ -748,8 +775,8 @@ const menu_builder = "";
 const plus = "/build/assets/plus-14c06bc0.svg";
 const image$1 = "/build/assets/4-af5c209f.jpg";
 const logo3 = "/build/assets/portions-fe7343ce.svg";
-function MenuBuilder({ menu, recipes }) {
-  const [menuAll, setMenuAll] = useState(menu);
+function MenuBuilder({ menu: menu2, recipes }) {
+  const [menuAll, setMenuAll] = useState(menu2);
   const [menuList, setMenuList] = useState(menuAll);
   const [idDay, setIdDay] = useState(0);
   const [idRecipe, setIdRecipe] = useState(0);
@@ -1009,70 +1036,60 @@ function PersonalAccount({ user }) {
       return "2.2 - предельно активный образ жизни (физическая тяжелая физическая работа и интенсивные тренировки/занятия спортом.";
     }
   };
-  return /* @__PURE__ */ jsxs("div", { className: "account", children: [
-    /* @__PURE__ */ jsxs("main", { className: "account__box", children: [
-      user.map((item) => {
-        return /* @__PURE__ */ jsxs("section", { className: "account__profile", children: [
-          /* @__PURE__ */ jsx("h2", { children: "Персональные данные" }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Логин" }),
-            /* @__PURE__ */ jsx("span", { children: item.user.username })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Имя" }),
-            /* @__PURE__ */ jsx("span", { children: item.user.name })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Пол" }),
-            /* @__PURE__ */ jsx("span", { children: gender(item.gender) })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Возраст" }),
-            /* @__PURE__ */ jsx("span", { children: item.age })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Телефон" }),
-            /* @__PURE__ */ jsx("span", { children: item.user.phone })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Email" }),
-            /* @__PURE__ */ jsx("span", { children: item.user.email })
-          ] }),
-          /* @__PURE__ */ jsx("button", { type: "submit", className: "account__btn", children: "Изменить" })
-        ] });
-      }),
-      /* @__PURE__ */ jsx("a", { href: "/profile/edit", children: "Изменить" }),
-      user.map((item) => {
-        return /* @__PURE__ */ jsxs("section", { className: "account__profile", children: [
-          /* @__PURE__ */ jsx("h2", { children: "Мои параметры" }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Вес (в кг)" }),
-            /* @__PURE__ */ jsx("span", { children: item.weight })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Рост (в см)" }),
-            /* @__PURE__ */ jsx("span", { children: item.height })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Коэфициент активности" }),
-            /* @__PURE__ */ jsx("span", { children: quotientNum(item.quotient) })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-            /* @__PURE__ */ jsx("p", { children: "Цель" }),
-            /* @__PURE__ */ jsx("span", { children: targetNum(item.target) })
-          ] }),
-          /* @__PURE__ */ jsx("button", { type: "submit", className: "account__btn", children: /* @__PURE__ */ jsx("a", { href: "/form", children: "Изменить" }) })
-        ] });
-      })
-    ] }),
-    /* @__PURE__ */ jsx("div", { className: "account__menu", children: /* @__PURE__ */ jsx("nuv", { children: /* @__PURE__ */ jsxs("ul", { children: [
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/account", children: "Мой профиль" }) }),
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/advice", children: "Мои рекомендации" }) }),
-      /* @__PURE__ */ jsx("li", { children: user.map((item) => {
-        return /* @__PURE__ */ jsx("a", { href: "/menu/builder/" + item.menuWeek_id, children: "Мое меню на неделю" });
-      }) })
-    ] }) }) })
-  ] });
+  return /* @__PURE__ */ jsx("div", { className: "account", children: /* @__PURE__ */ jsxs("main", { className: "account__box", children: [
+    user.map((item) => {
+      return /* @__PURE__ */ jsxs("section", { className: "account__profile", children: [
+        /* @__PURE__ */ jsx("h2", { children: "Персональные данные" }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Логин" }),
+          /* @__PURE__ */ jsx("span", { children: item.user.username })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Имя" }),
+          /* @__PURE__ */ jsx("span", { children: item.user.name })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Пол" }),
+          /* @__PURE__ */ jsx("span", { children: gender(item.gender) })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Возраст" }),
+          /* @__PURE__ */ jsx("span", { children: item.age })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Телефон" }),
+          /* @__PURE__ */ jsx("span", { children: item.user.phone })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Email" }),
+          /* @__PURE__ */ jsx("span", { children: item.user.email })
+        ] }),
+        /* @__PURE__ */ jsx("button", { type: "submit", className: "account__btn", children: "Изменить" })
+      ] });
+    }),
+    user.map((item) => {
+      return /* @__PURE__ */ jsxs("section", { className: "account__profile", children: [
+        /* @__PURE__ */ jsx("h2", { children: "Мои параметры" }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Вес (в кг)" }),
+          /* @__PURE__ */ jsx("span", { children: item.weight })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Рост (в см)" }),
+          /* @__PURE__ */ jsx("span", { children: item.height })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Коэфициент активности" }),
+          /* @__PURE__ */ jsx("span", { children: quotientNum(item.quotient) })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+          /* @__PURE__ */ jsx("p", { children: "Цель" }),
+          /* @__PURE__ */ jsx("span", { children: targetNum(item.target) })
+        ] }),
+        /* @__PURE__ */ jsx("button", { type: "submit", className: "account__btn", children: /* @__PURE__ */ jsx("a", { href: "/form", children: "Изменить" }) })
+      ] });
+    })
+  ] }) });
 }
 const __vite_glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -1662,8 +1679,8 @@ const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: UpdateProfileInformation
 }, Symbol.toStringTag, { value: "Module" }));
-const time = "/build/assets/time-10e065e2.svg";
-const calories = "/build/assets/calories-e8a8af73.svg";
+const time = "/build/assets/time-ab3af3e3.svg";
+const calories = "/build/assets/calories-d915d232.svg";
 const image = "/build/assets/1-309347c3.jpg";
 function Recipe({ recipeOne, recipeOneAdvice }) {
   function declOfNum(n) {

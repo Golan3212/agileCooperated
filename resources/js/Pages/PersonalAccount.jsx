@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import "../../css/account.css";
 import MenuAccount from "../components/MenuAccount";
 import {Link} from "react-router-dom";
-import {InertiaLink} from "@inertiajs/inertia-react";
 
 export default function PersonalAccount({user}) {
 
@@ -73,10 +72,13 @@ export default function PersonalAccount({user}) {
                         <button type="submit" className="account__btn">
                             Изменить
                         </button>
+                        {/*ЗАКОММЕНТИРОВАНО НА УРОК 27.03.*/}
+                        {/*<button type="submit" className="account__btn">*/}
+                        {/*    Изменить*/}
+                        {/*</button>*/}
                         {/*КОНЕЦ КОММЕНТИРОВАНИЯ НА УРОК 27.03*/}
                     </section>
                 })}
-                <a href="/profile/edit">Изменить</a>
                 {user.map(item => {
                     return <section className="account__profile">
                         <h2>Мои параметры</h2>
@@ -101,26 +103,6 @@ export default function PersonalAccount({user}) {
                     </section>
                 })}
             </main>
-            <div className="account__menu">
-                <nuv>
-                    <ul>
-                        <li>
-                            <a href="/account">Мой профиль</a>
-                        </li>
-                        <li>
-                            <a href="/advice">Мои рекомендации</a>
-                        </li>
-                            <li>
-                                {user.map(item => {
-                            return<a href={"/menu/builder/" + item.menuWeek_id}>Мое меню на неделю</a>
-                            })}
-                            </li>
-
-                    </ul>
-
-                </nuv>
-
-            </div>
 
         </div>
     );

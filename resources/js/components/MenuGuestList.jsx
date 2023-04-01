@@ -12,12 +12,39 @@ import vk from "../../../public/assets/links/vk-with-circle-svgrepo-com.svg";
 
 import wt from "../../../public/assets/recipe_image/icons/icons-whatsapp.png";
 import { InertiaLink } from '@inertiajs/inertia-react';
+import menu from "../../../public/assets/menu-svgrepo-com.svg";
+import ThemeSwitch from "react-theme-switch";
+import account from "../../../public/assets/account-avatar-man-svgrepo-com.svg";
 
 
 const MenuList = (props) => {
     return (
         <div>
             <div className="section1 section_grey1">
+
+
+                <div className="menu__black">
+                    <div className="container1 menu__inner">
+                        <div className="menu__left">
+                            <ThemeSwitch />
+                        </div>
+
+                        <div className="menu__right" >
+
+
+
+                            <a href="/login" className="login">Войти</a>
+                            <a href="/register" className="login">Зарегистрироваться</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
                 <div className="container1 wrap">
                     <div className="inner">
                         <div id="up">
@@ -31,8 +58,7 @@ const MenuList = (props) => {
                             <a href="#"><img src={vk} className="social"></img></a>
 
                             {/*<a href="#" className="login">Войти</a>*/}
-                            <a href="/login" className="account__logo">Войти</a>
-                            <a href="/register" className="account__logo">Зарегистрироваться</a>
+
                         </div>
                     </div>
                     <div className="main_menu1">
@@ -44,9 +70,8 @@ const MenuList = (props) => {
                                 <InertiaLink href="/about">О нас</InertiaLink>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
-                                <InertiaLink href="/contact">Контакты</InertiaLink>
+                                <InertiaLink href="/recipes">Рецепты</InertiaLink>
                             </li>
-                          
                         </ul>
                     </div>
                 </div>
