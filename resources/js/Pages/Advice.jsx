@@ -73,22 +73,6 @@ export default function Advice({profile}) {
                     </p>
                 </div>
             </main>
-            <div className="account__menu">
-
-                <nuv>
-                    <ul>
-                        <li>
-                            <a href="/account">Мой профиль</a>
-                        </li>
-                        <li>
-                            <a href="/advice">Мои рекомендации</a>
-                        </li>
-                        <li>
-                            <a href="#">Меню на неделю</a>
-                        </li>
-                    </ul>
-                </nuv>
-            </div>
         </div>
     );
 }

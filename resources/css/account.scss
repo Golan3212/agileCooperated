@@ -7,7 +7,7 @@
     margin: 30px auto;
     max-width: 900px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px;
     box-sizing: border-box;
     &__menu {
@@ -32,7 +32,7 @@
     &__box {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 60%;
     }
     &__profile {
         display: flex;
@@ -108,6 +108,9 @@
         align-self: flex-end;
         margin-top: 25px;
         cursor: pointer;
+        & a {
+            color: #fff;
+        }
     }
     &__btn:hover {
         background-color: #6b8d24;

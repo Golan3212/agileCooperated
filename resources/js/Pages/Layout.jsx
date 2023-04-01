@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from '@inertiajs/react';
 import "../../css/header.css";
 import "../../css/footer.css";
@@ -11,11 +11,11 @@ import vk from "../../../public/assets/links/vk-with-circle-svgrepo-com.svg";
 import { Inertia } from '@inertiajs/inertia';
 import { InertiaLink } from '@inertiajs/inertia-react';
 
+import menu from "../../../public/assets/menu-svgrepo-com.svg";
+import account from "../../../public/assets/account-avatar-man-svgrepo-com.svg";
 
 export default function Layout({ children }) {
-
     return (
-
         <main className="main">
             <MenuList></MenuList>
             <main className='container'>
@@ -23,7 +23,6 @@ export default function Layout({ children }) {
             </main>
             <FooterList></FooterList>
         </main>
-
     )
 }
 
@@ -32,9 +31,67 @@ const MenuList = (props) => {
         e.preventDefault();
         Inertia.post('/logout');
     }
+
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const clickOpen = (e) => {
+        e.preventDefault();
+        setIsOpen(!isOpen);
+    }
+
+
     return (
         <div>
             <div className="section1 section_grey1">
+                <div className="menu__black">
+                    <div className="container1 menu__inner">
+                        <div className="menu__left">
+                            <button onClick={clickOpen} className="menu__button">
+                                <img src={menu} className="menu__img" />
+                            </button>
+
+                            {isOpen &&
+                                <div className="visible">
+                                    <div className="nav__box">
+                                        <div className="nav__links">
+                                            <ul>
+                                                <li>
+                                                    <a href="/about">О нас</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/account">Мой профиль</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/advice">Мои рекомендации</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/menu/builder/1">Меню на неделю</a>
+                                                </li>
+                                            </ul>
+                                            <button onClick={hangleClick} className="menu__button">Выйти</button>
+                                        </div>
+                                        <button className="nav__btn" onClick={clickOpen}>X</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <div className="menu__right" >
+
+                            <ThemeSwitch />
+
+                            <a href="/account">
+                                <img src={account} className="menu__img"/>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
                 <div className="container1 wrap">
                     <div className="inner">
                         <div id="up">
@@ -46,18 +103,6 @@ const MenuList = (props) => {
                             <a href="#"><img src={instagram} className="social"></img></a>
                             <a href="#"><img src={youtube} className="social"></img></a>
                             <a href="#"><img src={vk} className="social"></img></a>
-
-                            {/*<a href="#" className="login">Войти</a>*/}
-                            <a href="/account" className="account__logo">Личный кабинет</a>
-                            <button onClick={hangleClick}>X</button>
-
-                            {/*<style id="inverter" media="none">*/}
-                            {/*    html {{ backgroundColor: '#eee', filter: 'invert(100%)' }}*/}
-                            {/*    * {{ backgroundColor: 'inherit' }}*/}
-                            {/*    img:not([src*=".svg"]), [style*="url("] {{ filter: 'invert(100%)' }}*/}
-                            {/*</style>*/}
-
-                            <ThemeSwitch />
 
                         </div>
                     </div>
@@ -123,3 +168,5 @@ const FooterList = () => {
 
     )
 };
+
+
