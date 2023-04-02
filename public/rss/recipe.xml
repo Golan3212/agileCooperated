@@ -2,7 +2,6 @@
 
 <!-- Comment -->
 
-<week>
     <!--Monday-->
     <recipes>
         <recipe>
@@ -267,9 +266,6 @@
                 </ingridient>
             </ingridients>
         </recipe>
-    </recipes>
-    <!--    Tuesday -->
-    <recipes>
         <recipe>
             <title>Омлет с овощами</title>
             <img></img>
@@ -571,9 +567,6 @@
                 </ingridient>
             </ingridients>
         </recipe>
-    </recipes>
-    <!--    Wednesday -->
-    <recipes>
         <recipe>
             <title>Творожно-сырный рулет</title>
             <img></img>
@@ -875,9 +868,6 @@
                 </ingridient>
             </ingridients>
         </recipe>
-    </recipes>
-    <!--    Thursday  -->
-    <recipes>
         <recipe>
             <title>Ленивая овсянка</title>
             <img></img>
@@ -1186,10 +1176,6 @@
                 </ingridient>
             </ingridients>
         </recipe>
-
-    </recipes>
-    <!--    Friday -->
-    <recipes>
         <recipe>
             <title>Творожные улитки с корицей</title>
             <img></img>
@@ -1462,9 +1448,6 @@
                 </ingridient>
             </ingridients>
         </recipe>
-    </recipes>
-    <!--    Saturday -->
-    <recipes>
         <recipe>
             <title>Овсяноблин с сыром</title>
             <img></img>
@@ -1758,9 +1741,6 @@
                 </ingridient>
             </ingridients>
         </recipe>
-    </recipes>
-    <!--    Sunday -->
-    <recipes>
         <recipe>
             <title>Кукурузные панкейки</title>
             <img></img>
@@ -2052,4 +2032,3 @@
             </ingridients>
         </recipe>
     </recipes>
-</week>

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Menu;
+use App\Models\MenuGuide;
 use App\Models\MenuForWeek;
 use App\Services\TotalService;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,7 @@ use App\QueryBuilders\UsersQueryBuilder;
 use App\QueryBuilders\RecipesQueryBuilder;
 use App\QueryBuilders\MenuWeekQueryBuilder;
 use App\QueryBuilders\ProfilesQueryBuilder;
+use App\QueryBuilders\MenuGuideQueryBuilder;
 use App\QueryBuilders\CategoriesQueryBuilder;
 
 
@@ -31,9 +33,9 @@ class ConstructorService implements Constructor
         $proteinsNorm = (int)round(($userProfile->proteins_min + $userProfile->proteins_max)/2);
         $carbohydratesNorm = (int)round(($userProfile->carbohydrates_min + $userProfile->carbohydrates_max)/2);
 
-        $menu = new MenuQueryBuilder();
+        $menuGuide = new MenuGuideQueryBuilder();
 
-        $menu = $menu->getFromConstructor(
+        $menuGuide = $menuGuide->getFromConstructor(
             $userProfile->caloric_norm,
             $userProfile->fats_min,
             $userProfile->proteins_min,
@@ -44,9 +46,9 @@ class ConstructorService implements Constructor
         );
 
         $idMenuForWeek = [];
-        if ($menu->count() > 7 && $menu->count() < 15) {
+        if ($menuGuide->count() > 7 && $menuGuide->count() < 15) {
 
-            foreach ($menu as $key => $value) {
+            foreach ($menuGuide as $key => $value) {
                 if (count($idMenuForWeek) === 6) {
                     break;
                 }
@@ -56,15 +58,15 @@ class ConstructorService implements Constructor
             $idMenuForWeek[] = $this->createMenuFromCaloricNorm($caloricNorm, $fatsNorm, $proteinsNorm, $carbohydratesNorm);
 
 
-        }elseif($menu->count() > 14){
-            foreach ($menu as $key => $value) {
+        }elseif($menuGuide->count() > 14){
+            foreach ($menuGuide as $key => $value) {
                 if (count($idMenuForWeek) === 7) {
                     break;
                 }
                 $idMenuForWeek[] = $value->id;
             }
 
-        }elseif($menu->count() < 8) {
+        }elseif($menuGuide->count() < 8) {
             for ($i=0; $i < 7; $i++) {
                 $idMenuForWeek[] = $this->createMenuFromCaloricNorm($caloricNorm, $fatsNorm, $proteinsNorm, $carbohydratesNorm);
             }
@@ -164,26 +166,38 @@ class ConstructorService implements Constructor
             ],
         ];
 
-
         foreach ($normDay as $key => $value) {
             $recipe = new RecipesQueryBuilder();
             $recipeIdForCreateMenu[$key] = $recipe->getRecipeIdByCaloricNorm($value['caloric'], $value['fats'], $value['proteins'], $value['carbohydrates'], $value['category'])->id;
         }
 
 
-        $createMenu = new Menu();
+        $createMenuGuide = new MenuGuide();
 
-        $createMenu->breakfest()->associate($recipeIdForCreateMenu['breakfestCaloricNorm']);
-        $createMenu->dinner()->associate($recipeIdForCreateMenu['lunchCaloricNorm']);
-        $createMenu->lunch()->associate($recipeIdForCreateMenu['dinnerCaloricNorm']);
-        $createMenu->firstSnack()->associate($recipeIdForCreateMenu['firstSnackCaloricNorm']);
-        $createMenu->secondSnack()->associate($recipeIdForCreateMenu['secondSnackCaloricNorm']);
+        $createMenuGuide->breakfest()->associate($recipeIdForCreateMenu['breakfestCaloricNorm']);
+        $createMenuGuide->dinner()->associate($recipeIdForCreateMenu['lunchCaloricNorm']);
+        $createMenuGuide->lunch()->associate($recipeIdForCreateMenu['dinnerCaloricNorm']);
+        $createMenuGuide->firstSnack()->associate($recipeIdForCreateMenu['firstSnackCaloricNorm']);
+        $createMenuGuide->secondSnack()->associate($recipeIdForCreateMenu['secondSnackCaloricNorm']);
 
-
-        if ($createMenu->save()) {
+        if ($createMenuGuide->save()) {
             $total = new TotalService();
-            $total->getTotalMenuForDay($createMenu->id);
-            return $createMenu->id;
+            $total->getTotalMenuGuideForDay($createMenuGuide->id);
+
+            $createMenu = new Menu();
+
+            $createMenu->breakfest()->associate($createMenuGuide->breakfest_id);
+            $createMenu->dinner()->associate($createMenuGuide->dinner_id);
+            $createMenu->lunch()->associate($createMenuGuide->lunch_id);
+            $createMenu->firstSnack()->associate($createMenuGuide->first_snack_id);
+            $createMenu->secondSnack()->associate($createMenuGuide->second_snack_id);
+            $createMenu->menuGuide()->associate($createMenuGuide->id);
+
+            if ($createMenu->save()) {
+                $total->getTotalMenuForDay($createMenu->id);
+                return $createMenu->id;
+            }
+
         }
     }
 

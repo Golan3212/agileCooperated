@@ -2,20 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use App\Models\Recipe;
-use App\Models\MenuGuide;
-use App\Models\OtherProduct;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Menu extends Model
+class MenuGuide extends Model
 {
     use HasFactory;
 
-    protected $table = 'menu';
+    protected $table='menu_guides';
 
     protected $fillable = [
         'name',
@@ -49,11 +45,4 @@ class Menu extends Model
     {
         return $this->belongsTo(Recipe::class, 'second_snack_id');
     }
-
-    public function menuGuide(): BelongsTo
-    {
-        return $this->belongsTo(MenuGuide::class, 'menu_guide_id');
-    }
-
-
 }
