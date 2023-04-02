@@ -35,11 +35,11 @@ class ParserService implements Parser
         // $menuIdRecipes = [];
         // $recipeIdForMenu = [];
 
-        foreach ($recipes['recipes'] as $keys => $recipesDay) {
+        foreach ($recipes as $keys => $recipesDay) {
 
 
 
-            foreach ($recipesDay['recipe'] as $key => $recipe) {
+            foreach ($recipesDay as $key => $recipe) {
                 $categoryBuilder = new CategoriesQueryBuilder();
                 $recipeModel = new Recipe([
                     'title' => (string) $recipe['title'],

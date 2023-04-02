@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\QueryBuilders\MenuQueryBuilder;
-use App\QueryBuilders\MenuWeekQueryBuilder;
-use App\QueryBuilders\RecipesQueryBuilder;
-use App\QueryBuilders\RecipesStepsQueryBuilder;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Inertia\Inertia;
+use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\QueryBuilders\MenuQueryBuilder;
+use App\QueryBuilders\RecipesQueryBuilder;
+use App\QueryBuilders\MenuWeekQueryBuilder;
+use App\QueryBuilders\RecipesStepsQueryBuilder;
 
 class MenuWeekController extends Controller
 {
     public function index(
         MenuWeekQueryBuilder $menuWeekQueryBuilder,
         MenuQueryBuilder     $menuQueryBuilder,
-        int $id,
         RecipesQueryBuilder $recipesQueryBuilder
     )
     {
-        $menuOneWeek = $menuWeekQueryBuilder->getMenuForWeekOne($id);
+        $menuOneWeek = Auth::user()->menuWeek()->get();
 
         $menuWeekOnDaysArray = [];
         $recipes = $recipesQueryBuilder->getAll()->random(20);

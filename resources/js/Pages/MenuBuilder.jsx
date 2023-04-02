@@ -3,6 +3,7 @@ import '../../css/menu_builder.css';
 import plus from '../../../public/assets/menu_builder_image/plus.svg';
 import image from '../../../public/assets/recipe_image/images/4.jpg';
 import logo3 from "../../../public/assets/recipe_image/icons/portions.svg";
+import { Inertia } from '@inertiajs/inertia';
 
 export default function MenuBuilder({ menu, recipes }) {
 
@@ -13,6 +14,8 @@ export default function MenuBuilder({ menu, recipes }) {
     const [recipeId, setRecipeId] = useState("");
     const [newRecipeId, setNewRecipeId] = useState(recipeId);
     const [newRecipe, setNewRecipe] = useState({});
+    const [positionMenuInMenuWeek, setPositionMenuInMenuWeek] = useState('');
+    const [positionRecipeInMenu, setpositionRecipeInMenu] = useState('');
     const [dataDay, setDataDay] = useState("");
 
 
@@ -35,32 +38,27 @@ export default function MenuBuilder({ menu, recipes }) {
         }
     },);
 
-    function handleUpdateRecipes(idE) {
-
-        recipes.forEach(item => {
-            if (item.id == idE) {
-                return setNewRecipeId(item);
-            }
-        });
-
-        menuList.forEach((recipes, index) => {
-            if (recipes.menu_id == dataDay) {
-                setIdDay(index);
-                recipes.menu_recipes.forEach((recipe, id) => {
-                    if (recipe == recipeId) {
-                        setIdRecipe(id);
-                        setRecipeId(newRecipeId);
-                    }
-                });
-            }
-        });
-        if (menuAll !== menuList) {
-            setMenuAll(menuList);
-        }
+    function hangleResetMenu(e) {
+        e.preventDefault();
+        Inertia.post('/menu/builder/constructor');
     }
 
-    function handleRecipeId(id, category, day) {
-    
+    function handleUpdateRecipes(e, id) {
+        e.preventDefault();
+        const value = {
+            menuId: dataDay,
+            positionRecipe: positionRecipeInMenu,
+            positionMenu: positionMenuInMenuWeek,
+            newRecipeId: id
+        };
+
+        Inertia.put('/menu/builder/constructor/update', value);
+    }
+
+    function handleRecipeId(id, category, day, positionMenu, positionRecipe) {
+
+        setPositionMenuInMenuWeek(positionMenu);
+        setpositionRecipeInMenu(positionRecipe);
         setNewRecipe(() => recipes.filter(recipe => recipe.category_id == category));
         setDataDay(day);
         menuAll.map(function (recipes, index) {
@@ -103,12 +101,12 @@ export default function MenuBuilder({ menu, recipes }) {
                                 </div>
 
                             </div>
-                            {item.menu_recipes.map(menuRecipe => (
+                            {item.menu_recipes.map((menuRecipe, key)=> (
                                 <div className="cons_col cons_col1">
                                     <div className="cons_pic cons_add" style={{ backgroundImage: `url(${image})`, cursor: "auto" }}
                                     // data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}
                                     >
-                                        {!show && <button className="menu__btn" onClick={() => { openModal(); handleRecipeId(menuRecipe.id, menuRecipe.category_id, item.menu_id) }}
+                                        {!show && <button className="menu__btn" onClick={() => { openModal(); handleRecipeId(menuRecipe.id, menuRecipe.category_id, item.menu_id, index, key) }}
                                             data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}>
                                             <img className="cons_pic_img"
                                                 src={plus} title="Заменить рецепт" alt="Заменить рецепт"></img>
@@ -164,7 +162,7 @@ export default function MenuBuilder({ menu, recipes }) {
         return (
             <>
                 <div className={show ? "overlay" : "hide"} onClick={closeModal} />
-             
+
                 <div className={show ? "modal" : "hide"}>
                     <div id="element" className="modal__box">
 
@@ -180,7 +178,7 @@ export default function MenuBuilder({ menu, recipes }) {
                                     <a href={"#" + item.id}>
                                         <button  className="modal__btn" data-category={item.category_id} id={item.id}
 
-                                            onClick={() => { handleRecipeId(item.id, item.category_id, dataDay); handleUpdateRecipes(item.id); }}
+                                            onClick={(e) => { handleUpdateRecipes(e, item.id); }}
                                         > Заменить рецепт
                                         </button>
                                     </a>
@@ -282,15 +280,15 @@ export default function MenuBuilder({ menu, recipes }) {
                         </div>
                     </div> */}
                     {/*ВРЕММЕННО КОММЕНТИРУЮ НА УРОК 27.03.*/}
-                    {/*<div className="buttons_row">*/}
-                    {/*    <div className="buttons_row_button_wrap">*/}
-                    {/*        <div > <button className="buttons_row_button">Вернуть первоначальное меню </button></div>*/}
-                    {/*    </div>*/}
-                    {/*    <div className="buttons_row_text_wrap">*/}
-                    {/*        <div className="buttons_row_text" ><strong>Сбросить рецепты</strong> в недельной*/}
-                    {/*            сетке до "рекомендуемых".<span className="append_text"></span></div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
+                    <div className="buttons_row">
+                       <div className="buttons_row_button_wrap">
+                           <div > <button className="buttons_row_button" onClick={(e) => { hangleResetMenu(e); }}>Вернуть первоначальное меню </button></div>
+                       </div>
+                       <div className="buttons_row_text_wrap">
+                           <div className="buttons_row_text" ><strong>Сбросить рецепты</strong> в недельной
+                               сетке до "рекомендуемых".<span className="append_text"></span></div>
+                       </div>
+                    </div>
                     {/*<div className="buttons_row">*/}
                     {/*    <div className="buttons_row_button_wrap">*/}
                     {/*        <div > <button className="buttons_row_button" >Удалить все рецепты из списка</button></div>*/}

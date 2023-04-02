@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MenuWeekController;
 use \App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MenuWeekUpdateController;
 use App\Http\Controllers\Parsers\RecipeParserController;
 use \App\Http\Controllers\Admin\GuestLyoutController as AdminUserController;
 /*
@@ -63,7 +64,8 @@ Route::get('/category', [CategoryController::class, 'index'])->middleware(['auth
 //Когда регистрация появиться раскомментировать
 Route::middleware(['auth'])->group(function () {
     Route::get('/advice', [AdviceController::class, 'advice'])->name('advice');
-    Route::get('/menu/builder/{id}', [MenuWeekController::class, 'index']);
+    Route::get('/menu/builder', [MenuWeekController::class, 'index']);
+    Route::resource('menu/builder/constructor', MenuWeekUpdateController::class);
     Route::resource('form', FormController::class);
     Route::get('account', [AdviceController::class, 'account']);
 });

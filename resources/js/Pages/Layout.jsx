@@ -112,7 +112,7 @@ const MenuList = (props) => {
                                 <InertiaLink href="/home">Главная</InertiaLink>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
-                                <InertiaLink href="/menu/builder/1">Конструктор меню</InertiaLink>
+                                <InertiaLink href="/menu/builder">Конструктор меню</InertiaLink>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
                                 <InertiaLink href="/form">Калькулятор БЖУ</InertiaLink>
