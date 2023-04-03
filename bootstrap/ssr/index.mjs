@@ -6,6 +6,8 @@ import ThemeSwitch from "react-theme-switch";
 import { InertiaLink, useForm, usePage } from "@inertiajs/inertia-react";
 import Slider from "react-slick";
 import { Transition, Dialog } from "@headlessui/react";
+import { Line } from "react-chartjs-2";
+import "chart.js/auto";
 import { Link as Link$1, animateScroll } from "react-scroll";
 import { Marker } from "react-mark.js";
 import { createRoot } from "react-dom/client";
@@ -465,7 +467,7 @@ const __vite_glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
 }, Symbol.toStringTag, { value: "Module" }));
 const aboutus = "";
 function About() {
-  return /* @__PURE__ */ jsxs(Fragment, { children: [
+  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsxs("div", { className: "about", children: [
     /* @__PURE__ */ jsx("h1", { className: "about_txt", children: "Что такое конструктор питания AVOCADO? " }),
     /* @__PURE__ */ jsx("p", { className: "about_text", children: "  Конструктор питания AVOCADO – это уникальный инструмент для каждого человека, который заботится о своем здоровье и стремится к правильному питанию. При этом это не значит, что нужно будет делать выбор между пиццей и брокколи. Это значит, что можно питаться разнообразно и достигать одну из трех целей: похудение, поддержание своей формы или же набор массы. Ведь пицца – тоже может быть полезной и при этом очень вкусной.  " }),
     /* @__PURE__ */ jsx("p", { className: "about_text", children: "Наш конструктор – это уникальная разработка, которая позволит подобрать сбалансированное меню под КБЖУ любого человека.  В формировании расчета КБЖУ заложена сложная формула, которая позволит вам автоматически получить расчет на сайте, не путаясь в данных и коэффициентах. Наш калькулятор БЖУ сделает это за вас! " }),
@@ -477,7 +479,7 @@ function About() {
     /* @__PURE__ */ jsx("p", { className: "about_text", children: "Таких возможностей вам не предоставит ни один сайт. На нашем же сайте все эти функции абсолютно бесплатны. Будем рады помогать вам питаться разнообразно и правильно! " }),
     /* @__PURE__ */ jsx("p", { className: "about_text", children: "Мы стремимся сделать наш конструктор лучше! Присоединяйтесь к нашему сайту! " }),
     /* @__PURE__ */ jsx("p", { className: "about_text", children: "По вопросам сотрудничества и размещения рекламы пишите нам на почту: avocado@mail.ru" })
-  ] });
+  ] }) });
 }
 const __vite_glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -539,7 +541,8 @@ const MenuList$1 = (props) => {
               /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/about", children: "О нас" }) }),
               /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/account", children: "Мой профиль" }) }),
               /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/advice", children: "Мои рекомендации" }) }),
-              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/menu/builder/1", children: "Меню на неделю" }) })
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/menu/builder", children: "Меню на неделю" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/progress", children: "Прогресс-шкала" }) })
             ] }),
             /* @__PURE__ */ jsx("button", { onClick: hangleClick, className: "menu__button", children: "Выйти" })
           ] }),
@@ -566,7 +569,7 @@ const MenuList$1 = (props) => {
       ] }),
       /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
         /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная" }) }),
-        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/menu/builder/1", children: "Конструктор меню" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/menu/builder", children: "Конструктор меню" }) }),
         /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/form", children: "Калькулятор БЖУ" }) }),
         /* @__PURE__ */ jsx("li", { className: "main_menu_item1", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/recipes", children: "Рецепты" }) })
       ] }) })
@@ -783,6 +786,8 @@ function MenuBuilder({ menu: menu2, recipes }) {
   const [recipeId, setRecipeId] = useState("");
   const [newRecipeId, setNewRecipeId] = useState(recipeId);
   const [newRecipe, setNewRecipe] = useState({});
+  const [positionMenuInMenuWeek, setPositionMenuInMenuWeek] = useState("");
+  const [positionRecipeInMenu, setpositionRecipeInMenu] = useState("");
   const [dataDay, setDataDay] = useState("");
   const [show, setShow] = useState(false);
   const openModal = () => {
@@ -798,28 +803,23 @@ function MenuBuilder({ menu: menu2, recipes }) {
       menuList[idDay].menu_recipes[idRecipe] = newRecipeId;
     }
   });
-  function handleUpdateRecipes(idE) {
-    recipes.forEach((item) => {
-      if (item.id == idE) {
-        return setNewRecipeId(item);
-      }
-    });
-    menuList.forEach((recipes2, index) => {
-      if (recipes2.menu_id == dataDay) {
-        setIdDay(index);
-        recipes2.menu_recipes.forEach((recipe2, id) => {
-          if (recipe2 == recipeId) {
-            setIdRecipe(id);
-            setRecipeId(newRecipeId);
-          }
-        });
-      }
-    });
-    if (menuAll !== menuList) {
-      setMenuAll(menuList);
-    }
+  function hangleResetMenu(e) {
+    e.preventDefault();
+    Inertia.post("/menu/builder/constructor");
   }
-  function handleRecipeId(id, category, day) {
+  function handleUpdateRecipes(e, id) {
+    e.preventDefault();
+    const value = {
+      menuId: dataDay,
+      positionRecipe: positionRecipeInMenu,
+      positionMenu: positionMenuInMenuWeek,
+      newRecipeId: id
+    };
+    Inertia.put("/menu/builder/constructor/update", value);
+  }
+  function handleRecipeId(id, category, day, positionMenu, positionRecipe) {
+    setPositionMenuInMenuWeek(positionMenu);
+    setpositionRecipeInMenu(positionRecipe);
     setNewRecipe(() => recipes.filter((recipe2) => recipe2.category_id == category));
     setDataDay(day);
     menuAll.map(function(recipes2, index) {
@@ -849,7 +849,7 @@ function MenuBuilder({ menu: menu2, recipes }) {
       ] }),
       menuAll.map((item, index) => /* @__PURE__ */ jsx("div", { className: "constructor", children: /* @__PURE__ */ jsxs("div", { className: "cons_row cons_row1", id: item.menu_id, children: [
         /* @__PURE__ */ jsx("div", { className: "cons_col cons_col0", style: { height: "233px" }, children: /* @__PURE__ */ jsx("div", { className: "cons_day", children: weekDay(index) }) }),
-        item.menu_recipes.map((menuRecipe) => /* @__PURE__ */ jsxs("div", { className: "cons_col cons_col1", children: [
+        item.menu_recipes.map((menuRecipe, key) => /* @__PURE__ */ jsxs("div", { className: "cons_col cons_col1", children: [
           /* @__PURE__ */ jsx(
             "div",
             {
@@ -861,7 +861,7 @@ function MenuBuilder({ menu: menu2, recipes }) {
                   className: "menu__btn",
                   onClick: () => {
                     openModal();
-                    handleRecipeId(menuRecipe.id, menuRecipe.category_id, item.menu_id);
+                    handleRecipeId(menuRecipe.id, menuRecipe.category_id, item.menu_id, index, key);
                   },
                   "data-day": item.menu_id,
                   id: menuRecipe.id,
@@ -935,9 +935,8 @@ function MenuBuilder({ menu: menu2, recipes }) {
                       className: "modal__btn",
                       "data-category": item.category_id,
                       id: item.id,
-                      onClick: () => {
-                        handleRecipeId(item.id, item.category_id, dataDay);
-                        handleUpdateRecipes(item.id);
+                      onClick: (e) => {
+                        handleUpdateRecipes(e, item.id);
                       },
                       children: " Заменить рецепт"
                     }
@@ -982,7 +981,22 @@ function MenuBuilder({ menu: menu2, recipes }) {
     /* @__PURE__ */ jsx("div", { className: "section section_constructor", children: /* @__PURE__ */ jsx("div", { className: "container container_constructor", children: /* @__PURE__ */ jsx(ShowCategoryList, {}) }) }),
     /* @__PURE__ */ jsx("div", { className: "section section_field_small" }),
     /* @__PURE__ */ jsx("div", { className: "section section_field_small" }),
-    /* @__PURE__ */ jsx("div", { className: "section", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { className: "buttons_row" }) }) })
+    /* @__PURE__ */ jsx("div", { className: "section", children: /* @__PURE__ */ jsxs("div", { className: "container", children: [
+      /* @__PURE__ */ jsx("div", { className: "buttons_row" }),
+      /* @__PURE__ */ jsxs("div", { className: "buttons_row", children: [
+        /* @__PURE__ */ jsx("div", { className: "buttons_row_button_wrap", children: /* @__PURE__ */ jsxs("div", { children: [
+          " ",
+          /* @__PURE__ */ jsx("button", { className: "buttons_row_button", onClick: (e) => {
+            hangleResetMenu(e);
+          }, children: "Вернуть первоначальное меню " })
+        ] }) }),
+        /* @__PURE__ */ jsx("div", { className: "buttons_row_text_wrap", children: /* @__PURE__ */ jsxs("div", { className: "buttons_row_text", children: [
+          /* @__PURE__ */ jsx("strong", { children: "Сбросить рецепты" }),
+          ' в недельной сетке до "рекомендуемых".',
+          /* @__PURE__ */ jsx("span", { className: "append_text" })
+        ] }) })
+      ] })
+    ] }) })
   ] });
 }
 const __vite_glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -1679,6 +1693,33 @@ const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: UpdateProfileInformation
 }, Symbol.toStringTag, { value: "Module" }));
+function LineChart$1({ chartData }) {
+  return (
+    // <Layout>
+    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Line, { data: chartData }) })
+  );
+}
+const chart = "";
+function ProgressChart({ user }) {
+  const [userData, setUserdata] = useState({
+    labels: user.map((data) => data.created_at),
+    datasets: [
+      {
+        label: "Достижения пользователя",
+        data: user.map((data) => data.weight)
+      },
+      {
+        label: "Потребление калорий",
+        data: user.map((data) => data.caloric_norm)
+      }
+    ]
+  });
+  return /* @__PURE__ */ jsx("div", { className: "Progress", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { style: { width: 1100 }, children: /* @__PURE__ */ jsx(LineChart$1, { chartData: userData }) }) }) });
+}
+const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: ProgressChart
+}, Symbol.toStringTag, { value: "Module" }));
 const time = "/build/assets/time-ab3af3e3.svg";
 const calories = "/build/assets/calories-d915d232.svg";
 const image = "/build/assets/1-309347c3.jpg";
@@ -1848,7 +1889,7 @@ function Recipe({ recipeOne, recipeOneAdvice }) {
     }) })
   ] }) }) }) }) });
 }
-const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Recipe
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2171,7 +2212,7 @@ const Recipes = ({ recipes }) => {
     ] })
   ] }) });
 };
-const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Recipes
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2215,7 +2256,7 @@ function ConfirmPassword() {
     ] })
   ] });
 }
-const __vite_glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ConfirmPassword
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2252,7 +2293,7 @@ function ForgotPassword({ status }) {
     ] })
   ] });
 }
-const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ForgotPassword
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2341,7 +2382,7 @@ function Login({ status, canResetPassword }) {
     ] })
   ] });
 }
-const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Login
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2450,7 +2491,7 @@ function Register() {
     ] }) })
   ] });
 }
-const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Register
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2528,7 +2569,7 @@ function ResetPassword({ token, email }) {
     ] })
   ] });
 }
-const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ResetPassword
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2557,13 +2598,23 @@ function VerifyEmail({ status }) {
     ] }) })
   ] });
 }
-const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: VerifyEmail
 }, Symbol.toStringTag, { value: "Module" }));
+function LineChart({ chartData }) {
+  return (
+    // <Layout>
+    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Line, { data: chartData }) })
+  );
+}
+const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: LineChart
+}, Symbol.toStringTag, { value: "Module" }));
 createInertiaApp({
   resolve: (name) => {
-    const pages = /* @__PURE__ */ Object.assign({ "./Pages/Advice.jsx": __vite_glob_0_0, "./Pages/Category.jsx": __vite_glob_0_1, "./Pages/Form.jsx": __vite_glob_0_2, "./Pages/Guest/About.jsx": __vite_glob_0_3, "./Pages/Guest/Contact.jsx": __vite_glob_0_4, "./Pages/Guest/Home.jsx": __vite_glob_0_5, "./Pages/Guest/Main.jsx": __vite_glob_0_6, "./Pages/Home.jsx": __vite_glob_0_7, "./Pages/Layout.jsx": __vite_glob_0_8, "./Pages/MenuBuilder.jsx": __vite_glob_0_9, "./Pages/NotFound.jsx": __vite_glob_0_10, "./Pages/PersonalAccount.jsx": __vite_glob_0_11, "./Pages/Post/Create.jsx": __vite_glob_0_12, "./Pages/Post/Edit.jsx": __vite_glob_0_13, "./Pages/Post/Index.jsx": __vite_glob_0_14, "./Pages/Post/Test.jsx": __vite_glob_0_15, "./Pages/Profile/Edit.jsx": __vite_glob_0_16, "./Pages/Profile/Partials/DeleteUserForm.jsx": __vite_glob_0_17, "./Pages/Profile/Partials/UpdatePasswordForm.jsx": __vite_glob_0_18, "./Pages/Profile/Partials/UpdateProfileInformationForm.jsx": __vite_glob_0_19, "./Pages/Recipe.jsx": __vite_glob_0_20, "./Pages/Recipes.jsx": __vite_glob_0_21, "./Pages/mark/Auth/ConfirmPassword.jsx": __vite_glob_0_22, "./Pages/mark/Auth/ForgotPassword.jsx": __vite_glob_0_23, "./Pages/mark/Auth/Login.jsx": __vite_glob_0_24, "./Pages/mark/Auth/Register.jsx": __vite_glob_0_25, "./Pages/mark/Auth/ResetPassword.jsx": __vite_glob_0_26, "./Pages/mark/Auth/VerifyEmail.jsx": __vite_glob_0_27 });
+    const pages = /* @__PURE__ */ Object.assign({ "./Pages/Advice.jsx": __vite_glob_0_0, "./Pages/Category.jsx": __vite_glob_0_1, "./Pages/Form.jsx": __vite_glob_0_2, "./Pages/Guest/About.jsx": __vite_glob_0_3, "./Pages/Guest/Contact.jsx": __vite_glob_0_4, "./Pages/Guest/Home.jsx": __vite_glob_0_5, "./Pages/Guest/Main.jsx": __vite_glob_0_6, "./Pages/Home.jsx": __vite_glob_0_7, "./Pages/Layout.jsx": __vite_glob_0_8, "./Pages/MenuBuilder.jsx": __vite_glob_0_9, "./Pages/NotFound.jsx": __vite_glob_0_10, "./Pages/PersonalAccount.jsx": __vite_glob_0_11, "./Pages/Post/Create.jsx": __vite_glob_0_12, "./Pages/Post/Edit.jsx": __vite_glob_0_13, "./Pages/Post/Index.jsx": __vite_glob_0_14, "./Pages/Post/Test.jsx": __vite_glob_0_15, "./Pages/Profile/Edit.jsx": __vite_glob_0_16, "./Pages/Profile/Partials/DeleteUserForm.jsx": __vite_glob_0_17, "./Pages/Profile/Partials/UpdatePasswordForm.jsx": __vite_glob_0_18, "./Pages/Profile/Partials/UpdateProfileInformationForm.jsx": __vite_glob_0_19, "./Pages/ProgressChart.jsx": __vite_glob_0_20, "./Pages/Recipe.jsx": __vite_glob_0_21, "./Pages/Recipes.jsx": __vite_glob_0_22, "./Pages/mark/Auth/ConfirmPassword.jsx": __vite_glob_0_23, "./Pages/mark/Auth/ForgotPassword.jsx": __vite_glob_0_24, "./Pages/mark/Auth/Login.jsx": __vite_glob_0_25, "./Pages/mark/Auth/Register.jsx": __vite_glob_0_26, "./Pages/mark/Auth/ResetPassword.jsx": __vite_glob_0_27, "./Pages/mark/Auth/VerifyEmail.jsx": __vite_glob_0_28, "./Pages/mark/LineChart.jsx": __vite_glob_0_29 });
     let page = pages[`./Pages/${name}.jsx`];
     if (name.startsWith("Guest/") || name.startsWith("mark/Auth")) {
       page.default.layout = (page2) => /* @__PURE__ */ jsx(GuestLayout, { children: page2 });

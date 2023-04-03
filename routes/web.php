@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\MenuController;
@@ -39,7 +40,10 @@ Route::middleware('auth')
     Route::get('account', [AccountController::class, 'index']);
     Route::get('/home',[HomeController::class,'index'])->name('Home');
     });
-//Guest routes
+    //Марк роут для графика 02.04.2023
+    Route::get('/progress',[ChartController::class,'index'])->middleware(['auth'])->name('ProgressChart');
+
+    //Guest routes
 Route::middleware('guest')
     ->group(function () {
         //Route::get('/home ', [AdminUserController::class, 'home'])->name('guest.home');
