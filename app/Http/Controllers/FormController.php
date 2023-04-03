@@ -66,16 +66,17 @@ class FormController extends Controller
             $arguments = array_merge($request->validated(), $otherProfuleColumn);
 
 
-            if ($profilesQueryBuilder->getByUserId(\Auth::id())->count()) {//если профиль уже создан
-
-                $profile = $profilesQueryBuilder->updateByUserId(\Auth::id());
-                $profile->update($arguments);
-
-            }else{
-                $profile = new ProfileUser($arguments);
+            //            if ($profilesQueryBuilder->getByUserId(\Auth::id())->count()) {//если профиль уже создан
+//
+//                $profile = $profilesQueryBuilder->updateByUserId(\Auth::id());
+//                $profile->update($arguments);
+//
+//            }else{
+            $profile = new ProfileUser($arguments); //Марк 2.04.2023 закоментировал для того
+            // чтобы данные пользователя записывались в новую строку, а не перезаписывали старую
                 $profile->user()->associate(\Auth::id());
                 $profile->save();
-            }
+//            }
 
             $constructor->constructor();
             return \redirect()->route('advice');

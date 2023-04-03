@@ -66,7 +66,10 @@ const MenuList = (props) => {
                                                     <a href="/advice">Мои рекомендации</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/menu/builder/1">Меню на неделю</a>
+                                                    <a href="/menu/builder">Меню на неделю</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/progress">Прогресс-шкала</a>
                                                 </li>
                                             </ul>
                                             <button onClick={hangleClick} className="menu__button">Выйти</button>
