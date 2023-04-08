@@ -25,4 +25,9 @@ final  class UsersQueryBuilder extends QueryBuilder
         return $this->model->where('id', $id)->first();
     }
 
+    public function getByIdUpdate($id)
+    {
+        return $this->model->where('id', $id);
+    }
+
 }

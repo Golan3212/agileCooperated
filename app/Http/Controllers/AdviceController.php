@@ -13,21 +13,20 @@ class AdviceController extends Controller
     public function advice(ProfilesQueryBuilder $profilesQueryBuilder)
     {
 
-
         if (!Auth::check()) {
             return \redirect()->route('home');
         }
 
-        if (!$profilesQueryBuilder->getByUserId(\Auth::id())) {
+        if (!$profilesQueryBuilder->getByUserIdLast(\Auth::id())) {
 
             return \redirect()->route('form');
 
         }
 
-        $profile = $profilesQueryBuilder->getByUserId(\Auth::id());
+        $profile = $profilesQueryBuilder->getByUserIdLast(\Auth::id());
 //        dd (Auth::id());
         return Inertia::render('Advice', [
-            'profile' => $profile->toArray()[0],
+            'profile' => $profile->toArray(),
         ]);
     }
 
@@ -38,28 +37,24 @@ class AdviceController extends Controller
             return \redirect()->route('home');
         }
 
-        if (!$profilesQueryBuilder->getByUserId(\Auth::id())) {
+        if (!$profilesQueryBuilder->getByUserIdLast(\Auth::id())) {
 
             return \redirect()->route('form');
 
         }
 
-        $profileList = $profilesQueryBuilder->getByUserId(\Auth::id());
-
-        $user = [];
-        foreach ($profileList as $key => $item) {
-            $user[] = [
-                'id' => $item->id,
-                'gender' => $item->gender,
-                'age' => $item->age,
-                'weight' => $item->weight,
-                'height' => $item->height,
-                'quotient' => $item->quotient,
-                'target' => $item->target,
-                'user' => $item->user->toArray(),
-                'menuWeek_id' => $item->user->menuWeek->value('id'),
-            ];
-        }
+        $profileList = $profilesQueryBuilder->getByUserIdLast(\Auth::id());
+        $user[] = [
+            'id' => $profileList->id,
+            'gender' => $profileList->gender,
+            'age' => $profileList->age,
+            'weight' => $profileList->weight,
+            'height' => $profileList->height,
+            'quotient' => $profileList->quotient,
+            'target' => $profileList->target,
+            'user' => $profileList->user->toArray(),
+            'menuWeek_id' => $profileList->user->menuWeek->value('id'),
+        ];
 
         return Inertia::render('PersonalAccount', [
             'user' => $user,

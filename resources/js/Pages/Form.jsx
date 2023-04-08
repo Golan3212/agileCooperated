@@ -31,7 +31,7 @@ export default function Form() {
 
 
     function handleSubmit(e){
-        e.preventDefault()
+        e.preventDefault();
         const values = {
             'gender': gender,
             'weight': weight,

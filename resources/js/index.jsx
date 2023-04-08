@@ -41,7 +41,13 @@ createInertiaApp({
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
         let page = pages[`./Pages/${name}.jsx`]
-        if(name.startsWith('Guest/')||name.startsWith('mark/Auth')){ page.default.layout =  page => <GuestLayout children={page} /> }else{ page.default.layout =  page => <Layout children={page} /> }
+        if(name.startsWith('Guest/')||name.startsWith('mark/Auth')){
+            page.default.layout =  page => <GuestLayout children={page} />
+        }else if(name.startsWith('Admin')){
+            undefined
+        }else{
+            page.default.layout =  page => <Layout children={page} />
+        }
         return page
     },
     setup({ el, App, props }) {

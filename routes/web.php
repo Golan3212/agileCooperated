@@ -1,20 +1,22 @@
 <?php
 
-use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\MainController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\AccountController;
 use App\Http\Controllers\MenuWeekController;
 use \App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuWeekUpdateController;
+use App\Http\Controllers\Admin\IndexAdminController;
+use App\Http\Controllers\Admin\UsersAdminController;
+use App\Http\Controllers\Admin\RecipesAdminController;
 use App\Http\Controllers\Parsers\RecipeParserController;
 use \App\Http\Controllers\Admin\GuestLyoutController as AdminUserController;
 /*
@@ -34,10 +36,19 @@ use \App\Http\Controllers\Admin\GuestLyoutController as AdminUserController;
 //Auth routes
 Route::middleware('auth')
     ->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('account', [AccountController::class, 'index']);
+
+        Route::prefix('admin' ,['middleware' => 'is.admin'])->group(function () {
+
+            Route::resource('users', UsersAdminController::class);
+            Route::resource('recipes', RecipesAdminController::class);
+            Route::get('/index', IndexAdminController::class);
+
+        });
+
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Route::get('account', [AccountController::class, 'index']);
     Route::get('/home',[HomeController::class,'index'])->name('Home');
     });
     //Марк роут для графика 02.04.2023
