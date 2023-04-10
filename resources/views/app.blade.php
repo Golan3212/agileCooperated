@@ -9,7 +9,8 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/dashboard.css')}}" rel="stylesheet">
         <!-- Scripts -->
         @viteReactRefresh
         @vite(['resources/js/index.jsx'])

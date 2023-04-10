@@ -2,6 +2,7 @@ import { Inertia } from '@inertiajs/inertia';
 import { InertiaLink } from '@inertiajs/inertia-react';
 import React, {useState} from 'react';
 
+
 export default function UsersList({list}) {
 
     console.log(list);
@@ -19,34 +20,37 @@ export default function UsersList({list}) {
 
     }
     return (
-       <div>
-           <table border="2px">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Никнейм</th>
-                        <th>Имя</th>
-                        <th>Почта</th>
-                        <th>Телефон</th>
-                        <th>Админ</th>
-                    </tr>
+        <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", margin:"50px", gap:"30px"}}>
+            <h1><strong style={{fontSize:"40px"}}>Пользователи</strong></h1>
+            <table className="table-bordered" style={{width:"90%", textAlign:"center"}}>
+                <thead >
+                <tr style={{display:"flex"}} itemScope="col">
+                    <th style={{width:"15%", backgroundColor:"rgb(228, 228, 217)"}} scope="col" >id</th>
+                    <th style={{width:"15%", backgroundColor:"rgb(228, 228, 217)"}} scope="col" >Никнейм</th>
+                    <th style={{width:"15%", backgroundColor:"rgb(228, 228, 217)"}} scope="col" >Имя</th>
+                    <th style={{width:"15%", backgroundColor:"rgb(228, 228, 217)"}} scope="col" >Почта</th>
+                    <th style={{width:"15%", backgroundColor:"rgb(228, 228, 217)"}} scope="col" >Телефон</th>
+                    <th style={{width:"15%", backgroundColor:"rgb(228, 228, 217)"}} scope="col" >Админ</th>
+                    <th style={{width:"15%", backgroundColor:"rgb(228, 228, 217)"}} scope="col" >Действие</th>
+                </tr>
                 </thead>
-                <tbody>
-                    {list.map((value)=>(
-                    <tr>
-                        <td>{value.id}</td>
-                        <td>{value.username}</td>
-                        <td>{value.name}</td>
-                        <td>{value.email}</td>
-                        <td>{value.phone}</td>
-                        <td>{value.is_admin === 0 ? <button onClick={(e)=>{hangleAdmin(e, value.id)}}>Сделать админом</button> : "Админ"}</td>
-                        <td>{value.is_admin === 0 ? <button onClick={(e)=>{hangleUsersDelete(e, value.id)}}>Удалить</button> : "Админа нельзя удалить"}</td>
-                    </tr>
+                <tbody >
+                {list.map((value)=>(
+                        <tr style={{display:"flex"}}>
+                            <td style={{width:"15%", color:"darkgray"}}>{value.id}</td>
+                            <td style={{width:"15%", color:"darkgray"}}>{value.username}</td>
+                            <td style={{width:"15%", color:"darkgray"}}>{value.name}</td>
+                            <td style={{width:"15%", color:"darkgray"}}>{value.email}</td>
+                            <td style={{width:"15%", color:"darkgray"}}>880005553535</td>
+                            <td style={{width:"15%", color:"darkgray"}}>{value.is_admin === 0 ? <button onClick={(e)=>{hangleAdmin(e, value.id)}}>Сделать админом</button> : "Админ"}</td>
+                            <td style={{width:"15%", color:"darkgray"}}>{value.is_admin === 0 ? <button onClick={(e)=>{hangleUsersDelete(e, value.id)}}>Удалить</button> : "Админа нельзя удалить"}</td>
+                        </tr>
                     )
                 )}
                 </tbody>
-        </table>
-       </div>
+            </table>
+        </div>
+
     );
 
 }

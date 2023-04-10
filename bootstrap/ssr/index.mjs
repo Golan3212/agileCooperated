@@ -1,9 +1,9 @@
 import * as jsxRuntime from "react/jsx-runtime";
+import { InertiaLink, useForm, usePage } from "@inertiajs/inertia-react";
 import { useState, useEffect, Component, createContext, Fragment as Fragment$1, forwardRef, useRef } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { Link, Head, usePage as usePage$1, useForm as useForm$1, router, createInertiaApp } from "@inertiajs/react";
 import ThemeSwitch from "react-theme-switch";
-import { InertiaLink, useForm, usePage } from "@inertiajs/inertia-react";
 import Slider from "react-slick";
 import { Transition, Dialog } from "@headlessui/react";
 import { Line } from "react-chartjs-2";
@@ -14,6 +14,402 @@ import { createRoot } from "react-dom/client";
 const Fragment = jsxRuntime.Fragment;
 const jsx = jsxRuntime.jsx;
 const jsxs = jsxRuntime.jsxs;
+const Index = (props) => {
+  return /* @__PURE__ */ jsx("div", { style: { display: "flex", justifyContent: "center", marginTop: "50px" }, children: /* @__PURE__ */ jsxs("div", { className: "main_menu1 main_menu_items1", style: { width: "60%", height: "100px" }, children: [
+    /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/index", className: "main_menu_item1", children: "Главная админки" }),
+    /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/users", className: "main_menu_item1", children: "Пользователи" }),
+    /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/recipes", className: "main_menu_item1", children: "Рецепты" })
+  ] }) });
+};
+const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Index
+}, Symbol.toStringTag, { value: "Module" }));
+function RecipeCreate() {
+  const [title, setTitle] = useState("");
+  const [image2, setImage] = useState("");
+  const [calorie, setCalorie] = useState("");
+  const [proteins, setProteins] = useState("");
+  const [fats, setFats] = useState("");
+  const [carbohydrates, setCarbohydrates] = useState("");
+  const [portion, setPortion] = useState("");
+  const [cookingTime, setCookingTime] = useState("");
+  const [category, setCategory] = useState("");
+  const [steps, setSteps] = useState([
+    {
+      id: 1,
+      description: ""
+    }
+  ]);
+  const [ingridients, setIngridients] = useState([
+    {
+      id: 1,
+      title: "",
+      quantity: "",
+      mass_unit: ""
+    }
+  ]);
+  function handleStepsFormChange(index, e) {
+    let data = [...steps];
+    data[index].description = e.target.value;
+    setSteps(data);
+    console.log(steps);
+  }
+  function addSteps() {
+    let newSteps = { id: steps[steps.length - 1].id + 1, description: "" };
+    setSteps([...steps, newSteps]);
+  }
+  function addIngredient() {
+    console.log(ingridients);
+    let newIngredients = { id: ingridients[ingridients.length - 1].id + 1, title: "", quantity: "", mass_unit: "" };
+    setIngridients([...ingridients, newIngredients]);
+    console.log(ingridients);
+  }
+  function closeIngredient() {
+    let arr = [...ingridients];
+    arr.splice(-1, 1);
+    console.log(arr);
+    setIngridients(arr);
+  }
+  function handleIngredientsFormChange(index, e) {
+    let data = [...ingridients];
+    data[index][e.target.name] = e.target.value;
+    setIngridients(data);
+    console.log(ingridients);
+  }
+  function closeSteps() {
+    let arr = [...steps];
+    arr.splice(-1, 1);
+    console.log(arr);
+    setSteps(arr);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(e, category);
+    const values = {
+      title,
+      image: image2,
+      calorie,
+      proteins,
+      fats,
+      carbohydrates,
+      portion,
+      cooking_time: cookingTime,
+      category,
+      steps,
+      ingridients
+    };
+    Inertia.post("/admin/recipes", values);
+  }
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("form", { className: "reclist_main", style: { alignItems: "center", flexDirection: "column", gap: "30px" }, action: "", onSubmit: (e) => handleSubmit(e), children: [
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "35px", fontWeight: "700", color: "darkgoldenrod" }, htmlFor: "title", children: "Название" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "50px", borderRadius: "10px" }, type: "text", id: "title", required: true, placeholder: "Введите название", onChange: (e) => setTitle(e.target.value) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "image", children: "Фото" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "text", id: "image", placeholder: "Введите фото", onChange: (e) => setImage(e.target.value) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "calorie", children: "Калории" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "calorie", placeholder: "Введите калории", onChange: (e) => setCalorie(e.target.value) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "proteins", children: "Белки" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "proteins", placeholder: "Введите белки", onChange: (e) => setProteins(e.target.value) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "fats", children: "Жиры" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "fats", placeholder: "Введите жиры", onChange: (e) => setFats(e.target.value) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "carbohydrates", children: "Углеводы" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "carbohydrates", placeholder: "Введите углеводы", onChange: (e) => setCarbohydrates(e.target.value) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "portion", children: "Порций" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "portion", placeholder: "Введите порций", onChange: (e) => setPortion(e.target.value) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "cooking_time", children: "Время" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "cooking_time", placeholder: "Введите время", onChange: (e) => setCookingTime(e.target.value) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "category", children: "Категория" }),
+      /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("select", { name: "category", required: true, id: "category", onChange: (e) => setCategory(e.target.value), children: [
+        /* @__PURE__ */ jsx("option", { value: "0", children: "Выберите категорию" }),
+        /* @__PURE__ */ jsx("option", { value: "Завтрак", children: "Завтрак" }),
+        /* @__PURE__ */ jsx("option", { value: "Обед", children: "Обед" }),
+        /* @__PURE__ */ jsx("option", { value: "Ужин", children: "Ужин" }),
+        /* @__PURE__ */ jsx("option", { value: "Перекус", children: "Перекус" })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "steps", children: "Шаги приготовления" }),
+      steps.map((step, key) => /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx("textarea", { style: { borderRadius: "7px" }, required: true, name: "steps", id: "steps", cols: "60", rows: "8", onChange: (e) => handleStepsFormChange(key, e), placeholder: "Описание шага" }) })),
+      steps.length !== 1 ? /* @__PURE__ */ jsx("div", { onClick: (e) => closeSteps(), children: "X" }) : "",
+      /* @__PURE__ */ jsx("button", { style: { width: "150px" }, className: "button_category", onClick: addSteps, children: "Добавить шаг" })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "steps", children: "Ингредиенты" }),
+      ingridients.map((ingridient, key) => /* @__PURE__ */ jsxs(Fragment, { children: [
+        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Ингридиент", name: "title", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "number", min: "0", placeholder: "Количество", name: "quantity", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Измерение", name: "mass_unit", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("br", {})
+      ] })),
+      ingridients.length !== 1 ? /* @__PURE__ */ jsx("div", { onClick: (e) => closeIngredient(), children: "X" }) : "",
+      /* @__PURE__ */ jsx("button", { style: { width: "150px" }, className: "button_category", onClick: addIngredient, children: "Добавить ингредиент" })
+    ] }),
+    /* @__PURE__ */ jsx("button", { className: "button_category", style: { width: "250px", margin: "100px", backgroundColor: "lightblue" }, children: "Сохранить" })
+  ] }) });
+}
+const __vite_glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: RecipeCreate
+}, Symbol.toStringTag, { value: "Module" }));
+function RecipeUpdate({ recipe: recipe2 }) {
+  console.log(recipe2);
+  const [title, setTitle] = useState(recipe2.title);
+  const [image2, setImage] = useState(recipe2.image);
+  const [calorie, setCalorie] = useState(recipe2.calorie);
+  const [proteins, setProteins] = useState(recipe2.proteins);
+  const [fats, setFats] = useState(recipe2.fats);
+  const [carbohydrates, setCarbohydrates] = useState(recipe2.carbohydrates);
+  const [portion, setPortion] = useState(recipe2.portion);
+  const [cookingTime, setCookingTime] = useState(recipe2.cooking_time);
+  const [category, setCategory] = useState(recipe2.category);
+  const [steps, setSteps] = useState(recipe2.steps);
+  const [ingridients, setIngridients] = useState(recipe2.ingredients);
+  function handleStepsFormChange(index, e) {
+    let data = [...steps];
+    data[index].description = e.target.value;
+    setSteps(data);
+    console.log(steps);
+  }
+  function addSteps() {
+    let newSteps = { id: steps[steps.length - 1].id + 1, description: "" };
+    setSteps([...steps, newSteps]);
+  }
+  function addIngredient() {
+    console.log(ingridients);
+    let newIngredients = { id: ingridients[ingridients.length - 1].id + 1, title: "", quantity: "", mass_unit: "" };
+    setIngridients([...ingridients, newIngredients]);
+    console.log(ingridients);
+  }
+  function closeIngredient() {
+    let arr = [...ingridients];
+    arr.splice(-1, 1);
+    console.log(arr);
+    setIngridients(arr);
+  }
+  function handleIngredientsFormChange(index, e) {
+    let data = [...ingridients];
+    data[index][e.target.name] = e.target.value;
+    setIngridients(data);
+    console.log(ingridients);
+  }
+  function closeSteps() {
+    let arr = [...steps];
+    arr.splice(-1, 1);
+    console.log(arr);
+    setSteps(arr);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const values = {
+      id: recipe2.id,
+      title,
+      image: image2,
+      calorie,
+      proteins,
+      fats,
+      carbohydrates,
+      portion,
+      cooking_time: cookingTime,
+      category,
+      steps,
+      ingridients
+    };
+    Inertia.put("/admin/recipes/update", values);
+  }
+  console.log(recipe2);
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("form", { className: "reclist_main", style: { alignItems: "center", flexDirection: "column", gap: "30px" }, action: "", onSubmit: (e) => handleSubmit(e), children: [
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "35px", fontWeight: "700", color: "darkgoldenrod" }, htmlFor: "title", children: "Название" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "50px", borderRadius: "10px" }, type: "text", required: true, id: "title", onChange: (e) => setTitle(e.target.value), defaultValue: recipe2.title })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "image", children: "Фото" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "text", id: "image", onChange: (e) => setImage(e.target.value), defaultValue: recipe2.image })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "calorie", children: "Калории" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "calorie", onChange: (e) => setCalorie(e.target.value), defaultValue: recipe2.calorie })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "proteins", children: "Белки" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "proteins", onChange: (e) => setProteins(e.target.value), defaultValue: recipe2.proteins })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "fats", children: "Жиры" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "fats", onChange: (e) => setFats(e.target.value), defaultValue: recipe2.fats })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "carbohydrates", children: "Углеводы" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "carbohydrates", onChange: (e) => setCarbohydrates(e.target.value), defaultValue: recipe2.carbohydrates })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "portion", children: "Порций" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "portion", onChange: (e) => setPortion(e.target.value), defaultValue: recipe2.portion })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "cooking_time", children: "Время" }),
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "cooking_time", onChange: (e) => setCookingTime(e.target.value), defaultValue: recipe2.cooking_time })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "status", children: "Статус" }),
+      /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("select", { name: "status", defaultValue: recipe2.category, required: true, id: "status", onChange: (e) => setCategory(e.target.value), children: [
+        /* @__PURE__ */ jsx("option", { value: "Завтрак", children: "Завтрак" }),
+        /* @__PURE__ */ jsx("option", { value: "Обед", children: "Обед" }),
+        /* @__PURE__ */ jsx("option", { value: "Ужин", children: "Ужин" }),
+        /* @__PURE__ */ jsx("option", { value: "Перекус", children: "Перекус" })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "steps", children: "Шаги приготовления" }),
+      steps.map((step, key) => /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx("textarea", { style: { borderRadius: "7px" }, required: true, name: "steps", id: "steps", cols: "60", rows: "8", onChange: (e) => handleStepsFormChange(key, e), placeholder: "Описание шага", defaultValue: step.description }) })),
+      steps.length !== 1 ? /* @__PURE__ */ jsx("div", { onClick: (e) => closeSteps(), children: "X" }) : "",
+      /* @__PURE__ */ jsx("button", { style: { width: "150px", gap: "30px" }, className: "button_category", onClick: addSteps, children: "Добавить шаг" })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center" }, children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "steps", children: "Ингредиенты" }),
+      ingridients.map((ingridient, key) => /* @__PURE__ */ jsxs("div", { style: { gap: "5px" }, children: [
+        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Ингридиент", name: "title", defaultValue: ingridient.title, onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "number", min: "0", placeholder: "Количество", defaultValue: ingridient.quantity, name: "quantity", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("input", { style: { marginLeft: "1px", width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Измерение", name: "mass_unit", defaultValue: ingridient.mass_unit, onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("br", {})
+      ] })),
+      ingridients.length !== 1 ? /* @__PURE__ */ jsx("div", { onClick: (e) => closeIngredient(), children: "X" }) : "",
+      /* @__PURE__ */ jsx("button", { style: { width: "150px" }, className: "button_category", onClick: addIngredient, children: "Добавить ингредиент" })
+    ] }),
+    /* @__PURE__ */ jsx("button", { className: "button_category", style: { width: "250px", margin: "100px", backgroundColor: "lightblue" }, children: "Сохранить" })
+  ] }) });
+}
+const __vite_glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: RecipeUpdate
+}, Symbol.toStringTag, { value: "Module" }));
+function RecipesList({ list }) {
+  function hangleRecipesDelete(e, id) {
+    e.preventDefault();
+    Inertia.delete(`/admin/recipes/${id}`, {
+      onBefore: () => confirm("Вы уверены, что хотите удалить этот рецепт?")
+    });
+  }
+  function hangleCreate(e) {
+    Inertia.get("/admin/recipes/create");
+  }
+  function hangleRecipesUpdate(e, id) {
+    Inertia.get(`/admin/recipes/${id}/edit`);
+  }
+  console.log(list);
+  return /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", margin: "50px", gap: "30px" }, children: [
+    /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx("strong", { style: { fontSize: "40px" }, children: "Рецепты" }) }),
+    /* @__PURE__ */ jsxs("div", { children: [
+      /* @__PURE__ */ jsx("button", { onClick: (e) => {
+        hangleCreate();
+      }, children: "Новое блюдо" }),
+      /* @__PURE__ */ jsxs("table", { className: "table-bordered", style: { width: "1400px", textAlign: "center" }, children: [
+        /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, children: [
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "id" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Название" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Фото" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Калории" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Белки" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Жиры" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Углеводы" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Порций" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Время" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Категория" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Действие" })
+        ] }) }),
+        /* @__PURE__ */ jsx("tbody", { children: list.map(
+          (value) => /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, children: [
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.id }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.title }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.image }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.calorie }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.proteins }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.fats }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.carbohydrates }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.portion }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.cooking_time }),
+            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.category }),
+            /* @__PURE__ */ jsxs("td", { style: { width: "9%", color: "darkgray", display: "flex", flexDirection: "column" }, children: [
+              /* @__PURE__ */ jsx("a", { onClick: (e) => {
+                hangleRecipesUpdate(e, value.id);
+              }, style: { color: "blue", cursor: "pointer" }, children: "Ред." }),
+              /* @__PURE__ */ jsx("a", { onClick: (e) => {
+                hangleRecipesDelete(e, value.id);
+              }, style: { color: "red", cursor: "pointer" }, children: "Удалить" })
+            ] })
+          ] })
+        ) })
+      ] })
+    ] })
+  ] });
+}
+const __vite_glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: RecipesList
+}, Symbol.toStringTag, { value: "Module" }));
+function UsersList({ list }) {
+  console.log(list);
+  function hangleAdmin(e, id) {
+    e.preventDefault();
+    Inertia.post("/admin/users", { id });
+  }
+  function hangleUsersDelete(e, id) {
+    e.preventDefault();
+    Inertia.delete(`/admin/users/${id}`, {
+      onBefore: () => confirm("Вы уверены, что хотите удалить этого пользователя?")
+    });
+  }
+  return /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", margin: "50px", gap: "30px" }, children: [
+    /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx("strong", { style: { fontSize: "40px" }, children: "Пользователи" }) }),
+    /* @__PURE__ */ jsxs("table", { className: "table-bordered", style: { width: "90%", textAlign: "center" }, children: [
+      /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, itemScope: "col", children: [
+        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "id" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Никнейм" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Имя" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Почта" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Телефон" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Админ" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Действие" })
+      ] }) }),
+      /* @__PURE__ */ jsx("tbody", { children: list.map(
+        (value) => /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, children: [
+          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.id }),
+          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.username }),
+          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.name }),
+          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.email }),
+          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: "880005553535" }),
+          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.is_admin === 0 ? /* @__PURE__ */ jsx("button", { onClick: (e) => {
+            hangleAdmin(e, value.id);
+          }, children: "Сделать админом" }) : "Админ" }),
+          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.is_admin === 0 ? /* @__PURE__ */ jsx("button", { onClick: (e) => {
+            hangleUsersDelete(e, value.id);
+          }, children: "Удалить" }) : "Админа нельзя удалить" })
+        ] })
+      ) })
+    ] })
+  ] });
+}
+const __vite_glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: UsersList
+}, Symbol.toStringTag, { value: "Module" }));
 function getBodyMassIndex(massIndex) {
   let description = "";
   if (massIndex < 16) {
@@ -91,7 +487,7 @@ function Advice({ profile }) {
     ] })
   ] }) });
 }
-const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Advice
 }, Symbol.toStringTag, { value: "Module" }));
@@ -151,7 +547,7 @@ function Category() {
     ] })
   ] });
 }
-const __vite_glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Category
 }, Symbol.toStringTag, { value: "Module" }));
@@ -461,7 +857,7 @@ function Form() {
     ] })
   ] }) });
 }
-const __vite_glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Form
 }, Symbol.toStringTag, { value: "Module" }));
@@ -481,7 +877,7 @@ function About() {
     /* @__PURE__ */ jsx("p", { className: "about_text", children: "По вопросам сотрудничества и размещения рекламы пишите нам на почту: avocado@mail.ru" })
   ] }) });
 }
-const __vite_glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: About
 }, Symbol.toStringTag, { value: "Module" }));
@@ -491,7 +887,7 @@ function Contact() {
     /* @__PURE__ */ jsx("p", { children: "Привет еще раз, Здесь ты наЙдешь как с нами контактировать!" })
   ] });
 }
-const __vite_glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Contact
 }, Symbol.toStringTag, { value: "Module" }));
@@ -501,7 +897,7 @@ function Home$1() {
     /* @__PURE__ */ jsx("p", { children: "Приветствуем на домашней странице!" })
   ] });
 }
-const __vite_glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Home$1
 }, Symbol.toStringTag, { value: "Module" }));
@@ -599,7 +995,7 @@ const FooterList$1 = () => {
     ] })
   ] }) }) }) });
 };
-const __vite_glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Layout$2
 }, Symbol.toStringTag, { value: "Module" }));
@@ -763,14 +1159,14 @@ function Main() {
     /* @__PURE__ */ jsx(SimpleSlider, {})
   ] });
 }
-const __vite_glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Main
 }, Symbol.toStringTag, { value: "Module" }));
 const Home = (props) => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(SimpleSlider, {}) });
 };
-const __vite_glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Home
 }, Symbol.toStringTag, { value: "Module" }));
@@ -999,7 +1395,7 @@ function MenuBuilder({ menu: menu2, recipes }) {
     ] }) })
   ] });
 }
-const __vite_glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: MenuBuilder
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1016,7 +1412,7 @@ const NotFound = () => {
     /* @__PURE__ */ jsx("p", { className: "lead text-white mb-4 mb-md-5", children: "Страница, которую вы ищете, могла быть удалена или временно недоступна." })
   ] }) }) }) }) }) }) });
 };
-const __vite_glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   NotFound
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1105,7 +1501,7 @@ function PersonalAccount({ user }) {
     })
   ] }) });
 }
-const __vite_glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: PersonalAccount
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1176,7 +1572,7 @@ const Create = () => {
     ] }) })
   ] }) });
 };
-const __vite_glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1265,7 +1661,7 @@ const Edit = () => {
     ] }) })
   ] }) });
 };
-const __vite_glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1279,7 +1675,7 @@ function Layout$1({ children }) {
     /* @__PURE__ */ jsx("content", { children })
   ] });
 }
-const __vite_glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Layout$1
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1320,11 +1716,11 @@ function Test({ children }) {
     /* @__PURE__ */ jsx(FooterList, {})
   ] });
 }
-const __vite_glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Test
 }, Symbol.toStringTag, { value: "Module" }));
-const __vite_glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null
 }, Symbol.toStringTag, { value: "Module" }));
 function DangerButton({ className = "", disabled, children, ...props }) {
@@ -1494,7 +1890,7 @@ function DeleteUserForm({ className }) {
     ] }) })
   ] });
 }
-const __vite_glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: DeleteUserForm
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1605,7 +2001,7 @@ function UpdatePasswordForm({ className }) {
     ] })
   ] });
 }
-const __vite_glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: UpdatePasswordForm
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1689,7 +2085,7 @@ function UpdateProfileInformation({ mustVerifyEmail, status, className }) {
     ] })
   ] });
 }
-const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: UpdateProfileInformation
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1716,7 +2112,7 @@ function ProgressChart({ user }) {
   });
   return /* @__PURE__ */ jsx("div", { className: "Progress", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { style: { width: 1100 }, children: /* @__PURE__ */ jsx(LineChart$1, { chartData: userData }) }) }) });
 }
-const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ProgressChart
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2058,7 +2454,7 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
     }) })
   ] }) }) }) }) });
 }
-const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Recipe
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2342,7 +2738,7 @@ const Recipes = ({ recipes }) => {
     ] })
   ] }) });
 };
-const __vite_glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Recipes
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2386,7 +2782,7 @@ function ConfirmPassword() {
     ] })
   ] });
 }
-const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ConfirmPassword
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2423,7 +2819,7 @@ function ForgotPassword({ status }) {
     ] })
   ] });
 }
-const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ForgotPassword
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2512,7 +2908,7 @@ function Login({ status, canResetPassword }) {
     ] })
   ] });
 }
-const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Login
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2621,7 +3017,7 @@ function Register() {
     ] }) })
   ] });
 }
-const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Register
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2699,7 +3095,7 @@ function ResetPassword({ token, email }) {
     ] })
   ] });
 }
-const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ResetPassword
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2728,7 +3124,7 @@ function VerifyEmail({ status }) {
     ] }) })
   ] });
 }
-const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: VerifyEmail
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2738,17 +3134,19 @@ function LineChart({ chartData }) {
     /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Line, { data: chartData }) })
   );
 }
-const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: LineChart
 }, Symbol.toStringTag, { value: "Module" }));
 createInertiaApp({
   resolve: (name) => {
-    const pages = /* @__PURE__ */ Object.assign({ "./Pages/Advice.jsx": __vite_glob_0_0, "./Pages/Category.jsx": __vite_glob_0_1, "./Pages/Form.jsx": __vite_glob_0_2, "./Pages/Guest/About.jsx": __vite_glob_0_3, "./Pages/Guest/Contact.jsx": __vite_glob_0_4, "./Pages/Guest/Home.jsx": __vite_glob_0_5, "./Pages/Guest/Main.jsx": __vite_glob_0_6, "./Pages/Home.jsx": __vite_glob_0_7, "./Pages/Layout.jsx": __vite_glob_0_8, "./Pages/MenuBuilder.jsx": __vite_glob_0_9, "./Pages/NotFound.jsx": __vite_glob_0_10, "./Pages/PersonalAccount.jsx": __vite_glob_0_11, "./Pages/Post/Create.jsx": __vite_glob_0_12, "./Pages/Post/Edit.jsx": __vite_glob_0_13, "./Pages/Post/Index.jsx": __vite_glob_0_14, "./Pages/Post/Test.jsx": __vite_glob_0_15, "./Pages/Profile/Edit.jsx": __vite_glob_0_16, "./Pages/Profile/Partials/DeleteUserForm.jsx": __vite_glob_0_17, "./Pages/Profile/Partials/UpdatePasswordForm.jsx": __vite_glob_0_18, "./Pages/Profile/Partials/UpdateProfileInformationForm.jsx": __vite_glob_0_19, "./Pages/ProgressChart.jsx": __vite_glob_0_20, "./Pages/Recipe.jsx": __vite_glob_0_21, "./Pages/Recipes.jsx": __vite_glob_0_22, "./Pages/mark/Auth/ConfirmPassword.jsx": __vite_glob_0_23, "./Pages/mark/Auth/ForgotPassword.jsx": __vite_glob_0_24, "./Pages/mark/Auth/Login.jsx": __vite_glob_0_25, "./Pages/mark/Auth/Register.jsx": __vite_glob_0_26, "./Pages/mark/Auth/ResetPassword.jsx": __vite_glob_0_27, "./Pages/mark/Auth/VerifyEmail.jsx": __vite_glob_0_28, "./Pages/mark/LineChart.jsx": __vite_glob_0_29 });
+    const pages = /* @__PURE__ */ Object.assign({ "./Pages/Admin/Index.jsx": __vite_glob_0_0, "./Pages/Admin/RecipeCreate.jsx": __vite_glob_0_1, "./Pages/Admin/RecipeUpdate.jsx": __vite_glob_0_2, "./Pages/Admin/RecipesList.jsx": __vite_glob_0_3, "./Pages/Admin/UsersList.jsx": __vite_glob_0_4, "./Pages/Advice.jsx": __vite_glob_0_5, "./Pages/Category.jsx": __vite_glob_0_6, "./Pages/Form.jsx": __vite_glob_0_7, "./Pages/Guest/About.jsx": __vite_glob_0_8, "./Pages/Guest/Contact.jsx": __vite_glob_0_9, "./Pages/Guest/Home.jsx": __vite_glob_0_10, "./Pages/Guest/Main.jsx": __vite_glob_0_11, "./Pages/Home.jsx": __vite_glob_0_12, "./Pages/Layout.jsx": __vite_glob_0_13, "./Pages/MenuBuilder.jsx": __vite_glob_0_14, "./Pages/NotFound.jsx": __vite_glob_0_15, "./Pages/PersonalAccount.jsx": __vite_glob_0_16, "./Pages/Post/Create.jsx": __vite_glob_0_17, "./Pages/Post/Edit.jsx": __vite_glob_0_18, "./Pages/Post/Index.jsx": __vite_glob_0_19, "./Pages/Post/Test.jsx": __vite_glob_0_20, "./Pages/Profile/Edit.jsx": __vite_glob_0_21, "./Pages/Profile/Partials/DeleteUserForm.jsx": __vite_glob_0_22, "./Pages/Profile/Partials/UpdatePasswordForm.jsx": __vite_glob_0_23, "./Pages/Profile/Partials/UpdateProfileInformationForm.jsx": __vite_glob_0_24, "./Pages/ProgressChart.jsx": __vite_glob_0_25, "./Pages/Recipe.jsx": __vite_glob_0_26, "./Pages/Recipes.jsx": __vite_glob_0_27, "./Pages/mark/Auth/ConfirmPassword.jsx": __vite_glob_0_28, "./Pages/mark/Auth/ForgotPassword.jsx": __vite_glob_0_29, "./Pages/mark/Auth/Login.jsx": __vite_glob_0_30, "./Pages/mark/Auth/Register.jsx": __vite_glob_0_31, "./Pages/mark/Auth/ResetPassword.jsx": __vite_glob_0_32, "./Pages/mark/Auth/VerifyEmail.jsx": __vite_glob_0_33, "./Pages/mark/LineChart.jsx": __vite_glob_0_34 });
     let page = pages[`./Pages/${name}.jsx`];
     if (name.startsWith("Guest/") || name.startsWith("mark/Auth")) {
       page.default.layout = (page2) => /* @__PURE__ */ jsx(GuestLayout, { children: page2 });
-    } else {
+    } else if (name.startsWith("Admin"))
+      ;
+    else {
       page.default.layout = (page2) => /* @__PURE__ */ jsx(Layout$2, { children: page2 });
     }
     return page;

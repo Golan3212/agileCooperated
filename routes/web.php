@@ -8,7 +8,6 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\MainController;
-use App\Http\Controllers\ChartController;
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\RecipeController;
 // use App\Http\Controllers\AccountController;
@@ -38,7 +37,6 @@ use \App\Http\Controllers\Admin\GuestLyoutController as AdminUserController;
 //Auth routes
 Route::middleware('auth')
     ->group(function () {
-
         Route::prefix('admin' ,['middleware' => 'is.admin'])->group(function () {
 
             Route::resource('users', UsersAdminController::class);

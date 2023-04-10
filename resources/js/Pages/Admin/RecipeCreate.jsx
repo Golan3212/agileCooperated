@@ -95,41 +95,41 @@ export default function RecipeCreate() {
 
     return (
        <div>
-           <form action="" onSubmit={(e)=> handleSubmit(e)}>
-               <div>
-                <label htmlFor="title">Название</label>
-                <input type="text" id="title" required placeholder="Введите название" onChange={(e) => setTitle(e.target.value)}/>
+           <form className="reclist_main" style={{alignItems:"center", flexDirection:"column", gap:"30px"}} action="" onSubmit={(e)=> handleSubmit(e)}>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"35px", fontWeight:"700", color:"darkgoldenrod"}} htmlFor="title">Название</label>
+                <input style={{width:"400px", height:"50px", borderRadius:"10px"}} type="text" id="title" required placeholder="Введите название" onChange={(e) => setTitle(e.target.value)}/>
                </div>
-               <div>
-                <label htmlFor="image">Фото</label>
-                <input type="text" id="image" placeholder="Введите фото" onChange={(e) => setImage(e.target.value)}/>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="image">Фото</label>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="text" id="image" placeholder="Введите фото" onChange={(e) => setImage(e.target.value)}/>
                </div>
-               <div>
-                <label htmlFor="calorie">Калории</label>
-                <input type="number" min="1" required id="calorie" placeholder="Введите калории" onChange={(e) => setCalorie(e.target.value)}/>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="calorie">Калории</label>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="number" min="1" required id="calorie" placeholder="Введите калории" onChange={(e) => setCalorie(e.target.value)}/>
                </div>
-               <div>
-                <label htmlFor="proteins">Белки</label>
-                <input type="number" min="1" required id="proteins" placeholder="Введите белки" onChange={(e) => setProteins(e.target.value)}/>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="proteins">Белки</label>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="number" min="1" required id="proteins" placeholder="Введите белки" onChange={(e) => setProteins(e.target.value)}/>
                </div>
-               <div>
-                <label htmlFor="fats">Жиры</label>
-                <input type="number" min="1" required id="fats" placeholder="Введите жиры" onChange={(e) => setFats(e.target.value)}/>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="fats">Жиры</label>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="number" min="1" required id="fats" placeholder="Введите жиры" onChange={(e) => setFats(e.target.value)}/>
                </div>
-               <div>
-                <label htmlFor="carbohydrates">Углеводы</label>
-                <input type="number" min="1" required id="carbohydrates" placeholder="Введите углеводы" onChange={(e) => setCarbohydrates(e.target.value)}/>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="carbohydrates">Углеводы</label>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="number" min="1" required id="carbohydrates" placeholder="Введите углеводы" onChange={(e) => setCarbohydrates(e.target.value)}/>
                </div>
-               <div>
-                <label htmlFor="portion">Порций</label>
-                <input type="number" min="1" required id="portion" placeholder="Введите порций" onChange={(e) => setPortion(e.target.value)}/>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="portion">Порций</label>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="number" min="1" required id="portion" placeholder="Введите порций" onChange={(e) => setPortion(e.target.value)}/>
                </div>
-               <div>
-                <label htmlFor="cooking_time">Время</label>
-                <input type="number" min="1" required id="cooking_time" placeholder="Введите время" onChange={(e) => setCookingTime(e.target.value)}/>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="cooking_time">Время</label>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="number" min="1" required id="cooking_time" placeholder="Введите время" onChange={(e) => setCookingTime(e.target.value)}/>
                </div>
-               <div>
-                <label htmlFor="category">Категория</label>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="category">Категория</label>
                         <div>
                             <select name="category" required id="category" onChange={(e) => setCategory(e.target.value)}>
                                 <option value='0'>Выберите категорию</option>
@@ -140,29 +140,29 @@ export default function RecipeCreate() {
                             </select>
                         </div>
                </div>
-               <div>
-                <label htmlFor="steps">Шаги приготовления</label>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="steps">Шаги приготовления</label>
                     {steps.map((step, key)=>(
                        <>
-                            <textarea required name="steps" id="steps" cols="30" rows="10" onChange={(e) => handleStepsFormChange(key, e) } placeholder="Описание шага"></textarea>
+                            <textarea style={{borderRadius:"7px"}} required name="steps" id="steps" cols="60" rows="8" onChange={(e) => handleStepsFormChange(key, e) } placeholder="Описание шага"></textarea>
                        </>
                     ))}
                     {steps.length !== 1 ? <div onClick={(e) => closeSteps()}>X</div> : ''}
-                    <div onClick={addSteps}>Добавить шаг</div>
+                    <button style={{width:"150px"}} className="button_category" onClick={addSteps}>Добавить шаг</button>
                </div>
-               <div>
-                <label htmlFor="steps">Ингредиенты</label>
+               <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="steps">Ингредиенты</label>
                     {ingridients.map((ingridient, key)=>(
                        <>
-                            <input type="text" placeholder="Ингридиент" name="title" onChange={(e) => handleIngredientsFormChange(key, e) } required/>
-                            <input type="number" min='0' placeholder="Количество" name="quantity" onChange={(e) => handleIngredientsFormChange(key, e) } required/>
-                            <input type="text" placeholder="Измерение" name="mass_unit" onChange={(e) => handleIngredientsFormChange(key, e) } required/><br/>
+                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Ингридиент" name="title" onChange={(e) => handleIngredientsFormChange(key, e) } required/>
+                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="number" min='0' placeholder="Количество" name="quantity" onChange={(e) => handleIngredientsFormChange(key, e) } required/>
+                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Измерение" name="mass_unit" onChange={(e) => handleIngredientsFormChange(key, e) } required/><br/>
                        </>
                     ))}
                     {ingridients.length !== 1 ? <div onClick={(e) => closeIngredient()}>X</div> : ''}
-                    <div onClick={addIngredient}>Добавить ингредиент</div>
+                    <button style={{width:"150px"}} className="button_category" onClick={addIngredient}>Добавить ингредиент</button>
                </div>
-               <button>Сохранить</button>
+               <button className="button_category" style={{width:"250px", margin:"100px", backgroundColor:"lightblue"}}>Сохранить</button>
            </form>
        </div>
     );

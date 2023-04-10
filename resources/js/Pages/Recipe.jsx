@@ -77,7 +77,7 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId 
        console.log(comments);
        if (comments.length < 1){
            return <div className="account__inner">
-               Комментов нет
+               Комментариев пока нет
            </div>
        }else{
            return <div style={{height: "700px", display:"flex", flexDirection: "column",

@@ -24,39 +24,43 @@ export default function RecipesList({list}) {
 
     console.log(list);
     return (
-       <div>
+       <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", margin:"50px", gap:"30px"}} >
+           <h1><strong style={{fontSize:"40px"}}>Рецепты</strong></h1>
            <div>
                <button onClick={(e)=>{ hangleCreate(e) }}>Новое блюдо</button>
-           <table border="2px">
+           <table className="table-bordered" style={{width:"1400px", textAlign:"center"}}>
                 <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Название</th>
-                        <th>Фото</th>
-                        <th>Калории</th>
-                        <th>Белки</th>
-                        <th>Жиры</th>
-                        <th>Углеводы</th>
-                        <th>Порций</th>
-                        <th>Время</th>
-                        <th>Категория</th>
+                    <tr style={{display:"flex"}}>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>id</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Название</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Фото</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Калории</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Белки</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Жиры</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Углеводы</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Порций</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Время</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Категория</th>
+                        <th style={{width:"9%", backgroundColor:"rgb(228, 228, 217)"}}>Действие</th>
                     </tr>
                 </thead>
                 <tbody>
                     {list.map((value)=>(
-                    <tr>
-                        <td>{value.id}</td>
-                        <td>{value.title}</td>
-                        <td>{value.image}</td>
-                        <td>{value.calorie}</td>
-                        <td>{value.proteins}</td>
-                        <td>{value.fats}</td>
-                        <td>{value.carbohydrates}</td>
-                        <td>{value.portion}</td>
-                        <td>{value.cooking_time}</td>
-                        <td>{value.category}</td>
-                        <td><button onClick={(e)=>{hangleRecipesUpdate(e, value.id)}}>Редактировать</button></td>
-                        <td><button onClick={(e)=>{hangleRecipesDelete(e, value.id)}}>Удалить</button></td>
+                    <tr style={{display:"flex",}}>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.id}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.title}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.image}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.calorie}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.proteins}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.fats}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.carbohydrates}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.portion}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.cooking_time}</td>
+                        <td style={{width:"9%", color:"darkgray"}}>{value.category}</td>
+                        <td style={{width:"9%", color:"darkgray", display:"flex", flexDirection:"column"}}>
+                            <a onClick={(e)=>{hangleRecipesUpdate(e, value.id)}} style={{color:"blue", cursor:"pointer"}}>Ред.</a>
+                            <a onClick={(e)=>{hangleRecipesDelete(e, value.id)}} style={{color:"red", cursor:"pointer"}}>Удалить</a>
+                        </td>
                     </tr>
                     )
                 )}
