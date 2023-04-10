@@ -1,163 +1,215 @@
 * {
-  line-height: 1;
-  font-family: Roboto, sans-serif;
-}
+    line-height: 1;
+    font-family: Roboto, sans-serif;
+  }
 
-.account {
-  margin: 30px auto;
-  max-width: 900px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  box-sizing: border-box;
-}
-.account__menu {
-  width: 420px;
-  display: flex;
-  flex-direction: column;
-  padding-left: 100px;
-}
-.account__menu a {
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 18px;
-  text-transform: uppercase;
-  color: #AAAD89;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-.account__menu li {
-  margin-bottom: 25px;
-}
-.account__box {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-.account__profile {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 45px;
-  padding: 50px;
-  gap: 16px;
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-}
-.account__profile h2 {
-  padding-bottom: 15px;
-  font-size: 20px;
-  color: black;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  font-weight: 500;
-}
-.account__inner {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.5;
-  gap: 4px;
-}
-.account__inner p {
-  width: 50%;
-  color: #666;
-  font-size: 14px;
-  line-height: 1.25125em;
-  font-weight: 600;
-}
-.account__inner span {
-  padding-bottom: 16px;
-  width: 100%;
-  color: #000;
-  font-size: 16px;
-  border-bottom: 1px solid black;
-  letter-spacing: 0.09em;
-}
-.account__btn {
-  background-color: #AAAD89;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  border-radius: 3px;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  padding: 14px 25px;
-  margin-left: 30px;
-  font-weight: 700;
-  border: none;
-  width: 150px;
-  align-self: flex-end;
-  margin-top: 25px;
-  cursor: pointer;
-}
-.account__btn:hover {
-  background-color: #6b8d24;
-  color: #fff;
-}
+  .account {
+    margin: 30px auto;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .account__menu {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+  }
+  .account__menu a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #AAAD89;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .account__menu li {
+    margin-bottom: 25px;
+  }
+  .account__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .account__profile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 45px;
+    padding: 50px;
+    gap: 16px;
+    width: 90%;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  }
+  .account__profile h2 {
+    padding-bottom: 15px;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 500;
+  }
+  .account__inner {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    gap: 4px;
+  }
+  .account__inner p {
+    width: 50%;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.25125em;
+    font-weight: 600;
+  }
+  .account__inner span {
+    padding-bottom: 16px;
+    width: 100%;
+    color: #000;
+    font-size: 16px;
+    border-bottom: 1px solid black;
+    letter-spacing: 0.09em;
+  }
+  .account__btn {
+    background-color: #AAAD89;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border-radius: 3px;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 25px;
+    margin-left: 30px;
+    font-weight: 700;
+    border: none;
+    width: 150px;
+    align-self: flex-end;
+    margin-top: 25px;
+    cursor: pointer;
+  }
+  .account__btn a {
+    color: #fff;
+  }
+  .account__btn:hover {
+    background-color: #6b8d24;
+    color: #fff;
+  }
 
-.advice {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-.advice__wrap {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 45px;
-  padding: 50px;
-  gap: 16px;
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-}
-.advice__heading {
-  padding-bottom: 15px;
-  font-size: 20px;
-  color: black;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  font-weight: 500;
-}
-.advice h3 {
-  font-size: 20px;
-  color: #AAAD89;
-  letter-spacing: 0.05em;
-}
-.advice__text {
-  padding-bottom: 3px;
-  width: 100%;
-  color: #666;
-  font-size: 14px;
-  letter-spacing: 0.09em;
-  line-height: 1.37em;
-}
-.advice h4 {
-  font-size: 18px;
-  font-weight: 500;
-  color: black;
-  letter-spacing: 0.09em;
-  background-color: #fff;
-}
-.advice__result {
-  font-size: 16px;
-  font-weight: 500;
-  color: black;
-  letter-spacing: 0.09em;
-  background-color: #fff;
-  display: flex;
-  align-items: flex-end;
-}
-.advice span {
-  font-size: 18px;
-  font-weight: 500;
-  color: #000;
-}
+  .advice {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .advice__wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 45px;
+    padding: 50px;
+    gap: 16px;
+    width: 90%;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  }
+  .advice__heading {
+    padding-bottom: 15px;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 500;
+  }
+  .advice h3 {
+    font-size: 20px;
+    color: #AAAD89;
+    letter-spacing: 0.05em;
+  }
+  .advice__text {
+    padding-bottom: 3px;
+    width: 100%;
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 0.09em;
+    line-height: 1.37em;
+  }
+  .advice h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    letter-spacing: 0.09em;
+    background-color: #fff;
+  }
+  .advice__result {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    letter-spacing: 0.09em;
+    background-color: #fff;
+    display: flex;
+    align-items: flex-end;
+  }
+  .advice span {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+  }
 
-/*# sourceMappingURL=account.css.map */
+  @media (max-width: 425px) {
+    .advice {
+      margin-bottom: 15px;
+    }
+    .account__box {
+      width: 100%;
+    }
+    .advice__wrap {
+      margin-bottom: 15px;
+      padding: 25px;
+      width: 90%;
+    }
+    .advice__heading {
+      padding-bottom: 10px;
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+    .advice h3 {
+      font-size: 16px;
+    }
+    .advice h4 {
+      font-size: 15px;
+    }
+    .advice span {
+      font-size: 15px;
+    }
+    .account {
+      margin: 20px auto 0;
+    }
+    .account__profile h2 {
+      padding-bottom: 10px;
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+    .account__profile {
+      margin-bottom: 25px;
+      padding: 25px;
+      gap: 16px;
+      width: 90%;
+    }
+    .account__inner span {
+      font-size: 14px;
+    }
+  }
+
+  /*# sourceMappingURL=account.css.map */

@@ -174,7 +174,7 @@
         padding: 0 5px 0 0;
         font-size: 14px;
         line-height: 1.33;
-        width: 100%;
+        width: 100%!important;
         box-sizing: border-box;
     }
     &__input::placeholder {
@@ -222,7 +222,58 @@
     border-color: #AAAD89;
 }
 
-
+@media (max-width: 425px) {
+    .box {
+        padding: 20px 5px 10px;
+        margin: 0;
+    }
+    .form {
+        width: 100%;
+    }
+    .box__heading {
+        font-size: 16px;
+        margin-bottom: 5px;
+        margin-top: 15px;
+    }
+    .form h4 {
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+    .gender {
+        margin-bottom: 35px;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+    .gender__item {
+        width: 70%;
+    }
+    .form__btn {
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+    .action__inner {
+        width: 90%;
+    }
+    .action__label {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .parameters {
+        width: 80%;
+    }
+    .target {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 35px;
+    }
+    .target__item {
+        width: 70%;
+    }
+}
 
 
 

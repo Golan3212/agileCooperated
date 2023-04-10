@@ -14,11 +14,10 @@ class ChartController extends Controller
     {
         $id = Auth::id();
 
-        $user = ProfileUser::query()->where('user_id',$id)->get();
-//            dump($user);
-//dd($user);
-        return Inertia::render('ProgressChart')->with('user',$user);
-//
+        $profileuser = ProfileUser::query()->where('user_id',$id)->get();
+
+        return Inertia::render('ProgressChart')->with('profileuser',$profileuser);
+
     }
 
 }

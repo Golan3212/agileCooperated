@@ -5,11 +5,12 @@
 
 .account {
     margin: 30px auto;
-    max-width: 900px;
+    max-width: 700px;
     display: flex;
     justify-content: center;
     padding: 10px;
     box-sizing: border-box;
+
     &__menu {
         width: 420px;
         display: flex;
@@ -32,7 +33,9 @@
     &__box {
         display: flex;
         flex-direction: column;
-        width: 60%;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
     &__profile {
         display: flex;
@@ -40,6 +43,7 @@
         margin-bottom: 45px;
         padding: 50px;
         gap: 16px;
+        width: 90%;
         //background-color: #d9ded0;
         box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
         & h2 {
@@ -132,6 +136,7 @@
         margin-bottom: 45px;
         padding: 50px;
         gap: 16px;
+        width: 90%;
         //background-color: #d9ded0;
         box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     }
@@ -179,4 +184,49 @@
         color: #000;
     }
 
+}
+
+@media (max-width: 425px) {
+    .advice {
+        margin-bottom: 15px;
+    }
+    .account__box {
+        width: 100%;
+    }
+    .advice__wrap {
+        margin-bottom: 15px;
+        padding: 25px;
+        width: 90%;
+    }
+    .advice__heading {
+        padding-bottom: 10px;
+        font-size: 15px;
+        margin-bottom: 3px;
+    }
+    .advice h3 {
+        font-size: 16px;
+    }
+    .advice h4 {
+        font-size: 15px;
+    }
+    .advice span {
+        font-size: 15px;
+    }
+    .account {
+        margin: 20px auto 0;
+    }
+    .account__profile h2 {
+        padding-bottom: 10px;
+        font-size: 15px;
+        margin-bottom: 3px;
+    }
+    .account__profile {
+        margin-bottom: 25px;
+        padding: 25px;
+        gap: 16px;
+        width: 90%;
+    }
+    .account__inner span {
+        font-size: 14px;
+    }
 }

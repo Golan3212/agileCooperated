@@ -5,9 +5,9 @@ import { createInertiaApp } from '@inertiajs/react'
 import { createRoot } from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import PersonalAccount from "./Pages/PersonalAccount";
-import {NotFound} from "./Pages/NotFound";
 import GuestLayout from './Layouts/GuestLayout';
-import Layout from "./Pages/Layout";
+import AdminLayout from './Layouts/AdminLayout';
+import Layout from "./Layouts/Layout";
 import Home from "./Pages/Home";
 import Recipes from "./Pages/Recipes";
 import Form from "./Pages/Form";
@@ -43,8 +43,8 @@ createInertiaApp({
         let page = pages[`./Pages/${name}.jsx`]
         if(name.startsWith('Guest/')||name.startsWith('mark/Auth')){
             page.default.layout =  page => <GuestLayout children={page} />
-        }else if(name.startsWith('Admin')){
-            undefined
+        }else if(name.startsWith('Admin/')){
+            page.default.layout =  page => <AdminLayout children={page} />
         }else{
             page.default.layout =  page => <Layout children={page} />
         }
