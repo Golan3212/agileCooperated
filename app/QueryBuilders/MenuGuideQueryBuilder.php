@@ -37,7 +37,7 @@ final class MenuGuideQueryBuilder extends QueryBuilder {
 
     public function getFromConstructor($calories, $protein_min, $fats_min, $carbohydrates_min, $proteins_max, $fats_max, $carbohydrates_max)
     {
-        return $this->model->select('id')->whereBetween('total_calories', [$calories-150, $calories+150])
+        return $this->model->whereBetween('total_calories', [$calories-150, $calories+150])
             ->orWhereBetween('total_proteins', [$protein_min, $proteins_max])
             ->orWhereBetween('total_fats', [$fats_min, $fats_max])
             ->orWhereBetween('total_carboh_ydrates', [$carbohydrates_min, $carbohydrates_max])->inRandomOrder()->get();

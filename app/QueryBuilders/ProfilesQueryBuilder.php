@@ -32,6 +32,10 @@ final class ProfilesQueryBuilder extends QueryBuilder
     {
         return $this->model->where('user_id', $id)->first();
     }
+    public function getByUserIdLast(int $id)
+    {
+        return $this->model->where('user_id', $id)->orderBy('created_at', 'desc')->first();
+    }
 
     public function updateByUserId(int $id)
     {

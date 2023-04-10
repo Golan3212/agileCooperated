@@ -26,7 +26,7 @@ class ConstructorService implements Constructor
     {
 
         $userProfile = new ProfilesQueryBuilder();
-        $userProfile = $userProfile->getByUserIdFirst(\Auth::id());
+        $userProfile = $userProfile->getByUserIdLast(\Auth::id());
 
         $caloricNorm = $userProfile->caloric_norm;
         $fatsNorm = (int)round(($userProfile->fats_min + $userProfile->fats_max)/2);
@@ -52,7 +52,21 @@ class ConstructorService implements Constructor
                 if (count($idMenuForWeek) === 6) {
                     break;
                 }
-                $idMenuForWeek[] = $value->id;
+
+                $menu = new Menu();
+
+                $menu->breakfest()->associate($value->breakfest_id);
+                $menu->dinner()->associate($value->dinner_id);
+                $menu->lunch()->associate($value->lunch_id);
+                $menu->firstSnack()->associate($value->first_snack_id);
+                $menu->secondSnack()->associate($value->second_snack_id);
+                $menu->menuGuide()->associate($value->id);
+
+                if ($menu->save()) {
+                        $total = new TotalService();
+                        $total->getTotalMenuForDay($menu->id);
+                        $idMenuForWeek[] = $menu->id;
+                    }
             }
 
             $idMenuForWeek[] = $this->createMenuFromCaloricNorm($caloricNorm, $fatsNorm, $proteinsNorm, $carbohydratesNorm);
@@ -63,7 +77,20 @@ class ConstructorService implements Constructor
                 if (count($idMenuForWeek) === 7) {
                     break;
                 }
-                $idMenuForWeek[] = $value->id;
+                $menu = new Menu();
+
+                $menu->breakfest()->associate($value->breakfest_id);
+                $menu->dinner()->associate($value->dinner_id);
+                $menu->lunch()->associate($value->lunch_id);
+                $menu->firstSnack()->associate($value->first_snack_id);
+                $menu->secondSnack()->associate($value->second_snack_id);
+                $menu->menuGuide()->associate($value->id);
+
+                if ($menu->save()) {
+                        $total = new TotalService();
+                        $total->getTotalMenuForDay($menu->id);
+                        $idMenuForWeek[] = $menu->id;
+                    }
             }
 
         }elseif($menuGuide->count() < 8) {

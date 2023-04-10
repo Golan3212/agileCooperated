@@ -50,4 +50,13 @@ final  class RecipesQueryBuilder extends QueryBuilder
         return Recipe::query()->where('category_id', $category_id)->get();
     }
 
+    public function getByIdUpdate(int $id)
+    {
+        return $this->model->where('id', $id);
+    }
+    public function getOneByIdFirst(int $id)
+    {
+        return $this->model->where('id', $id)->first();
+    }
+
 }
