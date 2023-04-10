@@ -65,7 +65,7 @@ final class ProfilesQueryBuilder extends QueryBuilder
                 $carbohydratesMin = 0.1;
                 $carbohydratesMax = 0.2;
                 break;
-             case 1:
+            case 1:
                 $proteinMin = 0.25;
                 $proteinMax = 0.35;
                 $fatMin = 0.25;
@@ -82,15 +82,15 @@ final class ProfilesQueryBuilder extends QueryBuilder
                 $carbohydratesMax = 0.6;
                 break;
             default:
-            //
+                //
                 break;
-    }
+        }
 
-    return [
-        "proteins"=>["min" => round(($proteinMin * $calories)/4, 0), "max" => round(($proteinMax * $calories)/4, 0)],
-        "fats"=>["min" => round(($fatMin * $calories)/9, 0), "max" => round(($fatMax * $calories)/9, 0)],
-        "carbohydrates"=>["min" => round(($carbohydratesMin * $calories)/4, 0), "max" => round(($carbohydratesMax * $calories)/4, 0)]
-    ];
+        return [
+            "proteins"=>["min" => round(($proteinMin * $calories)/4, 0), "max" => round(($proteinMax * $calories)/4, 0)],
+            "fats"=>["min" => round(($fatMin * $calories)/9, 0), "max" => round(($fatMax * $calories)/9, 0)],
+            "carbohydrates"=>["min" => round(($carbohydratesMin * $calories)/4, 0), "max" => round(($carbohydratesMax * $calories)/4, 0)]
+        ];
 
     }
 

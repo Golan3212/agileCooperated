@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ChartController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\MenuController;
@@ -83,6 +85,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('menu/builder/constructor', MenuWeekUpdateController::class);
     Route::resource('form', FormController::class);
     Route::get('account', [AdviceController::class, 'account']);
+    Route::resource('comments', CommentController::class);
 });
 
 

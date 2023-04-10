@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\QueryBuilders\CommentsQueryBuilder;
 use App\Services\TotalService;
 use App\Services\ParserService;
 use App\Services\Contracts\Total;
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(QueryBuilder::class, IngredientsQueryBuilder::class);
         $this->app->bind(QueryBuilder::class, ProfilesQueryBuilder::class);
         $this->app->bind(QueryBuilder::class, UsersQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, CommentsQueryBuilder::class);
 
         //Services
 

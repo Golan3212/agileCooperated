@@ -59,4 +59,5 @@ final  class RecipesQueryBuilder extends QueryBuilder
         return $this->model->where('id', $id)->first();
     }
 
+
 }

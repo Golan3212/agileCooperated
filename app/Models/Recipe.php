@@ -45,4 +45,9 @@ class Recipe extends Model
         return $this->hasMany(RecipeStep::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }

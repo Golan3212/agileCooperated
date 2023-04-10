@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\QueryBuilders\CommentsQueryBuilder;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\Recipe;
@@ -43,10 +44,27 @@ class RecipeController extends Controller
     public function show(
         RecipesQueryBuilder $recipesQueryBuilder,
         RecipesStepsQueryBuilder $recipesStepsQueryBuilder,
+        CommentsQueryBuilder $commentsQueryBuilder,
         int $id)
+
     {
         $data = $recipesQueryBuilder->getRecipeById($id);
-        // $data = $recipesQueryBuilder->getRecipeByIdO($id)
+        $recipeId = $data->value('id');
+
+        //Комментарии
+        $commentsList = $commentsQueryBuilder->getCommentsByRecipeId($id);
+
+
+        $comments = [];
+        foreach ($commentsList as $key => $value) {
+            $comments[] = [
+                'content' => $value->content,
+                'date' => $value->created_at->format('d-m-Y'),
+                'name' => $value->name,
+                'recipe_id' => $value->recipe->id
+            ];
+        }
+
 
         //Шаги по приготовлению рецепта
         $recipeStepsBuilder = $recipesStepsQueryBuilder->getRecipeStepById($id);
@@ -105,7 +123,9 @@ class RecipeController extends Controller
 
         return Inertia::render('Recipe', [
             'recipeOne' => $recipeOne,
-            'recipeOneAdvice' => $recipeOneAdvice
+            'recipeOneAdvice' => $recipeOneAdvice,
+            'comments' => $comments,
+            'recipeId' => $recipeId
         ]);
     }
 }

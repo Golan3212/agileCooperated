@@ -1,7 +1,7 @@
 import * as jsxRuntime from "react/jsx-runtime";
 import { useState, useEffect, Component, createContext, Fragment as Fragment$1, forwardRef, useRef } from "react";
 import { Inertia } from "@inertiajs/inertia";
-import { Link, Head, usePage as usePage$1, useForm as useForm$1, createInertiaApp } from "@inertiajs/react";
+import { Link, Head, usePage as usePage$1, useForm as useForm$1, router, createInertiaApp } from "@inertiajs/react";
 import ThemeSwitch from "react-theme-switch";
 import { InertiaLink, useForm, usePage } from "@inertiajs/inertia-react";
 import Slider from "react-slick";
@@ -1723,7 +1723,82 @@ const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
 const time = "/build/assets/time-ab3af3e3.svg";
 const calories = "/build/assets/calories-d915d232.svg";
 const image = "/build/assets/1-309347c3.jpg";
-function Recipe({ recipeOne, recipeOneAdvice }) {
+const usePagination = ({ contentPerPage, count }) => {
+  const [page, setPage] = useState(1);
+  const pageCount = Math.ceil(count / contentPerPage);
+  const lastContentIndex = page * contentPerPage;
+  const firstContentIndex = lastContentIndex - contentPerPage;
+  const changePage = (direction) => {
+    setPage((state) => {
+      if (direction) {
+        if (state === pageCount) {
+          return state;
+        }
+        return state + 1;
+      } else {
+        if (state === 1) {
+          return state;
+        }
+        return state - 1;
+      }
+    });
+  };
+  const setPageSAFE = (num) => {
+    if (num > pageCount) {
+      setPage(pageCount);
+    } else if (num < 1) {
+      setPage(1);
+    } else {
+      setPage(num);
+    }
+  };
+  return {
+    totalPages: pageCount,
+    nextPage: () => changePage(true),
+    prevPage: () => changePage(false),
+    setPage: setPageSAFE,
+    firstContentIndex,
+    lastContentIndex,
+    page
+  };
+};
+function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
+  const [values, setValues] = useState({
+    name: "",
+    content: "",
+    recipe_id: recipeId
+  });
+  const {
+    firstContentIndex,
+    lastContentIndex,
+    nextPage,
+    prevPage,
+    page,
+    setPage,
+    totalPages
+  } = usePagination({
+    contentPerPage: 8,
+    count: comments.length
+  });
+  function handleChange(e) {
+    const key = e.target.id;
+    const value = e.target.value;
+    setValues((values2) => ({
+      ...values2,
+      [key]: value
+    }));
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    router.post("/comments", values);
+  }
+  useEffect(() => {
+    setValues((values2) => ({
+      name: "",
+      content: "",
+      recipe_id: recipeId
+    }));
+  }, [comments]);
   function declOfNum(n) {
     n = Math.abs(n) % 100;
     const text_forms = ["МИНУТА", "МИНУТЫ", "МИНУТ"];
@@ -1740,17 +1815,60 @@ function Recipe({ recipeOne, recipeOneAdvice }) {
     return text_forms[2];
   }
   declOfNum();
-  console.log(recipeOne);
+  const Comment = (props) => {
+    let comments2 = props.commentList;
+    console.log(comments2);
+    if (comments2.length < 1) {
+      return /* @__PURE__ */ jsx("div", { className: "account__inner", children: "Комментов нет" });
+    } else {
+      return /* @__PURE__ */ jsxs("div", { style: {
+        height: "700px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
+      }, children: [
+        comments2.slice(firstContentIndex, lastContentIndex).map(
+          (item) => /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+            /* @__PURE__ */ jsxs("p", { children: [
+              "Автор: ",
+              item.name,
+              " (",
+              item.date,
+              ")"
+            ] }),
+            /* @__PURE__ */ jsx("span", { children: item.content })
+          ] })
+        ),
+        /* @__PURE__ */ jsx("br", {}),
+        /* @__PURE__ */ jsxs("div", { className: "pagination", children: [
+          /* @__PURE__ */ jsx("button", { onClick: prevPage, className: "page", children: "←" }),
+          [...Array(totalPages).keys()].map((el) => /* @__PURE__ */ jsxs(
+            "button",
+            {
+              className: `page ${page === el + 1 ? "active" : ""}`,
+              onClick: () => setPage(el + 1),
+              children: [
+                " ",
+                el + 1
+              ]
+            },
+            el
+          )),
+          /* @__PURE__ */ jsx("button", { onClick: nextPage, className: "page", children: "→" })
+        ] })
+      ] });
+    }
+  };
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { className: "reclist_main", children: /* @__PURE__ */ jsxs("div", { className: "reccard_wrap", children: [
     /* @__PURE__ */ jsxs("div", { className: "reccard_content", children: [
-      recipeOne.map((recipe2) => {
+      recipeOne.map((recipe2, index) => {
         return /* @__PURE__ */ jsxs("div", { className: "reccard_main_title", children: [
           recipe2.title,
           /* @__PURE__ */ jsx("div", { className: "reccard_content_title", children: recipe2.category_title })
         ] });
       }),
       /* @__PURE__ */ jsxs("div", { className: "reccard_main_photo_wrap", style: { width: "100%" }, children: [
-        /* @__PURE__ */ jsx("div", { className: "rec_item_plus_txt", children: /* @__PURE__ */ jsx("div", { className: "reccard_main_add", children: "+ добавить рецепт в меню на неделю" }) }),
+        /* @__PURE__ */ jsx("div", { className: "rec_item_plus_txt", children: /* @__PURE__ */ jsx("div", { className: "reccard_main_add", children: /* @__PURE__ */ jsx("a", { href: "#comments", children: "Ваши комментарии по рецепту" }) }) }),
         /* @__PURE__ */ jsx("img", { className: "reccard_main_photo", src: image, style: { width: "100%" } })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "reccard_main_info", children: [
@@ -1812,75 +1930,126 @@ function Recipe({ recipeOne, recipeOneAdvice }) {
                 /* @__PURE__ */ jsx("div", { className: "reccard_kbzhu_values reccard_ingr_values", "data-ingr-value": "250", children: ingredient.pivot.quantity_ingredient === 0 ? "по вкусу" : ingredient.pivot.quantity_ingredient })
               ] }) });
             }) });
-          })
-        ] }),
-        /* @__PURE__ */ jsx("div", { className: "reccard_main_info4", children: recipeOne.map((recipe2) => {
-          return /* @__PURE__ */ jsx("div", { children: recipe2.steps.map((step) => {
-            return /* @__PURE__ */ jsxs(Fragment, { children: [
-              /* @__PURE__ */ jsxs("div", { className: "poshag_title", children: [
-                "ШАГ ",
-                step.step_number,
-                " из ",
-                recipe2.count_steps
-              ] }),
-              /* @__PURE__ */ jsx("div", { className: "poshag_content", children: step.description })
+          }),
+          /* @__PURE__ */ jsx("div", { className: "reccard_main_info4", children: recipeOne.map((recipe2) => {
+            return /* @__PURE__ */ jsxs("div", { children: [
+              recipe2.steps.map((step) => {
+                return /* @__PURE__ */ jsxs(Fragment, { children: [
+                  /* @__PURE__ */ jsxs("div", { className: "poshag_title", children: [
+                    "ШАГ ",
+                    step.step_number,
+                    " из ",
+                    recipe2.count_steps
+                  ] }),
+                  /* @__PURE__ */ jsx("div", { className: "poshag_content", children: step.description })
+                ] });
+              }),
+              /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsxs("div", { children: [
+                  /* @__PURE__ */ jsxs("h1", { id: "comments", className: "ingredients_title", children: [
+                    "Ваши комментарии (",
+                    comments.length,
+                    ")"
+                  ] }),
+                  /* @__PURE__ */ jsxs("form", { className: "account__box", onSubmit: handleSubmit, children: [
+                    /* @__PURE__ */ jsx("label", { htmlFor: "name", children: "Введите имя:" }),
+                    /* @__PURE__ */ jsx(
+                      "input",
+                      {
+                        className: "input_name",
+                        id: "name",
+                        value: values.name,
+                        onChange: handleChange
+                      }
+                    ),
+                    /* @__PURE__ */ jsx("label", { htmlFor: "content", children: "Оставьте комментарий" }),
+                    /* @__PURE__ */ jsx(
+                      "textarea",
+                      {
+                        className: "input_name",
+                        id: "content",
+                        value: values.content,
+                        onChange: handleChange
+                      }
+                    ),
+                    /* @__PURE__ */ jsx("button", { className: "account__btn", type: "submit", children: "Отправить" })
+                  ] })
+                ] }),
+                /* @__PURE__ */ jsx(Comment, { commentList: comments })
+              ] })
             ] });
-          }) });
-        }) })
+          }) })
+        ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "reclist_wrap reclist_inda_reccard", children: recipeOneAdvice.map((recipeAdvice) => {
-      return /* @__PURE__ */ jsxs("div", { className: "rec_item", children: [
-        /* @__PURE__ */ jsx("div", { className: "rec_item_plus" }),
-        /* @__PURE__ */ jsx("div", { className: "rec_item_plus", children: /* @__PURE__ */ jsxs("div", { className: "product-item", children: [
-          /* @__PURE__ */ jsx("img", { src: image, style: { width: "100%", height: "190px" } }),
-          /* @__PURE__ */ jsx("div", { className: "but", children: /* @__PURE__ */ jsx("a", { href: "/recipe/" + recipeAdvice.id, children: "Перейти" }) })
+    /* @__PURE__ */ jsx("div", { className: "reclist_wrap reclist_inda_reccard", children: recipeOneAdvice.map((recipeAdvice, index) => {
+      return /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("div", { style: {
+          width: "290px",
+          height: "170px",
+          marginBottom: "20%",
+          border: "3px solid gold",
+          backgroundColor: "#E4E4D9",
+          borderRadius: "20px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }, children: /* @__PURE__ */ jsxs("p", { style: { fontSize: "20px", color: "yellowgreen" }, children: [
+          "Реклама №",
+          index + 1
         ] }) }),
-        /* @__PURE__ */ jsxs("a", { href: "#", children: [
-          /* @__PURE__ */ jsx("div", { className: "rec_img" }),
-          /* @__PURE__ */ jsxs("div", { className: "rec_content", children: [
-            /* @__PURE__ */ jsxs("div", { className: "product-title", children: [
-              /* @__PURE__ */ jsx("a", { href: "/recipe/" + recipeAdvice.id, style: { fontSize: "20px" }, children: recipeAdvice.title }),
-              /* @__PURE__ */ jsx("span", { className: "product-price", children: recipeAdvice.category_title }),
-              /* @__PURE__ */ jsx("span", { className: "product-price img" })
-            ] }),
-            /* @__PURE__ */ jsxs("div", { className: "rec_time_kkal", children: [
-              /* @__PURE__ */ jsxs("div", { className: "rec_time", children: [
-                /* @__PURE__ */ jsx("img", { src: time }),
-                "  ",
-                /* @__PURE__ */ jsx(
-                  "span",
-                  {
-                    children: recipeAdvice.cooking_time
-                  }
-                ),
-                " ",
-                declOfNum(recipeAdvice.cooking_time)
+        /* @__PURE__ */ jsxs("div", { className: "rec_item", children: [
+          /* @__PURE__ */ jsx("div", { className: "rec_item_plus" }),
+          /* @__PURE__ */ jsx("div", { className: "rec_item_plus", children: /* @__PURE__ */ jsxs("div", { className: "product-item", children: [
+            /* @__PURE__ */ jsx("img", { src: image, style: { width: "100%", height: "190px" } }),
+            /* @__PURE__ */ jsx("div", { className: "but", children: /* @__PURE__ */ jsx("a", { href: "/recipe/" + recipeAdvice.id, children: "Перейти" }) })
+          ] }) }),
+          /* @__PURE__ */ jsxs("a", { href: "#", children: [
+            /* @__PURE__ */ jsx("div", { className: "rec_img" }),
+            /* @__PURE__ */ jsxs("div", { className: "rec_content", children: [
+              /* @__PURE__ */ jsxs("div", { className: "product-title", children: [
+                /* @__PURE__ */ jsx("a", { href: "/recipe/" + recipeAdvice.id, style: { fontSize: "20px" }, children: recipeAdvice.title }),
+                /* @__PURE__ */ jsx("span", { className: "product-price", children: recipeAdvice.category_title }),
+                /* @__PURE__ */ jsx("span", { className: "product-price img" })
               ] }),
-              /* @__PURE__ */ jsxs("div", { className: "rec_kkal", children: [
-                /* @__PURE__ */ jsx("img", { src: logo3 }),
-                "  ",
-                /* @__PURE__ */ jsxs(
-                  "span",
-                  {
-                    children: [
-                      "ККАЛОРИИ:",
-                      recipeAdvice.calorie
-                    ]
-                  }
-                ),
-                " / 1 ПОРЦ."
-              ] }),
-              /* @__PURE__ */ jsxs("div", { className: "rec_porc", children: [
-                /* @__PURE__ */ jsx("img", { src: calories }),
-                "  ",
-                /* @__PURE__ */ jsx(
-                  "span",
-                  {
-                    children: recipeAdvice.portion
-                  }
-                ),
-                " ПОРЦИИ"
+              /* @__PURE__ */ jsxs("div", { className: "rec_time_kkal", children: [
+                /* @__PURE__ */ jsxs("div", { className: "rec_time", children: [
+                  /* @__PURE__ */ jsx("img", { src: time }),
+                  "  ",
+                  /* @__PURE__ */ jsx(
+                    "span",
+                    {
+                      children: recipeAdvice.cooking_time
+                    }
+                  ),
+                  " ",
+                  declOfNum(recipeAdvice.cooking_time)
+                ] }),
+                /* @__PURE__ */ jsxs("div", { className: "rec_kkal", children: [
+                  /* @__PURE__ */ jsx("img", { src: logo3 }),
+                  "  ",
+                  /* @__PURE__ */ jsxs(
+                    "span",
+                    {
+                      children: [
+                        "ККАЛОРИИ:",
+                        recipeAdvice.calorie
+                      ]
+                    }
+                  ),
+                  " / 1 ПОРЦ."
+                ] }),
+                /* @__PURE__ */ jsxs("div", { className: "rec_porc", children: [
+                  /* @__PURE__ */ jsx("img", { src: calories }),
+                  "  ",
+                  /* @__PURE__ */ jsx(
+                    "span",
+                    {
+                      children: recipeAdvice.portion
+                    }
+                  ),
+                  " ПОРЦИИ"
+                ] })
               ] })
             ] })
           ] })
@@ -1894,45 +2063,6 @@ const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   default: Recipe
 }, Symbol.toStringTag, { value: "Module" }));
 const app = "";
-const usePagination = ({ contentPerPage, count }) => {
-  const [page, setPage] = useState(1);
-  const pageCount = Math.ceil(count / contentPerPage);
-  const lastContentIndex = page * contentPerPage;
-  const firstContentIndex = lastContentIndex - contentPerPage;
-  const changePage = (direction) => {
-    setPage((state) => {
-      if (direction) {
-        if (state === pageCount) {
-          return state;
-        }
-        return state + 1;
-      } else {
-        if (state === 1) {
-          return state;
-        }
-        return state - 1;
-      }
-    });
-  };
-  const setPageSAFE = (num) => {
-    if (num > pageCount) {
-      setPage(pageCount);
-    } else if (num < 1) {
-      setPage(1);
-    } else {
-      setPage(num);
-    }
-  };
-  return {
-    totalPages: pageCount,
-    nextPage: () => changePage(true),
-    prevPage: () => changePage(false),
-    setPage: setPageSAFE,
-    firstContentIndex,
-    lastContentIndex,
-    page
-  };
-};
 const search = "/build/assets/search-magnifying-glass-svgrepo-com-3f7ccdaa.svg";
 const Recipes = ({ recipes }) => {
   const [category, setCategory] = useState(recipes);

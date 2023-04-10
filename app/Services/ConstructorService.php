@@ -87,10 +87,10 @@ class ConstructorService implements Constructor
                 $menu->menuGuide()->associate($value->id);
 
                 if ($menu->save()) {
-                        $total = new TotalService();
-                        $total->getTotalMenuForDay($menu->id);
-                        $idMenuForWeek[] = $menu->id;
-                    }
+                    $total = new TotalService();
+                    $total->getTotalMenuForDay($menu->id);
+                    $idMenuForWeek[] = $menu->id;
+                }
             }
 
         }elseif($menuGuide->count() < 8) {
@@ -162,7 +162,7 @@ class ConstructorService implements Constructor
                 'proteins' => (int)round($proteins * 0.3),
                 'carbohydrates' => (int)round($carbohydrates * 0.3),
                 'category' => $categoryList['Завтрак'],
-                ],
+            ],
             'lunchCaloricNorm' => [
                 'caloric' => (int)round($caloricNorm * 0.35),
                 'fats' => (int)round($fats * 0.35),
@@ -195,6 +195,7 @@ class ConstructorService implements Constructor
 
         foreach ($normDay as $key => $value) {
             $recipe = new RecipesQueryBuilder();
+
             $recipeIdForCreateMenu[$key] = $recipe->getRecipeIdByCaloricNorm($value['caloric'], $value['fats'], $value['proteins'], $value['carbohydrates'], $value['category'])->id;
         }
 
