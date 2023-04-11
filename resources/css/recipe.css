@@ -177,9 +177,9 @@ a:hover {
     align-items: center;
 }
 
-.container {
-    width: 1200px;
-}
+/*.container {*/
+/*    width: 1200px;*/
+/*}*/
 
 .main_menu {
     display: flex;
@@ -2826,17 +2826,17 @@ input[type="radio"] {
     background: rgba(0, 0, 0, 0.8);
     opacity: 0;
     transition: 0.3s ease-in-out;
-  }
+}
 
-  .text-gray-700 {
+.text-gray-700 {
     font-size: 20px;
     margin: 20px 0px 3px;
-  }
+}
 
-  .ml-4 {
+.ml-4 {
     width: 300px;
     margin: 40px 0px 300px -13px;
-  }
+}
 
 
 .text-gray-600 {
@@ -2844,7 +2844,7 @@ input[type="radio"] {
 }
 
 .text-gray-600:hover{
-text-decoration: none;
+    text-decoration: none;
     color: #6b8d24;
 }
 
@@ -2860,9 +2860,9 @@ text-decoration: none;
 }
 
 @media (max-width: 425px) {
-    .container {
-        width: 100%;
-    }
+    /*.container {*/
+    /*    width: 100%;*/
+    /*}*/
     .reclist_inda_reccard {
         display: none;
     }
@@ -2900,7 +2900,7 @@ text-decoration: none;
         width: 100px;
     }
     .rec_item_plus_txt {
-      display: none;
+        display: none;
     }
 }
 

@@ -243,8 +243,8 @@ export default function MenuBuilder({ menu, recipes }) {
                 <div className="container">
                     <div className="text_center">
                         <div className="simple_text_500">
-                            Добавьте рецепт в&nbsp;конструктор&nbsp; и выберите в
-                            списке самый вкусный!
+                            Вы можете поменять рекомендуемые рецепты на другие.
+                            Для этого нажмите на "+" и выберите рецепт по вкусу!
                         </div>
                     </div>
                 </div>
