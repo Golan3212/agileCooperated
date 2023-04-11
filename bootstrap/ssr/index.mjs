@@ -1,6 +1,6 @@
 import * as jsxRuntime from "react/jsx-runtime";
 import { InertiaLink, useForm, usePage } from "@inertiajs/inertia-react";
-import { useState, useEffect, Component, createContext, Fragment as Fragment$1, forwardRef, useRef } from "react";
+import { useState, useEffect, Component, createContext, useContext, Fragment as Fragment$1, forwardRef, useRef } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { Link, Head, usePage as usePage$1, useForm as useForm$1, router, createInertiaApp } from "@inertiajs/react";
 import ThemeSwitch from "react-theme-switch";
@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import { Transition, Dialog } from "@headlessui/react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
+import dayjs from "dayjs";
 import { Link as Link$1, animateScroll } from "react-scroll";
 import { Marker } from "react-mark.js";
 import { createRoot } from "react-dom/client";
@@ -903,7 +904,7 @@ const __vite_glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
 }, Symbol.toStringTag, { value: "Module" }));
 const header = "";
 const footer = "";
-const logo = "/build/assets/2023-03-16_17-05-10ede1c1.png";
+const logo$1 = "/build/assets/logo-45188fb1.svg";
 const instagram = "/build/assets/instagram-f-svgrepo-com-bb0dc06b.svg";
 const telegram = "/build/assets/telegram-fill-svgrepo-com-bc02e72d.svg";
 const youtube = "/build/assets/youtube-round-svgrepo-com-7f238d43.svg";
@@ -912,12 +913,12 @@ const menu = "/build/assets/menu-svgrepo-com-9cc5f9ff.svg";
 const account = "/build/assets/account-avatar-man-svgrepo-com-9bbb61a3.svg";
 function Layout$2({ children }) {
   return /* @__PURE__ */ jsxs("main", { className: "main", children: [
-    /* @__PURE__ */ jsx(MenuList$1, {}),
+    /* @__PURE__ */ jsx(MenuList$2, {}),
     /* @__PURE__ */ jsx("main", { className: "container", children: /* @__PURE__ */ jsx("article", { children }) }),
-    /* @__PURE__ */ jsx(FooterList$1, {})
+    /* @__PURE__ */ jsx(FooterList$2, {})
   ] });
 }
-const MenuList$1 = (props) => {
+const MenuList$2 = (props) => {
   const hangleClick = (e) => {
     e.preventDefault();
     Inertia.post("/logout");
@@ -953,7 +954,7 @@ const MenuList$1 = (props) => {
     /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
       /* @__PURE__ */ jsxs("div", { className: "inner", children: [
         /* @__PURE__ */ jsxs("div", { id: "up", children: [
-          /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
+          /* @__PURE__ */ jsx("img", { className: "logo", src: logo$1 }),
           /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
@@ -972,7 +973,7 @@ const MenuList$1 = (props) => {
     ] })
   ] }) });
 };
-const FooterList$1 = () => {
+const FooterList$2 = () => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section2", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { className: "footer2", children: [
     /* @__PURE__ */ jsxs("div", { className: "footer__top", children: [
       /* @__PURE__ */ jsxs("div", { className: "footer__box text", children: [
@@ -999,61 +1000,7 @@ const __vite_glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: Layout$2
 }, Symbol.toStringTag, { value: "Module" }));
-function ApplicationLogo(props) {
-  return /* @__PURE__ */ jsxs(
-    "svg",
-    {
-      ...props,
-      width: "50px",
-      height: "50px",
-      viewBox: "0 0 128 128",
-      xmlns: "http://www.w3.org/2000/svg",
-      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-      "aria-hidden": "true",
-      role: "img",
-      className: "iconify iconify--noto",
-      preserveAspectRatio: "xMidYMid meet",
-      children: [
-        /* @__PURE__ */ jsx(
-          "path",
-          {
-            d: "M55.88 32.41S17.4 43.11 14.4 47.24S6.23 59.02 5.76 75.4c-.38 13.14 6.95 46.93 42.98 48.05c36.79 1.15 50.49-23.09 57.06-38.1c5.92-13.54 5.82-29.09 9.57-36.23s7.13-13.33 6.95-21.4s-3.19-15.02-8.45-18.4c-5.26-3.38-9.76-2.82-12.01-3.38S55.88 32.41 55.88 32.41z",
-            fill: "#757e40"
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          "path",
-          {
-            d: "M62.63 18.9c-15.96 6.57-37.17 12.76-47.3 27.03c-9.15 12.88-12.2 28.9.19 47.67c11.31 17.14 41.46 24.45 64.01 8.26c20.65-14.83 22.52-36.6 28.72-51.06s19.24-33.46 3.57-42.8c-16.71-9.94-36.58 5.71-49.19 10.9z",
-            fill: "#afb42a"
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          "path",
-          {
-            d: "M108.25 12.14c-7.59-4.38-17.27-2.44-27.97 2.82s-18.96 9.2-22.71 10.51C53.81 26.78 21.87 38.48 15.71 54c-5.07 12.76-3.75 29.47 9.57 41.67s46.93 11.45 59.88-6.95s13.51-33.22 16.33-39.79s8.96-16.19 10.7-21.4c2.06-6.19.94-12.57-3.94-15.39z",
-            fill: "#fff69d"
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          "path",
-          {
-            d: "M71.45 47.8c-6.01-7.13-28.91-4.88-36.79 6.38s-4.6 20.41-.75 25.34C38.6 85.53 51.37 90.97 63 82.9s15.04-27.28 8.45-35.1z",
-            fill: "#855c52"
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          "path",
-          {
-            d: "M47.32 60.62c-2.96 4.34-1.48 11.34-6.57 11.67s-8.05-7.84-4.44-14.68c3.9-7.38 13.14-10.67 15.77-7.17c2.64 3.51-1.95 6.06-4.76 10.18z",
-            fill: "#d67659"
-          }
-        )
-      ]
-    }
-  );
-}
-const FooterList = () => {
+const FooterList$1 = () => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section2", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { className: "footer2", children: [
     /* @__PURE__ */ jsxs("div", { className: "footer__top", children: [
       /* @__PURE__ */ jsxs("div", { className: "footer__box text", children: [
@@ -1077,7 +1024,8 @@ const FooterList = () => {
   ] }) }) }) });
 };
 const recipe = "";
-const MenuList = (props) => {
+const logo = "/build/assets/2023-03-16_17-05-10ede1c1.png";
+const MenuList$1 = (props) => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
     /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
       /* @__PURE__ */ jsx("div", { className: "menu__left", children: /* @__PURE__ */ jsx(ThemeSwitch, {}) }),
@@ -1109,9 +1057,9 @@ const MenuList = (props) => {
 };
 function GuestLayout({ children }) {
   return /* @__PURE__ */ jsxs("main", { className: "main", children: [
-    /* @__PURE__ */ jsx(MenuList, {}),
+    /* @__PURE__ */ jsx(MenuList$1, {}),
     /* @__PURE__ */ jsx("main", { className: "container", children: /* @__PURE__ */ jsx("article", { children }) }),
-    /* @__PURE__ */ jsx(FooterList, {})
+    /* @__PURE__ */ jsx(FooterList$1, {})
   ] });
 }
 const home = "";
@@ -1147,10 +1095,20 @@ class SimpleSlider extends Component {
         isDarkBg: true
       }
     ];
-    return /* @__PURE__ */ jsx("div", { style: { width: "100%" }, children: /* @__PURE__ */ jsx(Slider, { ...settings, children: slidesData.map((d) => /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "slide-block ", style: { backgroundImage: `url(${d.image})` }, children: [
-      /* @__PURE__ */ jsx("h3", { className: "slide-text " + (d.isDarkBg ? "" : "slide-text-blacк"), children: d.title }),
-      /* @__PURE__ */ jsx("h2", { className: "slide-desc " + (d.isDarkBg ? "" : "slide-desc-blacк"), children: d.description })
-    ] }) })) }) });
+    return /* @__PURE__ */ jsxs("div", { style: { width: "100%" }, children: [
+      /* @__PURE__ */ jsxs("div", { className: "mobile", children: [
+        /* @__PURE__ */ jsx("h2", { children: "Добро пожаловать" }),
+        /* @__PURE__ */ jsx("p", { children: '"Мы поможем вам создать здоровое, сильное и красивое тело  с помощью вкусных, полезных и разнообразных рецептов"' }),
+        /* @__PURE__ */ jsx("h3", { children: "Что мы предлагаем" }),
+        /* @__PURE__ */ jsx("p", { children: "На основании ваших параметров мы рассчитаем необходимое количество калорий и создадим вам меню на неделю с подробными рецептами на каждый день" }),
+        /* @__PURE__ */ jsx("h3", { children: "Всего в два клика" }),
+        /* @__PURE__ */ jsx("p", { children: "Вам нужно зарегистрироваться на нашем сайте, заполнить анкету с вашими данными и  вы получите доступ к вашему меню и ко всем рецептам в целом" })
+      ] }),
+      /* @__PURE__ */ jsx(Slider, { ...settings, children: slidesData.map((d) => /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "slide-block ", style: { backgroundImage: `url(${d.image})` }, children: [
+        /* @__PURE__ */ jsx("h3", { className: "slide-text " + (d.isDarkBg ? "" : "slide-text-blacк"), children: d.title }),
+        /* @__PURE__ */ jsx("h2", { className: "slide-desc " + (d.isDarkBg ? "" : "slide-desc-blacк"), children: d.description })
+      ] }) })) })
+    ] });
   }
 }
 function Main() {
@@ -1371,7 +1329,7 @@ function MenuBuilder({ menu: menu2, recipes }) {
     /* @__PURE__ */ jsx("div", { className: "section section_grey section_submenu1 hidden nomobile", children: /* @__PURE__ */ jsx("div", { className: "container" }) }),
     /* @__PURE__ */ jsx("div", { className: "section section_field_big" }),
     /* @__PURE__ */ jsx("div", { className: "section bg_hr_green", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { className: "title_h1", children: /* @__PURE__ */ jsx("h1", { className: "title_main bg_white", children: "Конструктор меню" }) }) }) }),
-    /* @__PURE__ */ jsx("div", { className: "section", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { className: "text_center", children: /* @__PURE__ */ jsx("div", { className: "simple_text_500", children: "Добавьте рецепт в конструктор  и выберите в списке самый вкусный!" }) }) }) }),
+    /* @__PURE__ */ jsx("div", { className: "section", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { className: "text_center", children: /* @__PURE__ */ jsx("div", { className: "simple_text_500", children: 'Вы можете поменять рекомендуемые рецепты на другие. Для этого нажмите на "+" и выберите рецепт по вкусу!' }) }) }) }),
     /* @__PURE__ */ jsx("div", { className: "section section_field" }),
     /* @__PURE__ */ jsx("div", { className: "section section_field_small" }),
     /* @__PURE__ */ jsx("div", { className: "section section_constructor", children: /* @__PURE__ */ jsx("div", { className: "container container_constructor", children: /* @__PURE__ */ jsx(ShowCategoryList, {}) }) }),
@@ -1400,7 +1358,7 @@ const __vite_glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   default: MenuBuilder
 }, Symbol.toStringTag, { value: "Module" }));
 const notfound = "";
-const NotFound = () => {
+function NotFound() {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("section", { className: "space-ptb bg-overlay-black-70 slide-bg-19", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { className: "row justify-content-center", children: /* @__PURE__ */ jsx("div", { className: "col-lg-6 col-md-10 text-center", children: /* @__PURE__ */ jsxs("div", { className: "error-404", children: [
     /* @__PURE__ */ jsxs("h1", { className: "error-text", children: [
       "4",
@@ -1411,10 +1369,10 @@ const NotFound = () => {
     /* @__PURE__ */ jsx("h3", { className: "text-white mb-3", children: " Извините, мы не можем найти эту страницу." }),
     /* @__PURE__ */ jsx("p", { className: "lead text-white mb-4 mb-md-5", children: "Страница, которую вы ищете, могла быть удалена или временно недоступна." })
   ] }) }) }) }) }) }) });
-};
+}
 const __vite_glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  NotFound
+  default: NotFound
 }, Symbol.toStringTag, { value: "Module" }));
 function PersonalAccount({ user }) {
   const gender = (value) => {
@@ -1679,41 +1637,165 @@ const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: Layout$1
 }, Symbol.toStringTag, { value: "Module" }));
-function NavLink({ active = false, className = "", children, ...props }) {
+const DropDownContext = createContext();
+const Dropdown = ({ children }) => {
+  const [open, setOpen] = useState(false);
+  const toggleOpen = () => {
+    setOpen((previousState) => !previousState);
+  };
+  return /* @__PURE__ */ jsx(DropDownContext.Provider, { value: { open, setOpen, toggleOpen }, children: /* @__PURE__ */ jsx("div", { className: "relative", children }) });
+};
+const Trigger = ({ children }) => {
+  const { open, setOpen, toggleOpen } = useContext(DropDownContext);
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx("div", { onClick: toggleOpen, children }),
+    open && /* @__PURE__ */ jsx("div", { className: "fixed inset-0 z-40", onClick: () => setOpen(false) })
+  ] });
+};
+const Content = ({ align = "right", width = "48", contentClasses = "py-1 bg-white", children }) => {
+  const { open, setOpen } = useContext(DropDownContext);
+  let alignmentClasses = "origin-top";
+  if (align === "left") {
+    alignmentClasses = "origin-top-left left-0";
+  } else if (align === "right") {
+    alignmentClasses = "origin-top-right right-0";
+  }
+  let widthClasses = "";
+  if (width === "48") {
+    widthClasses = "w-48";
+  }
+  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
+    Transition,
+    {
+      as: Fragment$1,
+      show: open,
+      enter: "transition ease-out duration-200",
+      enterFrom: "transform opacity-0 scale-95",
+      enterTo: "transform opacity-100 scale-100",
+      leave: "transition ease-in duration-75",
+      leaveFrom: "transform opacity-100 scale-100",
+      leaveTo: "transform opacity-0 scale-95",
+      children: /* @__PURE__ */ jsx(
+        "div",
+        {
+          className: `absolute z-50 mt-2  shadow-lg ${alignmentClasses} ${widthClasses}`,
+          onClick: () => setOpen(false),
+          children: /* @__PURE__ */ jsx("div", { className: ` ring-1 ring-black ring-opacity-5 ` + contentClasses, children })
+        }
+      )
+    }
+  ) });
+};
+const DropdownLink = ({ className = "", children, ...props }) => {
   return /* @__PURE__ */ jsx(
     Link,
     {
       ...props,
-      className: "inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none " + (active ? "border-green-600 text-gray-900 focus:border-green-700 " : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300 ") + className,
+      className: "block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out " + className,
       children
     }
   );
-}
-createContext();
-function Layout({ children, footer: footer2, header: header2 }) {
-  return /* @__PURE__ */ jsxs("div", { className: "min-h-screen bg-gray-100", children: [
-    /* @__PURE__ */ jsx("nav", { className: "bg-white border-b border-gray-100", children: /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("div", { className: "flex justify-between h-16", children: /* @__PURE__ */ jsxs("div", { className: "flex", children: [
-      /* @__PURE__ */ jsx("div", { className: "shrink-0 flex items-center", children: /* @__PURE__ */ jsx(Link, { href: "/", children: /* @__PURE__ */ jsx(ApplicationLogo, { className: "block h-9 w-auto fill-current text-blue-800" }) }) }),
-      /* @__PURE__ */ jsxs("div", { className: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex", children: [
-        /* @__PURE__ */ jsx(NavLink, { href: route("dashboard"), active: route().current("dashboard"), children: "Конструктор питания" }),
-        /* @__PURE__ */ jsx(NavLink, { href: route("recipes"), active: route().current("recipes"), children: "Recipes" }),
-        /* @__PURE__ */ jsx(NavLink, { href: route("category"), active: route().current("category"), children: "Category" }),
-        /* @__PURE__ */ jsx(NavLink, { href: route("form.index"), active: route().current("form.index"), children: "Form" }),
-        /* @__PURE__ */ jsx(NavLink, { href: route("advice"), active: route().current("advice"), children: "Advice" })
-      ] })
-    ] }) }) }) }),
-    header2 && /* @__PURE__ */ jsx("header", { className: "bg-grey-100 shadow", children: /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8", children: header2 }) }),
-    /* @__PURE__ */ jsx("main", { children }),
-    /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx(FooterList, { children: footer2 }) })
+};
+Dropdown.Trigger = Trigger;
+Dropdown.Content = Content;
+Dropdown.Link = DropdownLink;
+function Layout({ children }) {
+  return /* @__PURE__ */ jsxs("main", { className: "main", children: [
+    /* @__PURE__ */ jsx(MenuList, {}),
+    /* @__PURE__ */ jsx("main", { className: "container", children: /* @__PURE__ */ jsx("article", { children }) }),
+    /* @__PURE__ */ jsx(FooterList, {})
   ] });
 }
+const MenuList = (props) => {
+  const logoutClick = (e) => {
+    e.preventDefault();
+    Inertia.post("/logout");
+  };
+  const profileClick = (e) => {
+    e.preventDefault();
+    Inertia.get("/profile");
+  };
+  const [isOpen, setIsOpen] = useState(false);
+  const clickOpen = (e) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
+    /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
+      /* @__PURE__ */ jsxs("div", { className: "menu__left", children: [
+        /* @__PURE__ */ jsx("button", { onClick: clickOpen, className: "menu__button", children: /* @__PURE__ */ jsx("img", { src: menu, className: "menu__img" }) }),
+        isOpen && /* @__PURE__ */ jsx("div", { className: "visible", children: /* @__PURE__ */ jsxs("div", { className: "nav__box", children: [
+          /* @__PURE__ */ jsxs("div", { className: "nav__links", children: [
+            /* @__PURE__ */ jsxs("ul", { children: [
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/about", children: "О нас" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/account", children: "Мой профиль" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/advice", children: "Мои рекомендации" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/menu/builder", children: "Меню на неделю" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/progress", children: "Прогресс-шкала" }) })
+            ] }),
+            /* @__PURE__ */ jsx("button", { onClick: profileClick, className: "menu__button", children: "Профиль" }),
+            /* @__PURE__ */ jsx("button", { onClick: logoutClick, className: "menu__button", children: "Выйти" })
+          ] }),
+          /* @__PURE__ */ jsx("button", { className: "nav__btn", onClick: clickOpen, children: "X" })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "menu__right", children: [
+        /* @__PURE__ */ jsx(ThemeSwitch, {}),
+        /* @__PURE__ */ jsx("a", { href: "/account", children: /* @__PURE__ */ jsx("img", { src: account, className: "menu__img" }) })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
+      /* @__PURE__ */ jsxs("div", { className: "inner", children: [
+        /* @__PURE__ */ jsxs("div", { id: "up", children: [
+          /* @__PURE__ */ jsx("img", { className: "logo", src: logo$1 }),
+          /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: telegram, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: instagram, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: youtube, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: vk, className: "social" }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/menu/builder", children: "Конструктор меню" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/form", children: "Калькулятор БЖУ" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/recipes", children: "Рецепты" }) })
+      ] }) })
+    ] })
+  ] }) });
+};
+const FooterList = () => {
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section2", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { className: "footer2", children: [
+    /* @__PURE__ */ jsxs("div", { className: "footer__top", children: [
+      /* @__PURE__ */ jsxs("div", { className: "footer__box text", children: [
+        /* @__PURE__ */ jsx("h3", { children: "AVOCADO" }),
+        /* @__PURE__ */ jsx("p", { children: "Советы, которые работают. Рецепты, которые вы хотите приготовить. Рекомендации, которым вы доверяете." })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "footer__box", children: /* @__PURE__ */ jsxs("ul", { className: "footer_menu2", children: [
+        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/", children: "Главная" }) }),
+        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/menu/builder", children: "Конструктор меню" }) }),
+        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/recipes", children: "Рецепты" }) })
+      ] }) }),
+      /* @__PURE__ */ jsxs("div", { className: "footer__box", children: [
+        /* @__PURE__ */ jsx("h4", { children: "Контакты" }),
+        /* @__PURE__ */ jsx("p", { children: "✉ avocado@mail.ru" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "footer__bottom", children: [
+      /* @__PURE__ */ jsx("p", { children: "2023 © Конструктор питания Avocado" }),
+      /* @__PURE__ */ jsx("div", { className: "anchor", children: /* @__PURE__ */ jsx("a", { href: "#up", children: "^" }) })
+    ] })
+  ] }) }) }) });
+};
 function Test({ children }) {
   const { auth } = usePage$1().props;
   return /* @__PURE__ */ jsxs(Layout, { children: [
     "You are logged in as: ",
     auth.user.name,
     /* @__PURE__ */ jsx("main", { children }),
-    /* @__PURE__ */ jsx(FooterList, {})
+    /* @__PURE__ */ jsx(FooterList$1, {})
   ] });
 }
 const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -2089,28 +2171,48 @@ const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: UpdateProfileInformation
 }, Symbol.toStringTag, { value: "Module" }));
-function LineChart$1({ chartData }) {
-  return (
-    // <Layout>
-    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Line, { data: chartData }) })
-  );
+function WeightChart({ chartData }) {
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Line, { data: chartData }) });
 }
+const __vite_glob_0_35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: WeightChart
+}, Symbol.toStringTag, { value: "Module" }));
+function CaloricChart({ chartData1 }) {
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Line, { data: chartData1 }) });
+}
+const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: CaloricChart
+}, Symbol.toStringTag, { value: "Module" }));
 const chart = "";
-function ProgressChart({ user }) {
-  const [userData, setUserdata] = useState({
-    labels: user.map((data) => data.created_at),
-    datasets: [
-      {
-        label: "Достижения пользователя",
-        data: user.map((data) => data.weight)
-      },
-      {
-        label: "Потребление калорий",
-        data: user.map((data) => data.caloric_norm)
-      }
-    ]
-  });
-  return /* @__PURE__ */ jsx("div", { className: "Progress", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsx("div", { style: { width: 1100 }, children: /* @__PURE__ */ jsx(LineChart$1, { chartData: userData }) }) }) });
+function ProgressChart({ profileuser }) {
+  const obj = {
+    labels: profileuser.map((data) => dayjs(data.created_at).format("DD-MM-YYYY")),
+    datasets: [{
+      label: "Прогресс-шкала по весу",
+      data: profileuser.map((data) => data.weight)
+    }]
+  };
+  console.log(obj);
+  const obj1 = {
+    labels: profileuser.map((data) => dayjs(data.created_at).format("DD-MM-YYYY")),
+    datasets: [{
+      label: "Калории потребляемые пользователем",
+      data: profileuser.map((data) => data.caloric_norm),
+      borderColor: "red",
+      borderWidth: 8
+    }]
+  };
+  const [weightData, setUserdata] = useState(obj);
+  const [caloricData, setUserdata1] = useState(obj1);
+  return /* @__PURE__ */ jsxs("div", { className: "account", children: [
+    /* @__PURE__ */ jsx("main", { children: /* @__PURE__ */ jsx("div", { className: "Progress", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { style: { width: 1100 }, children: [
+      /* @__PURE__ */ jsx(WeightChart, { chartData: weightData }),
+      /* @__PURE__ */ jsx(CaloricChart, { chartData1: caloricData })
+    ] }) }) }) }),
+    " "
+  ] });
 }
 const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -2160,7 +2262,6 @@ const usePagination = ({ contentPerPage, count }) => {
 };
 function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
   const [values, setValues] = useState({
-    name: "",
     content: "",
     recipe_id: recipeId
   });
@@ -2190,7 +2291,6 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
   }
   useEffect(() => {
     setValues((values2) => ({
-      name: "",
       content: "",
       recipe_id: recipeId
     }));
@@ -2215,7 +2315,7 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
     let comments2 = props.commentList;
     console.log(comments2);
     if (comments2.length < 1) {
-      return /* @__PURE__ */ jsx("div", { className: "account__inner", children: "Комментов нет" });
+      return /* @__PURE__ */ jsx("div", { className: "account__inner", children: "Комментариев нет" });
     } else {
       return /* @__PURE__ */ jsxs("div", { style: {
         height: "700px",
@@ -2343,21 +2443,11 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
               /* @__PURE__ */ jsxs("div", { children: [
                 /* @__PURE__ */ jsxs("div", { children: [
                   /* @__PURE__ */ jsxs("h1", { id: "comments", className: "ingredients_title", children: [
-                    "Ваши комментарии (",
+                    "Все комментарии (",
                     comments.length,
                     ")"
                   ] }),
                   /* @__PURE__ */ jsxs("form", { className: "account__box", onSubmit: handleSubmit, children: [
-                    /* @__PURE__ */ jsx("label", { htmlFor: "name", children: "Введите имя:" }),
-                    /* @__PURE__ */ jsx(
-                      "input",
-                      {
-                        className: "input_name",
-                        id: "name",
-                        value: values.name,
-                        onChange: handleChange
-                      }
-                    ),
                     /* @__PURE__ */ jsx("label", { htmlFor: "content", children: "Оставьте комментарий" }),
                     /* @__PURE__ */ jsx(
                       "textarea",
@@ -3128,26 +3218,105 @@ const __vite_glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: VerifyEmail
 }, Symbol.toStringTag, { value: "Module" }));
-function LineChart({ chartData }) {
-  return (
-    // <Layout>
-    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Line, { data: chartData }) })
-  );
+function AdminLayout({ user, header: header2, children }) {
+  const hangleClick = (e) => {
+    e.preventDefault();
+    Inertia.post("/logout");
+  };
+  const [isOpen, setIsOpen] = useState(false);
+  const clickOpen = (e) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
+  return /* @__PURE__ */ jsxs("div", { children: [
+    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
+      /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
+        /* @__PURE__ */ jsxs("div", { className: "menu__left", children: [
+          /* @__PURE__ */ jsx("button", { onClick: clickOpen, className: "menu__button", children: /* @__PURE__ */ jsx("img", { src: menu, className: "menu__img" }) }),
+          header2 && /* @__PURE__ */ jsx("header", { className: "bg-white shadow", children: /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8", children: header2 }) }),
+          isOpen && /* @__PURE__ */ jsx("div", { className: "visible", children: /* @__PURE__ */ jsxs("div", { className: "nav__box", children: [
+            /* @__PURE__ */ jsxs("div", { className: "nav__links", children: [
+              /* @__PURE__ */ jsx("ul", { children: /* @__PURE__ */ jsxs("li", { children: [
+                /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная сайта" }),
+                /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/index", children: "Главная админки" })
+              ] }) }),
+              /* @__PURE__ */ jsx("button", { onClick: hangleClick, className: "menu__button", children: "Выйти" })
+            ] }),
+            /* @__PURE__ */ jsx("button", { className: "nav__btn", onClick: clickOpen, children: "X" })
+          ] }) })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "menu__right", children: [
+          /* @__PURE__ */ jsx(ThemeSwitch, {}),
+          /* @__PURE__ */ jsxs(Dropdown, { children: [
+            /* @__PURE__ */ jsx(Dropdown.Trigger, { children: /* @__PURE__ */ jsx("span", { className: "inline-flex rounded-md", children: /* @__PURE__ */ jsx(
+              "button",
+              {
+                type: "button",
+                children: /* @__PURE__ */ jsx("img", { src: account, className: "menu__img" })
+              }
+            ) }) }),
+            /* @__PURE__ */ jsxs(Dropdown.Content, { children: [
+              /* @__PURE__ */ jsx(Dropdown.Link, { href: "/profile/edit", children: "Профиль" }),
+              /* @__PURE__ */ jsx(Dropdown.Link, { href: "/logout", method: "post", as: "button", children: "Выйти" })
+            ] })
+          ] })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
+        /* @__PURE__ */ jsxs("div", { className: "inner", children: [
+          /* @__PURE__ */ jsxs("div", { id: "up", children: [
+            /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
+            /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
+            /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: telegram, className: "social" }) }),
+            /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: instagram, className: "social" }) }),
+            /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: youtube, className: "social" }) }),
+            /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: vk, className: "social" }) })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
+          /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная сайта" }) }),
+          /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/index", children: "Главная админки" }) }),
+          /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/users", children: "Пользователи" }) }),
+          /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/recipes", children: "Рецепты" }) })
+        ] }) })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsx("main", { children }),
+    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section2", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { className: "footer2", children: [
+      /* @__PURE__ */ jsxs("div", { className: "footer__top", children: [
+        /* @__PURE__ */ jsxs("div", { className: "footer__box text", children: [
+          /* @__PURE__ */ jsx("h3", { children: "AVOCADO" }),
+          /* @__PURE__ */ jsx("p", { children: "Советы, которые работают. Рецепты, которые вы хотите приготовить. Рекомендации, которым вы доверяете." })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "footer__box", children: /* @__PURE__ */ jsxs("ul", { className: "footer_menu2", children: [
+          /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/home", children: "Главная" }) }),
+          /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/menu/builder", children: "Конструктор меню" }) }),
+          /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/recipes", children: "Рецепты" }) })
+        ] }) }),
+        /* @__PURE__ */ jsxs("div", { className: "footer__box", children: [
+          /* @__PURE__ */ jsx("h4", { children: "Контакты" }),
+          /* @__PURE__ */ jsx("p", { children: "✉ avocado@mail.ru" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "footer__bottom", children: [
+        /* @__PURE__ */ jsx("p", { children: "2023 © Конструктор питания Avocado" }),
+        /* @__PURE__ */ jsx("div", { className: "anchor", children: /* @__PURE__ */ jsx("a", { href: "#up", children: "^" }) })
+      ] })
+    ] }) }) }) })
+  ] });
 }
-const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: LineChart
-}, Symbol.toStringTag, { value: "Module" }));
 createInertiaApp({
   resolve: (name) => {
-    const pages = /* @__PURE__ */ Object.assign({ "./Pages/Admin/Index.jsx": __vite_glob_0_0, "./Pages/Admin/RecipeCreate.jsx": __vite_glob_0_1, "./Pages/Admin/RecipeUpdate.jsx": __vite_glob_0_2, "./Pages/Admin/RecipesList.jsx": __vite_glob_0_3, "./Pages/Admin/UsersList.jsx": __vite_glob_0_4, "./Pages/Advice.jsx": __vite_glob_0_5, "./Pages/Category.jsx": __vite_glob_0_6, "./Pages/Form.jsx": __vite_glob_0_7, "./Pages/Guest/About.jsx": __vite_glob_0_8, "./Pages/Guest/Contact.jsx": __vite_glob_0_9, "./Pages/Guest/Home.jsx": __vite_glob_0_10, "./Pages/Guest/Main.jsx": __vite_glob_0_11, "./Pages/Home.jsx": __vite_glob_0_12, "./Pages/Layout.jsx": __vite_glob_0_13, "./Pages/MenuBuilder.jsx": __vite_glob_0_14, "./Pages/NotFound.jsx": __vite_glob_0_15, "./Pages/PersonalAccount.jsx": __vite_glob_0_16, "./Pages/Post/Create.jsx": __vite_glob_0_17, "./Pages/Post/Edit.jsx": __vite_glob_0_18, "./Pages/Post/Index.jsx": __vite_glob_0_19, "./Pages/Post/Test.jsx": __vite_glob_0_20, "./Pages/Profile/Edit.jsx": __vite_glob_0_21, "./Pages/Profile/Partials/DeleteUserForm.jsx": __vite_glob_0_22, "./Pages/Profile/Partials/UpdatePasswordForm.jsx": __vite_glob_0_23, "./Pages/Profile/Partials/UpdateProfileInformationForm.jsx": __vite_glob_0_24, "./Pages/ProgressChart.jsx": __vite_glob_0_25, "./Pages/Recipe.jsx": __vite_glob_0_26, "./Pages/Recipes.jsx": __vite_glob_0_27, "./Pages/mark/Auth/ConfirmPassword.jsx": __vite_glob_0_28, "./Pages/mark/Auth/ForgotPassword.jsx": __vite_glob_0_29, "./Pages/mark/Auth/Login.jsx": __vite_glob_0_30, "./Pages/mark/Auth/Register.jsx": __vite_glob_0_31, "./Pages/mark/Auth/ResetPassword.jsx": __vite_glob_0_32, "./Pages/mark/Auth/VerifyEmail.jsx": __vite_glob_0_33, "./Pages/mark/LineChart.jsx": __vite_glob_0_34 });
+    const pages = /* @__PURE__ */ Object.assign({ "./Pages/Admin/Index.jsx": __vite_glob_0_0, "./Pages/Admin/RecipeCreate.jsx": __vite_glob_0_1, "./Pages/Admin/RecipeUpdate.jsx": __vite_glob_0_2, "./Pages/Admin/RecipesList.jsx": __vite_glob_0_3, "./Pages/Admin/UsersList.jsx": __vite_glob_0_4, "./Pages/Advice.jsx": __vite_glob_0_5, "./Pages/Category.jsx": __vite_glob_0_6, "./Pages/Form.jsx": __vite_glob_0_7, "./Pages/Guest/About.jsx": __vite_glob_0_8, "./Pages/Guest/Contact.jsx": __vite_glob_0_9, "./Pages/Guest/Home.jsx": __vite_glob_0_10, "./Pages/Guest/Main.jsx": __vite_glob_0_11, "./Pages/Home.jsx": __vite_glob_0_12, "./Pages/Layout.jsx": __vite_glob_0_13, "./Pages/MenuBuilder.jsx": __vite_glob_0_14, "./Pages/NotFound.jsx": __vite_glob_0_15, "./Pages/PersonalAccount.jsx": __vite_glob_0_16, "./Pages/Post/Create.jsx": __vite_glob_0_17, "./Pages/Post/Edit.jsx": __vite_glob_0_18, "./Pages/Post/Index.jsx": __vite_glob_0_19, "./Pages/Post/Test.jsx": __vite_glob_0_20, "./Pages/Profile/Edit.jsx": __vite_glob_0_21, "./Pages/Profile/Partials/DeleteUserForm.jsx": __vite_glob_0_22, "./Pages/Profile/Partials/UpdatePasswordForm.jsx": __vite_glob_0_23, "./Pages/Profile/Partials/UpdateProfileInformationForm.jsx": __vite_glob_0_24, "./Pages/ProgressChart.jsx": __vite_glob_0_25, "./Pages/Recipe.jsx": __vite_glob_0_26, "./Pages/Recipes.jsx": __vite_glob_0_27, "./Pages/mark/Auth/ConfirmPassword.jsx": __vite_glob_0_28, "./Pages/mark/Auth/ForgotPassword.jsx": __vite_glob_0_29, "./Pages/mark/Auth/Login.jsx": __vite_glob_0_30, "./Pages/mark/Auth/Register.jsx": __vite_glob_0_31, "./Pages/mark/Auth/ResetPassword.jsx": __vite_glob_0_32, "./Pages/mark/Auth/VerifyEmail.jsx": __vite_glob_0_33, "./Pages/mark/CaloriсChart.jsx": __vite_glob_0_34, "./Pages/mark/WeightChart.jsx": __vite_glob_0_35 });
     let page = pages[`./Pages/${name}.jsx`];
     if (name.startsWith("Guest/") || name.startsWith("mark/Auth")) {
       page.default.layout = (page2) => /* @__PURE__ */ jsx(GuestLayout, { children: page2 });
-    } else if (name.startsWith("Admin"))
-      ;
-    else {
-      page.default.layout = (page2) => /* @__PURE__ */ jsx(Layout$2, { children: page2 });
+    } else if (name.startsWith("Admin/")) {
+      page.default.layout = (page2) => /* @__PURE__ */ jsx(AdminLayout, { children: page2 });
+    } else {
+      page.default.layout = (page2) => /* @__PURE__ */ jsx(Layout, { children: page2 });
     }
     return page;
   },

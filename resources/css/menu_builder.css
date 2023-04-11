@@ -138,9 +138,9 @@ a:hover {
     align-items: center;
 }
 
-.container {
-    width: 1200px;
-}
+/*.container {*/
+/*    width: 1200px;*/
+/*}*/
 
 .main_menu {
     display: flex;
@@ -1513,7 +1513,7 @@ a.ui-button:active,
         font-size: 14px;
     }
     .cons_itog_str {
-    align-items: baseline;
+        align-items: baseline;
     }
     .cons_itog_str_val {
         font-size: 14px;
@@ -1530,7 +1530,7 @@ a.ui-button:active,
         width: 250px;
     }
     .cons_row1 .cons_pic {
-       width: 100%;
+        width: 100%;
     }
     .constructor {
         width: 100%;
