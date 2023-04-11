@@ -1,83 +1,184 @@
-
-import ApplicationLogo from '@/Components/mark/ApplicationLogo';
+import React, {useState} from 'react';
 import { Link } from '@inertiajs/react';
-import NavLink from "@/Components/mark/NavLink";
-import Dropdown from "@/Components/mark/Dropdown";
-import ResponsiveNavLink from "@/Components/mark/ResponsiveNavLink";
-import FooterList from "@/Components/FooterList";
+import "../../css/header.css";
+import "../../css/footer.css";
+import ThemeSwitch from 'react-theme-switch';
+import logo from "../../../public/assets/logo.svg";
+import instagram from "../../../public/assets/links/instagram-f-svgrepo-com.svg";
+import telegram from "../../../public/assets/links/telegram-fill-svgrepo-com.svg";
+import youtube from "../../../public/assets/links/youtube-round-svgrepo-com.svg";
+import vk from "../../../public/assets/links/vk-with-circle-svgrepo-com.svg";
+import { Inertia } from '@inertiajs/inertia';
+import { InertiaLink } from '@inertiajs/inertia-react';
 
-export default function Layout({ children,footer,header }) {
+import menu from "../../../public/assets/menu-svgrepo-com.svg";
+import account from "../../../public/assets/account-avatar-man-svgrepo-com.svg";
+import Dropdown from "@/Components/mark/Dropdown";
+
+export default function Layout({ children }) {
+    return (
+        <main className="main">
+            <MenuList></MenuList>
+            <main className='container'>
+                <article>{children}</article>
+            </main>
+            <FooterList></FooterList>
+        </main>
+    )
+}
+
+const MenuList = (props) => {
+
+    const logoutClick = e => {
+    e.preventDefault();
+    Inertia.post('/logout');
+}
+
+    const profileClick = e => {
+    e.preventDefault();
+    Inertia.get('/profile');
+}
+
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const clickOpen = (e) => {
+        e.preventDefault();
+        setIsOpen(!isOpen);
+    }
 
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div>
+            <div className="section1 section_grey1">
+                <div className="menu__black">
+                    <div className="container1 menu__inner">
+                        <div className="menu__left">
+                            <button onClick={clickOpen} className="menu__button">
+                                <img src={menu} className="menu__img" />
+                            </button>
 
-
-                    <div className="flex justify-between h-16">
-
-                        <div className="flex">
-
-                            <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-blue-800" />
-                                </Link>
-                            </div>
-
-
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Конструктор питания
-                                </NavLink>
-
-                                <NavLink href={route('recipes')} active={route().current('recipes')}>
-                                    Recipes
-                                </NavLink>
-                                <NavLink href={route('category')} active={route().current('category')}>
-                                   Category
-                                </NavLink>
-
-                                <NavLink href={route('form.index')} active={route().current('form.index')}>
-                                    Form
-                                </NavLink>
-
-                                <NavLink href={route('advice')} active={route().current('advice')}>
-                                    Advice
-                                </NavLink>
-
-                            </div>
+                            {isOpen &&
+                                <div className="visible">
+                                    <div className="nav__box">
+                                        <div className="nav__links">
+                                            <ul>
+                                                <li>
+                                                    <a href="/about">О нас</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/account">Мой профиль</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/advice">Мои рекомендации</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/menu/builder">Меню на неделю</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/progress">Прогресс-шкала</a>
+                                                </li>
+                                            </ul>
+                                            {/*<button onClick={hangleClick} className="menu__button">Выйти</button>*/}
+                                            <button onClick={profileClick} className="menu__button">Профиль</button>
+                                            <button onClick={logoutClick} className="menu__button">Выйти</button>
+                                        </div>
+                                        <button className="nav__btn" onClick={clickOpen}>X</button>
+                                    </div>
+                                </div>
+                            }
                         </div>
 
+                        <div className="menu__right" >
 
+                            <ThemeSwitch />
 
-
+                            <a href="/account">
+                                <img src={account} className="menu__img"/>
+                            </a>
+                        </div>
                     </div>
-
-
-
 
                 </div>
 
 
-            </nav>
 
 
+                <div className="container1 wrap">
+                    <div className="inner">
+                        <div id="up">
+                            <img className="logo" src={logo}></img>
+                            <p className="logo__text">AVOCADO</p>
+                        </div>
+                        <div className="social__wrap">
+                            <a href="#"><img src={telegram} className="social"></img></a>
+                            <a href="#"><img src={instagram} className="social"></img></a>
+                            <a href="#"><img src={youtube} className="social"></img></a>
+                            <a href="#"><img src={vk} className="social"></img></a>
 
-
-            {header && (
-                <header className="bg-grey-100 shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
-                </header>
-            )}
-
-
-
-            <main>{children}</main>
-            <footer><FooterList>{footer}</FooterList></footer>
-
-
-
+                        </div>
+                    </div>
+                    <div className="main_menu1">
+                        <ul className="main_menu_items1" style={{ justifyContent: 'flex-start' }}>
+                            <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }} >
+                                <InertiaLink href="/home">Главная</InertiaLink>
+                            </li>
+                            <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
+                                <InertiaLink href="/menu/builder">Конструктор меню</InertiaLink>
+                            </li>
+                            <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
+                                <InertiaLink href="/form">Калькулятор БЖУ</InertiaLink>
+                            </li>
+                            <li className="main_menu_item1">
+                                <InertiaLink href="/recipes">Рецепты</InertiaLink>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    );
-}
+    )
+};
+
+const FooterList = () => {
+    return (
+        <div>
+            <div className="section2">
+                <div className="container">
+                    <div className="footer2">
+                        <div className="footer__top">
+                            <div className="footer__box text">
+                                <h3>AVOCADO</h3>
+                                <p>Советы, которые работают.
+                                    Рецепты, которые вы хотите приготовить.
+                                    Рекомендации, которым вы доверяете.</p>
+                            </div>
+                            <div className="footer__box">
+                                <ul className="footer_menu2">
+                                    <li className="footer_menu_item2"><Link href="/">Главная</Link></li>
+                                    <li className="footer_menu_item2"><Link href="/menu/builder">Конструктор меню</Link></li>
+                                    <li className="footer_menu_item2"><Link href="/recipes">Рецепты</Link></li>
+                                </ul>
+                            </div>
+                            <div className="footer__box">
+                                <h4>Контакты</h4>
+                                <p>&#9993; avocado@mail.ru</p>
+                            </div>
+                        </div>
+                        <div className="footer__bottom">
+                            <p>2023 © Конструктор питания Avocado</p>
+                            <div className="anchor">
+                                <a href="#up">&#94;</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    )
+};
+
+

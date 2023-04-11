@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Comment\CreateRequest;
 use App\Models\Comment;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Comment\CreateRequest;
 
 class CommentController extends Controller
 {
@@ -34,7 +35,9 @@ class CommentController extends Controller
     public function store(CreateRequest $request ): RedirectResponse
     {
         $recipe_id = $request->recipe_id;
-        $comment = new Comment ($request->validated());
+        $validated = $request->validated();
+        $validated['name'] = Auth::user()->name;
+        $comment = new Comment ($validated);
 
         $comment->save();
         return redirect()->route('recipe', ['id' => $recipe_id]);

@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\ChartController;
-use App\Http\Controllers\CommentController;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\MainController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\RecipeController;
 // use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MenuWeekController;
 use \App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -92,7 +93,9 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/parser/recipes', RecipeParserController::class)->name('parser.recipe');
 
 
-
+Route::fallback( function() {
+    return Inertia::render('NotFound');
+});
 
 
 

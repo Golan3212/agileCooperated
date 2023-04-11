@@ -99,7 +99,7 @@ export default function Login({ status, canResetPassword }) {
                 </div>
             </form>
 
-            </div> 
+            </div>
         </>
     );
 }

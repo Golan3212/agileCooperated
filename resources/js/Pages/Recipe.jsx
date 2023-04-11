@@ -16,7 +16,6 @@ import usePagination from "../hooks/usePagintaion";
 export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
 
     const [values, setValues] = useState({
-        name: "",
         content: "",
         recipe_id: (recipeId)
     });
@@ -53,7 +52,6 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId 
 
    useEffect(() => {
        setValues(values => (  {
-           name: "",
            content: "",
            recipe_id: (recipeId)
        }));
@@ -77,7 +75,7 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId 
        console.log(comments);
        if (comments.length < 1){
            return <div className="account__inner">
-               Комментариев пока нет
+               Комментариев нет
            </div>
        }else{
            return <div style={{height: "700px", display:"flex", flexDirection: "column",
@@ -229,12 +227,12 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId 
                                                         }
                                                         <div>
                                                             <div>
-                                                                <h1 id="comments" className="ingredients_title">Ваши комментарии ({comments.length})</h1>
+                                                                <h1 id="comments" className="ingredients_title">Все комментарии ({comments.length})</h1>
                                                                 <form className="account__box" onSubmit={handleSubmit}>
-                                                                    <label htmlFor="name">Введите имя:</label>
-                                                                    <input className="input_name" id="name" value={values.name}
+                                                                    {/* <label htmlFor="name">Введите имя:</label> */}
+                                                                    {/* <input className="input_name" id="name" value={values.name}
                                                                            onChange={handleChange}
-                                                                    />
+                                                                    /> */}
 
                                                                     <label htmlFor="content">Оставьте комментарий</label>
                                                                     <textarea className="input_name" id="content" value={values.content}
