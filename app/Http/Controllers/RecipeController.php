@@ -58,6 +58,7 @@ class RecipeController extends Controller
         $comments = [];
         foreach ($commentsList as $key => $value) {
             $comments[] = [
+                'id' => $value->id,
                 'content' => $value->content,
                 'date' => $value->created_at->format('d-m-Y'),
                 'name' => $value->name,
@@ -125,7 +126,8 @@ class RecipeController extends Controller
             'recipeOne' => $recipeOne,
             'recipeOneAdvice' => $recipeOneAdvice,
             'comments' => $comments,
-            'recipeId' => $recipeId
+            'recipeId' => $recipeId,
+            'isAdmin' => \Auth::user()->is_admin
         ]);
     }
 }

@@ -14,12 +14,12 @@ class AdviceController extends Controller
     {
 
         if (!Auth::check()) {
-            return \redirect()->route('home');
+            return \redirect()->route('Home');
         }
 
         if (!$profilesQueryBuilder->getByUserIdLast(\Auth::id())) {
 
-            return \redirect()->route('form');
+            return \redirect()->route('form.index');
 
         }
 
@@ -34,12 +34,12 @@ class AdviceController extends Controller
     {
 
         if (!Auth::check()) {
-            return \redirect()->route('home');
+            return \redirect()->route('Home');
         }
 
         if (!$profilesQueryBuilder->getByUserIdLast(\Auth::id())) {
 
-            return \redirect()->route('form');
+            return \redirect()->route('form.index');
 
         }
 

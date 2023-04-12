@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\ProfileUser;
+use App\Models\ProgressUser;
 use Illuminate\Http\Request;
 use App\Services\ConstructorService;
 use Illuminate\Support\Facades\Auth;
@@ -66,20 +67,30 @@ class FormController extends Controller
             $arguments = array_merge($request->validated(), $otherProfuleColumn);
 
 
-            //            if ($profilesQueryBuilder->getByUserId(\Auth::id())->count()) {//если профиль уже создан
-//
-//                $profile = $profilesQueryBuilder->updateByUserId(\Auth::id());
-//                $profile->update($arguments);
-//
-//            }else{
+            if ($profilesQueryBuilder->getByUserId(\Auth::id())->count()) {//если профиль уже создан
+
+               $profile = $profilesQueryBuilder->updateByUserId(\Auth::id());
+               $profile->update($arguments);
+
+           }else{
             $profile = new ProfileUser($arguments); //Марк 2.04.2023 закоментировал для того
             // чтобы данные пользователя записывались в новую строку, а не перезаписывали старую
                 $profile->user()->associate(\Auth::id());
                 $profile->save();
-//            }
+           }
 
-            $constructor->constructor();
-            return \redirect()->route('advice');
+           $progress = new ProgressUser([
+               'weight_progress' => $profile->first()->weight,
+               'calories_progress' => $profile->first()->caloric_norm,
+            ]);
+
+            $progress->profile()->associate($profile->first()->id);
+            if ($progress->save()) {
+                $constructor->constructor();
+                return \redirect()->route('advice');
+            }
+
+
         }
         // dd($request, Auth::check(), \Auth::id());
 

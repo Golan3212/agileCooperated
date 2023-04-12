@@ -6,22 +6,22 @@ import dayjs from "dayjs";
 
 
 
-export default function ProgressChart({profileuser}) {
+export default function ProgressChart({progressUser}) {
 
 
     const obj ={
-        labels: profileuser.map((data)=>dayjs(data.created_at).format('DD-MM-YYYY')),
+        labels: progressUser.map((data)=>dayjs(data.created_at).format('DD-MM-YYYY')),
         datasets:[{
             label:"Прогресс-шкала по весу",
-            data: profileuser.map((data)=>data.weight),},],
+            data: progressUser.map((data)=>data.weight_progress),},],
     }
     console.log(obj);
 
     const obj1 ={
-        labels: profileuser.map((data)=>dayjs(data.created_at).format('DD-MM-YYYY')),
+        labels: progressUser.map((data)=>dayjs(data.created_at).format('DD-MM-YYYY')),
         datasets:[{
             label:"Калории потребляемые пользователем",
-            data: profileuser.map((data)=>data.caloric_norm),
+            data: progressUser.map((data)=>data.calories_progress),
             borderColor:"red",
             borderWidth:8
         },],
