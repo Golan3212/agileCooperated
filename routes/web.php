@@ -38,13 +38,6 @@ use \App\Http\Controllers\Admin\GuestLyoutController as AdminUserController;
 //Auth routes
 Route::middleware('auth')
     ->group(function () {
-        Route::prefix('admin' ,['middleware' => 'is.admin'])->group(function () {
-
-            Route::resource('users', UsersAdminController::class);
-            Route::resource('recipes', RecipesAdminController::class);
-            Route::get('/index', IndexAdminController::class);
-
-        });
 
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -87,7 +80,13 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('comments', CommentController::class);
 });
 
-
+Route::middleware(['auth', 'is.admin'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::resource('users', UsersAdminController::class);
+        Route::resource('recipes', RecipesAdminController::class);
+        Route::get('/index', IndexAdminController::class);
+    });
+});
 
 //Anton routes
 Route::get('/parser/recipes', RecipeParserController::class)->name('parser.recipe');

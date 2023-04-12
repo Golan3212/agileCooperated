@@ -26,6 +26,11 @@ class CommentsQueryBuilder extends QueryBuilder
         return $this->model->where('id', $id)->get();
     }
 
+    public function getCommentByIdFirst(int $id)
+    {
+        return $this->model->where('id', $id)->first();
+    }
+
     public function getCommentsByRecipeId(int $id)
     {
         return $this->model->where('recipe_id', $id)->orderByDesc('created_at')->get();

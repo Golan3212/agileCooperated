@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
+import { Inertia } from '@inertiajs/inertia';
 import '../../css/recipe.css';
 
-import {Link, router} from '@inertiajs/react'
+import {createInertiaApp, Link, router} from '@inertiajs/react'
 
 
 import logo1 from "../../../public/assets/recipe_image/icons/time.svg";
@@ -13,8 +14,8 @@ import { useState } from 'react';
 import {useLocalStorage} from "../formulas/saveLocalStorage";
 import usePagination from "../hooks/usePagintaion";
 
-export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
-
+export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId, isAdmin }) {
+    console.log(isAdmin);
     const [values, setValues] = useState({
         content: "",
         recipe_id: (recipeId)
@@ -71,8 +72,19 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId 
     declOfNum();
 
    const Comment = (props) => {
+
+
+
        let comments = props.commentList;
-       console.log(comments);
+
+       function handleCommentDelete(e, id){
+            e.preventDefault();
+            Inertia.delete(`/comments/${id}`, {
+                onBefore: () => confirm('Вы уверены, что хотите удалить этот комментарий?'),
+            });
+        }
+
+       console.log(isAdmin);
        if (comments.length < 1){
            return <div className="account__inner">
                Комментариев нет
@@ -85,6 +97,7 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId 
                        <div className="account__inner">
                            <p>Автор: {item.name} ({item.date})</p>
                            <span>{item.content}</span>
+                            {isAdmin === 0 ? '' : <button onClick={(e) => handleCommentDelete(e, item.id)}>Удалить</button>}
                        </div>
                    )
                )}

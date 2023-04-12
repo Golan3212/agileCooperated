@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('progress_users', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 30)->unique();
+            $table->integer('weight_progress');
+            $table->integer('calories_progress');
+            $table->foreignId('profile_user_id')->references('id')->on('profile_users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Schema::dropIfExists('categories');
+        Schema::dropIfExists('progress_users');
     }
 };

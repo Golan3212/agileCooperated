@@ -6,6 +6,7 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use App\QueryBuilders\CommentsQueryBuilder;
 use App\Http\Requests\Comment\CreateRequest;
 
 class CommentController extends Controller
@@ -70,9 +71,11 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, CommentsQueryBuilder $comment)
     {
-        //
+        $comment = $comment->getCommentByIdFirst((int)$id);
+
+        $comment->delete();
     }
 
 }
