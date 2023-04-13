@@ -10,17 +10,16 @@ use \App\Http\Controllers\MainController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\RecipeController;
-// use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MenuWeekController;
 use \App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardController;
+//use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuWeekUpdateController;
 use App\Http\Controllers\Admin\IndexAdminController;
 use App\Http\Controllers\Admin\UsersAdminController;
 use App\Http\Controllers\Admin\RecipesAdminController;
 use App\Http\Controllers\Parsers\RecipeParserController;
-use \App\Http\Controllers\Admin\GuestLyoutController as AdminUserController;
+//use \App\Http\Controllers\Admin\GuestLyoutController as AdminUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

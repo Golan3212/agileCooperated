@@ -1620,7 +1620,7 @@ input[type="radio"] {
 /*==========РЕЦЕПТ ОДИН============*/
 
 .reccard_wrap {
-    width: 1200px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 
@@ -2312,7 +2312,7 @@ input[type="radio"] {
 /*}*/
 
 /*============MOBILE801==============*/
-@media screen and (max-width:801px) {}
+/*@media screen and (max-width:801px) {}*/
 
 
 
@@ -2876,6 +2876,9 @@ input[type="radio"] {
     }
     .ingredients_title {
         margin-bottom: 14px;
+        font-size: 15px;
+        text-align: center;
+        margin-top: 25px;
     }
     .ingredients_content {
         font-size: 14px;
@@ -2902,6 +2905,22 @@ input[type="radio"] {
     .rec_item_plus_txt {
         display: none;
     }
+    .comments {
+        width: 100%;
+    }
+    .reclist_main {
+        justify-content: center;
+    }
+    .commit_btn {
+        align-self: center!important;
+        margin-left: 0!important;
+        margin-bottom: 25px;
+    }
 }
 
+@media (max-width: 1100px) and (min-width:426px) {
+    .reclist_inda_reccard {
+        display: none;
+    }
+}
 

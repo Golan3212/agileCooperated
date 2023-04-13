@@ -238,7 +238,7 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId,
                                                                 )
                                                             }))
                                                         }
-                                                        <div>
+                                                        <div className="comments">
                                                             <div>
                                                                 <h1 id="comments" className="ingredients_title">Все комментарии ({comments.length})</h1>
                                                                 <form className="account__box" onSubmit={handleSubmit}>
