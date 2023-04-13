@@ -2186,20 +2186,20 @@ const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   default: CaloricChart
 }, Symbol.toStringTag, { value: "Module" }));
 const chart = "";
-function ProgressChart({ profileuser }) {
+function ProgressChart({ progressUser }) {
   const obj = {
-    labels: profileuser.map((data) => dayjs(data.created_at).format("DD-MM-YYYY")),
+    labels: progressUser.map((data) => dayjs(data.created_at).format("DD-MM-YYYY")),
     datasets: [{
       label: "Прогресс-шкала по весу",
-      data: profileuser.map((data) => data.weight)
+      data: progressUser.map((data) => data.weight_progress)
     }]
   };
   console.log(obj);
   const obj1 = {
-    labels: profileuser.map((data) => dayjs(data.created_at).format("DD-MM-YYYY")),
+    labels: progressUser.map((data) => dayjs(data.created_at).format("DD-MM-YYYY")),
     datasets: [{
       label: "Калории потребляемые пользователем",
-      data: profileuser.map((data) => data.caloric_norm),
+      data: progressUser.map((data) => data.calories_progress),
       borderColor: "red",
       borderWidth: 8
     }]
@@ -2260,7 +2260,8 @@ const usePagination = ({ contentPerPage, count }) => {
     page
   };
 };
-function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
+function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId, isAdmin }) {
+  console.log(isAdmin);
   const [values, setValues] = useState({
     content: "",
     recipe_id: recipeId
@@ -2313,7 +2314,13 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
   declOfNum();
   const Comment = (props) => {
     let comments2 = props.commentList;
-    console.log(comments2);
+    function handleCommentDelete(e, id) {
+      e.preventDefault();
+      Inertia.delete(`/comments/${id}`, {
+        onBefore: () => confirm("Вы уверены, что хотите удалить этот комментарий?")
+      });
+    }
+    console.log(isAdmin);
     if (comments2.length < 1) {
       return /* @__PURE__ */ jsx("div", { className: "account__inner", children: "Комментариев нет" });
     } else {
@@ -2332,7 +2339,8 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
               item.date,
               ")"
             ] }),
-            /* @__PURE__ */ jsx("span", { children: item.content })
+            /* @__PURE__ */ jsx("span", { children: item.content }),
+            isAdmin === 0 ? "" : /* @__PURE__ */ jsx("button", { onClick: (e) => handleCommentDelete(e, item.id), children: "Удалить" })
           ] })
         ),
         /* @__PURE__ */ jsx("br", {}),
@@ -2440,7 +2448,7 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId }) {
                   /* @__PURE__ */ jsx("div", { className: "poshag_content", children: step.description })
                 ] });
               }),
-              /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsxs("div", { className: "comments", children: [
                 /* @__PURE__ */ jsxs("div", { children: [
                   /* @__PURE__ */ jsxs("h1", { id: "comments", className: "ingredients_title", children: [
                     "Все комментарии (",
@@ -2955,7 +2963,7 @@ function Login({ status, canResetPassword }) {
               type: "email",
               name: "email",
               value: data.email,
-              className: "mt-1 block w-full",
+              className: "mt-1 block w-full login__input",
               autoComplete: "username",
               isFocused: true,
               onChange: handleOnChange
@@ -2972,18 +2980,18 @@ function Login({ status, canResetPassword }) {
               type: "password",
               name: "password",
               value: data.password,
-              className: "mt-1 block w-full",
+              className: "mt-1 block w-full login__input",
               autoComplete: "current-password",
               onChange: handleOnChange
             }
           ),
           /* @__PURE__ */ jsx(InputError, { message: errors.password, className: "mt-2" })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "block mt-4", children: /* @__PURE__ */ jsxs("label", { className: "flex items-center", children: [
+        /* @__PURE__ */ jsx("div", { className: "block mt-4", children: /* @__PURE__ */ jsxs("label", { className: "flex items-center  login__box", children: [
           /* @__PURE__ */ jsx(Checkbox, { name: "remember", value: data.remember, onChange: handleOnChange }),
           /* @__PURE__ */ jsx("span", { className: "ml-2 text-sm text-gray-600", children: "Запомнить меня" })
         ] }) }),
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4", children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4 login__inner", children: [
           canResetPassword && /* @__PURE__ */ jsx(
             InertiaLink,
             {
@@ -2992,7 +3000,7 @@ function Login({ status, canResetPassword }) {
               children: "Забыли свой пароль?"
             }
           ),
-          /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn", disabled: processing, children: "войти" })
+          /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn login__button", disabled: processing, children: "войти" })
         ] })
       ] })
     ] })
@@ -3033,7 +3041,7 @@ function Register() {
             id: "name",
             name: "name",
             value: data.name,
-            className: "input_name",
+            className: "input_name login__input",
             autoComplete: "name",
             isFocused: true,
             onChange: handleOnChange,
@@ -3051,7 +3059,7 @@ function Register() {
             type: "email",
             name: "email",
             value: data.email,
-            className: "mt-1 block w-full",
+            className: "mt-1 block w-full login__input",
             autoComplete: "username",
             onChange: handleOnChange,
             required: true
@@ -3068,7 +3076,7 @@ function Register() {
             type: "password",
             name: "password",
             value: data.password,
-            className: "mt-1 block w-full",
+            className: "mt-1 block w-full login__input",
             autoComplete: "new-password",
             onChange: handleOnChange,
             required: true
@@ -3085,7 +3093,7 @@ function Register() {
             type: "password",
             name: "password_confirmation",
             value: data.password_confirmation,
-            className: "mt-1 block w-full",
+            className: "mt-1 block w-full login__input",
             autoComplete: "new-password",
             onChange: handleOnChange,
             required: true
@@ -3093,7 +3101,7 @@ function Register() {
         ),
         /* @__PURE__ */ jsx(InputError, { message: errors.password_confirmation, className: "mt-2" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4 login__inner", children: [
         /* @__PURE__ */ jsx(
           InertiaLink,
           {
@@ -3102,7 +3110,7 @@ function Register() {
             children: "Вы зарегистрированы?"
           }
         ),
-        /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn", disabled: processing, children: "Зарегистрироваться" })
+        /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn login__button", disabled: processing, children: "Зарегистрироваться" })
       ] })
     ] }) })
   ] });

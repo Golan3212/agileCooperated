@@ -256,6 +256,29 @@ body {
     cursor: pointer;
 }
 
+/*логин*/
+.login__box {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    gap: 5px;
+}
+.login__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0 !important;
+}
+.login__button {
+    margin: 20px auto!important;
+}
+.login__input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0!important;
+}
 
 @media (max-width: 425px) {
     .container1 {
@@ -302,6 +325,10 @@ body {
         margin: 10px 5px 20px;
     }
     [aria-pressed=false] {
+        height: 35px;
+        width: 50px;
+    }
+    [aria-pressed=true] {
         height: 35px;
         width: 50px;
     }

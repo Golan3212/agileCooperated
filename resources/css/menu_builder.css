@@ -1544,7 +1544,7 @@ a.ui-button:active,
         flex-wrap: wrap;
         gap: 20px;
         align-items: center;
-        justify-content: left;
+        justify-content: center;
     }
     .cons_row0 {
         display: none;

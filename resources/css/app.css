@@ -463,12 +463,18 @@ body {
         display: flex;
         justify-content: center;
     }
+    .product-price {
+        display: none;
+    }
 }
 @media (max-width: 1100px) and (min-width: 426px) {
     .recipes_main {
         flex-wrap: wrap-reverse;
     }
     .navigation-list {
+        display: none;
+    }
+    .product-price {
         display: none;
     }
 }

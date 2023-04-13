@@ -40,64 +40,64 @@ export default function Login({ status, canResetPassword }) {
             <Head title="Log in" />
             <div className="account">
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+                {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
-            <form  className="account__box"onSubmit={submit}>
-                <div className="account__inner">
-                    <InputLabel htmlFor="email" value="Email" />
+                <form  className="account__box"onSubmit={submit}>
+                    <div className="account__inner">
+                        <InputLabel htmlFor="email" value="Email" />
 
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        onChange={handleOnChange}
-                    />
+                        <TextInput
+                            id="email"
+                            type="email"
+                            name="email"
+                            value={data.email}
+                            className="mt-1 block w-full login__input"
+                            autoComplete="username"
+                            isFocused={true}
+                            onChange={handleOnChange}
+                        />
 
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
+                        <InputError message={errors.email} className="mt-2" />
+                    </div>
 
-                <div className="account__inner">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <div className="account__inner">
+                        <InputLabel htmlFor="password" value="Password" />
 
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        onChange={handleOnChange}
-                    />
+                        <TextInput
+                            id="password"
+                            type="password"
+                            name="password"
+                            value={data.password}
+                            className="mt-1 block w-full login__input"
+                            autoComplete="current-password"
+                            onChange={handleOnChange}
+                        />
 
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
+                        <InputError message={errors.password} className="mt-2" />
+                    </div>
 
-                <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox name="remember" value={data.remember} onChange={handleOnChange} />
-                        <span className="ml-2 text-sm text-gray-600">Запомнить меня</span>
-                    </label>
-                </div>
+                    <div className="block mt-4">
+                        <label className="flex items-center  login__box">
+                            <Checkbox name="remember" value={data.remember} onChange={handleOnChange} />
+                            <span className="ml-2 text-sm text-gray-600">Запомнить меня</span>
+                        </label>
+                    </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <InertiaLink
-                            href='#'
-                            className="underline text-sm text-gray-600 hover:text-gray-900  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
-                        >
-                            Забыли свой пароль?
-                        </InertiaLink>
-                    )}
+                    <div className="flex items-center justify-end mt-4 login__inner">
+                        {canResetPassword && (
+                            <InertiaLink
+                                href='#'
+                                className="underline text-sm text-gray-600 hover:text-gray-900  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
+                            >
+                                Забыли свой пароль?
+                            </InertiaLink>
+                        )}
 
-                    <PrimaryButton className="ml-4 account__btn" disabled={processing}>
-                        войти
-                    </PrimaryButton>
-                </div>
-            </form>
+                        <PrimaryButton className="ml-4 account__btn login__button" disabled={processing}>
+                            войти
+                        </PrimaryButton>
+                    </div>
+                </form>
 
             </div>
         </>

@@ -48,7 +48,7 @@ export default function Register() {
                             id="name"
                             name="name"
                             value={data.name}
-                            className="input_name"
+                            className="input_name login__input"
                             autoComplete="name"
                             isFocused={true}
                             onChange={handleOnChange}
@@ -66,7 +66,7 @@ export default function Register() {
                             type="email"
                             name="email"
                             value={data.email}
-                            className="mt-1 block w-full"
+                            className="mt-1 block w-full login__input"
                             autoComplete="username"
                             onChange={handleOnChange}
                             required
@@ -99,7 +99,7 @@ export default function Register() {
                             type="password"
                             name="password"
                             value={data.password}
-                            className="mt-1 block w-full"
+                            className="mt-1 block w-full login__input"
                             autoComplete="new-password"
                             onChange={handleOnChange}
                             required
@@ -116,7 +116,7 @@ export default function Register() {
                             type="password"
                             name="password_confirmation"
                             value={data.password_confirmation}
-                            className="mt-1 block w-full"
+                            className="mt-1 block w-full login__input"
                             autoComplete="new-password"
                             onChange={handleOnChange}
                             required
@@ -125,7 +125,7 @@ export default function Register() {
                         <InputError message={errors.password_confirmation} className="mt-2" />
                     </div>
 
-                    <div className="flex items-center justify-end mt-4">
+                    <div className="flex items-center justify-end mt-4 login__inner">
                         <InertiaLink
                             href='/login'
                             className="underline text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -133,7 +133,7 @@ export default function Register() {
                             Вы зарегистрированы?
                         </InertiaLink>
 
-                        <PrimaryButton className="ml-4 account__btn" disabled={processing}>
+                        <PrimaryButton className="ml-4 account__btn login__button" disabled={processing}>
                             Зарегистрироваться
                         </PrimaryButton>
                     </div>
