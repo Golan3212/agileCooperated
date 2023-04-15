@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME)->with('success', 'Права изменены');
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

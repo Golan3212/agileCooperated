@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import '../../css/recipe.css';
 
-import logo from "../../../public/assets/2023-03-16_17-05.png";
+import logo from "../../../public/assets/logo.svg";
 import instagram from "../../../public/assets/links/instagram-f-svgrepo-com.svg";
 import telegram from "../../../public/assets/links/telegram-fill-svgrepo-com.svg";
 import youtube from "../../../public/assets/links/youtube-round-svgrepo-com.svg";

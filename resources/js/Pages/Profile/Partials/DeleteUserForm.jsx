@@ -1,13 +1,14 @@
 import { useRef, useState } from 'react';
-import DangerButton from '../../../Components/mark/DangerButton';
-import InputError from '../../../Components/mark/InputError';
-import InputLabel from '../../../Components/mark/InputLabel';
-import Modal from '../../../Components/mark/Modal';
-import SecondaryButton from '../../../Components/mark/SecondaryButton';
-import TextInput from '../../../Components/mark/TextInput';
+import DangerButton from '@/Components/mark/DangerButton';
+import InputError from '@/Components/mark/InputError';
+import InputLabel from '@/Components/mark/InputLabel';
+import Modal from '@/Components/mark/Modal';
+import SecondaryButton from '@/Components/mark/SecondaryButton';
+import TextInput from '@/Components/mark/TextInput';
 import { useForm } from '@inertiajs/react';
 
-export default function DeleteUserForm({ className }) {
+
+export default function DeleteUserForm({ className = ''}) {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
     const passwordInput = useRef();
 
@@ -88,7 +89,7 @@ export default function DeleteUserForm({ className }) {
                         <SecondaryButton onClick={closeModal}>Отмена</SecondaryButton>
 
                         <DangerButton className="ml-3" disabled={processing}>
-                           Почикать!
+                         Удалить
                         </DangerButton>
                     </div>
                 </form>

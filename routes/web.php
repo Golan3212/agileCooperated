@@ -11,9 +11,10 @@ use App\Http\Controllers\ChartController;
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MenuWeekController;
-use \App\Http\Controllers\CategoryController;
 //use App\Http\Controllers\DashboardController;
+use \App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MenuWeekUpdateController;
 use App\Http\Controllers\Admin\IndexAdminController;
 use App\Http\Controllers\Admin\UsersAdminController;
@@ -38,10 +39,10 @@ use App\Http\Controllers\Parsers\RecipeParserController;
 Route::middleware('auth')
     ->group(function () {
 
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // Route::get('account', [AccountController::class, 'index']);
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('account', [AccountController::class, 'index']);
     Route::get('/home',[HomeController::class,'index'])->name('Home');
     });
     //Марк роут для графика 02.04.2023
@@ -56,7 +57,9 @@ Route::middleware('guest')
         Route::get('/', [MainController::class, 'index'])->name('Main');
     });
 
-
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
 
 //Test route
 Route::get('/posts', [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('posts.index');
@@ -71,12 +74,15 @@ Route::get('/category', [CategoryController::class, 'index'])->middleware(['auth
 
 //Когда регистрация появиться раскомментировать
 Route::middleware(['auth'])->group(function () {
-    Route::get('/advice', [AdviceController::class, 'advice'])->name('advice');
-    Route::get('/menu/builder', [MenuWeekController::class, 'index']);
-    Route::resource('menu/builder/constructor', MenuWeekUpdateController::class);
-    Route::resource('form', FormController::class);
-    Route::get('account', [AdviceController::class, 'account']);
-    Route::resource('comments', CommentController::class);
+       // Route::get('account', [AccountController::class, 'index']);
+        Route::get('/home',[HomeController::class,'index'])->name('Home');
+        Route::get('/advice', [AdviceController::class, 'advice'])->name('advice');
+        Route::get('/menu/builder', [MenuWeekController::class, 'index']);
+        Route::resource('menu/builder/constructor', MenuWeekUpdateController::class);
+        Route::resource('form', FormController::class);
+        Route::get('account', [AdviceController::class, 'account']);
+        Route::resource('comments', CommentController::class);
+        Route::get('/main', [MainController::class, 'index'])->name('main');
 });
 
 Route::middleware(['auth', 'is.admin'])->group(function () {
