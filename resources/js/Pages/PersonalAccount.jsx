@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import "../../css/account.css";
 import MenuAccount from "../components/MenuAccount";
 import {Link} from "react-router-dom";
+import { Inertia } from '@inertiajs/inertia'
+
 
 export default function PersonalAccount({user}) {
 
@@ -36,6 +38,12 @@ export default function PersonalAccount({user}) {
         }
     }
 
+    function handleProfile(e){
+        e.preventDefault();
+
+        Inertia.get(route('profile.edit'));
+    }
+
     return (
         <div className="account">
 
@@ -45,7 +53,7 @@ export default function PersonalAccount({user}) {
                         <h2>Персональные данные</h2>
                         <div className="account__inner">
                             <p>Логин</p>
-                            <span>{item.user.username}</span>
+                            <span>{item.user.email}</span>
                         </div>
 
                         <div className="account__inner">
@@ -69,7 +77,7 @@ export default function PersonalAccount({user}) {
                             <span>{item.user.email}</span>
                         </div>
                         {/*ЗАКОММЕНТИРОВАНО НА УРОК 27.03.*/}
-                        <button type="submit" className="account__btn">
+                        <button type="submit" onClick={(e)=>handleProfile(e)} className="account__btn">
                             Изменить
                         </button>
                         {/*ЗАКОММЕНТИРОВАНО НА УРОК 27.03.*/}

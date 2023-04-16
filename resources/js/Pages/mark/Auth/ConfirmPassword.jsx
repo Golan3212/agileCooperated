@@ -17,10 +17,6 @@ export default function ConfirmPassword() {
         };
     }, []);
 
-    const handleOnChange = (event) => {
-        setData(event.target.name, event.target.value);
-    };
-
     const submit = (e) => {
         e.preventDefault();
 
@@ -28,16 +24,16 @@ export default function ConfirmPassword() {
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title="Confirm Password" />
 
             <div className="mb-4 text-sm text-gray-600">
-                Это защищенная область приложения. Пожалуйста, подтвердите свой пароль, прежде чем продолжить.
+                This is a secure area of the application. Please confirm your password before continuing.
             </div>
 
             <form onSubmit={submit}>
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Пароль" />
+                    <InputLabel htmlFor="password" value="Password" />
 
                     <TextInput
                         id="password"
@@ -46,7 +42,7 @@ export default function ConfirmPassword() {
                         value={data.password}
                         className="mt-1 block w-full"
                         isFocused={true}
-                        onChange={handleOnChange}
+                        onChange={(e) => setData('password', e.target.value)}
                     />
 
                     <InputError message={errors.password} className="mt-2" />
@@ -54,10 +50,10 @@ export default function ConfirmPassword() {
 
                 <div className="flex items-center justify-end mt-4">
                     <PrimaryButton className="ml-4" disabled={processing}>
-                       Подтвердить
+                        Confirm
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }

@@ -20,10 +20,6 @@ export default function ResetPassword({ token, email }) {
         };
     }, []);
 
-    const onHandleChange = (event) => {
-        setData(event.target.name, event.target.value);
-    };
-
     const submit = (e) => {
         e.preventDefault();
 
@@ -31,7 +27,7 @@ export default function ResetPassword({ token, email }) {
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title="Reset Password" />
 
             <form onSubmit={submit}>
@@ -45,14 +41,14 @@ export default function ResetPassword({ token, email }) {
                         value={data.email}
                         className="mt-1 block w-full"
                         autoComplete="username"
-                        onChange={onHandleChange}
+                        onChange={(e) => setData('email', e.target.value)}
                     />
 
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Пароль" />
+                    <InputLabel htmlFor="password" value="Password" />
 
                     <TextInput
                         id="password"
@@ -62,14 +58,14 @@ export default function ResetPassword({ token, email }) {
                         className="mt-1 block w-full"
                         autoComplete="new-password"
                         isFocused={true}
-                        onChange={onHandleChange}
+                        onChange={(e) => setData('password', e.target.value)}
                     />
 
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password_confirmation" value="Подтвердите пароль" />
+                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
 
                     <TextInput
                         type="password"
@@ -77,7 +73,7 @@ export default function ResetPassword({ token, email }) {
                         value={data.password_confirmation}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
-                        onChange={onHandleChange}
+                        onChange={(e) => setData('password_confirmation', e.target.value)}
                     />
 
                     <InputError message={errors.password_confirmation} className="mt-2" />
@@ -89,6 +85,6 @@ export default function ResetPassword({ token, email }) {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }

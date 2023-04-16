@@ -185,9 +185,9 @@ return [
         /*
          * Package Service Providers...
          */
-         
+
         Orchestra\Parser\XmlServiceProvider::class,
-      
+
 
 
         /*

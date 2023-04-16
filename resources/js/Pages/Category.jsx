@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../css/App.scss';
+import '../../css/app.scss';
 import img1 from "../../../public/assets/recipe_image/images/2.jpg"
 
 

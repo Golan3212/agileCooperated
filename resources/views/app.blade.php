@@ -15,6 +15,7 @@
         @viteReactRefresh
         @vite(['resources/js/index.jsx'])
         @inertiaHead
+        @routes
     </head>
     <body class="font-sans antialiased">
         @inertia

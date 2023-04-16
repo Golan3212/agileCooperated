@@ -32,7 +32,7 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
 
-        Inertia.post('/register', data);
+        Inertia.post(route('register'), data);
     };
 
     return (

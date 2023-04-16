@@ -1,16 +1,16 @@
-import InputError from '../../../Components/mark/InputError';
-import InputLabel from '../../../Components/mark/InputLabel';
-import PrimaryButton from '../../../Components/mark/PrimaryButton';
-import TextInput from '../../../Components/mark/TextInput';
+import InputError from '@/Components/mark/InputError';
+import InputLabel from '@/Components/mark/InputLabel';
+import PrimaryButton from '@/Components/mark/PrimaryButton';
+import TextInput from '@/Components/mark/TextInput';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 
-export default function UpdateProfileInformation({ mustVerifyEmail, status, className }) {
-    const user = usePage().props.auth.user;
-
+export default function UpdateProfileInformation({ mustVerifyEmail, user, status, className = '' }) {
+    const userInfo = user;
+    console.log(userInfo);
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
-        name: user.name,
-        email: user.email,
+        name: userInfo.name,
+        email: userInfo.email,
     });
 
     const submit = (e) => {
@@ -22,10 +22,10 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900">Информация профиля</h2>
+                <h2 className="text-lg font-medium text-gray-900">Информация пользователя</h2>
 
                 <p className="mt-1 text-sm text-gray-600">
-                    Обновите информацию профиля вашей учетной записи и адрес электронной почты.
+                    Обновить информацию профиля
                 </p>
             </header>
 
@@ -62,15 +62,15 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     <InputError className="mt-2" message={errors.email} />
                 </div>
 
-                {mustVerifyEmail && user.email_verified_at === null && (
+                {mustVerifyEmail && userInfo.email_verified_at === null && (
                     <div>
                         <p className="text-sm mt-2 text-gray-800">
-                            Ваш адрес электронной почты не подтвержден.
+                            Your email address is unverified.
                             <Link
                                 href={route('verification.send')}
                                 method="post"
                                 as="button"
-                                className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                                className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             >
                                 Нажмите здесь, чтобы повторно отправить электронное письмо с подтверждением.
                             </Link>
@@ -93,7 +93,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         leaveTo="opacity-0"
                         className="transition ease-in-out"
                     >
-                        <p className="text-sm text-gray-600">Сохранен.</p>
+                        <p className="text-sm text-gray-600">Сохранено.</p>
                     </Transition>
                 </div>
             </form>
