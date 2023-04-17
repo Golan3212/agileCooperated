@@ -63,12 +63,12 @@ export default function RecipeUpdate({recipe}) {
             id: recipe.id,
             title: title,
             image: image,
-            calorie: calorie,
-            proteins: proteins,
-            fats: fats,
-            carbohydrates: carbohydrates,
-            portion: portion,
-            cooking_time: cookingTime,
+            calorie: +calorie,
+            proteins: +proteins,
+            fats: +fats,
+            carbohydrates: +carbohydrates,
+            portion: +portion,
+            cooking_time: +cookingTime,
             category: category,
             steps: steps,
             ingridients: ingridients
@@ -139,7 +139,7 @@ export default function RecipeUpdate({recipe}) {
                 <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="steps">Ингредиенты</label>
                     {ingridients.map((ingridient, key)=>(
                        <div style={{gap:"5px"}}>
-                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Ингридиент" name="title" defaultValue={ingridient.title} onChange={(e) => handleIngredientsFormChange(key, e) } required/>
+                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Ингредиент" name="title" defaultValue={ingridient.title} onChange={(e) => handleIngredientsFormChange(key, e) } required/>
                             <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="number" min='0' placeholder="Количество" defaultValue={ingridient.quantity} name="quantity" onChange={(e) => handleIngredientsFormChange(key, e) } required/>
                             <input style={{marginLeft:"1px", width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Измерение" name="mass_unit" defaultValue={ingridient.mass_unit} onChange={(e) => handleIngredientsFormChange(key, e) } required/><br/>
                        </div>

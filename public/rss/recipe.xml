@@ -6,7 +6,7 @@
     <recipes>
         <recipe>
             <title>Шоколадно-банановые панкейки</title>
-            <img></img>
+            <img>https://i.ibb.co/fnCMm8q/18.jpg</img>
             <calorie>344</calorie>
             <proteins>27</proteins>
             <fats>10</fats>
@@ -49,7 +49,7 @@
         </recipe>
         <recipe>
             <title>Фруктовый салат</title>
-            <img></img>
+            <img>https://i.ibb.co/z6P2KS3/4.jpg</img>
             <calorie>304</calorie>
             <proteins>13</proteins>
             <fats>11</fats>
@@ -87,7 +87,7 @@
         </recipe>
         <recipe>
             <title>Рыба по-итальянски</title>
-            <img></img>
+            <img>https://i.ibb.co/tZsXKDX/11.jpg</img>
             <calorie>338</calorie>
             <proteins>30</proteins>
             <fats>7</fats>
@@ -160,7 +160,7 @@
         </recipe>
         <recipe>
             <title>Салат из капусты с яблоком</title>
-            <img></img>
+            <img>https://i.ibb.co/Byg3WfL/7.jpg</img>
             <calorie>211</calorie>
             <proteins>7</proteins>
             <fats>11</fats>
@@ -199,7 +199,7 @@
         </recipe>
         <recipe>
             <title>Курочка аппетитная</title>
-            <img></img>
+            <img>https://i.ibb.co/bvyb150/10.jpg</img>
             <calorie>307</calorie>
             <proteins>30</proteins>
             <fats>17</fats>
@@ -268,7 +268,7 @@
         </recipe>
         <recipe>
             <title>Омлет с овощами</title>
-            <img></img>
+            <img>https://i.ibb.co/XkgzdJ1/17.jpg</img>
             <calorie>375</calorie>
             <proteins>21</proteins>
             <fats>18</fats>
@@ -318,7 +318,7 @@
         </recipe>
         <recipe>
             <title>Печенье с курагой</title>
-            <img></img>
+            <img>https://i.ibb.co/PhjGSmM/19.jpg</img>
             <calorie>224</calorie>
             <proteins>13</proteins>
             <fats>4</fats>
@@ -380,7 +380,7 @@
         </recipe>
         <recipe>
             <title>Рагу из овощей + куриное филе ломтиками</title>
-            <img></img>
+            <img>https://i.ibb.co/GQWcpBY/2.jpg</img>
             <calorie>440</calorie>
             <proteins>41</proteins>
             <fats>13</fats>
@@ -455,7 +455,7 @@
         </recipe>
         <recipe>
             <title>Закуска из баклажанов</title>
-            <img></img>
+            <img>https://i.ibb.co/WpdGpV4/14.jpg</img>
             <calorie>222</calorie>
             <proteins>7</proteins>
             <fats>5</fats>
@@ -507,7 +507,7 @@
         </recipe>
         <recipe>
             <title>Тушеная рыба под маринадом + припущенные кабачки</title>
-            <img></img>
+            <img>https://i.ibb.co/LQGW2g9/3.jpg</img>
             <calorie>249</calorie>
             <proteins>29</proteins>
             <fats>9</fats>
@@ -569,7 +569,7 @@
         </recipe>
         <recipe>
             <title>Творожно-сырный рулет</title>
-            <img></img>
+            <img>https://i.ibb.co/N98Scx0/13.jpg</img>
             <calorie>405</calorie>
             <proteins>31</proteins>
             <fats>14</fats>
@@ -619,7 +619,7 @@
         </recipe>
         <recipe>
             <title>Гранола домашняя</title>
-            <img></img>
+            <img>https://i.ibb.co/qpsMXsR/5.jpg</img>
             <calorie>192</calorie>
             <proteins>13</proteins>
             <fats>5</fats>
@@ -669,8 +669,8 @@
             </ingridients>
         </recipe>
         <recipe>
-            <title>Пельмени «Домашние» (1 порция - 200г)</title>
-            <img></img>
+            <title>Пельмени «Домашние»</title>
+            <img>https://i.ibb.co/LdTBHLY/9.jpg</img>
             <calorie>383</calorie>
             <proteins>35</proteins>
             <fats>5</fats>
@@ -739,7 +739,7 @@
         </recipe>
         <recipe>
             <title>Грибной паштет</title>
-            <img></img>
+            <img>https://i.ibb.co/RQqwN6b/1.jpg</img>
             <calorie>267</calorie>
             <proteins>10</proteins>
             <fats>11</fats>
@@ -809,7 +809,7 @@
         </recipe>
         <recipe>
             <title>Омлет с болгарским перцем</title>
-            <img></img>
+            <img>https://i.ibb.co/XkgzdJ1/17.jpg</img>
             <calorie>256</calorie>
             <proteins>16</proteins>
             <fats>16</fats>
@@ -870,7 +870,7 @@
         </recipe>
         <recipe>
             <title>Ленивая овсянка</title>
-            <img></img>
+            <img>https://i.ibb.co/WcVBsf7/20.jpg</img>
             <calorie>343</calorie>
             <proteins>17</proteins>
             <fats>10</fats>
@@ -910,7 +910,7 @@
         </recipe>
         <recipe>
             <title>Творог с изюмом</title>
-            <img></img>
+            <img>https://i.ibb.co/WcVBsf7/20.jpg</img>
             <calorie>147</calorie>
             <proteins>15</proteins>
             <fats>2</fats>
@@ -959,7 +959,7 @@
         </recipe>
         <recipe>
             <title>Куриные оладьи с запеченным картофелем</title>
-            <img></img>
+            <img>https://i.ibb.co/RHZ6xYx/6.jpg</img>
             <calorie>349</calorie>
             <proteins>23</proteins>
             <fats>12</fats>
@@ -1033,7 +1033,7 @@
         </recipe>
         <recipe>
             <title>Салат "Партизан"</title>
-            <img></img>
+            <img>https://i.ibb.co/Byg3WfL/7.jpg</img>
             <calorie>190</calorie>
             <proteins>11</proteins>
             <fats>6</fats>
@@ -1097,7 +1097,7 @@
         </recipe>
         <recipe>
             <title>Сочная курочка с ореховым соусом и овощами</title>
-            <img></img>
+            <img>https://i.ibb.co/GQWcpBY/2.jpg</img>
             <calorie>363</calorie>
             <proteins>28</proteins>
             <fats>20</fats>
@@ -1178,7 +1178,7 @@
         </recipe>
         <recipe>
             <title>Творожные улитки с корицей</title>
-            <img></img>
+            <img>https://i.ibb.co/fnCMm8q/18.jpg</img>
             <calorie>717</calorie>
             <proteins>46</proteins>
             <fats>19</fats>
@@ -1259,7 +1259,7 @@
         </recipe>
         <recipe>
             <title>Груша + миндаль</title>
-            <img></img>
+            <img>https://i.ibb.co/z6P2KS3/4.jpg</img>
             <calorie>159</calorie>
             <proteins>3</proteins>
             <fats>8</fats>
@@ -1287,7 +1287,7 @@
         </recipe>
         <recipe>
             <title>Макароны из полбы или твердых сортов пшеницы «По флотски»</title>
-            <img></img>
+            <img>https://i.ibb.co/bg5Bbt8/16.jpg</img>
             <calorie>345</calorie>
             <proteins>22</proteins>
             <fats>14</fats>
@@ -1349,7 +1349,7 @@
         </recipe>
         <recipe>
             <title>Домашние пряные хлебцы</title>
-            <img></img>
+            <img>https://i.ibb.co/N98Scx0/13.jpg</img>
             <calorie>253</calorie>
             <proteins>9</proteins>
             <fats>10</fats>
@@ -1398,7 +1398,7 @@
         </recipe>
         <recipe>
             <title>Теплый салат с курицей</title>
-            <img></img>
+            <img>https://i.ibb.co/LQGW2g9/3.jpg</img>
             <calorie>422</calorie>
             <proteins>30</proteins>
             <fats>21</fats>
@@ -1450,7 +1450,7 @@
         </recipe>
         <recipe>
             <title>Овсяноблин с сыром</title>
-            <img></img>
+            <img>https://i.ibb.co/N98Scx0/13.jpg</img>
             <calorie>717</calorie>
             <proteins>46</proteins>
             <fats>19</fats>
@@ -1495,7 +1495,7 @@
         </recipe>
         <recipe>
             <title>Флепджек</title>
-            <img></img>
+            <img>https://i.ibb.co/qpsMXsR/5.jpg</img>
             <calorie>159</calorie>
             <proteins>3</proteins>
             <fats>8</fats>
@@ -1531,7 +1531,7 @@
         </recipe>
         <recipe>
             <title>Домашние тефтели со шпинатом в сливках</title>
-            <img></img>
+            <img>https://i.ibb.co/Byg3WfL/7.jpg</img>
             <calorie>432</calorie>
             <proteins>40</proteins>
             <fats>8</fats>
@@ -1597,153 +1597,8 @@
             </ingridients>
         </recipe>
         <recipe>
-            <title>Салат "Партизан"</title>
-            <img></img>
-            <calorie>190</calorie>
-            <proteins>11</proteins>
-            <fats>6</fats>
-            <carbohydrates>22</carbohydrates>
-            <portion>2</portion>
-            <time>25</time>
-            <category>Перекус</category>
-            <steps>
-                <step>Овощи порезать на произвольные кусочки.Перемешать.</step>
-                <step>Заправить соевым соусом, поперчить и посыпать сушеным базиликом.</step>
-                <step>Дать настояться 15 минут.</step>
-                <step>Салат можно дополнить кусочком цельнозернового хлеба</step>
-            </steps>
-            <ingridients>
-                <ingridient>
-                    <title>Перец болгарский</title>
-                    <quantity>1</quantity>
-                    <mass_unit>шт.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Помидор средний</title>
-                    <quantity>1</quantity>
-                    <mass_unit>шт.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Огурец</title>
-                    <quantity>70</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Шпинат</title>
-                    <quantity>10</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Сыр моцарелла</title>
-                    <quantity>30</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Соевый соус</title>
-                    <quantity>1</quantity>
-                    <mass_unit>ст.л.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Перец</title>
-                    <quantity>0</quantity>
-                    <mass_unit>по вкусу</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Сущеный базилик</title>
-                    <quantity>1</quantity>
-                    <mass_unit>щепотка</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Хлеб цельнозерновой</title>
-                    <quantity>60</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-            </ingridients>
-        </recipe>
-        <recipe>
-            <title>Сочная курочка с ореховым соусом и овощами</title>
-            <img></img>
-            <calorie>363</calorie>
-            <proteins>28</proteins>
-            <fats>20</fats>
-            <carbohydrates>18</carbohydrates>
-            <portion>2</portion>
-            <time>15</time>
-            <category>Ужин</category>
-            <steps>
-                <step>Кабачок нарезаем кубиками, обжариваем до золотистого цвета на 1 капле масла.</step>
-                <step>Черри режем пополам и обжариваем с чесноком на сливочном масле.</step>
-                <step>Филе нарезаем как манго и обжариваем с каждой стороны по 8 минут до золотистого цвета.</step>
-                <step>Обжариваем грецкие орехи на сухой сковороде без масла.</step>
-                <step>В чашу блендера добавляем орехи, кинзу, сливки, соль, перец.</step>
-                <step>Выкладываем подушку из овощей, сверху курицу и поливаем ореховым соусом.</step>
-            </steps>
-            <ingridients>
-                <ingridient>
-                    <title>Куриное филе</title>
-                    <quantity>100</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Грецкие орехи</title>
-                    <quantity>10</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Кинза</title>
-                    <quantity>2</quantity>
-                    <mass_unit>веточки</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Сливки 10%</title>
-                    <quantity>20</quantity>
-                    <mass_unit>мл</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Кабачок</title>
-                    <quantity>200</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Помидоры черри</title>
-                    <quantity>100</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Растительное масло</title>
-                    <quantity>5</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Сок лимона</title>
-                    <quantity>1</quantity>
-                    <mass_unit>ст.л.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Сливочное масло</title>
-                    <quantity>5</quantity>
-                    <mass_unit>г.</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Соль</title>
-                    <quantity>0</quantity>
-                    <mass_unit>по вкусу</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Черный молотый перец</title>
-                    <quantity>0</quantity>
-                    <mass_unit>по вкусу</mass_unit>
-                </ingridient>
-                <ingridient>
-                    <title>Чеснок</title>
-                    <quantity>2</quantity>
-                    <mass_unit>зубчика</mass_unit>
-                </ingridient>
-            </ingridients>
-        </recipe>
-        <recipe>
             <title>Кукурузные панкейки</title>
-            <img></img>
+            <img>https://i.ibb.co/PhjGSmM/19.jpg</img>
             <calorie>351</calorie>
             <proteins>20</proteins>
             <fats>10</fats>
@@ -1793,7 +1648,7 @@
         </recipe>
         <recipe>
             <title>Кекс в кружке с шоколадом</title>
-            <img></img>
+            <img>https://i.ibb.co/fnCMm8q/18.jpg</img>
             <calorie>320</calorie>
             <proteins>12</proteins>
             <fats>13</fats>
@@ -1852,7 +1707,7 @@
         </recipe>
         <recipe>
             <title>Жульен в кабачке + отварное куриное бедро</title>
-            <img></img>
+            <img>https://i.ibb.co/LdTBHLY/9.jpg</img>
             <calorie>427</calorie>
             <proteins>26</proteins>
             <fats>17</fats>
@@ -1928,7 +1783,7 @@
         </recipe>
         <recipe>
             <title>Сэндвич с творожным сыром и помидором</title>
-            <img></img>
+            <img>https://i.ibb.co/N98Scx0/13.jpg</img>
             <calorie>178</calorie>
             <proteins>10</proteins>
             <fats>8</fats>
@@ -1966,7 +1821,7 @@
         </recipe>
         <recipe>
             <title>Салат «Аппетитный»</title>
-            <img></img>
+            <img>https://i.ibb.co/nfdFRhg/15.jpg</img>
             <calorie>244</calorie>
             <proteins>22</proteins>
             <fats>12</fats>

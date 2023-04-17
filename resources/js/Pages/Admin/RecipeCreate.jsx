@@ -102,7 +102,7 @@ export default function RecipeCreate() {
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
                 <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="image">Фото</label>
-                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="text" id="image" placeholder="Введите фото" onChange={(e) => setImage(e.target.value)}/>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="file" id="image" placeholder="Введите фото" onChange={(e) => setImage(e.target.value)}/>
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
                 <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="calorie">Калории</label>
@@ -154,9 +154,9 @@ export default function RecipeCreate() {
                 <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="steps">Ингредиенты</label>
                     {ingridients.map((ingridient, key)=>(
                        <>
-                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Ингридиент" name="title" onChange={(e) => handleIngredientsFormChange(key, e) } required/>
+                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Ингредиент" name="title" onChange={(e) => handleIngredientsFormChange(key, e) } required/>
                             <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="number" min='0' placeholder="Количество" name="quantity" onChange={(e) => handleIngredientsFormChange(key, e) } required/>
-                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Измерение" name="mass_unit" onChange={(e) => handleIngredientsFormChange(key, e) } required/><br/>
+                            <input style={{width:"250px", height:"20px", borderRadius:"5px"}} type="text" placeholder="Единица измерения" name="mass_unit" onChange={(e) => handleIngredientsFormChange(key, e) } required/><br/>
                        </>
                     ))}
                     {ingridients.length !== 1 ? <div onClick={(e) => closeIngredient()}>X</div> : ''}

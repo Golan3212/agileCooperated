@@ -1,6 +1,6 @@
 import * as jsxRuntime from "react/jsx-runtime";
 import { InertiaLink, useForm, usePage } from "@inertiajs/inertia-react";
-import { useState, useEffect, Component, createContext, useContext, Fragment as Fragment$1, forwardRef, useRef } from "react";
+import { useState, useEffect, Component, createContext, Fragment as Fragment$1, forwardRef, useRef, useContext } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { Link, Head, usePage as usePage$1, useForm as useForm$1, router, createInertiaApp } from "@inertiajs/react";
 import ThemeSwitch from "react-theme-switch";
@@ -28,7 +28,7 @@ const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
 }, Symbol.toStringTag, { value: "Module" }));
 function RecipeCreate() {
   const [title, setTitle] = useState("");
-  const [image2, setImage] = useState("");
+  const [image, setImage] = useState("");
   const [calorie, setCalorie] = useState("");
   const [proteins, setProteins] = useState("");
   const [fats, setFats] = useState("");
@@ -89,7 +89,7 @@ function RecipeCreate() {
     console.log(e, category);
     const values = {
       title,
-      image: image2,
+      image,
       calorie,
       proteins,
       fats,
@@ -109,7 +109,7 @@ function RecipeCreate() {
     ] }),
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
       /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "image", children: "Фото" }),
-      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "text", id: "image", placeholder: "Введите фото", onChange: (e) => setImage(e.target.value) })
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "file", id: "image", placeholder: "Введите фото", onChange: (e) => setImage(e.target.value) })
     ] }),
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
       /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "calorie", children: "Калории" }),
@@ -154,9 +154,9 @@ function RecipeCreate() {
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
       /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "steps", children: "Ингредиенты" }),
       ingridients.map((ingridient, key) => /* @__PURE__ */ jsxs(Fragment, { children: [
-        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Ингридиент", name: "title", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Ингредиент", name: "title", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
         /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "number", min: "0", placeholder: "Количество", name: "quantity", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
-        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Измерение", name: "mass_unit", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Единица измерения", name: "mass_unit", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
         /* @__PURE__ */ jsx("br", {})
       ] })),
       ingridients.length !== 1 ? /* @__PURE__ */ jsx("div", { onClick: (e) => closeIngredient(), children: "X" }) : "",
@@ -172,7 +172,7 @@ const __vite_glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
 function RecipeUpdate({ recipe: recipe2 }) {
   console.log(recipe2);
   const [title, setTitle] = useState(recipe2.title);
-  const [image2, setImage] = useState(recipe2.image);
+  const [image, setImage] = useState(recipe2.image);
   const [calorie, setCalorie] = useState(recipe2.calorie);
   const [proteins, setProteins] = useState(recipe2.proteins);
   const [fats, setFats] = useState(recipe2.fats);
@@ -221,13 +221,13 @@ function RecipeUpdate({ recipe: recipe2 }) {
     const values = {
       id: recipe2.id,
       title,
-      image: image2,
-      calorie,
-      proteins,
-      fats,
-      carbohydrates,
-      portion,
-      cooking_time: cookingTime,
+      image,
+      calorie: +calorie,
+      proteins: +proteins,
+      fats: +fats,
+      carbohydrates: +carbohydrates,
+      portion: +portion,
+      cooking_time: +cookingTime,
       category,
       steps,
       ingridients
@@ -286,7 +286,7 @@ function RecipeUpdate({ recipe: recipe2 }) {
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center" }, children: [
       /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "steps", children: "Ингредиенты" }),
       ingridients.map((ingridient, key) => /* @__PURE__ */ jsxs("div", { style: { gap: "5px" }, children: [
-        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Ингридиент", name: "title", defaultValue: ingridient.title, onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
+        /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Ингредиент", name: "title", defaultValue: ingridient.title, onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
         /* @__PURE__ */ jsx("input", { style: { width: "250px", height: "20px", borderRadius: "5px" }, type: "number", min: "0", placeholder: "Количество", defaultValue: ingridient.quantity, name: "quantity", onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
         /* @__PURE__ */ jsx("input", { style: { marginLeft: "1px", width: "250px", height: "20px", borderRadius: "5px" }, type: "text", placeholder: "Измерение", name: "mass_unit", defaultValue: ingridient.mass_unit, onChange: (e) => handleIngredientsFormChange(key, e), required: true }),
         /* @__PURE__ */ jsx("br", {})
@@ -301,6 +301,7 @@ const __vite_glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
   __proto__: null,
   default: RecipeUpdate
 }, Symbol.toStringTag, { value: "Module" }));
+const account$1 = "";
 function RecipesList({ list }) {
   function hangleRecipesDelete(e, id) {
     e.preventDefault();
@@ -315,39 +316,37 @@ function RecipesList({ list }) {
     Inertia.get(`/admin/recipes/${id}/edit`);
   }
   console.log(list);
-  return /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", margin: "50px", gap: "30px" }, children: [
+  return /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", margin: "30px", gap: "30px" }, children: [
     /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx("strong", { style: { fontSize: "40px" }, children: "Рецепты" }) }),
     /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx("button", { onClick: (e) => {
+      /* @__PURE__ */ jsx("button", { className: "account__btn", style: { marginTop: "0px" }, onClick: (e) => {
         hangleCreate();
       }, children: "Новое блюдо" }),
-      /* @__PURE__ */ jsxs("table", { className: "table-bordered", style: { width: "1400px", textAlign: "center" }, children: [
+      /* @__PURE__ */ jsxs("table", { className: "table-bordered", style: { width: "100%", textAlign: "center", marginTop: "15px" }, children: [
         /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, children: [
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "id" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Название" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Фото" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Калории" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Белки" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Жиры" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Углеводы" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Порций" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Время" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Категория" }),
-          /* @__PURE__ */ jsx("th", { style: { width: "9%", backgroundColor: "rgb(228, 228, 217)" }, children: "Действие" })
+          /* @__PURE__ */ jsx("th", { style: { gap: "10px", width: "5%", backgroundColor: "rgb(228, 228, 217)" }, children: "id" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, children: "Название" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "10%", backgroundColor: "rgb(228, 228, 217)" }, children: "Калории" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "10%", backgroundColor: "rgb(228, 228, 217)" }, children: "Белки" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "10%", backgroundColor: "rgb(228, 228, 217)" }, children: "Жиры" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "10%", backgroundColor: "rgb(228, 228, 217)" }, children: "Углеводы" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "10%", backgroundColor: "rgb(228, 228, 217)" }, children: "Порций" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "8%", backgroundColor: "rgb(228, 228, 217)" }, children: "Время" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "12%", backgroundColor: "rgb(228, 228, 217)" }, children: "Категория" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "10%", backgroundColor: "rgb(228, 228, 217)" }, children: "Действие" })
         ] }) }),
         /* @__PURE__ */ jsx("tbody", { children: list.map(
           (value) => /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, children: [
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.id }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.title }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.image }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.calorie }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.proteins }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.fats }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.carbohydrates }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.portion }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.cooking_time }),
-            /* @__PURE__ */ jsx("td", { style: { width: "9%", color: "darkgray" }, children: value.category }),
-            /* @__PURE__ */ jsxs("td", { style: { width: "9%", color: "darkgray", display: "flex", flexDirection: "column" }, children: [
+            /* @__PURE__ */ jsx("td", { style: { width: "5%", color: "darkgray" }, children: value.id }),
+            /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: /* @__PURE__ */ jsx("a", { href: "/recipe/" + value.id, children: value.title }) }),
+            /* @__PURE__ */ jsx("td", { style: { width: "10%", color: "darkgray" }, children: value.calorie }),
+            /* @__PURE__ */ jsx("td", { style: { width: "10%", color: "darkgray" }, children: value.proteins }),
+            /* @__PURE__ */ jsx("td", { style: { width: "10%", color: "darkgray" }, children: value.fats }),
+            /* @__PURE__ */ jsx("td", { style: { width: "10%", color: "darkgray" }, children: value.carbohydrates }),
+            /* @__PURE__ */ jsx("td", { style: { width: "10%", color: "darkgray" }, children: value.portion }),
+            /* @__PURE__ */ jsx("td", { style: { width: "8%", color: "darkgray" }, children: value.cooking_time }),
+            /* @__PURE__ */ jsx("td", { style: { width: "12%", color: "darkgray" }, children: value.category }),
+            /* @__PURE__ */ jsxs("td", { style: { width: "10%", color: "darkgray", display: "flex", flexDirection: "column" }, children: [
               /* @__PURE__ */ jsx("a", { onClick: (e) => {
                 hangleRecipesUpdate(e, value.id);
               }, style: { color: "blue", cursor: "pointer" }, children: "Ред." }),
@@ -377,29 +376,25 @@ function UsersList({ list }) {
       onBefore: () => confirm("Вы уверены, что хотите удалить этого пользователя?")
     });
   }
-  return /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", margin: "50px", gap: "30px" }, children: [
+  return /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", margin: "30px", gap: "30px" }, children: [
     /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx("strong", { style: { fontSize: "40px" }, children: "Пользователи" }) }),
-    /* @__PURE__ */ jsxs("table", { className: "table-bordered", style: { width: "90%", textAlign: "center" }, children: [
+    /* @__PURE__ */ jsxs("table", { className: "table-bordered", style: { width: "100%", textAlign: "center" }, children: [
       /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, itemScope: "col", children: [
-        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "id" }),
-        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Никнейм" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "10%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "id" }),
         /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Имя" }),
-        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Почта" }),
-        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Телефон" }),
-        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Админ" }),
-        /* @__PURE__ */ jsx("th", { style: { width: "15%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Действие" })
+        /* @__PURE__ */ jsx("th", { style: { width: "25%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Почта" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "25%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Админ" }),
+        /* @__PURE__ */ jsx("th", { style: { width: "25%", backgroundColor: "rgb(228, 228, 217)" }, scope: "col", children: "Действие" })
       ] }) }),
       /* @__PURE__ */ jsx("tbody", { children: list.map(
         (value) => /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, children: [
-          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.id }),
-          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.username }),
+          /* @__PURE__ */ jsx("td", { style: { width: "10%", color: "darkgray" }, children: value.id }),
           /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.name }),
-          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.email }),
-          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: "880005553535" }),
-          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.is_admin === 0 ? /* @__PURE__ */ jsx("button", { onClick: (e) => {
+          /* @__PURE__ */ jsx("td", { style: { width: "25%", color: "darkgray" }, children: value.email }),
+          /* @__PURE__ */ jsx("td", { style: { width: "25%", color: "darkgray" }, children: value.is_admin === 0 ? /* @__PURE__ */ jsx("button", { onClick: (e) => {
             hangleAdmin(e, value.id);
           }, children: "Сделать админом" }) : "Админ" }),
-          /* @__PURE__ */ jsx("td", { style: { width: "15%", color: "darkgray" }, children: value.is_admin === 0 ? /* @__PURE__ */ jsx("button", { onClick: (e) => {
+          /* @__PURE__ */ jsx("td", { style: { width: "25%", color: "darkgray" }, children: value.is_admin === 0 ? /* @__PURE__ */ jsx("button", { onClick: (e) => {
             hangleUsersDelete(e, value.id);
           }, children: "Удалить" }) : "Админа нельзя удалить" })
         ] })
@@ -436,7 +431,6 @@ function getBodyMassIndex(massIndex) {
   }
   return description;
 }
-const account$1 = "";
 function Advice({ profile }) {
   let bodyMassIndexDescription = getBodyMassIndex(profile.mass_index);
   console.log(profile);
@@ -492,7 +486,7 @@ const __vite_glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
   __proto__: null,
   default: Advice
 }, Symbol.toStringTag, { value: "Module" }));
-const App = "";
+const app$1 = "";
 const img1 = "/build/assets/2-5a9cf8d3.jpg";
 function Category() {
   const recipes = [
@@ -904,7 +898,7 @@ const __vite_glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
 }, Symbol.toStringTag, { value: "Module" }));
 const header = "";
 const footer = "";
-const logo$1 = "/build/assets/logo-45188fb1.svg";
+const logo = "/build/assets/logo-45188fb1.svg";
 const instagram = "/build/assets/instagram-f-svgrepo-com-bb0dc06b.svg";
 const telegram = "/build/assets/telegram-fill-svgrepo-com-bc02e72d.svg";
 const youtube = "/build/assets/youtube-round-svgrepo-com-7f238d43.svg";
@@ -954,7 +948,7 @@ const MenuList$2 = (props) => {
     /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
       /* @__PURE__ */ jsxs("div", { className: "inner", children: [
         /* @__PURE__ */ jsxs("div", { id: "up", children: [
-          /* @__PURE__ */ jsx("img", { className: "logo", src: logo$1 }),
+          /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
           /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
@@ -1024,7 +1018,6 @@ const FooterList$1 = () => {
   ] }) }) }) });
 };
 const recipe = "";
-const logo = "/build/assets/2023-03-16_17-05-10ede1c1.png";
 const MenuList$1 = (props) => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
     /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
@@ -1130,7 +1123,6 @@ const __vite_glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
 }, Symbol.toStringTag, { value: "Module" }));
 const menu_builder = "";
 const plus = "/build/assets/plus-14c06bc0.svg";
-const image$1 = "/build/assets/4-af5c209f.jpg";
 const logo3 = "/build/assets/portions-fe7343ce.svg";
 function MenuBuilder({ menu: menu2, recipes }) {
   const [menuAll, setMenuAll] = useState(menu2);
@@ -1208,7 +1200,7 @@ function MenuBuilder({ menu: menu2, recipes }) {
             "div",
             {
               className: "cons_pic cons_add",
-              style: { backgroundImage: `url(${image$1})`, cursor: "auto" },
+              style: { backgroundImage: `url(${menuRecipe.image})`, cursor: "auto" },
               children: !show && /* @__PURE__ */ jsx(
                 "button",
                 {
@@ -1267,53 +1259,50 @@ function MenuBuilder({ menu: menu2, recipes }) {
   }
   function CategoryList(props) {
     const { show: show2, closeModal: closeModal2 } = props;
-    return /* @__PURE__ */ jsxs(Fragment, { children: [
-      /* @__PURE__ */ jsx("div", { className: show2 ? "overlay" : "hide", onClick: closeModal2 }),
-      /* @__PURE__ */ jsxs("div", { className: show2 ? "modal" : "hide", children: [
-        /* @__PURE__ */ jsx("div", { id: "element", className: "modal__box", children: newRecipe.map((item) => /* @__PURE__ */ jsxs(
-          "div",
-          {
-            className: "modal__card red",
-            id: item.id,
-            children: [
-              /* @__PURE__ */ jsx(
-                "div",
-                {
-                  className: "cons_pic cons_add product-item",
-                  style: { backgroundImage: `url(${image$1})`, cursor: "auto", width: "100%", height: "190px" },
-                  "data-category": item.category_id,
-                  id: item.id,
-                  children: /* @__PURE__ */ jsx("a", { href: "#" + item.id, children: /* @__PURE__ */ jsx(
-                    "button",
-                    {
-                      className: "modal__btn",
-                      "data-category": item.category_id,
-                      id: item.id,
-                      onClick: (e) => {
-                        handleUpdateRecipes(e, item.id);
-                      },
-                      children: " Заменить рецепт"
-                    }
-                  ) })
-                }
-              ),
-              /* @__PURE__ */ jsxs("div", { className: "cons_txt modal__text", children: [
-                /* @__PURE__ */ jsx("div", { className: "cons_title_menu", children: /* @__PURE__ */ jsx("a", { href: "/recipe/" + item.id, children: item.title }) }),
-                /* @__PURE__ */ jsxs("div", { className: "cons_calorie", children: [
-                  /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("img", { className: "cons_title_logo", src: logo3 }) }),
-                  /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("p", { className: "cons_title_calorie", children: [
-                    "ККАЛОРИЙ: ",
-                    item.calorie,
-                    " "
-                  ] }) })
-                ] })
+    return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx("div", { className: show2 ? "overlay" : "hide", onClick: closeModal2, children: /* @__PURE__ */ jsxs("div", { className: show2 ? "modal" : "hide", children: [
+      /* @__PURE__ */ jsx("div", { id: "element", className: "modal__box", children: newRecipe.map((item) => /* @__PURE__ */ jsxs(
+        "div",
+        {
+          className: "modal__card red",
+          id: item.id,
+          children: [
+            /* @__PURE__ */ jsx(
+              "div",
+              {
+                className: "cons_pic cons_add product-item",
+                style: { backgroundImage: `url(${item.image})`, cursor: "auto", width: "100%", height: "190px" },
+                "data-category": item.category_id,
+                id: item.id,
+                children: /* @__PURE__ */ jsx("a", { href: "#" + item.id, children: /* @__PURE__ */ jsx(
+                  "button",
+                  {
+                    className: "modal__btn",
+                    "data-category": item.category_id,
+                    id: item.id,
+                    onClick: (e) => {
+                      handleUpdateRecipes(e, item.id);
+                    },
+                    children: " Заменить рецепт"
+                  }
+                ) })
+              }
+            ),
+            /* @__PURE__ */ jsxs("div", { className: "cons_txt modal__text", children: [
+              /* @__PURE__ */ jsx("div", { className: "cons_title_menu", children: /* @__PURE__ */ jsx("a", { href: "/recipe/" + item.id, children: item.title }) }),
+              /* @__PURE__ */ jsxs("div", { className: "cons_calorie", children: [
+                /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("img", { className: "cons_title_logo", src: logo3 }) }),
+                /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("p", { className: "cons_title_calorie", children: [
+                  "ККАЛОРИЙ: ",
+                  item.calorie,
+                  " "
+                ] }) })
               ] })
-            ]
-          }
-        )) }),
-        /* @__PURE__ */ jsx("button", { className: "modal__button", onClick: closeModal2, children: "Х" })
-      ] })
-    ] });
+            ] })
+          ]
+        }
+      )) }),
+      /* @__PURE__ */ jsx("button", { className: "modal__button", onClick: closeModal2, children: "Х" })
+    ] }) }) });
   }
   console.log(newRecipe);
   function ShowCategoryList(props) {
@@ -1374,7 +1363,14 @@ const __vite_glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: NotFound
 }, Symbol.toStringTag, { value: "Module" }));
-function PersonalAccount({ user }) {
+function PersonalAccount({ user, isAdmin }) {
+  const admin = (value) => {
+    if (value === 1) {
+      return /* @__PURE__ */ jsx("button", { type: "submit", className: "account__btn", children: /* @__PURE__ */ jsx("a", { href: "/admin/index", children: "Вход в админку" }) });
+    } else if (value === 0) {
+      return /* @__PURE__ */ jsx("button", { type: "submit", className: "account__btn", children: /* @__PURE__ */ jsx("a", { href: "/menu/builder", children: "Меню на неделю" }) });
+    }
+  };
   const gender = (value) => {
     if (value === "male") {
       return "мужской";
@@ -1404,14 +1400,15 @@ function PersonalAccount({ user }) {
       return "2.2 - предельно активный образ жизни (физическая тяжелая физическая работа и интенсивные тренировки/занятия спортом.";
     }
   };
+  function handleProfile(e) {
+    e.preventDefault();
+    Inertia.get(route("profile.edit"));
+  }
   return /* @__PURE__ */ jsx("div", { className: "account", children: /* @__PURE__ */ jsxs("main", { className: "account__box", children: [
+    /* @__PURE__ */ jsx("div", { children: admin(isAdmin) }),
     user.map((item) => {
       return /* @__PURE__ */ jsxs("section", { className: "account__profile", children: [
         /* @__PURE__ */ jsx("h2", { children: "Персональные данные" }),
-        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-          /* @__PURE__ */ jsx("p", { children: "Логин" }),
-          /* @__PURE__ */ jsx("span", { children: item.user.username })
-        ] }),
         /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
           /* @__PURE__ */ jsx("p", { children: "Имя" }),
           /* @__PURE__ */ jsx("span", { children: item.user.name })
@@ -1425,14 +1422,10 @@ function PersonalAccount({ user }) {
           /* @__PURE__ */ jsx("span", { children: item.age })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-          /* @__PURE__ */ jsx("p", { children: "Телефон" }),
-          /* @__PURE__ */ jsx("span", { children: item.user.phone })
-        ] }),
-        /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
           /* @__PURE__ */ jsx("p", { children: "Email" }),
           /* @__PURE__ */ jsx("span", { children: item.user.email })
         ] }),
-        /* @__PURE__ */ jsx("button", { type: "submit", className: "account__btn", children: "Изменить" })
+        /* @__PURE__ */ jsx("button", { type: "submit", onClick: (e) => handleProfile(e), className: "account__btn", children: "Изменить" })
       ] });
     }),
     user.map((item) => {
@@ -1534,7 +1527,7 @@ const __vite_glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: Create
 }, Symbol.toStringTag, { value: "Module" }));
-const Edit = () => {
+const Edit$1 = () => {
   const { post } = usePage().props;
   const { data, setData, put, errors } = useForm({
     title: post.title || "",
@@ -1621,7 +1614,7 @@ const Edit = () => {
 };
 const __vite_glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Edit
+  default: Edit$1
 }, Symbol.toStringTag, { value: "Module" }));
 function Layout$1({ children }) {
   const { auth } = usePage$1().props;
@@ -1637,68 +1630,7 @@ const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: Layout$1
 }, Symbol.toStringTag, { value: "Module" }));
-const DropDownContext = createContext();
-const Dropdown = ({ children }) => {
-  const [open, setOpen] = useState(false);
-  const toggleOpen = () => {
-    setOpen((previousState) => !previousState);
-  };
-  return /* @__PURE__ */ jsx(DropDownContext.Provider, { value: { open, setOpen, toggleOpen }, children: /* @__PURE__ */ jsx("div", { className: "relative", children }) });
-};
-const Trigger = ({ children }) => {
-  const { open, setOpen, toggleOpen } = useContext(DropDownContext);
-  return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx("div", { onClick: toggleOpen, children }),
-    open && /* @__PURE__ */ jsx("div", { className: "fixed inset-0 z-40", onClick: () => setOpen(false) })
-  ] });
-};
-const Content = ({ align = "right", width = "48", contentClasses = "py-1 bg-white", children }) => {
-  const { open, setOpen } = useContext(DropDownContext);
-  let alignmentClasses = "origin-top";
-  if (align === "left") {
-    alignmentClasses = "origin-top-left left-0";
-  } else if (align === "right") {
-    alignmentClasses = "origin-top-right right-0";
-  }
-  let widthClasses = "";
-  if (width === "48") {
-    widthClasses = "w-48";
-  }
-  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
-    Transition,
-    {
-      as: Fragment$1,
-      show: open,
-      enter: "transition ease-out duration-200",
-      enterFrom: "transform opacity-0 scale-95",
-      enterTo: "transform opacity-100 scale-100",
-      leave: "transition ease-in duration-75",
-      leaveFrom: "transform opacity-100 scale-100",
-      leaveTo: "transform opacity-0 scale-95",
-      children: /* @__PURE__ */ jsx(
-        "div",
-        {
-          className: `absolute z-50 mt-2  shadow-lg ${alignmentClasses} ${widthClasses}`,
-          onClick: () => setOpen(false),
-          children: /* @__PURE__ */ jsx("div", { className: ` ring-1 ring-black ring-opacity-5 ` + contentClasses, children })
-        }
-      )
-    }
-  ) });
-};
-const DropdownLink = ({ className = "", children, ...props }) => {
-  return /* @__PURE__ */ jsx(
-    Link,
-    {
-      ...props,
-      className: "block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out " + className,
-      children
-    }
-  );
-};
-Dropdown.Trigger = Trigger;
-Dropdown.Content = Content;
-Dropdown.Link = DropdownLink;
+createContext();
 function Layout({ children }) {
   return /* @__PURE__ */ jsxs("main", { className: "main", children: [
     /* @__PURE__ */ jsx(MenuList, {}),
@@ -1710,10 +1642,6 @@ const MenuList = (props) => {
   const logoutClick = (e) => {
     e.preventDefault();
     Inertia.post("/logout");
-  };
-  const profileClick = (e) => {
-    e.preventDefault();
-    Inertia.get("/profile");
   };
   const [isOpen, setIsOpen] = useState(false);
   const clickOpen = (e) => {
@@ -1727,13 +1655,11 @@ const MenuList = (props) => {
         isOpen && /* @__PURE__ */ jsx("div", { className: "visible", children: /* @__PURE__ */ jsxs("div", { className: "nav__box", children: [
           /* @__PURE__ */ jsxs("div", { className: "nav__links", children: [
             /* @__PURE__ */ jsxs("ul", { children: [
-              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/about", children: "О нас" }) }),
               /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/account", children: "Мой профиль" }) }),
               /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/advice", children: "Мои рекомендации" }) }),
               /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/menu/builder", children: "Меню на неделю" }) }),
               /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/progress", children: "Прогресс-шкала" }) })
             ] }),
-            /* @__PURE__ */ jsx("button", { onClick: profileClick, className: "menu__button", children: "Профиль" }),
             /* @__PURE__ */ jsx("button", { onClick: logoutClick, className: "menu__button", children: "Выйти" })
           ] }),
           /* @__PURE__ */ jsx("button", { className: "nav__btn", onClick: clickOpen, children: "X" })
@@ -1747,7 +1673,7 @@ const MenuList = (props) => {
     /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
       /* @__PURE__ */ jsxs("div", { className: "inner", children: [
         /* @__PURE__ */ jsxs("div", { id: "up", children: [
-          /* @__PURE__ */ jsx("img", { className: "logo", src: logo$1 }),
+          /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
           /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
@@ -1802,9 +1728,6 @@ const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: Test
 }, Symbol.toStringTag, { value: "Module" }));
-const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null
-}, Symbol.toStringTag, { value: "Module" }));
 function DangerButton({ className = "", disabled, children, ...props }) {
   return /* @__PURE__ */ jsx(
     "button",
@@ -1816,10 +1739,10 @@ function DangerButton({ className = "", disabled, children, ...props }) {
     }
   );
 }
-function InputError({ message, className = "", ...props }) {
+function InputError$1({ message, className = "", ...props }) {
   return message ? /* @__PURE__ */ jsx("p", { ...props, className: "text-sm text-red-900 " + className, children: message }) : null;
 }
-function InputLabel({ value, className = "", children, ...props }) {
+function InputLabel$1({ value, className = "", children, ...props }) {
   return /* @__PURE__ */ jsx("label", { ...props, className: `block font-medium text-sm text-gray-700 ` + className, children: value ? value : children });
 }
 function Modal({ children, show = false, maxWidth = "2xl", closeable = true, onClose = () => {
@@ -1880,19 +1803,7 @@ function Modal({ children, show = false, maxWidth = "2xl", closeable = true, onC
     }
   ) });
 }
-function SecondaryButton({ type = "button", className = "", disabled, children, ...props }) {
-  return /* @__PURE__ */ jsx(
-    "button",
-    {
-      ...props,
-      type,
-      className: `inline-flex items-center px-4 py-2 bg-white border border-gray-300 font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-25 transition ease-in-out duration-150 ${disabled && "opacity-50"} ` + className,
-      disabled,
-      children
-    }
-  );
-}
-const TextInput = forwardRef(function TextInput2({ type = "text", className = "", isFocused = false, ...props }, ref) {
+const TextInput$1 = forwardRef(function TextInput({ type = "text", className = "", isFocused = false, ...props }, ref) {
   const input = ref ? ref : useRef();
   useEffect(() => {
     if (isFocused) {
@@ -1909,7 +1820,18 @@ const TextInput = forwardRef(function TextInput2({ type = "text", className = ""
     }
   ) });
 });
-function DeleteUserForm({ className }) {
+function PrimaryButton$1({ className = "", disabled, children, ...props }) {
+  return /* @__PURE__ */ jsx(
+    "button",
+    {
+      ...props,
+      className: `inline-flex items-center px-4 py-2 bg-green-800 border border-transparent  font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ${disabled && "opacity-25"} ` + className,
+      disabled,
+      children
+    }
+  );
+}
+function DeleteUserForm({ className = "" }) {
   const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
   const passwordInput = useRef();
   const {
@@ -1939,18 +1861,18 @@ function DeleteUserForm({ className }) {
     reset();
   };
   return /* @__PURE__ */ jsxs("section", { className: `space-y-6 ${className}`, children: [
-    /* @__PURE__ */ jsxs("header", { children: [
+    /* @__PURE__ */ jsxs("header", { className: "info__head", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-lg font-medium text-gray-900", children: "Удалить Аккаунт" }),
       /* @__PURE__ */ jsx("p", { className: "mt-1 text-sm text-gray-600", children: "Как только ваша учетная запись будет удалена, все ее ресурсы и данные будут удалены безвозвратно." })
     ] }),
-    /* @__PURE__ */ jsx(DangerButton, { onClick: confirmUserDeletion, children: "Удалить!" }),
-    /* @__PURE__ */ jsx(Modal, { show: confirmingUserDeletion, onClose: closeModal, children: /* @__PURE__ */ jsxs("form", { onSubmit: deleteUser, className: "p-6", children: [
+    /* @__PURE__ */ jsx(DangerButton, { className: "info__btn", onClick: confirmUserDeletion, children: "Удалить!" }),
+    /* @__PURE__ */ jsx(Modal, { show: confirmingUserDeletion, onClose: closeModal, children: /* @__PURE__ */ jsxs("form", { onSubmit: deleteUser, className: "p-6 info__modal", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-lg font-medium text-gray-900", children: "Вы уверены, что хотите удалить свою учетную запись?" }),
       /* @__PURE__ */ jsx("p", { className: "mt-1 text-sm text-gray-600", children: "Пожалуйста введите свой пароль, чтобы подтвердить, что вы хотите окончательно удалить свою учетную запись." }),
       /* @__PURE__ */ jsxs("div", { className: "mt-6", children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password", value: "Password", className: "sr-only" }),
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password", value: "Password", className: "sr-only" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput$1,
           {
             id: "password",
             type: "password",
@@ -1963,11 +1885,11 @@ function DeleteUserForm({ className }) {
             placeholder: "Пароль"
           }
         ),
-        /* @__PURE__ */ jsx(InputError, { message: errors.password, className: "mt-2" })
+        /* @__PURE__ */ jsx(InputError$1, { message: errors.password, className: "mt-2" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "mt-6 flex justify-end", children: [
-        /* @__PURE__ */ jsx(SecondaryButton, { onClick: closeModal, children: "Отмена" }),
-        /* @__PURE__ */ jsx(DangerButton, { className: "ml-3", disabled: processing, children: "Почикать!" })
+      /* @__PURE__ */ jsxs("div", { className: "mt-6 flex justify-end info__wrap", children: [
+        /* @__PURE__ */ jsx(PrimaryButton$1, { className: "info__btn", onClick: closeModal, children: "Отмена" }),
+        /* @__PURE__ */ jsx(PrimaryButton$1, { className: "info__btn", disabled: processing, children: "Удалить" })
       ] })
     ] }) })
   ] });
@@ -1987,7 +1909,7 @@ function PrimaryButton({ className = "", disabled, children, ...props }) {
     }
   );
 }
-function UpdatePasswordForm({ className }) {
+function UpdatePasswordForm({ className = "" }) {
   const passwordInput = useRef();
   const currentPasswordInput = useRef();
   const { data, setData, errors, put, reset, processing, recentlySuccessful } = useForm$1({
@@ -2000,12 +1922,12 @@ function UpdatePasswordForm({ className }) {
     put(route("password.update"), {
       preserveScroll: true,
       onSuccess: () => reset(),
-      onError: () => {
-        if (errors.password) {
+      onError: (errors2) => {
+        if (errors2.password) {
           reset("password", "password_confirmation");
           passwordInput.current.focus();
         }
-        if (errors.current_password) {
+        if (errors2.current_password) {
           reset("current_password");
           currentPasswordInput.current.focus();
         }
@@ -2013,62 +1935,62 @@ function UpdatePasswordForm({ className }) {
     });
   };
   return /* @__PURE__ */ jsxs("section", { className, children: [
-    /* @__PURE__ */ jsxs("header", { children: [
+    /* @__PURE__ */ jsxs("header", { className: "info__head", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-lg font-medium text-gray-900", children: "Редактировать пароль" }),
       /* @__PURE__ */ jsx("p", { className: "mt-1 text-sm text-gray-600", children: "Убедитесь, что в вашей учетной записи используется длинный случайный пароль, чтобы оставаться в безопасности" })
     ] }),
-    /* @__PURE__ */ jsxs("form", { onSubmit: updatePassword, className: "mt-6 space-y-6", children: [
+    /* @__PURE__ */ jsxs("form", { onSubmit: updatePassword, className: "mt-6 space-y-6 info__mobil", children: [
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "current_password", value: "Текущий пароль" }),
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "current_password", value: "Текущий пароль" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput$1,
           {
             id: "current_password",
             ref: currentPasswordInput,
             value: data.current_password,
             onChange: (e) => setData("current_password", e.target.value),
             type: "password",
-            className: "mt-1 block w-full",
+            className: "mt-1 block w-full info__input",
             autoComplete: "current-password"
           }
         ),
-        /* @__PURE__ */ jsx(InputError, { message: errors.current_password, className: "mt-2" })
+        /* @__PURE__ */ jsx(InputError$1, { message: errors.current_password, className: "mt-2" })
       ] }),
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password", value: "Новый пароль" }),
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password", value: "Новый пароль" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput$1,
           {
             id: "password",
             ref: passwordInput,
             value: data.password,
             onChange: (e) => setData("password", e.target.value),
             type: "password",
-            className: "mt-1 block w-full",
+            className: "mt-1 block w-full info__input",
             autoComplete: "new-password",
             placeholder: "Новый пароль"
           }
         ),
-        /* @__PURE__ */ jsx(InputError, { message: errors.password, className: "mt-2" })
+        /* @__PURE__ */ jsx(InputError$1, { message: errors.password, className: "mt-2" })
       ] }),
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password_confirmation", value: "Подтвердите пароль" }),
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password_confirmation", value: "Подтвердите пароль" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput$1,
           {
             id: "password_confirmation",
             value: data.password_confirmation,
             onChange: (e) => setData("password_confirmation", e.target.value),
             type: "password",
-            className: "mt-1 block w-full",
+            className: "mt-1 block w-full info__input",
             autoComplete: "new-password",
             placeholder: "Повторите новый пароль"
           }
         ),
-        /* @__PURE__ */ jsx(InputError, { message: errors.password_confirmation, className: "mt-2" })
+        /* @__PURE__ */ jsx(InputError$1, { message: errors.password_confirmation, className: "mt-2" })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4", children: [
-        /* @__PURE__ */ jsx(PrimaryButton, { disabled: processing, children: "Сохранить" }),
+        /* @__PURE__ */ jsx(PrimaryButton, { disabled: processing, className: "info__btn", children: "Сохранить" }),
         /* @__PURE__ */ jsx(
           Transition,
           {
@@ -2087,29 +2009,30 @@ const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: UpdatePasswordForm
 }, Symbol.toStringTag, { value: "Module" }));
-function UpdateProfileInformation({ mustVerifyEmail, status, className }) {
-  const user = usePage$1().props.auth.user;
+function UpdateProfileInformation({ mustVerifyEmail, user, status, className = "" }) {
+  const userInfo = user;
+  console.log(userInfo);
   const { data, setData, patch, errors, processing, recentlySuccessful } = useForm$1({
-    name: user.name,
-    email: user.email
+    name: userInfo.name,
+    email: userInfo.email
   });
   const submit = (e) => {
     e.preventDefault();
     patch(route("profile.update"));
   };
-  return /* @__PURE__ */ jsxs("section", { className, children: [
-    /* @__PURE__ */ jsxs("header", { children: [
-      /* @__PURE__ */ jsx("h2", { className: "text-lg font-medium text-gray-900", children: "Информация профиля" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-1 text-sm text-gray-600", children: "Обновите информацию профиля вашей учетной записи и адрес электронной почты." })
+  return /* @__PURE__ */ jsxs("section", { className: "info__inner", children: [
+    /* @__PURE__ */ jsxs("header", { className: "info__head", children: [
+      /* @__PURE__ */ jsx("h2", { className: "text-lg font-medium text-gray-900", children: "Информация пользователя" }),
+      /* @__PURE__ */ jsx("p", { className: "mt-1 text-sm text-gray-600", children: "Обновить информацию профиля" })
     ] }),
-    /* @__PURE__ */ jsxs("form", { onSubmit: submit, className: "mt-6 space-y-6", children: [
+    /* @__PURE__ */ jsxs("form", { onSubmit: submit, className: "mt-6 space-y-6 info__mobil", children: [
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "name", value: "Имя" }),
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "name", value: "Имя" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput$1,
           {
             id: "name",
-            className: "mt-1 block w-full",
+            className: "mt-1 block w-full info__input",
             value: data.name,
             onChange: (e) => setData("name", e.target.value),
             required: true,
@@ -2117,34 +2040,34 @@ function UpdateProfileInformation({ mustVerifyEmail, status, className }) {
             autoComplete: "name"
           }
         ),
-        /* @__PURE__ */ jsx(InputError, { className: "mt-2", message: errors.name })
+        /* @__PURE__ */ jsx(InputError$1, { className: "mt-2", message: errors.name })
       ] }),
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "email", value: "Email" }),
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "email", value: "Email" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput$1,
           {
             id: "email",
             type: "email",
-            className: "mt-1 block w-full",
+            className: "mt-1 block w-full info__input",
             value: data.email,
             onChange: (e) => setData("email", e.target.value),
             required: true,
             autoComplete: "username"
           }
         ),
-        /* @__PURE__ */ jsx(InputError, { className: "mt-2", message: errors.email })
+        /* @__PURE__ */ jsx(InputError$1, { className: "mt-2", message: errors.email })
       ] }),
-      mustVerifyEmail && user.email_verified_at === null && /* @__PURE__ */ jsxs("div", { children: [
+      mustVerifyEmail && userInfo.email_verified_at === null && /* @__PURE__ */ jsxs("div", { children: [
         /* @__PURE__ */ jsxs("p", { className: "text-sm mt-2 text-gray-800", children: [
-          "Ваш адрес электронной почты не подтвержден.",
+          "Your email address is unverified.",
           /* @__PURE__ */ jsx(
             Link,
             {
               href: route("verification.send"),
               method: "post",
               as: "button",
-              className: "underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500",
+              className: "underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
               children: "Нажмите здесь, чтобы повторно отправить электронное письмо с подтверждением."
             }
           )
@@ -2152,7 +2075,7 @@ function UpdateProfileInformation({ mustVerifyEmail, status, className }) {
         status === "verification-link-sent" && /* @__PURE__ */ jsx("div", { className: "mt-2 font-medium text-sm text-green-600", children: "На ваш адрес электронной почты была отправлена новая ссылка для подтверждения." })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4", children: [
-        /* @__PURE__ */ jsx(PrimaryButton, { disabled: processing, children: "Сохранить" }),
+        /* @__PURE__ */ jsx(PrimaryButton, { disabled: processing, className: "info__btn", children: "Сохранить" }),
         /* @__PURE__ */ jsx(
           Transition,
           {
@@ -2160,7 +2083,7 @@ function UpdateProfileInformation({ mustVerifyEmail, status, className }) {
             enterFrom: "opacity-0",
             leaveTo: "opacity-0",
             className: "transition ease-in-out",
-            children: /* @__PURE__ */ jsx("p", { className: "text-sm text-gray-600", children: "Сохранен." })
+            children: /* @__PURE__ */ jsx("p", { className: "text-sm text-gray-600", children: "Сохранено." })
           }
         )
       ] })
@@ -2170,6 +2093,28 @@ function UpdateProfileInformation({ mustVerifyEmail, status, className }) {
 const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: UpdateProfileInformation
+}, Symbol.toStringTag, { value: "Module" }));
+function Edit({ auth, mustVerifyEmail, user, status }) {
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx(Head, { title: "Profile" }),
+    /* @__PURE__ */ jsx("div", { className: "info__box", children: /* @__PURE__ */ jsxs("div", { className: "max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 info__mobil", children: [
+      /* @__PURE__ */ jsx("div", { className: "p-4 sm:p-8 bg-white shadow sm:rounded-lg info__inner", children: /* @__PURE__ */ jsx(
+        UpdateProfileInformation,
+        {
+          mustVerifyEmail,
+          user,
+          status,
+          className: "info__inner"
+        }
+      ) }),
+      /* @__PURE__ */ jsx("div", { className: "p-4 sm:p-8 bg-white shadow sm:rounded-lg info__inner", children: /* @__PURE__ */ jsx(UpdatePasswordForm, { className: "info__inner" }) }),
+      /* @__PURE__ */ jsx("div", { className: "p-4 sm:p-8 bg-white shadow sm:rounded-lg info__inner", children: /* @__PURE__ */ jsx(DeleteUserForm, { className: "info__inner" }) })
+    ] }) })
+  ] });
+}
+const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Edit
 }, Symbol.toStringTag, { value: "Module" }));
 function WeightChart({ chartData }) {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Line, { data: chartData }) });
@@ -2220,7 +2165,6 @@ const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
 }, Symbol.toStringTag, { value: "Module" }));
 const time = "/build/assets/time-ab3af3e3.svg";
 const calories = "/build/assets/calories-d915d232.svg";
-const image = "/build/assets/1-309347c3.jpg";
 const usePagination = ({ contentPerPage, count }) => {
   const [page, setPage] = useState(1);
   const pageCount = Math.ceil(count / contentPerPage);
@@ -2325,13 +2269,15 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId, isAdmin }) {
       return /* @__PURE__ */ jsx("div", { className: "account__inner", children: "Комментариев нет" });
     } else {
       return /* @__PURE__ */ jsxs("div", { style: {
-        height: "700px",
+        height: "900px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        overflowY: "auto"
       }, children: [
         comments2.slice(firstContentIndex, lastContentIndex).map(
           (item) => /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+            isAdmin === 0 ? "" : /* @__PURE__ */ jsx("button", { className: "del__btn", onClick: (e) => handleCommentDelete(e, item.id), children: "Удалить" }),
             /* @__PURE__ */ jsxs("p", { children: [
               "Автор: ",
               item.name,
@@ -2339,27 +2285,10 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId, isAdmin }) {
               item.date,
               ")"
             ] }),
-            /* @__PURE__ */ jsx("span", { children: item.content }),
-            isAdmin === 0 ? "" : /* @__PURE__ */ jsx("button", { onClick: (e) => handleCommentDelete(e, item.id), children: "Удалить" })
+            /* @__PURE__ */ jsx("span", { children: item.content })
           ] })
         ),
-        /* @__PURE__ */ jsx("br", {}),
-        /* @__PURE__ */ jsxs("div", { className: "pagination", children: [
-          /* @__PURE__ */ jsx("button", { onClick: prevPage, className: "page", children: "←" }),
-          [...Array(totalPages).keys()].map((el) => /* @__PURE__ */ jsxs(
-            "button",
-            {
-              className: `page ${page === el + 1 ? "active" : ""}`,
-              onClick: () => setPage(el + 1),
-              children: [
-                " ",
-                el + 1
-              ]
-            },
-            el
-          )),
-          /* @__PURE__ */ jsx("button", { onClick: nextPage, className: "page", children: "→" })
-        ] })
+        /* @__PURE__ */ jsx("br", {})
       ] });
     }
   };
@@ -2373,7 +2302,7 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId, isAdmin }) {
       }),
       /* @__PURE__ */ jsxs("div", { className: "reccard_main_photo_wrap", style: { width: "100%" }, children: [
         /* @__PURE__ */ jsx("div", { className: "rec_item_plus_txt", children: /* @__PURE__ */ jsx("div", { className: "reccard_main_add", children: /* @__PURE__ */ jsx("a", { href: "#comments", children: "Ваши комментарии по рецепту" }) }) }),
-        /* @__PURE__ */ jsx("img", { className: "reccard_main_photo", src: image, style: { width: "100%" } })
+        recipeOne.map((recipe2) => /* @__PURE__ */ jsx("img", { className: "reccard_main_photo", src: recipe2.image, style: { width: "100%" } }))
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "reccard_main_info", children: [
         /* @__PURE__ */ jsxs("div", { className: "reccard_main_info1", children: [
@@ -2460,7 +2389,7 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId, isAdmin }) {
                     /* @__PURE__ */ jsx(
                       "textarea",
                       {
-                        className: "input_name",
+                        className: "input_name input__comment",
                         id: "content",
                         value: values.content,
                         onChange: handleChange
@@ -2495,7 +2424,7 @@ function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId, isAdmin }) {
         /* @__PURE__ */ jsxs("div", { className: "rec_item", children: [
           /* @__PURE__ */ jsx("div", { className: "rec_item_plus" }),
           /* @__PURE__ */ jsx("div", { className: "rec_item_plus", children: /* @__PURE__ */ jsxs("div", { className: "product-item", children: [
-            /* @__PURE__ */ jsx("img", { src: image, style: { width: "100%", height: "190px" } }),
+            /* @__PURE__ */ jsx("img", { src: recipeAdvice.image, style: { width: "100%", height: "190px" } }),
             /* @__PURE__ */ jsx("div", { className: "but", children: /* @__PURE__ */ jsx("a", { href: "/recipe/" + recipeAdvice.id, children: "Перейти" }) })
           ] }) }),
           /* @__PURE__ */ jsxs("a", { href: "#", children: [
@@ -2615,7 +2544,6 @@ const Recipes = ({ recipes }) => {
       setCategoryId(() => category.filter((recipe2) => recipe2.cooking_time >= 30).filter((recipe2) => recipe2.cooking_time <= 60));
     }
   };
-  const img = img1;
   const [inputText, setInputText] = useState("");
   const handleSearch = (e) => {
     setCategoryId(() => category.filter((recipe2) => {
@@ -2631,7 +2559,7 @@ const Recipes = ({ recipes }) => {
       categoryId.slice(firstContentIndex, lastContentIndex).map((item, index) => /* @__PURE__ */ jsxs("div", { className: "product-wrap", children: [
         /* @__PURE__ */ jsxs("div", { className: "product-item", children: [
           /* @__PURE__ */ jsx("div", { className: "product-buttons", children: /* @__PURE__ */ jsx("a", { href: "/recipe/" + item.id, className: "button", children: "Перейти" }) }),
-          /* @__PURE__ */ jsx("img", { src: img, alt: "atata" })
+          /* @__PURE__ */ jsx("img", { src: item.image, alt: "atata" })
         ] }, item.title),
         /* @__PURE__ */ jsxs("div", { className: "product-title", children: [
           /* @__PURE__ */ jsx("a", { id: "title", href: "/recipe/" + item.id, children: /* @__PURE__ */ jsx("p", { className: "title__inner", children: /* @__PURE__ */ jsx(Marker, { mark: inputText, children: item.title }) }) }),
@@ -2840,6 +2768,29 @@ const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: Recipes
 }, Symbol.toStringTag, { value: "Module" }));
+function InputError({ message, className = "", ...props }) {
+  return message ? /* @__PURE__ */ jsx("p", { ...props, className: "text-sm text-red-900 " + className, children: message }) : null;
+}
+function InputLabel({ value, className = "", children, ...props }) {
+  return /* @__PURE__ */ jsx("label", { ...props, className: `block font-medium text-sm text-gray-700 ` + className, children: value ? value : children });
+}
+const TextInput2 = forwardRef(function TextInput3({ type = "text", className = "", isFocused = false, ...props }, ref) {
+  const input = ref ? ref : useRef();
+  useEffect(() => {
+    if (isFocused) {
+      input.current.focus();
+    }
+  }, []);
+  return /* @__PURE__ */ jsx("div", { className: "flex flex-col items-start", children: /* @__PURE__ */ jsx(
+    "input",
+    {
+      ...props,
+      type,
+      className: "border-gray-300 focus:border ring-green-500 focus:green-500  shadow-sm " + className,
+      ref: input
+    }
+  ) });
+});
 function ConfirmPassword() {
   const { data, setData, post, processing, errors, reset } = useForm$1({
     password: ""
@@ -2849,21 +2800,18 @@ function ConfirmPassword() {
       reset("password");
     };
   }, []);
-  const handleOnChange = (event) => {
-    setData(event.target.name, event.target.value);
-  };
   const submit = (e) => {
     e.preventDefault();
     post(route("password.confirm"));
   };
-  return /* @__PURE__ */ jsxs(GuestLayout, { children: [
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Confirm Password" }),
-    /* @__PURE__ */ jsx("div", { className: "mb-4 text-sm text-gray-600", children: "Это защищенная область приложения. Пожалуйста, подтвердите свой пароль, прежде чем продолжить." }),
+    /* @__PURE__ */ jsx("div", { className: "mb-4 text-sm text-gray-600", children: "This is a secure area of the application. Please confirm your password before continuing." }),
     /* @__PURE__ */ jsxs("form", { onSubmit: submit, children: [
       /* @__PURE__ */ jsxs("div", { className: "mt-4", children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password", value: "Пароль" }),
+        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password", value: "Password" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput2,
           {
             id: "password",
             type: "password",
@@ -2871,12 +2819,12 @@ function ConfirmPassword() {
             value: data.password,
             className: "mt-1 block w-full",
             isFocused: true,
-            onChange: handleOnChange
+            onChange: (e) => setData("password", e.target.value)
           }
         ),
         /* @__PURE__ */ jsx(InputError, { message: errors.password, className: "mt-2" })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "flex items-center justify-end mt-4", children: /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4", disabled: processing, children: "Подтвердить" }) })
+      /* @__PURE__ */ jsx("div", { className: "flex items-center justify-end mt-4", children: /* @__PURE__ */ jsx(PrimaryButton$1, { className: "ml-4", disabled: processing, children: "Confirm" }) })
     ] })
   ] });
 }
@@ -2888,20 +2836,17 @@ function ForgotPassword({ status }) {
   const { data, setData, post, processing, errors } = useForm$1({
     email: ""
   });
-  const onHandleChange = (event) => {
-    setData(event.target.name, event.target.value);
-  };
   const submit = (e) => {
     e.preventDefault();
     post(route("password.email"));
   };
-  return /* @__PURE__ */ jsxs(GuestLayout, { children: [
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Forgot Password" }),
-    /* @__PURE__ */ jsx("div", { className: "mb-4 text-sm text-gray-600", children: "Забыли свой пароль? Без проблем. Просто сообщите нам свой адрес электронной почты, и мы вышлем вам по электронной почте ссылку для сброса пароля, которая позволит вам выбрать новый." }),
+    /* @__PURE__ */ jsx("div", { className: "mb-4 text-sm text-gray-600", children: "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one." }),
     status && /* @__PURE__ */ jsx("div", { className: "mb-4 font-medium text-sm text-green-600", children: status }),
     /* @__PURE__ */ jsxs("form", { onSubmit: submit, children: [
       /* @__PURE__ */ jsx(
-        TextInput,
+        TextInput2,
         {
           id: "email",
           type: "email",
@@ -2909,11 +2854,11 @@ function ForgotPassword({ status }) {
           value: data.email,
           className: "mt-1 block w-full",
           isFocused: true,
-          onChange: onHandleChange
+          onChange: (e) => setData("email", e.target.value)
         }
       ),
       /* @__PURE__ */ jsx(InputError, { message: errors.email, className: "mt-2" }),
-      /* @__PURE__ */ jsx("div", { className: "flex items-center justify-end mt-4", children: /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4", disabled: processing, children: "Ссылка для сброса пароля электронной почты" }) })
+      /* @__PURE__ */ jsx("div", { className: "flex items-center justify-end mt-4", children: /* @__PURE__ */ jsx(PrimaryButton$1, { className: "ml-4", disabled: processing, children: "Email Password Reset Link" }) })
     ] })
   ] });
 }
@@ -2957,7 +2902,7 @@ function Login({ status, canResetPassword }) {
         /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
           /* @__PURE__ */ jsx(InputLabel, { htmlFor: "email", value: "Email" }),
           /* @__PURE__ */ jsx(
-            TextInput,
+            TextInput2,
             {
               id: "email",
               type: "email",
@@ -2974,7 +2919,7 @@ function Login({ status, canResetPassword }) {
         /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
           /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password", value: "Password" }),
           /* @__PURE__ */ jsx(
-            TextInput,
+            TextInput2,
             {
               id: "password",
               type: "password",
@@ -2988,19 +2933,26 @@ function Login({ status, canResetPassword }) {
           /* @__PURE__ */ jsx(InputError, { message: errors.password, className: "mt-2" })
         ] }),
         /* @__PURE__ */ jsx("div", { className: "block mt-4", children: /* @__PURE__ */ jsxs("label", { className: "flex items-center  login__box", children: [
-          /* @__PURE__ */ jsx(Checkbox, { name: "remember", value: data.remember, onChange: handleOnChange }),
+          /* @__PURE__ */ jsx(
+            Checkbox,
+            {
+              name: "remember",
+              checked: data.remember,
+              onChange: (e) => setData("remember", e.target.checked)
+            }
+          ),
           /* @__PURE__ */ jsx("span", { className: "ml-2 text-sm text-gray-600", children: "Запомнить меня" })
         ] }) }),
         /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4 login__inner", children: [
           canResetPassword && /* @__PURE__ */ jsx(
             InertiaLink,
             {
-              href: "#",
+              href: route("password.request"),
               className: "underline text-sm text-gray-600 hover:text-gray-900  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700",
               children: "Забыли свой пароль?"
             }
           ),
-          /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn login__button", disabled: processing, children: "войти" })
+          /* @__PURE__ */ jsx(PrimaryButton$1, { className: "ml-4 account__btn login__button", disabled: processing, children: "войти" })
         ] })
       ] })
     ] })
@@ -3028,92 +2980,89 @@ function Register() {
   };
   const submit = (e) => {
     e.preventDefault();
-    Inertia.post("/register", data);
+    Inertia.post(route("register"), data);
   };
-  return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx(Head, { title: "Register" }),
-    /* @__PURE__ */ jsx("div", { className: "account", children: /* @__PURE__ */ jsxs("form", { className: "account__box", onSubmit: submit, children: [
-      /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "name", value: "Имя" }),
-        /* @__PURE__ */ jsx(
-          TextInput,
-          {
-            id: "name",
-            name: "name",
-            value: data.name,
-            className: "input_name login__input",
-            autoComplete: "name",
-            isFocused: true,
-            onChange: handleOnChange,
-            required: true
-          }
-        ),
-        /* @__PURE__ */ jsx(InputError, { message: errors.name, className: "mt-2" })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "email", value: "Email" }),
-        /* @__PURE__ */ jsx(
-          TextInput,
-          {
-            id: "email",
-            type: "email",
-            name: "email",
-            value: data.email,
-            className: "mt-1 block w-full login__input",
-            autoComplete: "username",
-            onChange: handleOnChange,
-            required: true
-          }
-        ),
-        /* @__PURE__ */ jsx(InputError, { message: errors.email, className: "mt-2" })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password", value: "Пароль" }),
-        /* @__PURE__ */ jsx(
-          TextInput,
-          {
-            id: "password",
-            type: "password",
-            name: "password",
-            value: data.password,
-            className: "mt-1 block w-full login__input",
-            autoComplete: "new-password",
-            onChange: handleOnChange,
-            required: true
-          }
-        ),
-        /* @__PURE__ */ jsx(InputError, { message: errors.password, className: "mt-2" })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password_confirmation", value: "Подтверждение пароля" }),
-        /* @__PURE__ */ jsx(
-          TextInput,
-          {
-            id: "password_confirmation",
-            type: "password",
-            name: "password_confirmation",
-            value: data.password_confirmation,
-            className: "mt-1 block w-full login__input",
-            autoComplete: "new-password",
-            onChange: handleOnChange,
-            required: true
-          }
-        ),
-        /* @__PURE__ */ jsx(InputError, { message: errors.password_confirmation, className: "mt-2" })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4 login__inner", children: [
-        /* @__PURE__ */ jsx(
-          InertiaLink,
-          {
-            href: "/login",
-            className: "underline text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-            children: "Вы зарегистрированы?"
-          }
-        ),
-        /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn login__button", disabled: processing, children: "Зарегистрироваться" })
-      ] })
-    ] }) })
-  ] });
+  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx("div", { className: "account", children: /* @__PURE__ */ jsxs("form", { className: "account__box", onSubmit: submit, children: [
+    /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+      /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "name", value: "Имя" }),
+      /* @__PURE__ */ jsx(
+        TextInput$1,
+        {
+          id: "name",
+          name: "name",
+          value: data.name,
+          className: "input_name login__input",
+          autoComplete: "name",
+          isFocused: true,
+          onChange: handleOnChange,
+          required: true
+        }
+      ),
+      /* @__PURE__ */ jsx(InputError$1, { message: errors.name, className: "mt-2" })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+      /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "email", value: "Email" }),
+      /* @__PURE__ */ jsx(
+        TextInput$1,
+        {
+          id: "email",
+          type: "email",
+          name: "email",
+          value: data.email,
+          className: "mt-1 block w-full login__input",
+          autoComplete: "username",
+          onChange: handleOnChange,
+          required: true
+        }
+      ),
+      /* @__PURE__ */ jsx(InputError$1, { message: errors.email, className: "mt-2" })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+      /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password", value: "Пароль" }),
+      /* @__PURE__ */ jsx(
+        TextInput$1,
+        {
+          id: "password",
+          type: "password",
+          name: "password",
+          value: data.password,
+          className: "mt-1 block w-full login__input",
+          autoComplete: "new-password",
+          onChange: handleOnChange,
+          required: true
+        }
+      ),
+      /* @__PURE__ */ jsx(InputError$1, { message: errors.password, className: "mt-2" })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+      /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password_confirmation", value: "Подтверждение пароля" }),
+      /* @__PURE__ */ jsx(
+        TextInput$1,
+        {
+          id: "password_confirmation",
+          type: "password",
+          name: "password_confirmation",
+          value: data.password_confirmation,
+          className: "mt-1 block w-full login__input",
+          autoComplete: "new-password",
+          onChange: handleOnChange,
+          required: true
+        }
+      ),
+      /* @__PURE__ */ jsx(InputError$1, { message: errors.password_confirmation, className: "mt-2" })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4 login__inner", children: [
+      /* @__PURE__ */ jsx(
+        InertiaLink,
+        {
+          href: "/login",
+          className: "underline text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+          children: "Вы зарегистрированы?"
+        }
+      ),
+      /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn login__button", disabled: processing, children: "Зарегистрироваться" })
+    ] })
+  ] }) }) });
 }
 const __vite_glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -3131,20 +3080,17 @@ function ResetPassword({ token, email }) {
       reset("password", "password_confirmation");
     };
   }, []);
-  const onHandleChange = (event) => {
-    setData(event.target.name, event.target.value);
-  };
   const submit = (e) => {
     e.preventDefault();
     post(route("password.store"));
   };
-  return /* @__PURE__ */ jsxs(GuestLayout, { children: [
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Reset Password" }),
     /* @__PURE__ */ jsxs("form", { onSubmit: submit, children: [
       /* @__PURE__ */ jsxs("div", { children: [
         /* @__PURE__ */ jsx(InputLabel, { htmlFor: "email", value: "Email" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput2,
           {
             id: "email",
             type: "email",
@@ -3152,15 +3098,15 @@ function ResetPassword({ token, email }) {
             value: data.email,
             className: "mt-1 block w-full",
             autoComplete: "username",
-            onChange: onHandleChange
+            onChange: (e) => setData("email", e.target.value)
           }
         ),
         /* @__PURE__ */ jsx(InputError, { message: errors.email, className: "mt-2" })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "mt-4", children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password", value: "Пароль" }),
+        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password", value: "Password" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput2,
           {
             id: "password",
             type: "password",
@@ -3169,27 +3115,27 @@ function ResetPassword({ token, email }) {
             className: "mt-1 block w-full",
             autoComplete: "new-password",
             isFocused: true,
-            onChange: onHandleChange
+            onChange: (e) => setData("password", e.target.value)
           }
         ),
         /* @__PURE__ */ jsx(InputError, { message: errors.password, className: "mt-2" })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "mt-4", children: [
-        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password_confirmation", value: "Подтвердите пароль" }),
+        /* @__PURE__ */ jsx(InputLabel, { htmlFor: "password_confirmation", value: "Confirm Password" }),
         /* @__PURE__ */ jsx(
-          TextInput,
+          TextInput2,
           {
             type: "password",
             name: "password_confirmation",
             value: data.password_confirmation,
             className: "mt-1 block w-full",
             autoComplete: "new-password",
-            onChange: onHandleChange
+            onChange: (e) => setData("password_confirmation", e.target.value)
           }
         ),
         /* @__PURE__ */ jsx(InputError, { message: errors.password_confirmation, className: "mt-2" })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "flex items-center justify-end mt-4", children: /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4", disabled: processing, children: "Reset Password" }) })
+      /* @__PURE__ */ jsx("div", { className: "flex items-center justify-end mt-4", children: /* @__PURE__ */ jsx(PrimaryButton$1, { className: "ml-4", disabled: processing, children: "Reset Password" }) })
     ] })
   ] });
 }
@@ -3203,20 +3149,20 @@ function VerifyEmail({ status }) {
     e.preventDefault();
     post(route("verification.send"));
   };
-  return /* @__PURE__ */ jsxs(GuestLayout, { children: [
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Email Verification" }),
-    /* @__PURE__ */ jsx("div", { className: "mb-4 text-sm text-gray-600", children: "Спасибо, что зарегистрировались! Прежде чем приступить, не могли бы вы подтвердить свой адрес электронной почты, перейдя по ссылке, которую мы только что отправили вам по электронной почте? Если вы не получили электронное письмо, мы с радостью отправим вам другое." }),
-    status === "verification-link-sent" && /* @__PURE__ */ jsx("div", { className: "mb-4 font-medium text-sm text-green-600", children: "Новая ссылка для подтверждения была отправлена на адрес электронной почты, который вы указали при регистрации." }),
+    /* @__PURE__ */ jsx("div", { className: "mb-4 text-sm text-gray-600", children: "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another." }),
+    status === "verification-link-sent" && /* @__PURE__ */ jsx("div", { className: "mb-4 font-medium text-sm text-green-600", children: "A new verification link has been sent to the email address you provided during registration." }),
     /* @__PURE__ */ jsx("form", { onSubmit: submit, children: /* @__PURE__ */ jsxs("div", { className: "mt-4 flex items-center justify-between", children: [
-      /* @__PURE__ */ jsx(PrimaryButton, { disabled: processing, children: "Resend Verification Email" }),
+      /* @__PURE__ */ jsx(PrimaryButton$1, { disabled: processing, children: "Resend Verification Email" }),
       /* @__PURE__ */ jsx(
         Link,
         {
           href: route("logout"),
           method: "post",
           as: "button",
-          className: "underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gren-700",
-          children: "Выйти"
+          className: "underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+          children: "Log Out"
         }
       )
     ] }) })
@@ -3226,6 +3172,68 @@ const __vite_glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: VerifyEmail
 }, Symbol.toStringTag, { value: "Module" }));
+const DropDownContext = createContext();
+const Dropdown = ({ children }) => {
+  const [open, setOpen] = useState(false);
+  const toggleOpen = () => {
+    setOpen((previousState) => !previousState);
+  };
+  return /* @__PURE__ */ jsx(DropDownContext.Provider, { value: { open, setOpen, toggleOpen }, children: /* @__PURE__ */ jsx("div", { className: "relative", children }) });
+};
+const Trigger = ({ children }) => {
+  const { open, setOpen, toggleOpen } = useContext(DropDownContext);
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx("div", { onClick: toggleOpen, children }),
+    open && /* @__PURE__ */ jsx("div", { className: "fixed inset-0 z-40", onClick: () => setOpen(false) })
+  ] });
+};
+const Content = ({ align = "right", width = "48", contentClasses = "py-1 bg-white", children }) => {
+  const { open, setOpen } = useContext(DropDownContext);
+  let alignmentClasses = "origin-top";
+  if (align === "left") {
+    alignmentClasses = "origin-top-left left-0";
+  } else if (align === "right") {
+    alignmentClasses = "origin-top-right right-0";
+  }
+  let widthClasses = "";
+  if (width === "48") {
+    widthClasses = "w-48";
+  }
+  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
+    Transition,
+    {
+      as: Fragment$1,
+      show: open,
+      enter: "transition ease-out duration-200",
+      enterFrom: "transform opacity-0 scale-95",
+      enterTo: "transform opacity-100 scale-100",
+      leave: "transition ease-in duration-75",
+      leaveFrom: "transform opacity-100 scale-100",
+      leaveTo: "transform opacity-0 scale-95",
+      children: /* @__PURE__ */ jsx(
+        "div",
+        {
+          className: `absolute z-50 mt-2  shadow-lg ${alignmentClasses} ${widthClasses}`,
+          onClick: () => setOpen(false),
+          children: /* @__PURE__ */ jsx("div", { className: ` ring-1 ring-black ring-opacity-5 ` + contentClasses, children })
+        }
+      )
+    }
+  ) });
+};
+const DropdownLink = ({ className = "", children, ...props }) => {
+  return /* @__PURE__ */ jsx(
+    Link,
+    {
+      ...props,
+      className: "block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out " + className,
+      children
+    }
+  );
+};
+Dropdown.Trigger = Trigger;
+Dropdown.Content = Content;
+Dropdown.Link = DropdownLink;
 function AdminLayout({ user, header: header2, children }) {
   const hangleClick = (e) => {
     e.preventDefault();
@@ -3328,7 +3336,7 @@ createInertiaApp({
     }
     return page;
   },
-  setup({ el, App: App2, props }) {
-    createRoot(el).render(/* @__PURE__ */ jsx(App2, { ...props }));
+  setup({ el, App, props }) {
+    createRoot(el).render(/* @__PURE__ */ jsx(App, { ...props }));
   }
 });

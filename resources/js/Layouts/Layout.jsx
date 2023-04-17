@@ -63,9 +63,9 @@ const MenuList = (props) => {
                                     <div className="nav__box">
                                         <div className="nav__links">
                                             <ul>
-                                                <li>
-                                                    <a href="/about">О нас</a>
-                                                </li>
+                                                {/*<li>*/}
+                                                {/*    <a href="/about">О нас</a>*/}
+                                                {/*</li>*/}
                                                 <li>
                                                     <a href="/account">Мой профиль</a>
                                                 </li>
@@ -80,7 +80,7 @@ const MenuList = (props) => {
                                                 </li>
                                             </ul>
                                             {/*<button onClick={hangleClick} className="menu__button">Выйти</button>*/}
-                                            <button onClick={profileClick} className="menu__button">Профиль</button>
+                                            {/*<button onClick={profileClick} className="menu__button">Изменить</button>*/}
                                             <button onClick={logoutClick} className="menu__button">Выйти</button>
                                         </div>
                                         <button className="nav__btn" onClick={clickOpen}>X</button>
