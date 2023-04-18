@@ -5,8 +5,15 @@ import {Link} from "react-router-dom";
 import { Inertia } from '@inertiajs/inertia'
 
 
-export default function PersonalAccount({user}) {
+export default function PersonalAccount({user, isAdmin}) {
 
+    const admin = (value) => {
+        if (value === 1) {
+            return (<button type="submit" className="account__btn"><a href={"/admin/index"}>Вход в админку</a></button>);
+        } else if (value === 0) {
+            return (<button type="submit" className="account__btn"><a href={"/menu/builder"}>Меню на неделю</a></button>);
+        }
+    }
     const gender = (value) => {
         if (value === 'male') {
             return "мужской";
@@ -46,15 +53,15 @@ export default function PersonalAccount({user}) {
 
     return (
         <div className="account">
-
             <main className="account__box">
+                <div>{admin(isAdmin)}</div>
                 {user.map(item => {
                     return<section className="account__profile">
                         <h2>Персональные данные</h2>
-                        <div className="account__inner">
-                            <p>Логин</p>
-                            <span>{item.user.email}</span>
-                        </div>
+                        {/*<div className="account__inner">*/}
+                        {/*    <p>Логин</p>*/}
+                        {/*    <span>{item.user.email}</span>*/}
+                        {/*</div>*/}
 
                         <div className="account__inner">
                             <p>Имя</p>
@@ -68,23 +75,17 @@ export default function PersonalAccount({user}) {
                             <p>Возраст</p>
                             <span>{item.age}</span>
                         </div>
-                        <div className="account__inner">
-                            <p>Телефон</p>
-                            <span>{item.user.phone}</span>
-                        </div>
+                        {/*<div className="account__inner">*/}
+                        {/*    <p>Телефон</p>*/}
+                        {/*    <span>{item.user.phone}</span>*/}
+                        {/*</div>*/}
                         <div className="account__inner">
                             <p>Email</p>
                             <span>{item.user.email}</span>
                         </div>
-                        {/*ЗАКОММЕНТИРОВАНО НА УРОК 27.03.*/}
                         <button type="submit" onClick={(e)=>handleProfile(e)} className="account__btn">
                             Изменить
                         </button>
-                        {/*ЗАКОММЕНТИРОВАНО НА УРОК 27.03.*/}
-                        {/*<button type="submit" className="account__btn">*/}
-                        {/*    Изменить*/}
-                        {/*</button>*/}
-                        {/*КОНЕЦ КОММЕНТИРОВАНИЯ НА УРОК 27.03*/}
                     </section>
                 })}
                 {user.map(item => {

@@ -103,13 +103,13 @@ export default function MenuBuilder({ menu, recipes }) {
                             </div>
                             {item.menu_recipes.map((menuRecipe, key)=> (
                                 <div className="cons_col cons_col1">
-                                    <div className="cons_pic cons_add" style={{ backgroundImage: `url(${image})`, cursor: "auto" }}
-                                    // data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}
+                                    <div className="cons_pic cons_add" style={{ backgroundImage: `url(${menuRecipe.image})`, cursor: "auto" }}
+                                        // data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}
                                     >
                                         {!show && <button className="menu__btn" onClick={() => { openModal(); handleRecipeId(menuRecipe.id, menuRecipe.category_id, item.menu_id, index, key) }}
-                                            data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}>
+                                                          data-day={item.menu_id} id={menuRecipe.id} data-category={menuRecipe.category_id}>
                                             <img className="cons_pic_img"
-                                                src={plus} title="Заменить рецепт" alt="Заменить рецепт"></img>
+                                                 src={plus} title="Заменить рецепт" alt="Заменить рецепт"></img>
                                         </button>}
                                     </div>
                                     <div className="cons_txt">
@@ -161,48 +161,49 @@ export default function MenuBuilder({ menu, recipes }) {
 
         return (
             <>
-                <div className={show ? "overlay" : "hide"} onClick={closeModal} />
+                <div className={show ? "overlay" : "hide"} onClick={closeModal} >
 
-                <div className={show ? "modal" : "hide"}>
-                    <div id="element" className="modal__box">
+                    <div className={show ? "modal" : "hide"}>
+                        <div id="element" className="modal__box">
 
-                        {newRecipe.map((item) => (
+                            {newRecipe.map((item) => (
 
-                            <div className="modal__card red"
-                                id={item.id}
+                                <div className="modal__card red"
+                                     id={item.id}
 
-                            >
-                                <div className="cons_pic cons_add product-item"
-                                    style={{ backgroundImage: `url(${image})`, cursor: "auto", width: "100%", height: 190 + "px" }}
-                                    data-category={item.category_id} id={item.id}>
-                                    <a href={"#" + item.id}>
-                                        <button  className="modal__btn" data-category={item.category_id} id={item.id}
+                                >
+                                    <div className="cons_pic cons_add product-item"
+                                         style={{ backgroundImage: `url(${item.image})`, cursor: "auto", width: "100%", height: 190 + "px" }}
+                                         data-category={item.category_id} id={item.id}>
+                                        <a href={"#" + item.id}>
+                                            <button  className="modal__btn" data-category={item.category_id} id={item.id}
 
-                                            onClick={(e) => { handleUpdateRecipes(e, item.id); }}
-                                        > Заменить рецепт
-                                        </button>
-                                    </a>
-                                </div>
-
-
-                                <div className="cons_txt modal__text">
-                                    <div className="cons_title_menu">
-                                        <a href={"/recipe/" + item.id}>{item.title}</a>
+                                                     onClick={(e) => { handleUpdateRecipes(e, item.id); }}
+                                            > Заменить рецепт
+                                            </button>
+                                        </a>
                                     </div>
-                                    <div className="cons_calorie">
-                                        <div>
-                                            <img className="cons_title_logo" src={logo3}></img>
+
+
+                                    <div className="cons_txt modal__text">
+                                        <div className="cons_title_menu">
+                                            <a href={"/recipe/" + item.id}>{item.title}</a>
                                         </div>
-                                        <div>
-                                            <p className="cons_title_calorie">ККАЛОРИЙ: {item.calorie} </p>
+                                        <div className="cons_calorie">
+                                            <div>
+                                                <img className="cons_title_logo" src={logo3}></img>
+                                            </div>
+                                            <div>
+                                                <p className="cons_title_calorie">ККАЛОРИЙ: {item.calorie} </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
-                        ))}
+                                </div>
+                            ))}
+                        </div>
+                        <button className="modal__button" onClick={closeModal}>Х</button>
                     </div>
-                    <button className="modal__button" onClick={closeModal}>Х</button>
                 </div>
             </>
         )
@@ -281,13 +282,13 @@ export default function MenuBuilder({ menu, recipes }) {
                     </div> */}
                     {/*ВРЕММЕННО КОММЕНТИРУЮ НА УРОК 27.03.*/}
                     <div className="buttons_row">
-                       <div className="buttons_row_button_wrap">
-                           <div > <button className="buttons_row_button" onClick={(e) => { hangleResetMenu(e); }}>Вернуть первоначальное меню </button></div>
-                       </div>
-                       <div className="buttons_row_text_wrap">
-                           <div className="buttons_row_text" ><strong>Сбросить рецепты</strong> в недельной
-                               сетке до "рекомендуемых".<span className="append_text"></span></div>
-                       </div>
+                        <div className="buttons_row_button_wrap">
+                            <div > <button className="buttons_row_button" onClick={(e) => { hangleResetMenu(e); }}>Вернуть первоначальное меню </button></div>
+                        </div>
+                        <div className="buttons_row_text_wrap">
+                            <div className="buttons_row_text" ><strong>Сбросить рецепты</strong> в недельной
+                                сетке до "рекомендуемых".<span className="append_text"></span></div>
+                        </div>
                     </div>
                     {/*<div className="buttons_row">*/}
                     {/*    <div className="buttons_row_button_wrap">*/}

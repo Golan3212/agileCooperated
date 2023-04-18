@@ -51,12 +51,12 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId,
 
     }
 
-   useEffect(() => {
-       setValues(values => (  {
-           content: "",
-           recipe_id: (recipeId)
-       }));
-   },[comments])
+    useEffect(() => {
+        setValues(values => (  {
+            content: "",
+            recipe_id: (recipeId)
+        }));
+    },[comments])
 
 
     function declOfNum(n) {
@@ -71,62 +71,62 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId,
     }
     declOfNum();
 
-   const Comment = (props) => {
+    const Comment = (props) => {
 
 
 
-       let comments = props.commentList;
+        let comments = props.commentList;
 
-       function handleCommentDelete(e, id){
+        function handleCommentDelete(e, id){
             e.preventDefault();
             Inertia.delete(`/comments/${id}`, {
                 onBefore: () => confirm('Вы уверены, что хотите удалить этот комментарий?'),
             });
         }
 
-       console.log(isAdmin);
-       if (comments.length < 1){
-           return <div className="account__inner">
-               Комментариев нет
-           </div>
-       }else{
-           return <div style={{height: "700px", display:"flex", flexDirection: "column",
-               justifyContent: "space-between"}}>
-               {comments.slice(firstContentIndex, lastContentIndex).map(item =>
-                   (
-                       <div className="account__inner">
-                           <p>Автор: {item.name} ({item.date})</p>
-                           <span>{item.content}</span>
-                            {isAdmin === 0 ? '' : <button onClick={(e) => handleCommentDelete(e, item.id)}>Удалить</button>}
-                       </div>
-                   )
-               )}
-               <br/>
-               <div className="pagination">
+        console.log(isAdmin);
+        if (comments.length < 1){
+            return <div className="account__inner">
+                Комментариев нет
+            </div>
+        }else{
+            return <div style={{height: "900px", display:"flex", flexDirection: "column",
+                justifyContent: "space-between", overflowY: "auto"}}>
+                {comments.slice(firstContentIndex, lastContentIndex).map(item =>
+                    (
+                        <div className="account__inner">
+                            {isAdmin === 0 ? '' : <button className="del__btn" onClick={(e) => handleCommentDelete(e, item.id)}>Удалить</button>}
+                            <p>Автор: {item.name} ({item.date})</p>
+                            <span>{item.content}</span>
+                        </div>
+                    )
+                )}
+                <br/>
+                {/*<div className="pagination">*/}
 
-                   <button onClick={prevPage} className="page">
-                       &larr;
-                   </button>
-                   {/* @ts-ignore */}
-                   {[...Array(totalPages).keys()].map((el) => (
-                       <button
-                           className={`page ${page === el + 1 ? "active" : ""}`}
-                           onClick={ () => setPage(el + 1)}
-                           key={el}
+                {/*    <button onClick={prevPage} className="page">*/}
+                {/*        &larr;*/}
+                {/*    </button>*/}
+                {/*    /!* @ts-ignore *!/*/}
+                {/*    {[...Array(totalPages).keys()].map((el) => (*/}
+                {/*        <button*/}
+                {/*            className={`page ${page === el + 1 ? "active" : ""}`}*/}
+                {/*            onClick={ () => setPage(el + 1)}*/}
+                {/*            key={el}*/}
 
-                       > {el + 1}
-                       </button>))}
-                   <button onClick={nextPage} className="page">
-                       &rarr;
-                   </button>
-               </div>
-           </div>
-       }
-
-
+                {/*        > {el + 1}*/}
+                {/*        </button>))}*/}
+                {/*    <button onClick={nextPage} className="page">*/}
+                {/*        &rarr;*/}
+                {/*    </button>*/}
+                {/*</div>*/}
+            </div>
+        }
 
 
-   }
+
+
+    }
 
     return (
         <div>
@@ -139,18 +139,17 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId,
                             <div className="reccard_content">
                                 {recipeOne.map((recipe, index) => {
                                     return <div className="reccard_main_title">{recipe.title}
-                                            <div className="reccard_content_title">{recipe.category_title}</div>
-                                        </div>
+                                        <div className="reccard_content_title">{recipe.category_title}</div>
+                                    </div>
 
                                 })}
                                 <div className="reccard_main_photo_wrap" style={{ width: 100 + '%' }}>
                                     <div className="rec_item_plus_txt">
                                         <div className="reccard_main_add"><a href="#comments">Ваши комментарии по рецепту</a></div>
                                     </div>
-                                    <img className="reccard_main_photo" src={image} style={{ width: 100 + '%' }}></img>
-                                    {/*{recipeOne.map(recipe => {*/}
-                                    {/*return<><img className="reccard_main_photo" src={recipe.image} style={{ width: 100 + '%' }}></img></>*/}
-                                    {/*})}*/}
+                                    {/*<img className="reccard_main_photo" src={image} style={{ width: 100 + '%' }}></img>*/}
+                                    {recipeOne.map(recipe => (<img className="reccard_main_photo" src={recipe.image} style={{ width: 100 + '%' }}></img>
+                                    ))}
                                 </div>
                                 <div className="reccard_main_info">
                                     <div className="reccard_main_info1">
@@ -202,23 +201,23 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId,
                                                     {
                                                         recipe.ingredients.map((ingredient => {
                                                             return (<div>
-                                                                <div className="reccard_kbzhu1">
-                                                                    <div className="reccard_kbzhu_name">
-                                                                        {ingredient.title.replace(",","")}
-                                                                        {ingredient.pivot.quantity_ingredient ? "," : ""}
-                                                                        {ingredient.pivot.mass_unit.replace("по вкусу","")}</div>
-                                                                    <div className="reccard_kbzhu_dotted"></div>
+                                                                    <div className="reccard_kbzhu1">
+                                                                        <div className="reccard_kbzhu_name">
+                                                                            {ingredient.title.replace(",","")}
+                                                                            {ingredient.pivot.quantity_ingredient ? "," : ""}
+                                                                            {ingredient.pivot.mass_unit.replace("по вкусу","")}</div>
+                                                                        <div className="reccard_kbzhu_dotted"></div>
 
-                                                                    {
-                                                                        <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">{
-                                                                            ingredient.pivot.quantity_ingredient === 0 ?
-                                                                                "по вкусу" :
-                                                                                ingredient.pivot.quantity_ingredient
-                                                                        }</div>
-                                                                    }
+                                                                        {
+                                                                            <div className="reccard_kbzhu_values reccard_ingr_values" data-ingr-value="250">{
+                                                                                ingredient.pivot.quantity_ingredient === 0 ?
+                                                                                    "по вкусу" :
+                                                                                    ingredient.pivot.quantity_ingredient
+                                                                            }</div>
+                                                                        }
 
+                                                                    </div>
                                                                 </div>
-                                                            </div>
                                                             )
                                                         }))
                                                     }
@@ -248,13 +247,13 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId,
                                                                     /> */}
 
                                                                     <label htmlFor="content">Оставьте комментарий</label>
-                                                                    <textarea className="input_name" id="content" value={values.content}
-                                                                           onChange={handleChange}
+                                                                    <textarea className="input_name input__comment" id="content" value={values.content}
+                                                                              onChange={handleChange}
                                                                     />
                                                                     <button  className="account__btn" type="submit">Отправить</button>
                                                                 </form>
                                                             </div>
-                                                                    <Comment commentList={comments}/>
+                                                            <Comment commentList={comments}/>
 
                                                         </div>
                                                     </div>
@@ -274,53 +273,53 @@ export default function Recipe({ recipeOne, recipeOneAdvice, comments, recipeId,
                                 {/* <div className="reclist_inda_reccard_title">РЕКОМЕНДАЦИИ</div> */}
                                 {recipeOneAdvice.map((recipeAdvice, index) => {
                                     return <div>
-                                    <div style={{width:"290px", height:"170px",
-                                    marginBottom:"20%", border:"3px solid gold",
-                                    backgroundColor:"#E4E4D9", borderRadius:"20px",
-                                    display:"flex", alignItems:"center", justifyContent:"center"}}>
-                                       <p style={{fontSize: 20 + 'px', color:"yellowgreen"}}>Реклама №{index+1}</p>
-                                    </div>
-                                    <div className="rec_item">
-                                        <div className="rec_item_plus"></div>
-                                        <div className="rec_item_plus">
-                                            <div className="product-item">
-                                                <img src={image} style={{ width: 100 + '%', height: 190 + "px" }}></img>
-                                                <div className="but">
-                                                    < a href={"/recipe/" + recipeAdvice.id} >Перейти</a>
-                                                </div>
-                                            </div>
+                                        <div style={{width:"290px", height:"170px",
+                                            marginBottom:"20%", border:"3px solid gold",
+                                            backgroundColor:"#E4E4D9", borderRadius:"20px",
+                                            display:"flex", alignItems:"center", justifyContent:"center"}}>
+                                            <p style={{fontSize: 20 + 'px', color:"yellowgreen"}}>Реклама №{index+1}</p>
                                         </div>
-                                        {<a href="#">
-                                            <div className="rec_img">
-                                            </div>
-                               <div className="rec_content">
-
-                                                <div className="product-title">
-                                                    <a href={"/recipe/" + recipeAdvice.id} style={{ fontSize: 20 + 'px' }}>{recipeAdvice.title}</a>
-                                                    <span className="product-price">{recipeAdvice.category_title}</span>
-                                                    <span className="product-price img"></span>
+                                        <div className="rec_item">
+                                            <div className="rec_item_plus"></div>
+                                            <div className="rec_item_plus">
+                                                <div className="product-item">
+                                                    <img src={recipeAdvice.image} style={{ width: 100 + '%', height: 190 + "px" }}></img>
+                                                    <div className="but">
+                                                        < a href={"/recipe/" + recipeAdvice.id} >Перейти</a>
+                                                    </div>
                                                 </div>
+                                            </div>
+                                            {<a href="#">
+                                                <div className="rec_img">
+                                                </div>
+                                                <div className="rec_content">
 
-                                                <div className="rec_time_kkal">
-                                                    <div className="rec_time">
-                                                        <img src={logo1}></img>
-                                                        &nbsp;&nbsp;<span
+                                                    <div className="product-title">
+                                                        <a href={"/recipe/" + recipeAdvice.id} style={{ fontSize: 20 + 'px' }}>{recipeAdvice.title}</a>
+                                                        <span className="product-price">{recipeAdvice.category_title}</span>
+                                                        <span className="product-price img"></span>
+                                                    </div>
+
+                                                    <div className="rec_time_kkal">
+                                                        <div className="rec_time">
+                                                            <img src={logo1}></img>
+                                                            &nbsp;&nbsp;<span
                                                         >{recipeAdvice.cooking_time}</span>&nbsp;{declOfNum(recipeAdvice.cooking_time)}
-                                                    </div>
-                                                    <div className="rec_kkal">
-                                                        <img src={logo3}></img>
-                                                        &nbsp;&nbsp;<span
+                                                        </div>
+                                                        <div className="rec_kkal">
+                                                            <img src={logo3}></img>
+                                                            &nbsp;&nbsp;<span
                                                         >ККАЛОРИИ:{recipeAdvice.calorie}</span>&nbsp;/&nbsp;1&nbsp;ПОРЦ.
-                                                    </div>
-                                                    <div className="rec_porc">
-                                                        <img src={logo2}></img>
-                                                        &nbsp;&nbsp;<span
+                                                        </div>
+                                                        <div className="rec_porc">
+                                                            <img src={logo2}></img>
+                                                            &nbsp;&nbsp;<span
                                                         >{recipeAdvice.portion}</span>&nbsp;ПОРЦИИ
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>}
-                                    </div>
+                                            </a>}
+                                        </div>
                                     </div>
                                 })}
 

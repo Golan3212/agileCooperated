@@ -44,6 +44,7 @@ class ParserService implements Parser
                 $recipeModel = new Recipe([
                     'title' => (string) $recipe['title'],
                     'calorie' => (int) $recipe['calorie'],
+                    'image' => (string) $recipe['img'],
                     'proteins' => (int) $recipe['proteins'],
                     'fats' => (int) $recipe['fats'],
                     'carbohydrates' => (int) $recipe['carbohydrates'],

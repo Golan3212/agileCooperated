@@ -98,7 +98,7 @@ const Recipes = ({recipes}) =>{
                                 <div className="product-buttons">
                                     <a href={"/recipe/"+item.id} className="button">Перейти</a>
                                 </div>
-                                <img src={img} alt="atata" />
+                                <img src={item.image} alt="atata" />
                             </div>
                             <div className="product-title">
                                 <a id="title" href={"/recipe/"+item.id}>

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
-import InputError from '@/Components/mark/InputError';
-import InputLabel from '@/Components/mark/InputLabel';
-import PrimaryButton from '@/Components/mark/PrimaryButton';
-import TextInput from '@/Components/mark/TextInput';
+import GuestLayout from '../../../Layouts/GuestLayout';
+import InputError from '../../../components/mark/InputError';
+import InputLabel from '../../../components/mark/InputLabel';
+import PrimaryButton from '../../../components/mark/PrimaryButton';
+import TextInput from '../../../components/mark/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { InertiaLink } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
@@ -37,7 +37,7 @@ export default function Register() {
 
     return (
         <>
-            <Head title="Register" />
+            {/*<Head title="Register" />*/}
             <div className="account">
                 <form className="account__box" onSubmit={submit}>
                     {/* <h2>Персональные данные</h2> */}

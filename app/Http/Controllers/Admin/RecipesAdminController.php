@@ -62,7 +62,7 @@ class RecipesAdminController extends Controller
             "fats" =>['integer'],
             "carbohydrates"=>['integer'],
             "portion" =>['integer'],
-            "cookingTime" => ['integer'],
+            "cooking_time" => ['integer'],
             "category" =>['string'],
             "steps" =>['array'],
             'ingridients' => ['array']
@@ -112,7 +112,7 @@ class RecipesAdminController extends Controller
                 }
             }
 
-            return redirect()->route('recipes');
+            return redirect('/admin/recipes');
         }
 
     }
@@ -168,13 +168,13 @@ class RecipesAdminController extends Controller
         $validated = $request->validate([
             'id' => ['integer'],
             'title'=> ['string'],
-            "image" =>['url', 'nullable'],
+            "image" =>['string'],
             "calorie" =>['integer'],
             "proteins" =>['integer'],
             "fats" =>['integer'],
             "carbohydrates"=>['integer'],
             "portion" =>['integer'],
-            "cookingTime" => ['integer'],
+            "cooking_time" => ['integer'],
             "category" =>['string'],
             "steps" =>['array'],
             'ingridients' => ['array']
@@ -233,7 +233,7 @@ class RecipesAdminController extends Controller
                 }
             }
             $recipe->update($validated);
-
+            return redirect('/admin/recipes');
         }
     }
 

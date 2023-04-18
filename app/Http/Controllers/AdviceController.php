@@ -58,6 +58,7 @@ class AdviceController extends Controller
 
         return Inertia::render('PersonalAccount', [
             'user' => $user,
+            'isAdmin' => \Auth::user()->is_admin
         ]);
     }
 

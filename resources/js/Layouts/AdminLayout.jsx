@@ -1,11 +1,10 @@
-
-import Dropdown from '@/Components/mark/Dropdown';
+import Dropdown from '../components/mark/Dropdown';
 import { Link } from '@inertiajs/react';
 import React, {useState} from 'react';
 import "../../css/header.css";
 import "../../css/footer.css";
 import ThemeSwitch from 'react-theme-switch';
-import logo from "../../../public/assets/2023-03-16_17-05.png";
+import logo from "../../../public/assets/logo.svg";
 import instagram from "../../../public/assets/links/instagram-f-svgrepo-com.svg";
 import telegram from "../../../public/assets/links/telegram-fill-svgrepo-com.svg";
 import youtube from "../../../public/assets/links/youtube-round-svgrepo-com.svg";
