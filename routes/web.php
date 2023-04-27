@@ -96,9 +96,9 @@ Route::middleware(['auth', 'is.admin'])->group(function () {
 Route::get('/parser/recipes', RecipeParserController::class)->name('parser.recipe');
 
 
-Route::fallback( function() {
-    return Inertia::render('NotFound');
-});
+// Route::fallback( function() {
+//     return Inertia::render('NotFound');
+// });
 
 
 require __DIR__.'/auth.php';

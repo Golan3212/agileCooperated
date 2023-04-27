@@ -5,7 +5,7 @@ import { Inertia } from '@inertiajs/inertia';
 export default function RecipeUpdate({recipe}) {
     console.log(recipe);
     const [title, setTitle] = useState(recipe.title);
-    const [image, setImage] = useState(recipe.image);
+    const [image, setImage] = useState();
     const [calorie, setCalorie] = useState(recipe.calorie);
     const [proteins, setProteins] = useState(recipe.proteins);
     const [fats, setFats] = useState(recipe.fats);
@@ -59,22 +59,21 @@ export default function RecipeUpdate({recipe}) {
     }
     function handleSubmit(e){
         e.preventDefault();
-        const values = {
-            id: recipe.id,
+
+        Inertia.post(`/admin/recipes/${recipe.id}`, {
+            _method: 'put',
             title: title,
             image: image,
-            calorie: +calorie,
-            proteins: +proteins,
-            fats: +fats,
-            carbohydrates: +carbohydrates,
-            portion: +portion,
-            cooking_time: +cookingTime,
+            calorie: calorie,
+            proteins: proteins,
+            fats: fats,
+            carbohydrates: carbohydrates,
+            portion: portion,
+            cooking_time: cookingTime,
             category: category,
             steps: steps,
             ingridients: ingridients
-        }
-
-        Inertia.put('/admin/recipes/update', values);
+          })
 
     }
     console.log(recipe);
@@ -87,7 +86,13 @@ export default function RecipeUpdate({recipe}) {
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
                 <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="image">Фото</label>
-                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="text"  id="image" onChange={(e) => setImage(e.target.value)} defaultValue={recipe.image}/>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="file" id="image" onChange={(e) => setImage(e.target.files[0])}/>
+                {
+                    recipe.image==null ? `Фото нет` : <img src={recipe.image}/>
+                }
+
+
+
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
                 <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="calorie">Калории</label>
@@ -114,9 +119,9 @@ export default function RecipeUpdate({recipe}) {
                 <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="number" min="1" required id="cooking_time" onChange={(e) => setCookingTime(e.target.value)} defaultValue={recipe.cooking_time}/>
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
-                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="status">Статус</label>
+                <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="category">Категория</label>
                         <div>
-                            <select name="status" defaultValue={recipe.category} required id="status" onChange={(e) => setCategory(e.target.value)}>
+                            <select name="category" defaultValue={recipe.category} required id="category" onChange={(e) => setCategory(e.target.value)}>
                                 <option value='Завтрак'>Завтрак</option>
                                 <option value="Обед">Обед</option>
                                 <option value="Ужин">Ужин</option>

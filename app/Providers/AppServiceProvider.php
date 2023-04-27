@@ -2,18 +2,19 @@
 
 namespace App\Providers;
 
-use App\QueryBuilders\CommentsQueryBuilder;
 use App\Services\TotalService;
 use App\Services\ParserService;
 use App\Services\Contracts\Total;
 use App\Services\Contracts\Parser;
 use App\QueryBuilders\QueryBuilder;
+use App\Services\UploadFileService;
 use App\Services\ConstructorService;
 use App\QueryBuilders\MenuQueryBuilder;
 use App\Services\Contracts\Constructor;
 use Illuminate\Support\ServiceProvider;
 use App\QueryBuilders\UsersQueryBuilder;
 use App\QueryBuilders\RecipesQueryBuilder;
+use App\QueryBuilders\CommentsQueryBuilder;
 use App\QueryBuilders\MenuWeekQueryBuilder;
 use App\QueryBuilders\ProfilesQueryBuilder;
 use App\QueryBuilders\IngredientsQueryBuilder;
@@ -34,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(QueryBuilder::class, ProfilesQueryBuilder::class);
         $this->app->bind(QueryBuilder::class, UsersQueryBuilder::class);
         $this->app->bind(QueryBuilder::class, CommentsQueryBuilder::class);
+
+        $this->app->bind(UploadFileService::class);
 
         //Services
 

@@ -28,7 +28,8 @@ const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
 }, Symbol.toStringTag, { value: "Module" }));
 function RecipeCreate() {
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState();
+  console.log(image);
   const [calorie, setCalorie] = useState("");
   const [proteins, setProteins] = useState("");
   const [fats, setFats] = useState("");
@@ -109,7 +110,7 @@ function RecipeCreate() {
     ] }),
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
       /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "image", children: "Фото" }),
-      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "file", id: "image", placeholder: "Введите фото", onChange: (e) => setImage(e.target.value) })
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "file", id: "image", onChange: (e) => setImage(e.target.files[0]) })
     ] }),
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
       /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "calorie", children: "Калории" }),
@@ -172,7 +173,7 @@ const __vite_glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
 function RecipeUpdate({ recipe: recipe2 }) {
   console.log(recipe2);
   const [title, setTitle] = useState(recipe2.title);
-  const [image, setImage] = useState(recipe2.image);
+  const [image, setImage] = useState();
   const [calorie, setCalorie] = useState(recipe2.calorie);
   const [proteins, setProteins] = useState(recipe2.proteins);
   const [fats, setFats] = useState(recipe2.fats);
@@ -218,21 +219,20 @@ function RecipeUpdate({ recipe: recipe2 }) {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    const values = {
-      id: recipe2.id,
+    Inertia.post(`/admin/recipes/${recipe2.id}`, {
+      _method: "put",
       title,
       image,
-      calorie: +calorie,
-      proteins: +proteins,
-      fats: +fats,
-      carbohydrates: +carbohydrates,
-      portion: +portion,
-      cooking_time: +cookingTime,
+      calorie,
+      proteins,
+      fats,
+      carbohydrates,
+      portion,
+      cooking_time: cookingTime,
       category,
       steps,
       ingridients
-    };
-    Inertia.put("/admin/recipes/update", values);
+    });
   }
   console.log(recipe2);
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("form", { className: "reclist_main", style: { alignItems: "center", flexDirection: "column", gap: "30px" }, action: "", onSubmit: (e) => handleSubmit(e), children: [
@@ -242,7 +242,8 @@ function RecipeUpdate({ recipe: recipe2 }) {
     ] }),
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
       /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "image", children: "Фото" }),
-      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "text", id: "image", onChange: (e) => setImage(e.target.value), defaultValue: recipe2.image })
+      /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "file", id: "image", onChange: (e) => setImage(e.target.files[0]) }),
+      recipe2.image == null ? `Фото нет` : /* @__PURE__ */ jsx("img", { src: recipe2.image })
     ] }),
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
       /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "calorie", children: "Калории" }),
@@ -269,8 +270,8 @@ function RecipeUpdate({ recipe: recipe2 }) {
       /* @__PURE__ */ jsx("input", { style: { width: "400px", height: "40px", borderRadius: "10px" }, type: "number", min: "1", required: true, id: "cooking_time", onChange: (e) => setCookingTime(e.target.value), defaultValue: recipe2.cooking_time })
     ] }),
     /* @__PURE__ */ jsxs("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "30px" }, children: [
-      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "status", children: "Статус" }),
-      /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("select", { name: "status", defaultValue: recipe2.category, required: true, id: "status", onChange: (e) => setCategory(e.target.value), children: [
+      /* @__PURE__ */ jsx("label", { style: { fontSize: "25px", fontWeight: "600", color: "darkgoldenrod" }, htmlFor: "category", children: "Категория" }),
+      /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("select", { name: "category", defaultValue: recipe2.category, required: true, id: "category", onChange: (e) => setCategory(e.target.value), children: [
         /* @__PURE__ */ jsx("option", { value: "Завтрак", children: "Завтрак" }),
         /* @__PURE__ */ jsx("option", { value: "Обед", children: "Обед" }),
         /* @__PURE__ */ jsx("option", { value: "Ужин", children: "Ужин" }),

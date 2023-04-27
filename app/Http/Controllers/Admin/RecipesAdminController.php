@@ -7,10 +7,14 @@ use App\Models\Recipe;
 use App\Models\Ingredient;
 use App\Models\RecipeStep;
 use Illuminate\Http\Request;
+use App\Services\UploadFileService;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\QueryBuilders\RecipesQueryBuilder;
 use App\QueryBuilders\CategoriesQueryBuilder;
 use App\QueryBuilders\IngredientsQueryBuilder;
+use App\Http\Requests\Recipe\RecipeCreateRequest;
+use App\Http\Requests\Recipe\RecipeUpdateRequest;
 
 class RecipesAdminController extends Controller
 {
@@ -51,30 +55,26 @@ class RecipesAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, CategoriesQueryBuilder $categoriesQueryBuilder)
+    public function store(RecipeCreateRequest $request, CategoriesQueryBuilder $categoriesQueryBuilder, UploadFileService $uploadedFile)
     {
-        $validated = $request->validate([
-            'id' => ['integer'],
-            'title'=> ['string'],
-            "image" =>['url', 'nullable'],
-            "calorie" =>['integer'],
-            "proteins" =>['integer'],
-            "fats" =>['integer'],
-            "carbohydrates"=>['integer'],
-            "portion" =>['integer'],
-            "cooking_time" => ['integer'],
-            "category" =>['string'],
-            "steps" =>['array'],
-            'ingridients' => ['array']
-        ]);
+
+        $validated = $request->validated();
+
 
         $categoryId = $categoriesQueryBuilder->getByTitleFirst($validated['category'])->id;
         unset($validated['category']);
 
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $uploadedFile->uploadRecipeImage($request->file('image'));
+        }
+
         $recipe = new Recipe($validated);
         $recipe->category()->associate($categoryId);
 
+
         if ($recipe->save()) {
+
 
             foreach ($validated['ingridients'] as $key => $value) {
                 $ingredientsQueryBuilder = new IngredientsQueryBuilder();
@@ -94,7 +94,7 @@ class RecipesAdminController extends Controller
                     $ingredient = $ingredientsQueryBuilder->getByTitleFromUpdate(
                         $value['title']
                     );
-                    $recipe->ingredients()->attach($ingredient['id'], [
+                    $recipe->ingredients()->attach($id, [
                             'quantity_ingredient' =>
                                 (int) $value['quantity'],
                             'mass_unit' => $value['mass_unit'],
@@ -153,7 +153,8 @@ class RecipesAdminController extends Controller
         $recipeArray['category'] = $recipe->category()->first()->title;
         $recipeArray['ingredients'] = $ingredients;
         $recipeArray['steps'] = $steps;
-
+        // dd($recipe->image);
+        // $recipeArray['image'] = Storage::disk('public')->get($recipe->image);
 
         return Inertia::render('Admin/RecipeUpdate', [
             'recipe' => $recipeArray
@@ -163,31 +164,37 @@ class RecipesAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, RecipesQueryBuilder $recipesQueryBuilder, CategoriesQueryBuilder $categoriesQueryBuilder)
+    public function update( string $id, RecipeUpdateRequest $request, RecipesQueryBuilder $recipesQueryBuilder, CategoriesQueryBuilder $categoriesQueryBuilder, UploadFileService $uploadedFile)
     {
-        $validated = $request->validate([
-            'id' => ['integer'],
-            'title'=> ['string'],
-            "image" =>['string'],
-            "calorie" =>['integer'],
-            "proteins" =>['integer'],
-            "fats" =>['integer'],
-            "carbohydrates"=>['integer'],
-            "portion" =>['integer'],
-            "cooking_time" => ['integer'],
-            "category" =>['string'],
-            "steps" =>['array'],
-            'ingridients' => ['array']
-        ]);
+        $validated = $request->except('_method');
 
+
+        //находим категорию рецепта
         $categoryId = $categoriesQueryBuilder->getByTitleFirst($validated['category'])->id;
 
         unset($validated['category']);
 
-        $recipe = $recipesQueryBuilder->getByIdUpdate($validated['id'])->first();
+
+
+        $recipe = $recipesQueryBuilder->getByIdUpdate($id)->first();
 
 
         $recipe->category()->associate($categoryId);
+
+
+        if ($request->hasFile('image')) {
+            if ($recipe->image !== null) {
+                Storage::disk('public')->delete($recipe->image);
+            }
+            // dd($request->file('image'));
+            // dd($uploadedFile->uploadRecipeImage($request->file('image')));
+            $validated['image'] = $uploadedFile->uploadRecipeImage($request->file('image'));
+        }else {
+            if ($recipe->image !== null) {
+                Storage::disk('public')->delete($recipe->image);
+            }
+            $validated['image'] = null;
+        }
 
 
         if ($recipe->save()) {
@@ -211,7 +218,7 @@ class RecipesAdminController extends Controller
                         $value['title']
                     );
 
-                    $recipe->ingredients()->attach($ingredient['id'], [
+                    $recipe->ingredients()->attach($id, [
                             'quantity_ingredient' =>
                                 (int) $value['quantity'],
                             'mass_unit' => $value['mass_unit'],
