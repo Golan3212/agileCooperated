@@ -5,7 +5,8 @@ import { Inertia } from '@inertiajs/inertia';
 export default function RecipeCreate() {
 
     const [title, setTitle] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState();
+    console.log(image);
     const [calorie, setCalorie] = useState('');
     const [proteins, setProteins] = useState('');
     const [fats, setFats] = useState('');
@@ -102,7 +103,7 @@ export default function RecipeCreate() {
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
                 <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="image">Фото</label>
-                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="file" id="image" placeholder="Введите фото" onChange={(e) => setImage(e.target.value)}/>
+                <input style={{width:"400px", height:"40px", borderRadius:"10px"}} type="file" id="image" onChange={(e) => setImage(e.target.files[0])}/>
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"30px"}}>
                 <label style={{fontSize:"25px", fontWeight:"600", color:"darkgoldenrod"}} htmlFor="calorie">Калории</label>

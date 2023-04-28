@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\QueryBuilders\CommentsQueryBuilder;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\Recipe;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use App\QueryBuilders\RecipesQueryBuilder;
+use App\QueryBuilders\CommentsQueryBuilder;
 use App\QueryBuilders\IngredientsQueryBuilder;
 use App\QueryBuilders\RecipesStepsQueryBuilder;
 
@@ -22,12 +23,15 @@ class RecipeController extends Controller
         $recipeList = $recipesQueryBuilder->getAll();
 
         $recipes = [];
+        // dd(Storage::disk('public'), Storage::disk('public'));
+
         foreach ($recipeList as $key => $recipe) {
             $recipes[] = [
                 'id' => $recipe->id,
                 'category_id' => $recipe->category_id,
                 'title' => $recipe->title,
                 'image' => $recipe->image,
+                // 'image' => Storage::disk('public')->url($recipe->image),
                 'calorie' => $recipe->calorie,
                 'proteins' => $recipe->proteins,
                 'fats' => $recipe->fats,
