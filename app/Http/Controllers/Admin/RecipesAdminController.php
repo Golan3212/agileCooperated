@@ -67,9 +67,22 @@ class RecipesAdminController extends Controller
 
         if ($request->hasFile('image')) {
             $validated['image'] = $uploadedFile->uploadRecipeImage($request->file('image'));
+        }else{
+            $validated['image'] = null;
         }
 
-        $recipe = new Recipe($validated);
+
+        $recipe = new Recipe([
+            "title" => $validated['title'],
+            "image" => $validated['image'],
+            "calorie" => $validated['calorie'],
+            "proteins" => $validated['proteins'],
+            "fats" => $validated['fats'],
+            "carbohydrates" => $validated['carbohydrates'],
+            "portion" => $validated['portion'],
+            "cooking_time" => $validated['cooking_time']
+        ]);
+
         $recipe->category()->associate($categoryId);
 
 

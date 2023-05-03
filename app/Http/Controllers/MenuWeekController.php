@@ -57,10 +57,10 @@ class MenuWeekController extends Controller
             ];
         };
 
-
-
+        // dd(Auth::user()->profile()->first()->caloric_norm);
         return Inertia::render('MenuBuilder', [
             'menu' => $menu,
+            'caloricNorm' => Auth::user()->profile()->first()->caloric_norm,
             'recipes' => $recipes
         ]);
     }

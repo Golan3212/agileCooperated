@@ -4,9 +4,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\MenuForWeek;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\ProfileUser;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -52,9 +53,9 @@ class User extends Authenticatable
         return $this->belongsToMany(MenuForWeek::class, 'users_has_menu_week', 'user_id', 'menu_id');
     }
 
-    public function profile(): BelongsTo
+    public function profile()
     {
-        return $this->belongsTo(ProfileUser::class, 'id');
+        return $this->hasMany(ProfileUser::class);
     }
 
 }
