@@ -1125,7 +1125,7 @@ const __vite_glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
 const menu_builder = "";
 const plus = "/build/assets/plus-14c06bc0.svg";
 const logo3 = "/build/assets/portions-fe7343ce.svg";
-function MenuBuilder({ menu: menu2, recipes }) {
+function MenuBuilder({ menu: menu2, recipes, caloricNorm }) {
   const [menuAll, setMenuAll] = useState(menu2);
   const [menuList, setMenuList] = useState(menuAll);
   const [idDay, setIdDay] = useState(0);
@@ -1237,24 +1237,36 @@ function MenuBuilder({ menu: menu2, recipes }) {
             ] })
           ] })
         ] })),
-        /* @__PURE__ */ jsx("div", { className: "cons_col cons_col1", children: /* @__PURE__ */ jsxs("div", { className: "cons_pic cons_itog", children: [
-          /* @__PURE__ */ jsxs("div", { className: "cons_itog_str", children: [
-            /* @__PURE__ */ jsx("div", { className: "cons_itog_str_name", children: "ККалории" }),
-            /* @__PURE__ */ jsx("div", { className: "cons_itog_str_val", children: item.totalCalories })
+        /* @__PURE__ */ jsxs("div", { className: "cons_col cons_col1", children: [
+          /* @__PURE__ */ jsxs("div", { className: "cons_pic cons_itog", children: [
+            /* @__PURE__ */ jsxs("div", { className: "cons_itog_str", children: [
+              /* @__PURE__ */ jsx("div", { className: "cons_itog_str_name", children: "ККалории" }),
+              /* @__PURE__ */ jsx("div", { className: "cons_itog_str_val", children: item.totalCalories })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "cons_itog_str", children: [
+              /* @__PURE__ */ jsx("div", { className: "cons_itog_str_name", children: "Белки, г" }),
+              /* @__PURE__ */ jsx("div", { className: "cons_itog_str_val", children: item.totalProteins })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "cons_itog_str", children: [
+              /* @__PURE__ */ jsx("div", { className: "cons_itog_str_name", children: "Жиры, г" }),
+              /* @__PURE__ */ jsx("div", { className: "cons_itog_str_val", children: item.totalFats })
+            ] }),
+            /* @__PURE__ */ jsxs("div", { className: "cons_itog_str", children: [
+              /* @__PURE__ */ jsx("div", { className: "cons_itog_str_name", children: "Углеводы, г" }),
+              /* @__PURE__ */ jsx("div", { className: "cons_itog_str_val", children: item.totalCarbohydrates })
+            ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "cons_itog_str", children: [
-            /* @__PURE__ */ jsx("div", { className: "cons_itog_str_name", children: "Белки, г" }),
-            /* @__PURE__ */ jsx("div", { className: "cons_itog_str_val", children: item.totalProteins })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "cons_itog_str", children: [
-            /* @__PURE__ */ jsx("div", { className: "cons_itog_str_name", children: "Жиры, г" }),
-            /* @__PURE__ */ jsx("div", { className: "cons_itog_str_val", children: item.totalFats })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "cons_itog_str", children: [
-            /* @__PURE__ */ jsx("div", { className: "cons_itog_str_name", children: "Углеводы, г" }),
-            /* @__PURE__ */ jsx("div", { className: "cons_itog_str_val", children: item.totalCarbohydrates })
+          /* @__PURE__ */ jsxs("div", { children: [
+            caloricNorm - 200 > item.totalCalories ? /* @__PURE__ */ jsxs("div", { children: [
+              "У вас недобор калорий на ",
+              caloricNorm - item.totalCalories
+            ] }) : /* @__PURE__ */ jsx(Fragment, {}),
+            caloricNorm + 200 < item.totalCalories ? /* @__PURE__ */ jsxs("div", { children: [
+              "У вас перебор калорий на ",
+              item.totalCalories - caloricNorm
+            ] }) : /* @__PURE__ */ jsx(Fragment, {})
           ] })
-        ] }) })
+        ] })
       ] }) }))
     ] });
   }

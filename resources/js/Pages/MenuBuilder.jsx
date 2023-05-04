@@ -5,7 +5,7 @@ import image from '../../../public/assets/recipe_image/images/4.jpg';
 import logo3 from "../../../public/assets/recipe_image/icons/portions.svg";
 import { Inertia } from '@inertiajs/inertia';
 
-export default function MenuBuilder({ menu, recipes }) {
+export default function MenuBuilder({ menu, recipes, caloricNorm }) {
 
     const [menuAll, setMenuAll] = useState(menu);
     const [menuList, setMenuList] = useState(menuAll);
@@ -146,6 +146,14 @@ export default function MenuBuilder({ menu, recipes }) {
                                         <div className="cons_itog_str_name">Углеводы, г</div>
                                         <div className="cons_itog_str_val">{item.totalCarbohydrates}</div>
                                     </div>
+                                </div>
+                                <div>
+                                    {
+                                        ((caloricNorm-200)>item.totalCalories) ?  <div>У вас недобор калорий на {caloricNorm-item.totalCalories}</div> : <></>
+                                    }
+                                    {
+                                        ((caloricNorm+200)<item.totalCalories) ?  <div>У вас перебор калорий на {item.totalCalories-caloricNorm}</div> : <></>
+                                    }
                                 </div>
                             </div>
 
