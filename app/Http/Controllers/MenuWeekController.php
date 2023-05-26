@@ -19,6 +19,11 @@ class MenuWeekController extends Controller
         RecipesQueryBuilder $recipesQueryBuilder
     )
     {
+
+        if(Auth::user()->profile()->first() == null) {
+            return redirect('/form');
+        }
+
         $menuOneWeek = Auth::user()->menuWeek()->get();
 
         $menuWeekOnDaysArray = [];

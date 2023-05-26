@@ -37,13 +37,11 @@ export default function Register() {
 
     return (
         <>
-            {/*<Head title="Register" />*/}
+            <Head title="Регистрация" />
             <div className="account">
                 <form className="account__box" onSubmit={submit}>
-                    {/* <h2>Персональные данные</h2> */}
                     <div className="account__inner">
                         <InputLabel htmlFor="name" value="Имя" />
-
                         <TextInput
                             id="name"
                             name="name"
@@ -74,22 +72,6 @@ export default function Register() {
 
                         <InputError message={errors.email} className="mt-2" />
                     </div>
-                    {/* <div className="account__inner">
-                        <InputLabel htmlFor="phone" value="Телефон"/>
-
-                        <TextInput
-                            id="phone"
-                            name="phone"
-                            value={data.phone}
-                            className="input_name"
-                            autoComplete="phone"
-                            isFocused={true}
-                            onChange={handleOnChange}
-                            required
-                        />
-
-                        <InputError message={errors.phone} className="mt-2" />
-                    </div> */}
 
                     <div className="account__inner">
                         <InputLabel htmlFor="password" value="Пароль" />

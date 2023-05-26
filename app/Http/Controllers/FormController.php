@@ -35,18 +35,15 @@ class FormController extends Controller
      */
     public function store(ProfileRequest $request, ProfilesQueryBuilder $profilesQueryBuilder, ConstructorService $constructor)
     {
-        // Auth::attempt(['email' => 'email@mail.ru', 'password' => 'password']); //чтобы польователь был зарегистрирован, когда появится регистрацию убрать
-        // Вы должны создать пользователя в бд
-
 
         if(Auth::check()){
 
-             $gender = $request->validated('gender');
-             $weight = $request->validated('weight');
-             $height = $request->validated('height');
-             $age = $request->validated('age');
-             $quotient = $request->validated('quotient');
-             $target = $request->validated('target');
+            $gender = $request->validated('gender');
+            $weight = $request->validated('weight');
+            $height = $request->validated('height');
+            $age = $request->validated('age');
+            $quotient = $request->validated('quotient');
+            $target = $request->validated('target');
 
 
             $calories = $profilesQueryBuilder->getCaloricNorm($gender, $age, $height, $weight);
@@ -69,19 +66,19 @@ class FormController extends Controller
 
             if ($profilesQueryBuilder->getByUserId(\Auth::id())->count()) {//если профиль уже создан
 
-               $profile = $profilesQueryBuilder->updateByUserId(\Auth::id());
-               $profile->update($arguments);
+                $profile = $profilesQueryBuilder->updateByUserId(\Auth::id());
+                $profile->update($arguments);
 
-           }else{
-            $profile = new ProfileUser($arguments); //Марк 2.04.2023 закоментировал для того
-            // чтобы данные пользователя записывались в новую строку, а не перезаписывали старую
+            }else{
+                $profile = new ProfileUser($arguments);
+
                 $profile->user()->associate(\Auth::id());
                 $profile->save();
-           }
+            }
 
-           $progress = new ProgressUser([
-               'weight_progress' => $profile->first()->weight,
-               'calories_progress' => $profile->first()->caloric_norm,
+            $progress = new ProgressUser([
+                'weight_progress' => $profile->first()->weight,
+                'calories_progress' => $profile->first()->caloric_norm,
             ]);
 
             $progress->profile()->associate($profile->first()->id);
@@ -89,11 +86,7 @@ class FormController extends Controller
                 $constructor->constructor();
                 return \redirect()->route('advice');
             }
-
-
         }
-        // dd($request, Auth::check(), \Auth::id());
-
     }
 
     /**

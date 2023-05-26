@@ -286,11 +286,11 @@
 /*# sourceMappingURL=slick-theme.min.css.map */
 
 .slide-block {
-    height: 791px;
+    height: 600px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 40px;
+    margin-top: 20px;
 
 
 }
@@ -298,7 +298,7 @@
 .slide-desc {
     color: #fff;
     font-size: 30px;
-    padding: 100px 100px 30px 500px;
+    padding: 40px 100px 30px 500px;
     text-align: -webkit-center;
     line-height: 1.5;
     font-family: Roboto, sans-serif;
@@ -308,7 +308,7 @@
 .slide-text {
     color: white;
     font-size: 45px;
-    padding: 200px 100px 30px 500px;
+    padding: 80px 100px 30px 500px;
     text-align: -webkit-center;
     font-family: Roboto, sans-serif;
     letter-spacing: .09em;
@@ -316,6 +316,20 @@
 }
 
 .slide-text-blacк {
+    color: black;
+}
+
+.slide-link {
+    color: white;
+    font-size: 20px;
+    padding: 40px 100px 10px 500px;
+    text-align: -webkit-center;
+    font-family: Roboto, sans-serif;
+    letter-spacing: .09em;
+
+}
+
+.slide-link-blacк {
     color: black;
 }
 

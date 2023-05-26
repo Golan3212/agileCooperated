@@ -37,7 +37,7 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <>
-            <Head title="Log in" />
+            <Head title="Войти" />
             <div className="account">
 
                 {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
@@ -79,10 +79,10 @@ export default function Login({ status, canResetPassword }) {
                     <div className="block mt-4">
                         <label className="flex items-center  login__box">
                             <Checkbox
-                            name="remember"
-                            checked={data.remember}
-                            onChange={(e) => setData('remember', e.target.checked)}
-                        />
+                                name="remember"
+                                checked={data.remember}
+                                onChange={(e) => setData('remember', e.target.checked)}
+                            />
                             <span className="ml-2 text-sm text-gray-600">Запомнить меня</span>
                         </label>
                     </div>

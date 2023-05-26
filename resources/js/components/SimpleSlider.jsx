@@ -14,7 +14,7 @@ export default class SimpleSlider extends Component {
             slidesToScroll: 1,
             autoplay: true,
             speed: 500,
-            autoplaySpeed: 8000,
+            autoplaySpeed: 4500,
             cssEase: "linear"
         };
 
@@ -24,18 +24,21 @@ export default class SimpleSlider extends Component {
                 image: "/assets/home/fon1.jpg",
                 title: "Добро пожаловать",
                 description: "Мы поможем вам создать здоровое, сильное и красивое тело  с помощью вкусных, полезных и разнообразных рецептов",
+                link: "/info",
                 isDarkBg: true
             },
             {
                 image: "/assets/home/fon2.jpg",
                 title: "Что мы предлагаем",
                 description: "На основании ваших параметров мы рассчитаем необходимое количество калорий и создадим вам меню на неделю с подробными рецептами на каждый день",
+                link: "/info",
                 isDarkBg: false
             },
             {
                 image: "/assets/home/fon3.jpg",
                 title: "Всего в два клика",
-                description: "Вам нужно зарегистрироваться на нашем сайте, заполнить анкету с вашими данными и  вы получите доступ к вашему меню и ко всем рецептам в целом",
+                description: "Вам нужно зарегистрироваться на нашем сайте, пройти калькулятор КБЖУ и  вы получите доступ к вашему меню и ко всем рецептам в целом",
+                link: "/info",
                 isDarkBg: true
             }
         ]
@@ -58,7 +61,7 @@ export default class SimpleSlider extends Component {
                     </p>
                     <h3>Всего в два клика</h3>
                     <p>
-                        Вам нужно зарегистрироваться на нашем сайте, заполнить анкету с вашими данными и  вы получите доступ к вашему меню и ко всем рецептам в целом
+                        Вам нужно зарегистрироваться на нашем сайте, пройти калькулятор КБЖУ и  вы получите доступ к вашему меню и ко всем рецептам в целом
                     </p>
                 </div>
                 <Slider {...settings}>

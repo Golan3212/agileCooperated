@@ -98,20 +98,19 @@ class RecipesAdminController extends Controller
 
                     if ($ingredient->save()) {
                         $ingredient->recipes()->attach($recipe->id, [
-                                'quantity_ingredient' =>
-                                    (int) $value['quantity'],
-                                'mass_unit' => $value['mass_unit'],
-                            ]);
+                            'quantity_ingredient' =>
+                                (int) $value['quantity'],
+                            'mass_unit' => $value['mass_unit'],
+                        ]);
                     }
                 } else {
                     $ingredient = $ingredientsQueryBuilder->getByTitleFromUpdate(
                         $value['title']
                     );
-                    $recipe->ingredients()->attach($id, [
-                            'quantity_ingredient' =>
-                                (int) $value['quantity'],
-                            'mass_unit' => $value['mass_unit'],
-                        ]);
+                    $recipe->ingredients()->attach($ingredient->id, [
+                        'quantity_ingredient' => (int) $value['quantity'],
+                        'mass_unit' => $value['mass_unit'],
+                    ]);
                 }
             }
             foreach ($validated['steps'] as $key => $value) {
@@ -221,21 +220,19 @@ class RecipesAdminController extends Controller
 
                     if ($ingredient->save()) {
                         $ingredient->recipes()->attach($recipe->id, [
-                                'quantity_ingredient' =>
-                                    (int) $value['quantity'],
-                                'mass_unit' => $value['mass_unit'],
-                            ]);
+                            'quantity_ingredient' => (int) $value['quantity'],
+                            'mass_unit' => $value['mass_unit'],
+                        ]);
                     }
                 } else {
                     $ingredient = $ingredientsQueryBuilder->getByTitleFromUpdate(
                         $value['title']
                     );
 
-                    $recipe->ingredients()->attach($id, [
-                            'quantity_ingredient' =>
-                                (int) $value['quantity'],
-                            'mass_unit' => $value['mass_unit'],
-                        ]);
+                    $recipe->ingredients()->attach($ingredient->id, [
+                        'quantity_ingredient' => (int) $value['quantity'],
+                        'mass_unit' => $value['mass_unit'],
+                    ]);
                 }
             }
 
