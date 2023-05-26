@@ -1,34 +1,47 @@
 import React from 'react';
-import {
-    Link
-} from "react-router-dom";
-import '../../css/recipe.css';
-
+import "../../css/header.css";
+import "../../css/footer.css";
+// import '../../css/recipe.css';
 
 import vk from "../../../public/assets/recipe_image/icons/icons-vk.png";
 import yt from "../../../public/assets/recipe_image/icons/icons-youtube.png";
 import tg from "../../../public/assets/recipe_image/icons/icons-telegram.png";
+import { InertiaLink } from '@inertiajs/inertia-react';
 
 
 
-const FooterList = (props) => {
+const FooterList = () => {
     return (
         <div>
-            <div className="section section_footer">
+            <div className="section2">
                 <div className="container">
-                    <div className="footer">
-                        <ul className="footer_menu">
-
-                            <li className="footer_menu_item"><Link className="footer_menu_color" to="/">Главная</Link></li>
-                            <li className="footer_menu_item"><Link className="footer_menu_color" to="#">Конструктор меню</Link></li>
-                            <li className="footer_menu_item"><Link className="footer_menu_color" to="#">Рецепты</Link></li>
-                        </ul>
-
-                        <div className="footer_contacts">
-                            <div className="footer_contacts_item"><a href="#" target="_blank"><img className="footer_menu_icons" src={vk}></img></a>&nbsp;<a href="#" target="_blank"><img className="footer_menu_icons" src={yt}></img></a>&nbsp;<a href="#" target="_blank"><img className="footer_menu_icons" src={tg}></img></a>&nbsp;</div>
-                            <div className="footer_contacts_item"><a className="footer_menu_color" href="#" target="_blank">admin@avocado.pro</a></div>
-                            <div className="footer_contacts_item"><a className="footer_menu_color" href="#">Политика конфиденциальности</a></div>
+                    <div className="footer2">
+                        <div className="footer__top">
+                            <div className="footer__box text">
+                                <h3>AVOCADO</h3>
+                                <p>Советы, которые работают.
+                                    Рецепты, которые вы хотите приготовить.
+                                    Рекомендации, которым вы доверяете.</p>
+                            </div>
+                            <div className="footer__box">
+                                <ul className="footer_menu2">
+                                    <li className="footer_menu_item2"><InertiaLink href="/">Главная</InertiaLink></li>
+                                    <li className="footer_menu_item2"><InertiaLink href="/menu/builder">Конструктор меню</InertiaLink></li>
+                                    <li className="footer_menu_item2"><InertiaLink href="/recipes">Рецепты</InertiaLink></li>
+                                </ul>
+                            </div>
+                            <div className="footer__box">
+                                <h4>Контакты</h4>
+                                <p>&#9993; avocado@mail.ru</p>
+                            </div>
                         </div>
+                        <div className="footer__bottom">
+                            <p>2023 © Конструктор питания Avocado</p>
+                            <div className="anchor">
+                                <a href="#up">&#94;</a>
+                            </div>
+                        </div>
+
 
                     </div>
                 </div>

@@ -1,0 +1,17 @@
+.Progress {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.container2 {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    overflow: auto;
+}
+canvas {
+    width: 700px!important;
+    height: 350px!important;
+    display: flex!important;
+    justify-content: center!important;
+}

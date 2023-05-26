@@ -1,14 +1,18 @@
 import React from 'react';
-import { Routes, Route } from "react-router-dom";
+import SimpleSlider from '../components/SimpleSlider';
 
 
-export default function Home() {
-    const name = "Home Page";
+
+
+const Home = (props) => {
+   
+
     return (
-    <div className="container">
-       <h1>{name}</h1>
-    </div>
 
-
-    );
+        <div>
+          <SimpleSlider></SimpleSlider>
+        </div>
+    )
 }
+
+export default Home;

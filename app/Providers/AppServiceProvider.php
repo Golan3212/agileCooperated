@@ -2,7 +2,23 @@
 
 namespace App\Providers;
 
+use App\Services\TotalService;
+use App\Services\ParserService;
+use App\Services\Contracts\Total;
+use App\Services\Contracts\Parser;
+use App\QueryBuilders\QueryBuilder;
+use App\Services\UploadFileService;
+use App\Services\ConstructorService;
+use App\QueryBuilders\MenuQueryBuilder;
+use App\Services\Contracts\Constructor;
 use Illuminate\Support\ServiceProvider;
+use App\QueryBuilders\UsersQueryBuilder;
+use App\QueryBuilders\RecipesQueryBuilder;
+use App\QueryBuilders\CommentsQueryBuilder;
+use App\QueryBuilders\MenuWeekQueryBuilder;
+use App\QueryBuilders\ProfilesQueryBuilder;
+use App\QueryBuilders\IngredientsQueryBuilder;
+use App\QueryBuilders\RecipesStepsQueryBuilder;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +27,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(QueryBuilder::class, MenuQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, MenuWeekQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, RecipesQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, RecipesStepsQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, IngredientsQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, ProfilesQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, UsersQueryBuilder::class);
+        $this->app->bind(QueryBuilder::class, CommentsQueryBuilder::class);
+
+        $this->app->bind(UploadFileService::class);
+
+        //Services
+
+        $this->app->bind(Parser::class, ParserService::class);
+        $this->app->bind(Total::class, TotalService::class);
+        $this->app->bind(Constructor::class, ConstructorService::class);
     }
 
     /**

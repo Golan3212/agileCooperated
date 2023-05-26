@@ -1,18 +1,24 @@
-import { Link, Outlet } from "react-router-dom";
+ import { Link, Outlet } from "react-router-dom";
 
-function Layout() {
+ function Layout() {
     return (
         <div>
             <nav>
                 <ul className='navigation'>
-                    {/*<li >*/}
-                    {/*    <Link className="navigation-link" to="/">Home</Link>*/}
-                    {/*</li>*/}
-                    <li>
-                        <Link className="navigation-link" to="/Recipes">Recipes</Link>
+                    <li >
+                        <Link className="navigation-link" to="/">Home</Link>
                     </li>
                     <li>
-                        <Link className="navigation-link" to="/RecipeItem">RecipeItem</Link>
+                        <Link className="navigation-link" to="/recipes">Recipes</Link>
+                    </li>
+                    <li>
+                        <Link className="navigation-link" to="/form"> Form   </Link>
+                    </li>
+                    <li>
+                        <Link className="navigation-link" to="/advice"> Advice </Link>
+                    </li>
+                    <li>
+                        <Link className="navigation-link" to="/nothing-here">Nothing Here</Link>
                     </li>
                 </ul>
             </nav>
@@ -21,4 +27,4 @@ function Layout() {
     );
 }
 
-export default Layout;
+ export default Layout;

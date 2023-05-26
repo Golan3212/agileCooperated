@@ -2,18 +2,52 @@
 
 namespace App\Models;
 
-class Recipe
-{
-    public string $title;
-    public string $ingredients;
-    public string $nutrition;
-    public string $cookingTime;
+use App\Models\RecipeStep;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-    public function __construct($title, $ingredients, $nutrition, $cookingTime)
+
+class Recipe extends Model
+{
+    use HasFactory;
+
+    protected $table = 'recipes';
+
+    protected $fillable = [
+        'title',
+        'image',
+        'calorie',
+        'proteins',
+        'fats',
+        'carbohydrates',
+        'cooking_time',
+        'portion',
+        'created_at'
+    ];
+
+    public function category():BelongsTo
     {
-        $this->title = $title;
-        $this->ingredients = $ingredients;
-        $this->nutrition = $nutrition;
-        $this->cookingTime = $cookingTime;
+        return $this->belongsTo(Category::class,
+            'category_id');
     }
+
+    public function ingredients():BelongsToMany
+    {
+        return $this->belongsToMany(Ingredient::class,
+            'recipes_has_ingredients','recipes_id' , 'ingredients_id')->withPivot('mass_unit', 'quantity_ingredient');
+    }
+
+    public function steps()
+    {
+        return $this->hasMany(RecipeStep::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }
