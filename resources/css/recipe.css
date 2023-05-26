@@ -344,6 +344,9 @@ a:hover {
     height: 40px;
 }
 
+.del__btn{
+    padding: 5px;
+}
 
 .block_center {
     display: flex;

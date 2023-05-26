@@ -30,7 +30,7 @@ export default function Advice({profile}) {
                 <div className="advice">
                     <h3>Белки</h3>
                     <p className="advice__text">
-                        Рекомендуемое количество белка в граммах
+                        Рекомендуемое количество белков в граммах
                     </p>
                     <p className="advice__result"> от &nbsp;
                         <span>{profile.proteins_min}</span> &nbsp; до &nbsp;

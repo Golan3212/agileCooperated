@@ -58,10 +58,6 @@ export default function PersonalAccount({user, isAdmin}) {
                 {user.map(item => {
                     return<section className="account__profile">
                         <h2>Персональные данные</h2>
-                        {/*<div className="account__inner">*/}
-                        {/*    <p>Логин</p>*/}
-                        {/*    <span>{item.user.email}</span>*/}
-                        {/*</div>*/}
 
                         <div className="account__inner">
                             <p>Имя</p>
@@ -75,10 +71,6 @@ export default function PersonalAccount({user, isAdmin}) {
                             <p>Возраст</p>
                             <span>{item.age}</span>
                         </div>
-                        {/*<div className="account__inner">*/}
-                        {/*    <p>Телефон</p>*/}
-                        {/*    <span>{item.user.phone}</span>*/}
-                        {/*</div>*/}
                         <div className="account__inner">
                             <p>Email</p>
                             <span>{item.user.email}</span>
@@ -115,9 +107,4 @@ export default function PersonalAccount({user, isAdmin}) {
 
         </div>
     );
-
-
-
-
-
 }

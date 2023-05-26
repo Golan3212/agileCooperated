@@ -124,6 +124,11 @@ export default function MenuBuilder({ menu, recipes, caloricNorm }) {
                                                 <p className="cons_title_calorie">ККАЛОРИЙ: {menuRecipe.calorie}</p>
                                             </div>
                                         </div>
+                                        <div className="cons_calorie">
+                                            <div>
+                                                <p className="cons_title_calorie">БЖУ: {menuRecipe.proteins}/{menuRecipe.fats}/{menuRecipe.carbohydrates}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -149,10 +154,10 @@ export default function MenuBuilder({ menu, recipes, caloricNorm }) {
                                 </div>
                                 <div>
                                     {
-                                        ((caloricNorm-200)>item.totalCalories) ?  <div>У вас недобор калорий на {caloricNorm-item.totalCalories}</div> : <></>
+                                        ((caloricNorm-200)>item.totalCalories) ?  <div style={{fontSize:"16px", padding: "4px", border: "2px solid red"}}><span style={{color: "red"}}>Внимание!</span> Недобор калорий на {caloricNorm-item.totalCalories}</div> : <></>
                                     }
                                     {
-                                        ((caloricNorm+200)<item.totalCalories) ?  <div>У вас перебор калорий на {item.totalCalories-caloricNorm}</div> : <></>
+                                        ((caloricNorm+200)<item.totalCalories) ?  <div style={{fontSize:"16px", padding: "4px", border: "2px solid red"}}><span style={{color: "red"}}>Внимание!</span> Перебор калорий на {item.totalCalories-caloricNorm}</div> : <></>
                                     }
                                 </div>
                             </div>
@@ -277,18 +282,6 @@ export default function MenuBuilder({ menu, recipes, caloricNorm }) {
                     <div className="buttons_row">
 
                     </div>
-                    {/* <div className="buttons_row">
-                        <div className="buttons_row_button_wrap">
-                            <div > <button className="buttons_row_button" id="btn_sohranit_recepti">Сохранить рецепты</button></div>
-                        </div>
-                        <div className="buttons_row_text_wrap">
-                            <div className="buttons_row_text" id="txt_sohranit_recepti"><strong>Сохранить рецепты</strong> в <a className="buttons_row_a"
-                                href="№" >личный кабинет</a>, чтобы потом можно было
-                                вернуться и приготовить понравившиеся блюда. В общей сложности можно сохранять только 5
-                                недельных наборов.<span className="append_text"></span></div>
-                        </div>
-                    </div> */}
-                    {/*ВРЕММЕННО КОММЕНТИРУЮ НА УРОК 27.03.*/}
                     <div className="buttons_row">
                         <div className="buttons_row_button_wrap">
                             <div > <button className="buttons_row_button" onClick={(e) => { hangleResetMenu(e); }}>Вернуть первоначальное меню </button></div>
@@ -298,18 +291,6 @@ export default function MenuBuilder({ menu, recipes, caloricNorm }) {
                                 сетке до "рекомендуемых".<span className="append_text"></span></div>
                         </div>
                     </div>
-                    {/*<div className="buttons_row">*/}
-                    {/*    <div className="buttons_row_button_wrap">*/}
-                    {/*        <div > <button className="buttons_row_button" >Удалить все рецепты из списка</button></div>*/}
-                    {/*    </div>*/}
-                    {/*    <div className="buttons_row_text_wrap">*/}
-                    {/*        <div className="buttons_row_text" ><strong>Очистить все рецепты</strong> из*/}
-                    {/*            недельной сетки, чтобы самостоятельно заполнить её любимыми блюдами. Всегда можете вернуться к*/}
-                    {/*            "рекомендуемому" набору рецептов - воспользуйтесь кнопкой "вернуть первоначальное меню".<span*/}
-                    {/*                className="append_text"></span></div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-                    {/*КОНЕЦ ВРЕМЕННОГО КОММЕНТИРОВАНИЯ НА УРОК 27.03*/}
                 </div>
             </div>
 

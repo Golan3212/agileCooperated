@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InfoController;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
@@ -35,19 +36,24 @@ use App\Http\Controllers\Parsers\RecipeParserController;
 // Route::get('/dashboard',DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 
+
+
+
+
 //Auth routes
 Route::middleware('auth')
     ->group(function () {
-
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/home',[HomeController::class,'index'])->name('Home');
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/home',[HomeController::class,'index'])->name('Home');
     });
-    //Роут для графика 02.04.2023
-    Route::get('/progress',[ChartController::class,'index'])->middleware(['auth'])->name('ProgressChart');
 
-    //Guest routes
+//Роут для графика 02.04.2023
+Route::get('/progress',[ChartController::class,'index'])->middleware(['auth'])->name('ProgressChart');
+
+
+//Guest routes
 Route::middleware('guest')
     ->group(function () {
         //Route::get('/home ', [AdminUserController::class, 'home'])->name('guest.home');
@@ -69,7 +75,6 @@ Route::get('/posts', [PostController::class, 'index'])->middleware(['auth', 'ver
 Route::get('/recipes', [RecipeController::class, 'index'])->middleware(['auth', 'verified'])->name('recipes');
 Route::get('/recipe/{id}', [RecipeController::class, 'show'])->middleware(['auth', 'verified'])->name('recipe');
 Route::get('/category', [CategoryController::class, 'index'])->middleware(['auth', 'verified'])->name('category');
-//
 
 
 Route::middleware(['auth'])->group(function () {
@@ -83,6 +88,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('comments', CommentController::class);
         Route::get('/main', [MainController::class, 'index'])->name('main');
 });
+
 //Админ-панель
 Route::middleware(['auth', 'is.admin'])->group(function () {
     Route::prefix('admin')->group(function () {

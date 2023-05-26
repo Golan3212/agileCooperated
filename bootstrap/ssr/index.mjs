@@ -1,6 +1,6 @@
 import * as jsxRuntime from "react/jsx-runtime";
 import { InertiaLink, useForm, usePage } from "@inertiajs/inertia-react";
-import { useState, useEffect, Component, createContext, Fragment as Fragment$1, forwardRef, useRef, useContext } from "react";
+import { useState, useEffect, Component, Fragment as Fragment$1, forwardRef, useRef } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { Link, Head, usePage as usePage$1, useForm as useForm$1, router, createInertiaApp } from "@inertiajs/react";
 import ThemeSwitch from "react-theme-switch";
@@ -444,7 +444,7 @@ function Advice({ profile }) {
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "advice", children: [
       /* @__PURE__ */ jsx("h3", { children: "Белки" }),
-      /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Рекомендуемое количество белка в граммах" }),
+      /* @__PURE__ */ jsx("p", { className: "advice__text", children: "Рекомендуемое количество белков в граммах" }),
       /* @__PURE__ */ jsxs("p", { className: "advice__result", children: [
         " от  ",
         /* @__PURE__ */ jsx("span", { children: profile.proteins_min }),
@@ -870,7 +870,7 @@ function About() {
     /* @__PURE__ */ jsx("h2", { className: "about_title", children: "Абсолютно бесплатно" }),
     /* @__PURE__ */ jsx("p", { className: "about_text", children: "Таких возможностей вам не предоставит ни один сайт. На нашем же сайте все эти функции абсолютно бесплатны. Будем рады помогать вам питаться разнообразно и правильно! " }),
     /* @__PURE__ */ jsx("p", { className: "about_text", children: "Мы стремимся сделать наш конструктор лучше! Присоединяйтесь к нашему сайту! " }),
-    /* @__PURE__ */ jsx("p", { className: "about_text", children: "По вопросам сотрудничества и размещения рекламы пишите нам на почту: avocado@mail.ru" })
+    /* @__PURE__ */ jsx("p", { className: "about_text", children: "По вопросам сотрудничества и размещения рекламы пишите нам на почту: avocado-2023@mail.ru" })
   ] }) });
 }
 const __vite_glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -908,12 +908,12 @@ const menu = "/build/assets/menu-svgrepo-com-9cc5f9ff.svg";
 const account = "/build/assets/account-avatar-man-svgrepo-com-9bbb61a3.svg";
 function Layout$2({ children }) {
   return /* @__PURE__ */ jsxs("main", { className: "main", children: [
-    /* @__PURE__ */ jsx(MenuList$2, {}),
+    /* @__PURE__ */ jsx(MenuList$3, {}),
     /* @__PURE__ */ jsx("main", { className: "container", children: /* @__PURE__ */ jsx("article", { children }) }),
     /* @__PURE__ */ jsx(FooterList$2, {})
   ] });
 }
-const MenuList$2 = (props) => {
+const MenuList$3 = (props) => {
   const hangleClick = (e) => {
     e.preventDefault();
     Inertia.post("/logout");
@@ -1009,7 +1009,7 @@ const FooterList$1 = () => {
       ] }) }),
       /* @__PURE__ */ jsxs("div", { className: "footer__box", children: [
         /* @__PURE__ */ jsx("h4", { children: "Контакты" }),
-        /* @__PURE__ */ jsx("p", { children: "✉ avocado@mail.ru" })
+        /* @__PURE__ */ jsx("p", { children: "✉ avocado-2023@mail.ru" })
       ] })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "footer__bottom", children: [
@@ -1019,7 +1019,7 @@ const FooterList$1 = () => {
   ] }) }) }) });
 };
 const recipe = "";
-const MenuList$1 = (props) => {
+const MenuList$2 = (props) => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
     /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
       /* @__PURE__ */ jsx("div", { className: "menu__left", children: /* @__PURE__ */ jsx(ThemeSwitch, {}) }),
@@ -1051,7 +1051,7 @@ const MenuList$1 = (props) => {
 };
 function GuestLayout({ children }) {
   return /* @__PURE__ */ jsxs("main", { className: "main", children: [
-    /* @__PURE__ */ jsx(MenuList$1, {}),
+    /* @__PURE__ */ jsx(MenuList$2, {}),
     /* @__PURE__ */ jsx("main", { className: "container", children: /* @__PURE__ */ jsx("article", { children }) }),
     /* @__PURE__ */ jsx(FooterList$1, {})
   ] });
@@ -1066,7 +1066,7 @@ class SimpleSlider extends Component {
       slidesToScroll: 1,
       autoplay: true,
       speed: 500,
-      autoplaySpeed: 8e3,
+      autoplaySpeed: 4500,
       cssEase: "linear"
     };
     const slidesData = [
@@ -1074,18 +1074,21 @@ class SimpleSlider extends Component {
         image: "/assets/home/fon1.jpg",
         title: "Добро пожаловать",
         description: "Мы поможем вам создать здоровое, сильное и красивое тело  с помощью вкусных, полезных и разнообразных рецептов",
+        link: "/info",
         isDarkBg: true
       },
       {
         image: "/assets/home/fon2.jpg",
         title: "Что мы предлагаем",
         description: "На основании ваших параметров мы рассчитаем необходимое количество калорий и создадим вам меню на неделю с подробными рецептами на каждый день",
+        link: "/info",
         isDarkBg: false
       },
       {
         image: "/assets/home/fon3.jpg",
         title: "Всего в два клика",
-        description: "Вам нужно зарегистрироваться на нашем сайте, заполнить анкету с вашими данными и  вы получите доступ к вашему меню и ко всем рецептам в целом",
+        description: "Вам нужно зарегистрироваться на нашем сайте, пройти калькулятор КБЖУ и  вы получите доступ к вашему меню и ко всем рецептам в целом",
+        link: "/info",
         isDarkBg: true
       }
     ];
@@ -1096,7 +1099,7 @@ class SimpleSlider extends Component {
         /* @__PURE__ */ jsx("h3", { children: "Что мы предлагаем" }),
         /* @__PURE__ */ jsx("p", { children: "На основании ваших параметров мы рассчитаем необходимое количество калорий и создадим вам меню на неделю с подробными рецептами на каждый день" }),
         /* @__PURE__ */ jsx("h3", { children: "Всего в два клика" }),
-        /* @__PURE__ */ jsx("p", { children: "Вам нужно зарегистрироваться на нашем сайте, заполнить анкету с вашими данными и  вы получите доступ к вашему меню и ко всем рецептам в целом" })
+        /* @__PURE__ */ jsx("p", { children: "Вам нужно зарегистрироваться на нашем сайте, пройти калькулятор КБЖУ и  вы получите доступ к вашему меню и ко всем рецептам в целом" })
       ] }),
       /* @__PURE__ */ jsx(Slider, { ...settings, children: slidesData.map((d) => /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "slide-block ", style: { backgroundImage: `url(${d.image})` }, children: [
         /* @__PURE__ */ jsx("h3", { className: "slide-text " + (d.isDarkBg ? "" : "slide-text-blacк"), children: d.title }),
@@ -1107,7 +1110,7 @@ class SimpleSlider extends Component {
 }
 function Main() {
   return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx(Head, { title: "Main" }),
+    /* @__PURE__ */ jsx(Head, { title: "АВОКАДО" }),
     /* @__PURE__ */ jsx(SimpleSlider, {})
   ] });
 }
@@ -1234,7 +1237,15 @@ function MenuBuilder({ menu: menu2, recipes, caloricNorm }) {
                 "ККАЛОРИЙ: ",
                 menuRecipe.calorie
               ] }) })
-            ] })
+            ] }),
+            /* @__PURE__ */ jsx("div", { className: "cons_calorie", children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("p", { className: "cons_title_calorie", children: [
+              "БЖУ: ",
+              menuRecipe.proteins,
+              "/",
+              menuRecipe.fats,
+              "/",
+              menuRecipe.carbohydrates
+            ] }) }) })
           ] })
         ] })),
         /* @__PURE__ */ jsxs("div", { className: "cons_col cons_col1", children: [
@@ -1257,12 +1268,14 @@ function MenuBuilder({ menu: menu2, recipes, caloricNorm }) {
             ] })
           ] }),
           /* @__PURE__ */ jsxs("div", { children: [
-            caloricNorm - 200 > item.totalCalories ? /* @__PURE__ */ jsxs("div", { children: [
-              "У вас недобор калорий на ",
+            caloricNorm - 200 > item.totalCalories ? /* @__PURE__ */ jsxs("div", { style: { fontSize: "16px", padding: "4px", border: "2px solid red" }, children: [
+              /* @__PURE__ */ jsx("span", { style: { color: "red" }, children: "Внимание!" }),
+              " Недобор калорий на ",
               caloricNorm - item.totalCalories
             ] }) : /* @__PURE__ */ jsx(Fragment, {}),
-            caloricNorm + 200 < item.totalCalories ? /* @__PURE__ */ jsxs("div", { children: [
-              "У вас перебор калорий на ",
+            caloricNorm + 200 < item.totalCalories ? /* @__PURE__ */ jsxs("div", { style: { fontSize: "16px", padding: "4px", border: "2px solid red" }, children: [
+              /* @__PURE__ */ jsx("span", { style: { color: "red" }, children: "Внимание!" }),
+              " Перебор калорий на ",
               item.totalCalories - caloricNorm
             ] }) : /* @__PURE__ */ jsx(Fragment, {})
           ] })
@@ -1643,15 +1656,7 @@ const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: Layout$1
 }, Symbol.toStringTag, { value: "Module" }));
-createContext();
-function Layout({ children }) {
-  return /* @__PURE__ */ jsxs("main", { className: "main", children: [
-    /* @__PURE__ */ jsx(MenuList, {}),
-    /* @__PURE__ */ jsx("main", { className: "container", children: /* @__PURE__ */ jsx("article", { children }) }),
-    /* @__PURE__ */ jsx(FooterList, {})
-  ] });
-}
-const MenuList = (props) => {
+const MenuList$1 = (props) => {
   const logoutClick = (e) => {
     e.preventDefault();
     Inertia.post("/logout");
@@ -1700,11 +1705,18 @@ const MenuList = (props) => {
         /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная" }) }),
         /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/menu/builder", children: "Конструктор меню" }) }),
         /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/form", children: "Калькулятор БЖУ" }) }),
-        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/recipes", children: "Рецепты" }) })
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/recipes", children: "Рецепты" }) })
       ] }) })
     ] })
   ] }) });
 };
+function Layout({ children }) {
+  return /* @__PURE__ */ jsxs("main", { className: "main", children: [
+    /* @__PURE__ */ jsx(MenuList$1, {}),
+    /* @__PURE__ */ jsx("main", { className: "container", children: /* @__PURE__ */ jsx("article", { children }) }),
+    /* @__PURE__ */ jsx(FooterList$1, {})
+  ] });
+}
 const FooterList = () => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section2", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { className: "footer2", children: [
     /* @__PURE__ */ jsxs("div", { className: "footer__top", children: [
@@ -1713,13 +1725,13 @@ const FooterList = () => {
         /* @__PURE__ */ jsx("p", { children: "Советы, которые работают. Рецепты, которые вы хотите приготовить. Рекомендации, которым вы доверяете." })
       ] }),
       /* @__PURE__ */ jsx("div", { className: "footer__box", children: /* @__PURE__ */ jsxs("ul", { className: "footer_menu2", children: [
-        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/", children: "Главная" }) }),
-        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/menu/builder", children: "Конструктор меню" }) }),
-        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/recipes", children: "Рецепты" }) })
+        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/", children: "Главная" }) }),
+        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/menu/builder", children: "Конструктор меню" }) }),
+        /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/recipes", children: "Рецепты" }) })
       ] }) }),
       /* @__PURE__ */ jsxs("div", { className: "footer__box", children: [
         /* @__PURE__ */ jsx("h4", { children: "Контакты" }),
-        /* @__PURE__ */ jsx("p", { children: "✉ avocado@mail.ru" })
+        /* @__PURE__ */ jsx("p", { children: "✉ avocado-2023@mail.ru" })
       ] })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "footer__bottom", children: [
@@ -1734,7 +1746,7 @@ function Test({ children }) {
     "You are logged in as: ",
     auth.user.name,
     /* @__PURE__ */ jsx("main", { children }),
-    /* @__PURE__ */ jsx(FooterList$1, {})
+    /* @__PURE__ */ jsx(FooterList, {})
   ] });
 }
 const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -2144,7 +2156,7 @@ const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   default: CaloricChart
 }, Symbol.toStringTag, { value: "Module" }));
 const chart = "";
-function ProgressChart({ progressUser }) {
+function ProgressChart({ progressUser, progressTable }) {
   const obj = {
     labels: progressUser.map((data) => dayjs(data.created_at).format("DD-MM-YYYY")),
     datasets: [{
@@ -2163,14 +2175,25 @@ function ProgressChart({ progressUser }) {
     }]
   };
   const [weightData, setUserdata] = useState(obj);
-  const [caloricData, setUserdata1] = useState(obj1);
-  return /* @__PURE__ */ jsxs("div", { className: "account", children: [
-    /* @__PURE__ */ jsx("main", { children: /* @__PURE__ */ jsx("div", { className: "Progress", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { style: { width: 1100 }, children: [
-      /* @__PURE__ */ jsx(WeightChart, { chartData: weightData }),
-      /* @__PURE__ */ jsx(CaloricChart, { chartData1: caloricData })
-    ] }) }) }) }),
-    " "
-  ] });
+  useState(obj1);
+  return /* @__PURE__ */ jsx("div", { className: "account", children: /* @__PURE__ */ jsx("main", { children: /* @__PURE__ */ jsx("div", { className: "Progress", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { style: { width: 1100 }, children: [
+    /* @__PURE__ */ jsx(WeightChart, { chartData: weightData }),
+    /* @__PURE__ */ jsxs("div", { children: [
+      /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx("strong", { style: { fontSize: "20px", marginTop: "20px" }, children: "Мой вес " }) }),
+      /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("table", { className: "table-bordered", style: { width: "60%", textAlign: "center", marginTop: "15px" }, children: [
+        /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, children: [
+          /* @__PURE__ */ jsx("th", { style: { width: "60%", color: "darkgray" }, children: "Дата взвешивания" }),
+          /* @__PURE__ */ jsx("th", { style: { width: "40%", color: "darkgray" }, children: "Вес" })
+        ] }) }),
+        /* @__PURE__ */ jsx("tbody", { children: progressTable.map(
+          (value) => /* @__PURE__ */ jsxs("tr", { style: { display: "flex" }, children: [
+            /* @__PURE__ */ jsx("td", { style: { width: "60%", color: "darkgray" }, children: dayjs(value.created_at).format("DD-MM-YYYY") }),
+            /* @__PURE__ */ jsx("td", { style: { width: "40%", color: "darkgray" }, children: value.weight_progress })
+          ] })
+        ) })
+      ] }) })
+    ] })
+  ] }) }) }) }) });
 }
 const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -2908,7 +2931,7 @@ function Login({ status, canResetPassword }) {
     Inertia.post("/login", data);
   };
   return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx(Head, { title: "Log in" }),
+    /* @__PURE__ */ jsx(Head, { title: "Войти" }),
     /* @__PURE__ */ jsxs("div", { className: "account", children: [
       status && /* @__PURE__ */ jsx("div", { className: "mb-4 font-medium text-sm text-green-600", children: status }),
       /* @__PURE__ */ jsxs("form", { className: "account__box", onSubmit: submit, children: [
@@ -2995,87 +3018,90 @@ function Register() {
     e.preventDefault();
     Inertia.post(route("register"), data);
   };
-  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx("div", { className: "account", children: /* @__PURE__ */ jsxs("form", { className: "account__box", onSubmit: submit, children: [
-    /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-      /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "name", value: "Имя" }),
-      /* @__PURE__ */ jsx(
-        TextInput$1,
-        {
-          id: "name",
-          name: "name",
-          value: data.name,
-          className: "input_name login__input",
-          autoComplete: "name",
-          isFocused: true,
-          onChange: handleOnChange,
-          required: true
-        }
-      ),
-      /* @__PURE__ */ jsx(InputError$1, { message: errors.name, className: "mt-2" })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-      /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "email", value: "Email" }),
-      /* @__PURE__ */ jsx(
-        TextInput$1,
-        {
-          id: "email",
-          type: "email",
-          name: "email",
-          value: data.email,
-          className: "mt-1 block w-full login__input",
-          autoComplete: "username",
-          onChange: handleOnChange,
-          required: true
-        }
-      ),
-      /* @__PURE__ */ jsx(InputError$1, { message: errors.email, className: "mt-2" })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-      /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password", value: "Пароль" }),
-      /* @__PURE__ */ jsx(
-        TextInput$1,
-        {
-          id: "password",
-          type: "password",
-          name: "password",
-          value: data.password,
-          className: "mt-1 block w-full login__input",
-          autoComplete: "new-password",
-          onChange: handleOnChange,
-          required: true
-        }
-      ),
-      /* @__PURE__ */ jsx(InputError$1, { message: errors.password, className: "mt-2" })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
-      /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password_confirmation", value: "Подтверждение пароля" }),
-      /* @__PURE__ */ jsx(
-        TextInput$1,
-        {
-          id: "password_confirmation",
-          type: "password",
-          name: "password_confirmation",
-          value: data.password_confirmation,
-          className: "mt-1 block w-full login__input",
-          autoComplete: "new-password",
-          onChange: handleOnChange,
-          required: true
-        }
-      ),
-      /* @__PURE__ */ jsx(InputError$1, { message: errors.password_confirmation, className: "mt-2" })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4 login__inner", children: [
-      /* @__PURE__ */ jsx(
-        InertiaLink,
-        {
-          href: "/login",
-          className: "underline text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-          children: "Вы зарегистрированы?"
-        }
-      ),
-      /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn login__button", disabled: processing, children: "Зарегистрироваться" })
-    ] })
-  ] }) }) });
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx(Head, { title: "Регистрация" }),
+    /* @__PURE__ */ jsx("div", { className: "account", children: /* @__PURE__ */ jsxs("form", { className: "account__box", onSubmit: submit, children: [
+      /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "name", value: "Имя" }),
+        /* @__PURE__ */ jsx(
+          TextInput$1,
+          {
+            id: "name",
+            name: "name",
+            value: data.name,
+            className: "input_name login__input",
+            autoComplete: "name",
+            isFocused: true,
+            onChange: handleOnChange,
+            required: true
+          }
+        ),
+        /* @__PURE__ */ jsx(InputError$1, { message: errors.name, className: "mt-2" })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "email", value: "Email" }),
+        /* @__PURE__ */ jsx(
+          TextInput$1,
+          {
+            id: "email",
+            type: "email",
+            name: "email",
+            value: data.email,
+            className: "mt-1 block w-full login__input",
+            autoComplete: "username",
+            onChange: handleOnChange,
+            required: true
+          }
+        ),
+        /* @__PURE__ */ jsx(InputError$1, { message: errors.email, className: "mt-2" })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password", value: "Пароль" }),
+        /* @__PURE__ */ jsx(
+          TextInput$1,
+          {
+            id: "password",
+            type: "password",
+            name: "password",
+            value: data.password,
+            className: "mt-1 block w-full login__input",
+            autoComplete: "new-password",
+            onChange: handleOnChange,
+            required: true
+          }
+        ),
+        /* @__PURE__ */ jsx(InputError$1, { message: errors.password, className: "mt-2" })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "account__inner", children: [
+        /* @__PURE__ */ jsx(InputLabel$1, { htmlFor: "password_confirmation", value: "Подтверждение пароля" }),
+        /* @__PURE__ */ jsx(
+          TextInput$1,
+          {
+            id: "password_confirmation",
+            type: "password",
+            name: "password_confirmation",
+            value: data.password_confirmation,
+            className: "mt-1 block w-full login__input",
+            autoComplete: "new-password",
+            onChange: handleOnChange,
+            required: true
+          }
+        ),
+        /* @__PURE__ */ jsx(InputError$1, { message: errors.password_confirmation, className: "mt-2" })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end mt-4 login__inner", children: [
+        /* @__PURE__ */ jsx(
+          InertiaLink,
+          {
+            href: "/login",
+            className: "underline text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+            children: "Вы зарегистрированы?"
+          }
+        ),
+        /* @__PURE__ */ jsx(PrimaryButton, { className: "ml-4 account__btn login__button", disabled: processing, children: "Зарегистрироваться" })
+      ] })
+    ] }) })
+  ] });
 }
 const __vite_glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -3185,70 +3211,8 @@ const __vite_glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: VerifyEmail
 }, Symbol.toStringTag, { value: "Module" }));
-const DropDownContext = createContext();
-const Dropdown = ({ children }) => {
-  const [open, setOpen] = useState(false);
-  const toggleOpen = () => {
-    setOpen((previousState) => !previousState);
-  };
-  return /* @__PURE__ */ jsx(DropDownContext.Provider, { value: { open, setOpen, toggleOpen }, children: /* @__PURE__ */ jsx("div", { className: "relative", children }) });
-};
-const Trigger = ({ children }) => {
-  const { open, setOpen, toggleOpen } = useContext(DropDownContext);
-  return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx("div", { onClick: toggleOpen, children }),
-    open && /* @__PURE__ */ jsx("div", { className: "fixed inset-0 z-40", onClick: () => setOpen(false) })
-  ] });
-};
-const Content = ({ align = "right", width = "48", contentClasses = "py-1 bg-white", children }) => {
-  const { open, setOpen } = useContext(DropDownContext);
-  let alignmentClasses = "origin-top";
-  if (align === "left") {
-    alignmentClasses = "origin-top-left left-0";
-  } else if (align === "right") {
-    alignmentClasses = "origin-top-right right-0";
-  }
-  let widthClasses = "";
-  if (width === "48") {
-    widthClasses = "w-48";
-  }
-  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
-    Transition,
-    {
-      as: Fragment$1,
-      show: open,
-      enter: "transition ease-out duration-200",
-      enterFrom: "transform opacity-0 scale-95",
-      enterTo: "transform opacity-100 scale-100",
-      leave: "transition ease-in duration-75",
-      leaveFrom: "transform opacity-100 scale-100",
-      leaveTo: "transform opacity-0 scale-95",
-      children: /* @__PURE__ */ jsx(
-        "div",
-        {
-          className: `absolute z-50 mt-2  shadow-lg ${alignmentClasses} ${widthClasses}`,
-          onClick: () => setOpen(false),
-          children: /* @__PURE__ */ jsx("div", { className: ` ring-1 ring-black ring-opacity-5 ` + contentClasses, children })
-        }
-      )
-    }
-  ) });
-};
-const DropdownLink = ({ className = "", children, ...props }) => {
-  return /* @__PURE__ */ jsx(
-    Link,
-    {
-      ...props,
-      className: "block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out " + className,
-      children
-    }
-  );
-};
-Dropdown.Trigger = Trigger;
-Dropdown.Content = Content;
-Dropdown.Link = DropdownLink;
-function AdminLayout({ user, header: header2, children }) {
-  const hangleClick = (e) => {
+const MenuList = (props) => {
+  const logoutClick = (e) => {
     e.preventDefault();
     Inertia.post("/logout");
   };
@@ -3257,83 +3221,56 @@ function AdminLayout({ user, header: header2, children }) {
     e.preventDefault();
     setIsOpen(!isOpen);
   };
-  return /* @__PURE__ */ jsxs("div", { children: [
-    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
-      /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
-        /* @__PURE__ */ jsxs("div", { className: "menu__left", children: [
-          /* @__PURE__ */ jsx("button", { onClick: clickOpen, className: "menu__button", children: /* @__PURE__ */ jsx("img", { src: menu, className: "menu__img" }) }),
-          header2 && /* @__PURE__ */ jsx("header", { className: "bg-white shadow", children: /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8", children: header2 }) }),
-          isOpen && /* @__PURE__ */ jsx("div", { className: "visible", children: /* @__PURE__ */ jsxs("div", { className: "nav__box", children: [
-            /* @__PURE__ */ jsxs("div", { className: "nav__links", children: [
-              /* @__PURE__ */ jsx("ul", { children: /* @__PURE__ */ jsxs("li", { children: [
-                /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная сайта" }),
-                /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/index", children: "Главная админки" })
-              ] }) }),
-              /* @__PURE__ */ jsx("button", { onClick: hangleClick, className: "menu__button", children: "Выйти" })
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "section1 section_grey1", children: [
+    /* @__PURE__ */ jsx("div", { className: "menu__black", children: /* @__PURE__ */ jsxs("div", { className: "container1 menu__inner", children: [
+      /* @__PURE__ */ jsxs("div", { className: "menu__left", children: [
+        /* @__PURE__ */ jsx("button", { onClick: clickOpen, className: "menu__button", children: /* @__PURE__ */ jsx("img", { src: menu, className: "menu__img" }) }),
+        isOpen && /* @__PURE__ */ jsx("div", { className: "visible", children: /* @__PURE__ */ jsxs("div", { className: "nav__box", children: [
+          /* @__PURE__ */ jsxs("div", { className: "nav__links", children: [
+            /* @__PURE__ */ jsxs("ul", { children: [
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/", children: "Главная сайта" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/admin/index", children: "Главная админки" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/admin/recipes", children: "Рецепты" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/admin/recipes/create", children: "Новый рецепт" }) }),
+              /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/admin/users", children: "Пользователи" }) })
             ] }),
-            /* @__PURE__ */ jsx("button", { className: "nav__btn", onClick: clickOpen, children: "X" })
-          ] }) })
-        ] }),
-        /* @__PURE__ */ jsxs("div", { className: "menu__right", children: [
-          /* @__PURE__ */ jsx(ThemeSwitch, {}),
-          /* @__PURE__ */ jsxs(Dropdown, { children: [
-            /* @__PURE__ */ jsx(Dropdown.Trigger, { children: /* @__PURE__ */ jsx("span", { className: "inline-flex rounded-md", children: /* @__PURE__ */ jsx(
-              "button",
-              {
-                type: "button",
-                children: /* @__PURE__ */ jsx("img", { src: account, className: "menu__img" })
-              }
-            ) }) }),
-            /* @__PURE__ */ jsxs(Dropdown.Content, { children: [
-              /* @__PURE__ */ jsx(Dropdown.Link, { href: "/profile/edit", children: "Профиль" }),
-              /* @__PURE__ */ jsx(Dropdown.Link, { href: "/logout", method: "post", as: "button", children: "Выйти" })
-            ] })
-          ] })
-        ] })
-      ] }) }),
-      /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
-        /* @__PURE__ */ jsxs("div", { className: "inner", children: [
-          /* @__PURE__ */ jsxs("div", { id: "up", children: [
-            /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
-            /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
+            /* @__PURE__ */ jsx("button", { onClick: logoutClick, className: "menu__button", children: "Выйти" })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
-            /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: telegram, className: "social" }) }),
-            /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: instagram, className: "social" }) }),
-            /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: youtube, className: "social" }) }),
-            /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: vk, className: "social" }) })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
-          /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная сайта" }) }),
-          /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/index", children: "Главная админки" }) }),
-          /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/users", children: "Пользователи" }) }),
-          /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/recipes", children: "Рецепты" }) })
+          /* @__PURE__ */ jsx("button", { className: "nav__btn", onClick: clickOpen, children: "X" })
         ] }) })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "menu__right", children: [
+        /* @__PURE__ */ jsx(ThemeSwitch, {}),
+        /* @__PURE__ */ jsx("a", { href: "/account", children: /* @__PURE__ */ jsx("img", { src: account, className: "menu__img" }) })
       ] })
     ] }) }),
-    /* @__PURE__ */ jsx("main", { children }),
-    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: "section2", children: /* @__PURE__ */ jsx("div", { className: "container", children: /* @__PURE__ */ jsxs("div", { className: "footer2", children: [
-      /* @__PURE__ */ jsxs("div", { className: "footer__top", children: [
-        /* @__PURE__ */ jsxs("div", { className: "footer__box text", children: [
-          /* @__PURE__ */ jsx("h3", { children: "AVOCADO" }),
-          /* @__PURE__ */ jsx("p", { children: "Советы, которые работают. Рецепты, которые вы хотите приготовить. Рекомендации, которым вы доверяете." })
+    /* @__PURE__ */ jsxs("div", { className: "container1 wrap", children: [
+      /* @__PURE__ */ jsxs("div", { className: "inner", children: [
+        /* @__PURE__ */ jsxs("div", { id: "up", children: [
+          /* @__PURE__ */ jsx("img", { className: "logo", src: logo }),
+          /* @__PURE__ */ jsx("p", { className: "logo__text", children: "AVOCADO" })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "footer__box", children: /* @__PURE__ */ jsxs("ul", { className: "footer_menu2", children: [
-          /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/home", children: "Главная" }) }),
-          /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/menu/builder", children: "Конструктор меню" }) }),
-          /* @__PURE__ */ jsx("li", { className: "footer_menu_item2", children: /* @__PURE__ */ jsx(Link, { href: "/recipes", children: "Рецепты" }) })
-        ] }) }),
-        /* @__PURE__ */ jsxs("div", { className: "footer__box", children: [
-          /* @__PURE__ */ jsx("h4", { children: "Контакты" }),
-          /* @__PURE__ */ jsx("p", { children: "✉ avocado@mail.ru" })
+        /* @__PURE__ */ jsxs("div", { className: "social__wrap", children: [
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: telegram, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: instagram, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: youtube, className: "social" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", children: /* @__PURE__ */ jsx("img", { src: vk, className: "social" }) })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "footer__bottom", children: [
-        /* @__PURE__ */ jsx("p", { children: "2023 © Конструктор питания Avocado" }),
-        /* @__PURE__ */ jsx("div", { className: "anchor", children: /* @__PURE__ */ jsx("a", { href: "#up", children: "^" }) })
-      ] })
-    ] }) }) }) })
+      /* @__PURE__ */ jsx("div", { className: "main_menu1", children: /* @__PURE__ */ jsxs("ul", { className: "main_menu_items1", style: { justifyContent: "flex-start" }, children: [
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/home", children: "Главная сайта" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/index", children: "Главная админки" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", style: { marginRight: "40px" }, children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/users", children: "Пользователи" }) }),
+        /* @__PURE__ */ jsx("li", { className: "main_menu_item1", children: /* @__PURE__ */ jsx(InertiaLink, { href: "/admin/recipes", children: "Рецепты" }) })
+      ] }) })
+    ] })
+  ] }) });
+};
+function AdminLayout({ children }) {
+  return /* @__PURE__ */ jsxs("main", { className: "main", children: [
+    /* @__PURE__ */ jsx(MenuList, {}),
+    /* @__PURE__ */ jsx("main", { className: "container", children: /* @__PURE__ */ jsx("article", { children }) }),
+    /* @__PURE__ */ jsx(FooterList$1, {})
   ] });
 }
 createInertiaApp({

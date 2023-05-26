@@ -52,24 +52,22 @@ const MenuList = (props) => {
                                     <div className="nav__box">
                                         <div className="nav__links">
                                             <ul>
-                                                {/*<li>*/}
-                                                {/*    <a href="/about">О нас</a>*/}
-                                                {/*</li>*/}
                                                 <li>
-                                                    <a href="/account">Мой профиль</a>
+                                                    <a href="/">Главная сайта</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/advice">Мои рекомендации</a>
+                                                    <a href="/admin/index">Главная админки</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/menu/builder">Меню на неделю</a>
+                                                    <a href="/admin/recipes">Рецепты</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/progress">Прогресс-шкала</a>
+                                                    <a href="/admin/recipes/create">Новый рецепт</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/admin/users">Пользователи</a>
                                                 </li>
                                             </ul>
-                                            {/*<button onClick={hangleClick} className="menu__button">Выйти</button>*/}
-                                            {/*<button onClick={profileClick} className="menu__button">Изменить</button>*/}
                                             <button onClick={logoutClick} className="menu__button">Выйти</button>
                                         </div>
                                         <button className="nav__btn" onClick={clickOpen}>X</button>
@@ -107,16 +105,16 @@ const MenuList = (props) => {
                     <div className="main_menu1">
                         <ul className="main_menu_items1" style={{ justifyContent: 'flex-start' }}>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }} >
-                                <InertiaLink href="/home">Главная</InertiaLink>
+                                <InertiaLink href="/home">Главная сайта</InertiaLink>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
-                                <InertiaLink href="/menu/builder">Конструктор меню</InertiaLink>
+                                <InertiaLink href="/admin/index">Главная админки</InertiaLink>
                             </li>
                             <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
-                                <InertiaLink href="/form">Калькулятор БЖУ</InertiaLink>
+                                <InertiaLink href="/admin/users">Пользователи</InertiaLink>
                             </li>
-                            <li className="main_menu_item1" style={{ marginRight: 40 + 'px' }}>
-                                <InertiaLink href="/recipes">Рецепты</InertiaLink>
+                            <li className="main_menu_item1">
+                                <InertiaLink href="/admin/recipes">Рецепты</InertiaLink>
                             </li>
                         </ul>
                     </div>
@@ -127,5 +125,4 @@ const MenuList = (props) => {
 };
 
 export default MenuList;
-
 

@@ -24,7 +24,7 @@ class AdviceController extends Controller
         }
 
         $profile = $profilesQueryBuilder->getByUserIdLast(\Auth::id());
-//        dd (Auth::id());
+
         return Inertia::render('Advice', [
             'profile' => $profile->toArray(),
         ]);

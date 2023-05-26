@@ -31,7 +31,7 @@ class RecipeController extends Controller
                 'category_id' => $recipe->category_id,
                 'title' => $recipe->title,
                 'image' => $recipe->image,
-                // 'image' => Storage::disk('public')->url($recipe->image),
+//                 'image' => Storage::disk('public')->url($recipe->image),
                 'calorie' => $recipe->calorie,
                 'proteins' => $recipe->proteins,
                 'fats' => $recipe->fats,

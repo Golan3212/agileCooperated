@@ -6,9 +6,9 @@ import SimpleSlider from '../../components/SimpleSlider';
 export default function Main() {
     return (
         <>
-            <Head title="Main" />
+            <Head title="АВОКАДО" />
 
-                <SimpleSlider></SimpleSlider>
+            <SimpleSlider></SimpleSlider>
         </>
     );
 }

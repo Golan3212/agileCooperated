@@ -32,7 +32,7 @@ const FooterList = () => {
                             </div>
                             <div className="footer__box">
                                 <h4>Контакты</h4>
-                                <p>&#9993; avocado@mail.ru</p>
+                                <p>&#9993; avocado-2023@mail.ru</p>
                             </div>
                         </div>
                         <div className="footer__bottom">

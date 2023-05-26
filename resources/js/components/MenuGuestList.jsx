@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-    Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 import '../../css/recipe.css';
 
 import logo from "../../../public/assets/logo.svg";
@@ -31,19 +29,11 @@ const MenuList = (props) => {
 
                         <div className="menu__right" >
 
-
-
                             <a href="/login" className="login">Войти</a>
                             <a href="/register" className="login">Зарегистрироваться</a>
                         </div>
                     </div>
-
                 </div>
-
-
-
-
-
 
                 <div className="container1 wrap">
                     <div className="inner">
